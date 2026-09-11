@@ -27,7 +27,8 @@
         "evidence": [
           "官网医院新闻（2026-08-18）：《北京大学第六医院创伤心理治疗EMDR治疗技能培训（Ⅰ阶）在京举办》—— 该院自 2002 年引入 EMDR、2008 年起开展系统培训、2009 年推动成立中国心理卫生协会心理治疗与心理咨询专业委员会 EMDR 创伤心理治疗学组并任首任组长单位；已连续四年开展创伤心理治疗稳定化技能培训、EMDR 治疗师基础培训、哀伤辅导；Ⅱ阶培训内容为「复杂性创伤」的处理策略。",
           "该院为精神心理疾病国家临床医学研究中心、国家精神疾病医学中心（官网首页标注）。",
-          "官网「专业门诊」清单列有：儿童、老年、心理治疗、精神疾病康复咨询、行为分析治疗、记忆障碍、睡眠障碍、成瘾行为、进食障碍 —— 其中并无创伤/应激相关障碍专科门诊。"
+          "官网「专业门诊」清单列有：儿童、老年、心理治疗、精神疾病康复咨询、行为分析治疗、记忆障碍、睡眠障碍、成瘾行为、进食障碍 —— 其中并无创伤/应激相关障碍专科门诊。",
+          "名单截图（置顶评论，2026-04-26）：北大六院西英俊、马弘医生（CPTSD）。"
         ]
       },
       "address": "海淀院区：北京市海淀区花园北路51号；昌平院区：北京市昌平区科学园路2号",
@@ -89,11 +90,12 @@
         "特检科（含心理测评）"
       ],
       "trauma_service": {
-        "cptsd_assessment": "unknown",
-        "cptsd_bpd_diagnosis": "unknown",
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
         "icd11_practice": "unknown",
         "evidence": [
-          "官网「医院概况」自述为治疗精神、心理疾病的三甲专科医院，同时是浙江大学医学院附属精神卫生中心；诊疗中心列表含睡眠障碍、儿童青少年心理健康、精神科疑难危重等，但未列出创伤/应激相关障碍专科门诊。"
+          "官网「医院概况」自述为治疗精神、心理疾病的三甲专科医院，同时是浙江大学医学院附属精神卫生中心；诊疗中心列表含睡眠障碍、儿童青少年心理健康、精神科疑难危重等，但未列出创伤/应激相关障碍专科门诊。",
+          "名单截图（置顶评论，2026-04-26）：杭州七院杨荣梅医生（CPTSD）。"
         ]
       },
       "address": "杭州市天目山路305号",
@@ -131,7 +133,8 @@
           "官网临床心理科「科室介绍」：特色技术包含「心理创伤综合干预技术」；参编《中国创伤后应激障碍防治指南》（2024 版）；科研项目含《同步 EEG-fMRI 探讨 EMDR 治疗 PTSD 的疗效及脑网络机制》《EMDR 治疗伴儿童期创伤抑郁症疗效及脑网络机制探讨》《IPT 和 TF-CBT 干预伴童年创伤青少年抑郁症的疗效及神经机制探索》等。",
           "该科设有「心理治疗（咨询）预约评估门诊」，面向未诊断人群开展心理健康评估与筛查（官网科室介绍）。",
           "心理门诊分布于荔湾心理门诊、芳村总院及江村院区；急诊 24 小时热线 020-81263852、020-81263853。",
-          "评论自述（2026-05-25，广东）：广脑彭红军医生停诊，李爱凤医生处可获 BPD 确诊与 CPTSD 口头确诊，该院不出纸质诊断。"
+          "评论自述（2026-05-25，广东）：广脑彭红军医生停诊，李爱凤医生处可获 BPD 确诊与 CPTSD 口头确诊，该院不出纸质诊断。",
+          "名单截图（置顶评论，2026-04-26）：广脑彭红军、罗新妮、李婷、李爱凤、李苏义、阳琼（CPTSD），另有温全球医生（另一段名单）。"
         ]
       },
       "website": "https://www.gzbrain.cn/",
@@ -164,7 +167,8 @@
         "icd11_practice": "unknown",
         "evidence": [
           "官网「心理咨询与心理治疗科科室简介」（2023-06-16）：诊疗范围明确包含 EMDR 创伤治疗；团体治疗包含情绪稳定化团体心理治疗、EMDR 创伤团体心理治疗；原文称「我科在 EMDR 创伤治疗领域在国内具有积极影响力」。",
-          "该科室成立于 2019-11-20，配置精神科主任医师 1 人、心理治疗师 6 人；科室地址：深圳市康宁医院致和楼一楼，电话 0755-25603442。"
+          "该科室成立于 2019-11-20，配置精神科主任医师 1 人、心理治疗师 6 人；科室地址：深圳市康宁医院致和楼一楼，电话 0755-25603442。",
+          "名单截图（置顶评论，2026-04-26）：深圳市康宁医院坪山院区彭江发医生（CPTSD）。"
         ]
       },
       "address": "坪山总院：深圳市坪山区振碧路77号；罗湖分院：深圳市罗湖区翠竹路1080号",
@@ -260,7 +264,8 @@
         "icd11_practice": "unknown",
         "evidence": [
           "网友汇总帖（2026-04-26，小红书，未经核实）列出该院设有「创伤后应激障碍专病门诊」。",
-          "评论转述匿名投稿（2026-08-18）：回龙观医院王晓莹医生对 CPTSD 态度温柔耐心，但诊断偏保守严格。"
+          "评论转述匿名投稿（2026-08-18）：回龙观医院王晓莹医生对 CPTSD 态度温柔耐心，但诊断偏保守严格。",
+          "名单截图（置顶评论，2026-04-26）：回龙观医院创伤后应激障碍专病门诊及潘伟刚、梁红、李玉龙、王晓莹、徐鑫鹏等医生；有人反馈只认同战争/家暴类创伤。"
         ]
       },
       "coordinates": null,
@@ -288,7 +293,8 @@
         "cptsd_bpd_diagnosis": "claimed",
         "icd11_practice": "unknown",
         "evidence": [
-          "网友汇总帖（2026-04-26，小红书，未经核实）列有该院金金医生（CPTSD）与仇剑崟医生（分离转换障碍）。"
+          "网友汇总帖（2026-04-26，小红书，未经核实）列有该院金金医生（CPTSD）与仇剑崟医生（分离转换障碍）。",
+          "名单截图（置顶评论，2026-04-26）：上海市精神卫生中心仇剑崟、金金医生（CPTSD），并为 NPD/ASPD 专家会诊机构。"
         ]
       },
       "coordinates": null,
@@ -316,7 +322,8 @@
         "cptsd_bpd_diagnosis": "claimed",
         "icd11_practice": "unknown",
         "evidence": [
-          "网友汇总帖（2026-04-26，小红书，未经核实）列有该院刘飞医生（CPTSD）。"
+          "网友汇总帖（2026-04-26，小红书，未经核实）列有该院刘飞医生（CPTSD）。",
+          "名单截图（置顶评论，2026-04-26）：同济医院刘飞、张琼医生（CPTSD）。"
         ]
       },
       "coordinates": null,
@@ -398,7 +405,8 @@
         "cptsd_bpd_diagnosis": "claimed",
         "icd11_practice": "unknown",
         "evidence": [
-          "评论汇总（2026-08-18）：广东省人民医院侯彩兰教授（CPTSD）。"
+          "评论汇总（2026-08-18）：广东省人民医院侯彩兰教授（CPTSD）。",
+          "名单截图（置顶评论，2026-04-26）：广东省人民医院李刚医生（CPTSD）。"
         ]
       },
       "coordinates": null,
@@ -451,7 +459,8 @@
         "cptsd_bpd_diagnosis": "claimed",
         "icd11_practice": "unknown",
         "evidence": [
-          "评论汇总（2026-08-26）：重庆市精神卫生中心设创伤门诊，网友反馈冉曼利医生确诊过。"
+          "评论汇总（2026-08-26）：重庆市精神卫生中心设创伤门诊，网友反馈冉曼利医生确诊过。",
+          "名单截图（置顶评论，2026-04-26）：重庆市精神卫生中心设创伤门诊，冉曼利医生（CPTSD）。"
         ]
       },
       "coordinates": null,
@@ -535,7 +544,8 @@
         "cptsd_bpd_diagnosis": "claimed",
         "icd11_practice": "unknown",
         "evidence": [
-          "评论自述（2026-04-29，辽宁）：盛京医院王澜医生可写「疑似分离性转换障碍」。"
+          "评论自述（2026-04-29，辽宁）：盛京医院王澜医生可写「疑似分离性转换障碍」。",
+          "名单截图（置顶评论，2026-04-26）：盛京医院韩继阳、王澜医生（分离转换障碍/多重人格障碍）。"
         ]
       },
       "coordinates": null,
@@ -562,6 +572,664 @@
         "icd11_practice": "unknown",
         "evidence": [
           "评论自述（2026-08-20，北京）：北京大学国际医院张艳萍医生（特需号）表示综合医院开不出精神科细分诊断，建议转安定/回龙观。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sh-hemujia",
+      "name": "上海和睦家医院",
+      "aliases": [
+        "和睦家"
+      ],
+      "adcode": "310000",
+      "province": "上海市",
+      "city": "上海市",
+      "level": "未知",
+      "category": "民营",
+      "departments": [
+        "精神科",
+        "心理科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：上海和睦家医院 Herda 医生（CPTSD / BPD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gd-zhongshan8",
+      "name": "中山大学附属第八医院",
+      "aliases": [
+        "中山八院"
+      ],
+      "adcode": "440000",
+      "province": "广东省",
+      "city": "深圳市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "精神科",
+        "临床心理科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：中山大学附属第八医院徐勇医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gd-jinan1",
+      "name": "暨南大学附属第一医院（东圃院区）",
+      "aliases": [
+        "广州华侨医院",
+        "暨大一附院"
+      ],
+      "adcode": "440000",
+      "province": "广东省",
+      "city": "广州市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "精神医学科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：暨南大学附属第一医院东圃院区（广州华侨医院）贾艳滨医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gd-zhuhai3",
+      "name": "珠海市第三人民医院",
+      "aliases": [
+        "珠海三院国际部"
+      ],
+      "adcode": "440000",
+      "province": "广东省",
+      "city": "珠海市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "国际部",
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：珠海三院国际部（BPD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sc-wcsh",
+      "name": "四川大学华西医院",
+      "aliases": [
+        "华西医院"
+      ],
+      "adcode": "510000",
+      "province": "四川省",
+      "city": "成都市",
+      "level": "未知",
+      "category": "综合医院心理科",
+      "departments": [
+        "心理卫生中心",
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：华西医院王强、张俊医生（CPTSD）及朱鸿儒医生课题组（分离转换障碍/多重人格障碍）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sc-cd4",
+      "name": "成都市第四人民医院",
+      "aliases": [
+        "成都四医院"
+      ],
+      "adcode": "510000",
+      "province": "四川省",
+      "city": "成都市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：成都四院李云歌、余志书（CPTSD）、胡玉凤（BPD）；后者被反馈可能已离职。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sc-spmc",
+      "name": "四川省精神医学中心",
+      "aliases": [
+        "四川省精神卫生中心"
+      ],
+      "adcode": "510000",
+      "province": "四川省",
+      "city": "成都市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "心身医学门诊",
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：四川省精神医学中心蒋富贵（心身医学门诊）、黄雨兰医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "zj-zju1",
+      "name": "浙江大学医学院附属第一医院",
+      "aliases": [
+        "浙大一附院",
+        "浙大一院"
+      ],
+      "adcode": "330000",
+      "province": "浙江省",
+      "city": "杭州市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "精神卫生科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：浙大一附院陆邵佳医生（书面诊断：人格解体-现实解体综合征）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "zj-rongjun",
+      "name": "浙江省荣军康复医院",
+      "aliases": [
+        "浙江荣军医院"
+      ],
+      "adcode": "330000",
+      "province": "浙江省",
+      "city": "嘉兴市",
+      "level": "未知",
+      "category": "其他",
+      "departments": [
+        "精神康复"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：浙江省荣军康复医院桑双医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "js-szgj",
+      "name": "苏州市广济医院",
+      "aliases": [
+        "苏州广济医院"
+      ],
+      "adcode": "320000",
+      "province": "江苏省",
+      "city": "苏州市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：苏州广济医院杨小男医生（在吴中人民医院出诊，CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "js-njbk",
+      "name": "南京脑科医院",
+      "aliases": [
+        "南京医科大学附属脑科医院"
+      ],
+      "adcode": "320000",
+      "province": "江苏省",
+      "city": "南京市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：南京脑科医院史家波、王纯（BPD）、刘海燕（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gz-gyzy",
+      "name": "贵阳正宇铁路医院",
+      "aliases": [
+        "贵阳正宇铁路医院（民营）"
+      ],
+      "adcode": "520000",
+      "province": "贵州省",
+      "city": "贵阳市",
+      "level": "未知",
+      "category": "民营",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：贵阳正宇铁路医院（民营）刘鹰医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gz-gzsrm",
+      "name": "贵州省人民医院",
+      "aliases": [
+        "贵州省医"
+      ],
+      "adcode": "520000",
+      "province": "贵州省",
+      "city": "贵阳市",
+      "level": "未知",
+      "category": "综合医院心理科",
+      "departments": [
+        "心理科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：贵州省人民医院心理科覃青医生（书面：分离转换障碍）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "fj-xianyue",
+      "name": "厦门市仙岳医院",
+      "aliases": [
+        "仙岳医院"
+      ],
+      "adcode": "350000",
+      "province": "福建省",
+      "city": "厦门市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：厦门市仙岳医院吴为阁医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gx-nn5",
+      "name": "南宁市第五人民医院",
+      "aliases": [
+        "广西南宁第五医院"
+      ],
+      "adcode": "450000",
+      "province": "广西壮族自治区",
+      "city": "南宁市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：南宁市第五人民医院鄢利福医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "hi-anning",
+      "name": "海南省安宁医院",
+      "aliases": [
+        "海南安宁医院"
+      ],
+      "adcode": "460000",
+      "province": "海南省",
+      "city": "海口市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：海南省安宁医院刘向来医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "hb-whjw",
+      "name": "武汉市精神卫生中心",
+      "aliases": [
+        "武汉精卫"
+      ],
+      "adcode": "420000",
+      "province": "湖北省",
+      "city": "武汉市",
+      "level": "三级甲等",
+      "category": "精神专科",
+      "departments": [
+        "创伤专病门诊"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：武汉市精神卫生中心（二七院区）设创伤专病门诊。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "hb-rongjun",
+      "name": "河北省荣军医院",
+      "aliases": [
+        "河北省荣军医院（保定）"
+      ],
+      "adcode": "130000",
+      "province": "河北省",
+      "city": "保定市",
+      "level": "未知",
+      "category": "其他",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：河北省荣军医院（保定）回秀清医生（BPD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "ln-cykn",
+      "name": "朝阳市康宁医院",
+      "aliases": [
+        "辽宁朝阳康宁医院"
+      ],
+      "adcode": "210000",
+      "province": "辽宁省",
+      "city": "朝阳市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：辽宁朝阳康宁医院（BPD，未列医生）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "ln-lnsz",
+      "name": "辽宁省肿瘤医院",
+      "aliases": [
+        "辽宁肿瘤医院"
+      ],
+      "adcode": "210000",
+      "province": "辽宁省",
+      "city": "沈阳市",
+      "level": "未知",
+      "category": "综合医院心理科",
+      "departments": [
+        "心理门诊"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：辽宁省肿瘤医院姜爽医生（分离转换障碍/多重人格障碍）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sn-xijing",
+      "name": "空军军医大学西京医院",
+      "aliases": [
+        "西京医院",
+        "陕西西京医院"
+      ],
+      "adcode": "610000",
+      "province": "陕西省",
+      "city": "西安市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "心身科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：西京医院周平医生（分离转换障碍/多重人格障碍）；另有网友反馈在该院被诊断双相、后于澳洲诊断为 BPD。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sx-sxmu1",
+      "name": "山西医科大学第一医院",
+      "aliases": [
+        "山医大一院"
+      ],
+      "adcode": "140000",
+      "province": "山西省",
+      "city": "太原市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "精神卫生科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：山西医科大学第一附属医院曹晓华医生（分离转换障碍/多重人格障碍）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gs-2rm",
+      "name": "甘肃省第二人民医院",
+      "aliases": [
+        "西北民族大学附属医院"
+      ],
+      "adcode": "620000",
+      "province": "甘肃省",
+      "city": "兰州市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：甘肃省第二人民医院（西北民族大学附属医院）陈琼琼医生（分离转换障碍/多重人格障碍）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "hlj-dq3",
+      "name": "大庆市第三医院",
+      "aliases": [
+        "大庆三院"
+      ],
+      "adcode": "230000",
+      "province": "黑龙江省",
+      "city": "大庆市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：大庆市第三医院精神科马俊国医生（分离转换障碍/多重人格障碍）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sd-qdjw",
+      "name": "青岛市精神卫生中心",
+      "aliases": [
+        "青岛精神卫生中心"
+      ],
+      "adcode": "370000",
+      "province": "山东省",
+      "city": "青岛市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：青岛市精神卫生中心宋欣欣医生（CPTSD，标注进修中）、张永东医生（分离转换障碍/多重人格障碍）。"
         ]
       },
       "coordinates": null,
