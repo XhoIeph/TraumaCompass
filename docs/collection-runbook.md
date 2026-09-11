@@ -143,7 +143,7 @@ cmd /c "npm run collect:import -- --in tmp/xhs-search.json --kind search --run 2
 
 必填：`platform`、`source_url`、`evidence_quote`、`disorders`。**不要写作者信息**：用户名、账号、IP 一律不入库。
 
-常用可选字段：`source_post_id`、`published_at`、`published_at_precision`、`ip_location`、
+常用可选字段：`source_post_id`、`published_at`、`published_at_precision`、
 `self_reported_region`、`hospital_region`、`hospital_id`、`hospital_name_raw`、`department`、
 `doctor_name_raw`、`doctor_title_raw`、`stage`、`experience`、`cost_cny`、`wait_days`、
 `evidence_source`、`verification_level`、`flags`、`run_id`、`tool`。
@@ -155,7 +155,7 @@ cmd /c "npm run collect:import -- --in tmp/xhs-search.json --kind search --run 2
   "published_at_precision": "day",
   "published_at": "2025-03-14",
   "published_at_precision": "day",
-  "ip_location": "四川",
+  "self_reported_region": "四川（原文自述时）",
   "hospital_id": "wcsh-mental-health",
   "hospital_name_raw": "华西心理卫生中心",
   "department": "心理卫生中心",
@@ -195,6 +195,8 @@ cmd /c "npm run data:build"      # 重新聚合
 cmd /c "npm run data:stats"      # 看平台分布、省级覆盖缺口
 cmd /c "npm run audit:sources -- --write"   # 原帖可达性巡检
 ```
+
+
 
 
 

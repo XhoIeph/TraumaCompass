@@ -41,7 +41,7 @@
   不得创建 `hospitals.json` 条目，更不得挂到地图上。
   校验规则：机构名匹配 `未点名|名单|线索|待核实|某精神|某脑科|某顶级` 的内容禁止关联 `hospital_id`。
 - **名单、汇总帖、联盟名单不是机构**。它们是来源文档，只能作为线索来源或证据归档，不能建成机构。
-- **地区不得臆测**。原文没有地区线索时，`hospital_region` / `self_reported_region` / `ip_location`
+- **地区不得臆测**。原文没有地区线索时，`hospital_region` / `self_reported_region`
   一律留空。三者含义必须分清：
   - `hospital_region`：医院所在地；
   - `self_reported_region`：作者自述所在地；
@@ -84,4 +84,5 @@
 4. 机构名是原文写的，还是我推断的？推断的一律不建条目。
 5. 地区字段依据是原文哪一句？找不到依据就留空。
 6. 原文超过 200 字吗？超过了，`evidence_full_text` 存了吗？
+
 
