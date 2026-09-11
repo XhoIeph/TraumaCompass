@@ -21,10 +21,8 @@ function reportAdcode(report: Report): string | undefined {
     const hospital = hospitalById.get(report.hospital_id)
     if (hospital) return hospital.adcode
   }
-  return matchProvinceAdcode(
-    [report.ip_location, report.self_reported_region, report.hospital_region],
-    provinces,
-  )
+  // 只用「作者自述所在地」与「医院所在地」；平台 IP 属地不采集
+  return matchProvinceAdcode([report.self_reported_region, report.hospital_region], provinces)
 }
 
 const emptyItem = (province: Province) => ({

@@ -59,10 +59,8 @@ export function reportProvinceAdcode(report: Report): string | undefined {
     const hospital = hospitalById(report.hospital_id)
     if (hospital) return hospital.adcode
   }
-  return matchProvinceAdcode(
-    [report.ip_location, report.self_reported_region, report.hospital_region],
-    provinces,
-  )
+  // 只用「作者自述所在地」与「医院所在地」；平台 IP 属地不采集
+  return matchProvinceAdcode([report.self_reported_region, report.hospital_region], provinces)
 }
 
 /** report id → adcode，供客户端筛选使用（静态导出下筛选必须在浏览器里做） */

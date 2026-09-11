@@ -51,32 +51,31 @@
     };
     const text = pick(['.note-text', '.content .note-text', '.content', '.comment-content']);
     if (!text) continue;
-    const author = pick(['.name', '.nickname', '.author .name', '.author-name']);
-    const info = pick(['.date', '.time', '.info span', '.location']);
-    const key = `${author}|${text.slice(0, 40)}`;
+
+    /**
+     * 隐私：不采集评论者用户名和 IP 属地。
+     * XHS 的时间与属地混在一个字段里（形如「08-01广东」），这里只取日期，丢掉属地。
+     */
+    const rawInfo = pick(['.date', '.time', '.info span', '.location']);
+    const dateOnly = (rawInfo.match(/\d{4}-\d{2}-\d{2}|\d{2}-\d{2}/) || [''])[0];
+
+    const key = text.slice(0, 40);
     if (seen.has(key)) continue;
     seen.add(key);
 
-    // 上下文：是否楼中楼 + 父评论（XHS 会在回复里写「回复 @某人」）
+    // 上下文：是否楼中楼 + 父评论（回复关系的判断不依赖用户名）
     const ancestor = el.parentElement ? el.parentElement.closest('.comment-item') : null;
     const isReply = Boolean(ancestor);
-    const replyToMatch = text.match(/^回复\s*@?([^：:]{1,24})[：:]/);
     const parentText = ancestor
       ? clean((ancestor.querySelector('.note-text, .content .note-text, .content') || {}).textContent)
       : '';
-    const parentAuthor = ancestor
-      ? clean((ancestor.querySelector('.name, .nickname, .author .name') || {}).textContent)
-      : '';
 
     rows.push({
-      author,
-      info,
+      date: dateOnly,
       text,
       likes: pick(['.like .count', '.like-wrapper .count', '.count']),
       is_reply: isReply,
-      reply_to_author: replyToMatch ? replyToMatch[1].trim() : parentAuthor || undefined,
       parent_excerpt: parentText ? parentText.slice(0, 300) : undefined,
-      parent_author: parentAuthor || undefined,
     });
   }
   return { count: rows.length, domComments: nodes.length, url: location.href, title: document.title, rows };

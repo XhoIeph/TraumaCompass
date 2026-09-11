@@ -5,15 +5,55 @@ import { disorders, hospitals, provinceStats, provinces, publicReports, visibleD
 import { formatCount } from '@/lib/format'
 
 export default function HomePage() {
-  const resource = Object.fromEntries(
-    provinceStats.items.map((item) => [item.adcode, item.hospitals_with_service_evidence]),
-  ) as Record<string, number>
-  const leads = Object.fromEntries(
-    provinceStats.items.map((item) => [item.adcode, item.reports_total]),
-  ) as Record<string, number>
-  const hospitalTotals = Object.fromEntries(
-    provinceStats.items.map((item) => [item.adcode, item.hospitals_total]),
-  ) as Record<string, number>
+  // 地图节点：只放有坐标的机构；节点旁的数据来自关联线索
+  const mapHospitals = hospitals
+    .filter((hospital) => hospital.coordinates)
+    .map((hospital) => {
+      const linked = publicReports.filter((report) => report.hospital_id === hospital.id)
+      return {
+        id: hospital.id,
+        name: hospital.name,
+        province: hospital.province,
+        city: hospital.city,
+        category: hospital.category,
+        level: hospital.level,
+        lat: hospital.coordinates?.lat ?? 0,
+        lng: hospital.coordinates?.lng ?? 0,
+        coordinateSource: hospital.coordinates_source,
+        leads: linked.length,
+        evidenceCount: hospital.trauma_service.evidence.length,
+        doctors: [
+          ...new Set(
+            linked
+              .flatMap((report) => (report.doctor_name_raw ?? '').split(/[、,，/]/))
+              .map((name) => name.trim())
+              .filter((name) => name.length >= 2),
+          ),
+        ],
+      }
+    })
+
+  const mapLeads = Object.fromEntries(
+    mapHospitals.map((hospital) => [
+      hospital.id,
+      publicReports
+        .filter((report) => report.hospital_id === hospital.id)
+        .map((report) => ({
+          id: report.id,
+          quote: report.evidence_quote,
+          contextNote: report.evidence_context?.parent_excerpt
+            ? `该评论回复的原话：「${report.evidence_context.parent_excerpt}」`
+            : report.evidence_context?.note_title
+              ? `来自《${report.evidence_context.note_title}》的评论区`
+              : undefined,
+          doctor: report.doctor_name_raw,
+          stage: report.stage,
+          platform: report.platform,
+          publishedAt: report.published_at,
+          url: report.source_url,
+        })),
+    ]),
+  )
 
   const latest = [...publicReports]
     .sort((a, b) => (b.published_at ?? '').localeCompare(a.published_at ?? ''))
@@ -64,9 +104,18 @@ export default function HomePage() {
           name: province.name,
           short_name: province.short_name,
         }))}
-        resource={resource}
-        leads={leads}
-        hospitalTotals={hospitalTotals}
+        provinceStats={Object.fromEntries(
+          provinceStats.items.map((item) => [
+            item.adcode,
+            {
+              reports: item.reports_total,
+              hospitals: item.hospitals_total,
+              withEvidence: item.hospitals_with_service_evidence,
+            },
+          ]),
+        )}
+        hospitals={mapHospitals}
+        leadsByHospital={mapLeads}
       />
 
       <section style={{ marginTop: 'var(--tc-space-5)' }}>

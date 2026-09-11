@@ -79,8 +79,9 @@ export const hospitalSchema = z.object({
   address: z.string().optional(),
   website: httpUrl.optional(),
   phone_public: z.string().optional(),
-  /** 首版地图不打点，坐标仅供后续使用；未知时必须为 null */
+  /** 地图坐标。真实地理编码优先；暂无时用省级质心＋确定性偏移，并在 coordinates_source 如实标注 */
   coordinates: z.object({ lat: z.number(), lng: z.number() }).nullable(),
+  coordinates_source: z.enum(['geocoded', 'province-centroid', 'manual']).optional(),
   /** 官方来源（医院官网 / 卫健委等）；level=official 的依据 */
   official_sources: z.array(httpUrl),
   last_verified_at: isoDate,
@@ -112,15 +113,13 @@ export const reportSchema = z.object({
   source_url: httpUrl,
   /** 原始链接（小红书含会过期的 xsec_token），只写本地 raw，不进公开数据 */
   source_post_id: z.string().optional(),
-  /** sha256(SALT + platform + 平台 uid) 前 10 位；绝不存真实昵称 */
-  author_alias: z
-    .string()
-    .regex(/^[a-z]{2,4}-[0-9a-f]{6,12}$/, '别名必须形如 xhs-1a2b3c4d（哈希化，禁止写入真实昵称）'),
+  /**
+   * 不记录任何用户标识：既不留真实昵称，也不留哈希别名。
+   * 本站只保留「平台 + 原帖链接 + 时间」，读者可自行去原帖核对。
+   */
   published_at: isoDate.optional(),
   published_at_precision: z.enum(['exact', 'day', 'month', 'year', 'derived', 'unknown']),
-  /** 平台显示的 IP 属地，不等于居住地 */
-  ip_location: z.string().optional(),
-  /** 作者自述所在地 */
+  /** 作者自述所在地（原文明确写出时才记录；平台 IP 属地一律不采集） */
   self_reported_region: z.string().optional(),
   /** 医院所在地区（由 hospital_id 关联或原文明确写出） */
   hospital_region: z.string().optional(),

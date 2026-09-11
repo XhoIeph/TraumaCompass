@@ -12,8 +12,8 @@
 import { appendFileSync, existsSync, mkdirSync } from 'node:fs'
 import { resolve } from 'node:path'
 import type { Report } from '../../lib/schema.ts'
-import { aliasFor, loadSalt, recordIdFor } from '../../lib/hash.ts'
-import { CURATED_FILES, RAW_DIR, RUNS_DIR, SECRETS_DIR, readJson, today, writeJson } from '../lib/paths.ts'
+import { recordIdFor } from '../../lib/hash.ts'
+import { CURATED_FILES, RAW_DIR, RUNS_DIR, readJson, today, writeJson } from '../lib/paths.ts'
 
 type Draft = {
   platform: Report['platform']
@@ -84,14 +84,7 @@ function canonicalUrl(platform: Draft['platform'], rawUrl: string): { canonical:
 const { canonical, postId } = canonicalUrl(draft.platform, draft.source_url)
 const effectivePostId = draft.source_post_id ?? postId ?? canonical
 
-const salt = loadSalt(SECRETS_DIR)
-const aliasSeed = draft.author_uid ?? draft.author_nickname
-if (!aliasSeed) {
-  console.error('草稿缺少 author_uid / author_nickname —— 我们至少需要一个可哈希的原始标识（只用于哈希，不会入库）。')
-  process.exit(2)
-}
-
-const alias = aliasFor(draft.platform, aliasSeed, salt)
+// 隐私：不记录任何用户标识（既不留昵称，也不留哈希别名）。站点只保留平台 + 原帖链接 + 时间。
 const id = recordIdFor(draft.platform, effectivePostId)
 
 const reportsFile = readJson<{ schema_version: string; updated_at: string; items: Report[] }>(
@@ -115,10 +108,8 @@ const record: Report = {
   source_channel: 'browser_session',
   source_url: canonical,
   source_post_id: effectivePostId,
-  author_alias: alias,
   published_at: draft.published_at,
   published_at_precision: draft.published_at_precision ?? (draft.published_at ? 'day' : 'unknown'),
-  ip_location: draft.ip_location,
   self_reported_region: draft.self_reported_region,
   hospital_region: draft.hospital_region,
   hospital_id: draft.hospital_id,

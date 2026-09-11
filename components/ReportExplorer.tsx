@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import type { Disorder, Province, Report } from '@/lib/schema'
-import { PLATFORM_LABELS, VERIFICATION_LABELS } from '@/lib/format'
+import { PLATFORM_LABELS } from '@/lib/format'
 import { ReportCard } from './ReportCard'
 
 type Props = {
@@ -19,7 +19,6 @@ export function ReportExplorer({ reports, disorders, provinces, reportProvince, 
   const [province, setProvince] = useState(() => searchParams.get('province') ?? '')
   const [platform, setPlatform] = useState(() => searchParams.get('platform') ?? '')
   const [disorder, setDisorder] = useState(() => searchParams.get('disorder') ?? '')
-  const [level, setLevel] = useState(() => searchParams.get('level') ?? '')
   const [keyword, setKeyword] = useState('')
 
   const platformOptions = useMemo(
@@ -33,7 +32,6 @@ export function ReportExplorer({ reports, disorders, provinces, reportProvince, 
       if (province && reportProvince[report.id] !== province) return false
       if (platform && report.platform !== platform) return false
       if (disorder && !report.disorders.includes(disorder as Report['disorders'][number])) return false
-      if (level && report.verification.level !== level) return false
       if (needle) {
         const haystack = [
           report.evidence_quote,
@@ -41,7 +39,6 @@ export function ReportExplorer({ reports, disorders, provinces, reportProvince, 
           report.department,
           report.doctor_name_raw,
           report.self_reported_region,
-          report.ip_location,
         ]
           .filter(Boolean)
           .join(' ')
@@ -49,13 +46,12 @@ export function ReportExplorer({ reports, disorders, provinces, reportProvince, 
       }
       return true
     })
-  }, [disorder, keyword, level, platform, province, reportProvince, reports])
+  }, [disorder, keyword, platform, province, reportProvince, reports])
 
   const reset = () => {
     setProvince('')
     setPlatform('')
     setDisorder('')
-    setLevel('')
     setKeyword('')
   }
 
@@ -95,16 +91,6 @@ export function ReportExplorer({ reports, disorders, provinces, reportProvince, 
                 {item.name_zh}
               </option>
             ))}
-          </select>
-        </label>
-
-        <label className="tc-field">
-          核验等级
-          <select value={level} onChange={(event) => setLevel(event.target.value)}>
-            <option value="">全部</option>
-            <option value="official">{VERIFICATION_LABELS.official}</option>
-            <option value="corroborated">{VERIFICATION_LABELS.corroborated}</option>
-            <option value="unverified">{VERIFICATION_LABELS.unverified}</option>
           </select>
         </label>
 
@@ -150,3 +136,4 @@ export function ReportExplorer({ reports, disorders, provinces, reportProvince, 
     </div>
   )
 }
+
