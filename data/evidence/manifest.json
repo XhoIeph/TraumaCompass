@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-11T10:08:37.602Z",
+  "generated_at": "2026-09-11T10:11:04.880Z",
   "note": "图片版权属原作者；转写仅供参考，与图片不一致时以图片为准。",
   "count": 14,
   "items": [
@@ -67,8 +67,8 @@
       "source_post_url_captured": "https://www.xiaohongshu.com/discovery/item/69f19ded0000000036003cb5?xsec_token=ABN9BC3nECPaOp9LpBwiWvNDnVywAPi4YIKZ2RzPQT4U4=&xsec_source=pc_share",
       "bytes": 10388,
       "sha256": "6350569b013783cd7f58f1bc831caed451d7ec865a44ae68e7fb2e49671dbec3",
-      "contains": "评论区另一张图（未标注内容）",
-      "transcription": "640x259 的小图，未在转写中使用。"
+      "contains": "门诊诊断记录实拍（评论附图）",
+      "transcription": "照片中的门诊诊断栏写着：「门诊诊断 分离[转换]性障碍 ？ 抑郁状态」。带问号表示疑似/待定，与名单中「口头」「疑似」的表述一致。该图出现在帖 1 的评论区，但转写时未能确定具体是哪位评论者发布的，故仅作诊断书写格式的证据，未生成线索条目。"
     },
     {
       "file": "xiaohongshu/69f19ded0000000036003cb5/list-bpd-npd-aspd.webp",
