@@ -85,8 +85,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-dissociative.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-07fde55d29",
@@ -129,7 +132,7 @@
       "evidence_full_text": "这里面好多医院实际没开展的，推几个真的能看的： 湘雅医院，全科都可以，重点专家：肖茜 湖南脑科（二院）全科都可以，重点专家：马静，刘光亚 珠海三院国际部 商丘一院：陈彦 辽宁朝阳康宁，全科都可以 丹东三院：郑艳 河北保定荣军：回秀清 华西厦门医院这几个都是确定可以看的，而且有过专门的规范化培训的，有大量教学培训督导培训，不是介绍上随便写一笔的程度。",
       "evidence_context": {
         "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
-        "index_in_capture": "第 1 条 / 共抓取 97 条",
+        "index_in_capture": "第 1 条 / 本次抓到 97 条",
         "capture_scope": "comments/671efe3f000000001b03e2eb.json"
       }
     },
@@ -172,8 +175,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-0c7f67e142",
@@ -215,8 +221,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-bpd-npd-aspd.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-120b517583",
@@ -258,8 +267,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-155c877b68",
@@ -303,7 +315,7 @@
       "status": "published",
       "evidence_context": {
         "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
-        "index_in_capture": "第 5 条 / 共抓取 97 条",
+        "index_in_capture": "第 5 条 / 本次抓到 97 条",
         "capture_scope": "comments/671efe3f000000001b03e2eb.json",
         "is_reply": false
       }
@@ -346,8 +358,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-bpd-npd-aspd.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-1935093c5b",
@@ -388,8 +403,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-1ab485e324",
@@ -432,7 +450,7 @@
       "status": "published",
       "evidence_context": {
         "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
-        "index_in_capture": "第 6 条 / 共抓取 97 条",
+        "index_in_capture": "第 6 条 / 本次抓到 97 条",
         "capture_scope": "comments/671efe3f000000001b03e2eb.json",
         "is_reply": false
       }
@@ -524,10 +542,10 @@
       "status": "published",
       "evidence_full_text": "增加一个匿名repo：分享一下回龙观医院cptsd王晓莹医生，整体态度很温柔，很耐心解答，也会根据患者实际情况考虑，不过感觉对cptsd的诊断会比较保守和严格（认可创伤史，但疾病是否由创伤引起的还有待进一步检查和沟通）",
       "evidence_context": {
-        "index_in_capture": "第 8 条 / 共抓取 19 条",
-        "capture_scope": "opencli/2026-09-11T09-36-53-245Z-page-page.json"
-      },
-      "context_incomplete": true
+        "index_in_capture": "第 8 条 / 本次抓到 19 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-36-53-245Z-page-page.json",
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图"
+      }
     },
     {
       "id": "xhs-374ed8d30d",
@@ -568,7 +586,7 @@
       "evidence_full_text": "这里面好多医院实际没开展的，推几个真的能看的： 湘雅医院，全科都可以，重点专家：肖茜 湖南脑科（二院）全科都可以，重点专家：马静，刘光亚 珠海三院国际部 商丘一院：陈彦 辽宁朝阳康宁，全科都可以 丹东三院：郑艳 河北保定荣军：回秀清 华西厦门医院这几个都是确定可以看的，而且有过专门的规范化培训的，有大量教学培训督导培训，不是介绍上随便写一笔的程度。",
       "evidence_context": {
         "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
-        "index_in_capture": "第 1 条 / 共抓取 97 条",
+        "index_in_capture": "第 1 条 / 本次抓到 97 条",
         "capture_scope": "comments/671efe3f000000001b03e2eb.json",
         "is_reply": false
       }
@@ -653,8 +671,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-3bf4bbf64c",
@@ -695,8 +716,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-b.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-3c57b18e39",
@@ -737,8 +761,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-40584f6ccb",
@@ -781,10 +808,10 @@
       },
       "status": "published",
       "evidence_context": {
-        "index_in_capture": "第 2 条 / 共抓取 111 条",
-        "capture_scope": "opencli/2026-09-11T09-37-54-228Z-page-page.json"
-      },
-      "context_incomplete": true
+        "index_in_capture": "第 2 条 / 本次抓到 111 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-37-54-228Z-page-page.json",
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图"
+      }
     },
     {
       "id": "xhs-425f6e2373",
@@ -829,9 +856,10 @@
       "status": "published",
       "evidence_full_text": "来repo一下。彭红军医生停诊了去挂了广脑李爱凤医生的号，已拿下BPD确诊+C-PTSD口头确诊。按李爱凤医生说法广脑貌似都不能下纸质诊断，BPD可以在C-PTSD的同时检查并下诊断，光检查无医保大概五百出头，意外地没有很贵。我广脑初诊是罗新妮医生，但是她不太倾向开BPD诊断也没有让我检查，只让我查一下BPD相关经验贴自行调理不要多想。希望能提供一点帮助[抽泣R]",
       "evidence_context": {
-        "index_in_capture": "第 3 条 / 共抓取 20 条",
-        "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json",
-        "is_reply": false
+        "index_in_capture": "第 3 条 / 本次抓到 20 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-36-19-242Z-page-page.json",
+        "is_reply": false,
+        "note_title": "cptsd/人格障碍/osdd/did全国就诊线索1.0"
       }
     },
     {
@@ -873,10 +901,11 @@
       "status": "published",
       "evidence_full_text": "抱抱你，如果可以的话可以来重庆试试，我当年在重庆附一医院诊治的，医生特别温柔和善，一次一人而且还要有人守着门口关门以免有人突然进来，医术也特别好我住院一个月后改善非常大！",
       "evidence_context": {
-        "index_in_capture": "第 10 条 / 共抓取 30 条",
-        "capture_scope": "opencli/2026-09-11T09-33-08-251Z-page-page.json"
-      },
-      "context_incomplete": true
+        "index_in_capture": "第 10 条 / 本次抓到 30 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-33-08-251Z-page-page.json（评论区文字）",
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": true
+      }
     },
     {
       "id": "xhs-4caedbfb23",
@@ -921,8 +950,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "cptsd/人格障碍/osdd/did全国就诊线索1.0",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69f19ded0000000036003cb5/review-gdph-houcailan.webp（评论区长文截图，人工核对）"
+      }
     },
     {
       "id": "xhs-50b5b4fbc6",
@@ -1004,8 +1036,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "cptsd/人格障碍/osdd/did全国就诊线索1.0",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69f19ded0000000036003cb5/profile-liubin-taikang.webp（挂号页截图，人工核对）"
+      }
     },
     {
       "id": "xhs-59e90b89e7",
@@ -1086,8 +1121,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/671efe3f000000001b03e2eb/dbt-base-list.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-6051aa58ea",
@@ -1172,10 +1210,10 @@
       },
       "status": "published",
       "evidence_context": {
-        "index_in_capture": "第 11 条 / 共抓取 20 条",
-        "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
-      },
-      "context_incomplete": true
+        "index_in_capture": "第 11 条 / 本次抓到 20 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-36-19-242Z-page-page.json",
+        "note_title": "cptsd/人格障碍/osdd/did全国就诊线索1.0"
+      }
     },
     {
       "id": "xhs-6ce0359028",
@@ -1216,8 +1254,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-dissociative.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-71578ced05",
@@ -1259,8 +1300,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-736d07d55f",
@@ -1301,8 +1345,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-dissociative.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-74da1f3bc9",
@@ -1343,8 +1390,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/671efe3f000000001b03e2eb/dbt-base-list.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-7854a74086",
@@ -1385,8 +1435,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-b.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-861253eeb4",
@@ -1430,10 +1483,10 @@
       "status": "published",
       "evidence_full_text": "补充：我昨天刚去了北大国际医院 找张艳萍医生（特需号）。她以前也在回龙观出诊但是说暂时不去了。【体验】一开始刚进门的时候态度友善，表现得比较亲切，这个时候我以为会有满意的结果来着。我本来写在备忘录里的病史要给她看，但是她说“就诊时间有限，没时间看那么多”，于是让我口头阐述。问我病史倒是问了一堆，但是问到一半说“好了前面说得已经够详细了”（但我还没有说完全部）。全程我都提出并强调了希望给出明确诊断的诉求，但是她说，“这是综合医院不是专科医院”，开不出来精神科的细分诊断，让我回安定或者回龙观解决这个问题。她说抱歉帮不上我这个忙。 我还是挺失望的，毕竟这是特需号很贵，而我并没有拿到理想的结果",
       "evidence_context": {
-        "index_in_capture": "第 5 条 / 共抓取 20 条",
-        "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
-      },
-      "context_incomplete": true
+        "index_in_capture": "第 5 条 / 本次抓到 20 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-36-19-242Z-page-page.json",
+        "note_title": "cptsd/人格障碍/osdd/did全国就诊线索1.0"
+      }
     },
     {
       "id": "xhs-8ac161a122",
@@ -1474,8 +1527,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-8d4f7eea3b",
@@ -1523,8 +1579,8 @@
       },
       "status": "published",
       "evidence_context": {
-        "index_in_capture": "第 6 条 / 共抓取 30 条",
-        "capture_scope": "opencli/2026-09-11T09-33-08-251Z-page-page.json",
+        "index_in_capture": "第 6 条 / 本次抓到 30 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-33-08-251Z-page-page.json",
         "parent_author": "wowo",
         "parent_excerpt": "宝你的cptsd诊断是怎么拿到的我感觉国内很难拿到这个",
         "is_reply": true
@@ -1569,8 +1625,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-dissociative.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-8e10e971a2",
@@ -1651,8 +1710,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-8f5c1823a2",
@@ -1730,8 +1792,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-8fb0283ed1",
@@ -1811,8 +1876,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-928a45adba",
@@ -1854,8 +1922,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "cptsd/人格障碍/osdd/did全国就诊线索1.0",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69f19ded0000000036003cb5/profile-liubin-905.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-93495ab0d4",
@@ -1896,8 +1967,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-9606e42412",
@@ -2063,8 +2137,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-a11bc92e85",
@@ -2230,10 +2307,10 @@
       "status": "published",
       "evidence_full_text": "啊啊不确定的老师，重庆的反馈很少，只有网友反馈在创伤门诊找冉曼利医生确诊过，和湖北精卫一样只是写一下有设置创伤门诊",
       "evidence_context": {
-        "index_in_capture": "第 13 条 / 共抓取 19 条",
-        "capture_scope": "opencli/2026-09-11T09-36-53-245Z-page-page.json"
-      },
-      "context_incomplete": true
+        "index_in_capture": "第 13 条 / 本次抓到 19 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-36-53-245Z-page-page.json",
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图"
+      }
     },
     {
       "id": "xhs-a83e200907",
@@ -2276,10 +2353,10 @@
       },
       "status": "published",
       "evidence_context": {
-        "index_in_capture": "第 2 条 / 共抓取 20 条",
-        "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
-      },
-      "context_incomplete": true
+        "index_in_capture": "第 2 条 / 本次抓到 20 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-36-19-242Z-page-page.json",
+        "note_title": "cptsd/人格障碍/osdd/did全国就诊线索1.0"
+      }
     },
     {
       "id": "xhs-a95bf0fb5c",
@@ -2320,8 +2397,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-b.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-ab437e8b9a",
@@ -2363,8 +2443,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-head.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-acde54d2a2",
@@ -2405,8 +2488,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-bpd-npd-aspd.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-ae7e7f8fc3",
@@ -2447,8 +2533,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-dissociative.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-ba635567a2",
@@ -2489,8 +2578,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-b.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-baa3126f0f",
@@ -2531,8 +2623,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-bcaa46a2a2",
@@ -2575,7 +2670,7 @@
       "evidence_full_text": "这里面好多医院实际没开展的，推几个真的能看的： 湘雅医院，全科都可以，重点专家：肖茜 湖南脑科（二院）全科都可以，重点专家：马静，刘光亚 珠海三院国际部 商丘一院：陈彦 辽宁朝阳康宁，全科都可以 丹东三院：郑艳 河北保定荣军：回秀清 华西厦门医院这几个都是确定可以看的，而且有过专门的规范化培训的，有大量教学培训督导培训，不是介绍上随便写一笔的程度。",
       "evidence_context": {
         "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
-        "index_in_capture": "第 1 条 / 共抓取 97 条",
+        "index_in_capture": "第 1 条 / 本次抓到 97 条",
         "capture_scope": "comments/671efe3f000000001b03e2eb.json"
       }
     },
@@ -2658,8 +2753,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-c0451d74b6",
@@ -2739,9 +2837,10 @@
       },
       "status": "published",
       "evidence_context": {
-        "index_in_capture": "第 6 条 / 共抓取 19 条",
-        "capture_scope": "opencli/2026-09-11T09-36-53-245Z-page-page.json",
-        "is_reply": false
+        "index_in_capture": "第 6 条 / 本次抓到 19 条",
+        "capture_scope": "comments/opencli/2026-09-11T09-36-53-245Z-page-page.json",
+        "is_reply": false,
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图"
       }
     },
     {
@@ -2821,8 +2920,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-head.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-d35430cf1b",
@@ -2903,8 +3005,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/671efe3f000000001b03e2eb/dbt-base-list.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-df439b1e53",
@@ -2945,8 +3050,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-e0d1adec9b",
@@ -2988,8 +3096,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-bpd-npd-aspd.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-e4d498e0b3",
@@ -3030,8 +3141,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-e56c83ffec",
@@ -3071,8 +3185,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-bpd-npd-aspd.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-e8676765f9",
@@ -3113,8 +3230,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-ebb0c9f171",
@@ -3243,8 +3363,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-dissociative.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-efdb8755d4",
@@ -3365,7 +3488,7 @@
       "status": "published",
       "evidence_context": {
         "note_title": "北京回龙观医院创伤后应激障碍门诊开诊",
-        "index_in_capture": "第 15 条 / 共抓取 87 条",
+        "index_in_capture": "第 15 条 / 本次抓到 87 条",
         "capture_scope": "comments/69e7955a000000002200e48f.json",
         "is_reply": false
       }
@@ -3408,8 +3531,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-b.webp（置顶评论名单截图，逐字转写）"
+      }
     },
     {
       "id": "xhs-ff6329a774",
@@ -3450,8 +3576,11 @@
         "sensitive": false
       },
       "status": "published",
-      "context_incomplete": true,
-      "evidence_context": {}
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "is_reply": false,
+        "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
+      }
     }
   ]
 }

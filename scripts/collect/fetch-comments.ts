@@ -27,6 +27,7 @@ const take = (flag: string): string | undefined => {
 const session = take('--session') ?? 'tc'
 const limit = Number(take('--limit') ?? '10')
 const top = Number(take('--top') ?? '0')
+const force = args.includes('--force')
 const idsArg = take('--ids')
 const fromTriage = take('--from-triage')
 
@@ -91,7 +92,7 @@ for (const noteId of targets) {
   }
 
   const outFile = resolve(COMMENTS_DIR, `${noteId}.json`)
-  if (existsSync(outFile)) {
+  if (existsSync(outFile) && !force) {
     skipped += 1
     continue
   }
