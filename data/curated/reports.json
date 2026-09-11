@@ -900,6 +900,49 @@
       "status": "published"
     },
     {
+      "id": "xhs-6051aa58ea",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6821e751000000000c03af90",
+      "source_post_id": "6821e751000000000c03af90#body-bj-first-tier",
+      "author_alias": "xhs-ba36d0c2",
+      "published_at": "2025-05-12",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市北京市",
+      "hospital_id": "bj-first-tier",
+      "hospital_name_raw": "北京某顶级精神专科医院（原文未点名）",
+      "department": "精神科",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "consulted",
+      "experience": 4,
+      "cost_cny": {
+        "min": 900,
+        "max": 900
+      },
+      "evidence_quote": "她说想要确诊至少需要跑10个来回，长期交谈观察才可以，不会轻易下判断。她开的检查都是焦虑、抑郁方面的检查和问卷，没有专门针对CPTSD检查",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "关键结论：某顶级精神专科医院的资深医生明确表示，确诊 CPTSD「至少需要跑 10 个来回、长期交谈观察」，且开具的检查只有焦虑/抑郁方向、没有针对 CPTSD 的专项检查，最终建议按焦虑抑郁用药+找受训背景的心理咨询师。机构与医生原文均未点名。挂号 900 元。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-627812624e",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -1389,6 +1432,45 @@
       "status": "published"
     },
     {
+      "id": "xhs-8f5c1823a2",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a3d0d3800000000060209cb",
+      "source_post_id": "6a3d0d3800000000060209cb#body-cn-brain-hospital-unnamed",
+      "author_alias": "xhs-a1e56c95",
+      "published_at": "2026-06-25",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市北京市",
+      "hospital_id": "cn-brain-hospital-unnamed",
+      "hospital_name_raw": "某脑科医院（原文未点名）",
+      "department": "精神科",
+      "disorders": [
+        "other"
+      ],
+      "stage": "consulted",
+      "experience": 1,
+      "evidence_quote": "16岁那年……爸爸就很不情愿地带我挂了一个精神科医生的号……医生开口了：年纪这么小，能有什么什么问题，就是家长惯的，这么任性。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "作者 16 岁初次就诊时被医生以「年纪小、家长惯的」打发，五年前开始服药。机构与地区原文均未点名；地区字段按「未知」处理，此处 adcode 仅为占位，机构条目不应据此指认任何具体医院。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-8f837bf0fc",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -1415,6 +1497,45 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图。医院全称按「中山大学附属第八医院」记录（原文作「中山大学第八附属医院」）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-8fb0283ed1",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a32b733000000000f01479f",
+      "source_post_id": "6a32b733000000000f01479f#body-sd-jn-psy",
+      "author_alias": "xhs-2f5e5448",
+      "published_at": "2026-06-17",
+      "published_at_precision": "derived",
+      "hospital_region": "山东省济宁市",
+      "hospital_id": "sd-jn-psy",
+      "hospital_name_raw": "济宁市某精神专科医院（原文未点名）",
+      "department": "精神科",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "consulted",
+      "experience": 1,
+      "evidence_quote": "我没有得到任何检查，就被空口诊断出一个带问号的\"边缘型人格障碍\"，当场收到一张住院单。诊断内容:《情绪不稳定型人格障碍，边缘型?》",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "作者为当事患者，称已发起投诉并持有证据，正文提到涉事医生曾致电其父施压。属严重负面指控，仅作个人陈述收录，已附原帖链接；机构名称原文未点名，故未建立可指认的机构条目时可核对性有限。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -1537,6 +1658,89 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图。另一条 2026-08-18 评论提到该院侯彩兰教授，两者为不同医生。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-9606e42412",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/691b2a780000000007014917",
+      "source_post_id": "691b2a780000000007014917#body-sh-smhc",
+      "author_alias": "xhs-f6c2ba07",
+      "published_at": "2025-11-17",
+      "published_at_precision": "derived",
+      "hospital_region": "上海市",
+      "hospital_id": "sh-smhc",
+      "hospital_name_raw": "上海市精神卫生中心",
+      "department": "闵行院区",
+      "disorders": [
+        "other"
+      ],
+      "stage": "assessed",
+      "experience": 4,
+      "cost_cny": {
+        "min": 25,
+        "max": 600
+      },
+      "evidence_quote": "不是专家号也不是特需，就是普通的心理咨询号，25元。如果专家特需号应该要300-600不等。这个医院很强调首诊和复诊……也非常尊重病人隐私，图3里候诊的地方都设置有隔断。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "就诊流程与费用实录（闵行院区）：小程序预约、提前两周、普通心理咨询号 25 元、专家特需 300-600、六套量表约 100 多元、候诊区有隔断保护隐私。结果为「轻度抑郁情绪，不足以诊断疾病」。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-9808747a03",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69e7955a000000002200e48f",
+      "source_post_id": "69e7955a000000002200e48f#clinic-official-bj-huilongguan",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-21",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市北京市",
+      "hospital_id": "bj-huilongguan",
+      "hospital_name_raw": "北京回龙观医院",
+      "department": "创伤后应激障碍专病门诊",
+      "disorders": [
+        "cptsd",
+        "ptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "服务对象，专病门诊主要面向以下人群提供专业诊疗：遭遇自然灾害、事故、暴力、重大丧失等创伤性事件的个体；PTSD及C-PTSD患者；有童年不良经历及相关共病（抑郁、焦虑、解离等）的人群；校园霸凌受害者、高压职业人群、应急救援人员、灾后群众等重点群体",
+      "evidence_source": "other",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据为笔记配图（医院官方门诊介绍页截图，已归档 data/evidence/xiaohongshu/69e7955a000000002200e48f）。这是全项目目前最直接的一条官方证据：门诊介绍的服务对象明确包含「PTSD 及 C-PTSD 患者」，就诊流程为「挂号（创伤后应激障碍专病门诊）→ 筛查评估 → 诊疗/干预安排 → 随访管理」，治疗为精神科医师与心理治疗师的多学科协作。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -2119,6 +2323,45 @@
       "status": "published"
     },
     {
+      "id": "xhs-c0451d74b6",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/671efe3f000000001b03e2eb",
+      "source_post_id": "671efe3f000000001b03e2eb#body-bpd-dbt-alliance",
+      "author_alias": "xhs-9f504df6",
+      "published_at": "2024-10-28",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市北京市",
+      "hospital_id": "bpd-dbt-alliance",
+      "hospital_name_raw": "全国辩证行为治疗（DBT）基地名单",
+      "department": "辩证行为治疗",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "资料来源：“全国DBT联盟”成立官方报道 截止时间：2024年9月 备注：该医院名单仅为信息指引，不构成治疗指导意见。",
+      "evidence_source": "other",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "该笔记正文仅说明名单来源（全国DBT联盟成立官方报道，截至 2024 年 9 月），实际名单在配图中，已转写并归档（data/evidence/xiaohongshu/671efe3f000000001b03e2eb）：基地 17 家 + 建设基地 14 家。各机构的 DBT 证据已写入对应 hospitals.json 条目的 trauma_service.evidence。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-c28fcd6daa",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -2146,6 +2389,45 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "汇总帖正文标注该医生为「口头」确诊；评论区有网友补充实际挂号路径（门诊挂号→按医生姓名搜索）与补做 PTSD 问卷的经历。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-c3292f4c09",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/65b78d88000000002b03c8cb",
+      "source_post_id": "65b78d88000000002b03c8cb#body-sd-sjsw",
+      "author_alias": "xhs-eae9cf3f",
+      "published_at": "2024-01-30",
+      "published_at_precision": "derived",
+      "hospital_region": "山东省济南市",
+      "hospital_id": "sd-sjsw",
+      "hospital_name_raw": "山东省精神卫生中心（原文作「省精卫」）",
+      "department": "精神科",
+      "disorders": [
+        "other"
+      ],
+      "stage": "diagnosed",
+      "experience": 4,
+      "evidence_quote": "第二个好消息是：在我做过睡眠监测之类的观察以后，医生推翻了梦游的结论，定论是分离转换障碍。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "作者自述「省精卫」（未点名省份）经睡眠监测与脑电观察后确诊分离转换障碍，并推翻了此前「梦游」的结论。机构未点名，故未建立可指认的机构条目。正文提到药物过量相关观察。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -2467,6 +2749,50 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图；机构全称按「南宁市第五人民医院」记录。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-ebb0c9f171",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a7a850f0000000025011a58",
+      "source_post_id": "6a7a850f0000000025011a58#body-hn-xy2",
+      "author_alias": "xhs-8644067d",
+      "published_at": "2026-08-09",
+      "published_at_precision": "derived",
+      "hospital_region": "湖南省长沙市",
+      "hospital_id": "hn-xy2",
+      "hospital_name_raw": "中南大学湘雅二医院",
+      "department": "精神科",
+      "doctor_name_raw": "郝伟",
+      "disorders": [
+        "other"
+      ],
+      "stage": "seeking",
+      "experience": null,
+      "cost_cny": {
+        "min": 78,
+        "max": 1580
+      },
+      "evidence_quote": "湘雅附二这个挂号小程序很难抢号，发现教授郝主任11号上午有个78的号，下午在国际医疗心理门诊有号但是要1580，太贵了吧",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "挂号实录：湘雅附二精神科郝伟教授普通号 78 元、国际医疗心理门诊 1580 元，小程序抢号困难。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",

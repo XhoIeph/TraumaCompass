@@ -660,6 +660,87 @@
       "disorders": [
         "cptsd"
       ]
+    },
+    {
+      "at": "2026-09-11T10:34:28.829Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-6051aa58ea",
+      "source_url": "https://www.xiaohongshu.com/explore/6821e751000000000c03af90",
+      "hospital_id": "bj-first-tier",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:34:29.066Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-9808747a03",
+      "source_url": "https://www.xiaohongshu.com/explore/69e7955a000000002200e48f",
+      "hospital_id": "bj-huilongguan",
+      "disorders": [
+        "cptsd",
+        "ptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:34:29.582Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-c0451d74b6",
+      "source_url": "https://www.xiaohongshu.com/explore/671efe3f000000001b03e2eb",
+      "hospital_id": "bpd-dbt-alliance",
+      "disorders": [
+        "bpd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:34:29.710Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-8f5c1823a2",
+      "source_url": "https://www.xiaohongshu.com/explore/6a3d0d3800000000060209cb",
+      "hospital_id": "cn-brain-hospital-unnamed",
+      "disorders": [
+        "other"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:34:32.661Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-ebb0c9f171",
+      "source_url": "https://www.xiaohongshu.com/explore/6a7a850f0000000025011a58",
+      "hospital_id": "hn-xy2",
+      "disorders": [
+        "other"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:34:34.935Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-8fb0283ed1",
+      "source_url": "https://www.xiaohongshu.com/explore/6a32b733000000000f01479f",
+      "hospital_id": "sd-jn-psy",
+      "disorders": [
+        "bpd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:34:35.211Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-c3292f4c09",
+      "source_url": "https://www.xiaohongshu.com/explore/65b78d88000000002b03c8cb",
+      "hospital_id": "sd-sjsw",
+      "disorders": [
+        "other"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:34:35.481Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-9606e42412",
+      "source_url": "https://www.xiaohongshu.com/explore/691b2a780000000007014917",
+      "hospital_id": "sh-smhc",
+      "disorders": [
+        "other"
+      ]
     }
   ]
 }

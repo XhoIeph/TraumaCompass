@@ -49,14 +49,24 @@ const parseLikes = (value: string): number => {
 const queue = Object.values(pending)
   .filter((item) => !existsSync(resolve(NOTES_DIR, `${item.note_id}.json`)))
   .filter((item) => parseLikes(item.likes) >= minLikes)
+  .map((item) => ({
+    item,
+    relevant: /cptsd|ptsd|创伤|人格障碍|bpd|边缘|解离|osdd|did|多重人格|就诊|确诊|医院|门诊|医生|心理|精神|诊断|量表|挂号|住院|医保/i.test(
+      item.title,
+    ),
+    likes: parseLikes(item.likes),
+  }))
+  .filter((entry) => entry.relevant)
+  .sort((a, b) => b.likes - a.likes)
   .slice(0, limit)
+  .map((entry) => entry.item)
 
 if (queue.length === 0) {
   console.log('队列为空（或都已抓取）。可以再跑 sweep.ts 找新笔记。')
   process.exit(0)
 }
 
-console.log(`待抓 ${queue.length} 条笔记${dryRun ? '（dry-run）' : ''}`)
+console.log(`待抓 ${queue.length} 条笔记（按标题相关度 + 点赞数排序）${dryRun ? '（dry-run）' : ''}`)
 const HOSPITAL_HINT = /医院|门诊|医生|确诊|诊断|挂号|量表|精神科|心理科|创伤|cptsd|ptsd|bpd|解离/i
 
 let ok = 0

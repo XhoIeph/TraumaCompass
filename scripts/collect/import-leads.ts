@@ -36,7 +36,7 @@ type LeadHospital = {
 
 type Lead = {
   hospital: LeadHospital
-  report: {
+  report?: {
     source_note_id: string
     source_url: string
     suffix: string
@@ -56,6 +56,8 @@ type Lead = {
     evidence_source?: string
     evidence_label: string
   }
+  /** 只补机构、不生成线索时使用（例如官方名单类证据） */
+  evidence?: string
 }
 
 const args = process.argv.slice(2)
@@ -83,7 +85,8 @@ let addedHospitals = 0
 let skippedHospitals = 0
 
 for (const lead of leads) {
-  const { hospital, report } = lead
+  const { hospital, report, evidence } = lead
+  const evidenceLabel = report?.evidence_label ?? evidence ?? ''
 
   if (!existing.has(hospital.id)) {
     hospitalsFile.items.push({
@@ -100,7 +103,7 @@ for (const lead of leads) {
         cptsd_assessment: 'claimed',
         cptsd_bpd_diagnosis: 'claimed',
         icd11_practice: 'unknown',
-        evidence: [report.evidence_label],
+        evidence: evidenceLabel ? [evidenceLabel] : [],
       },
       coordinates: null,
       official_sources: [],
@@ -111,14 +114,17 @@ for (const lead of leads) {
   } else {
     skippedHospitals += 1
     const target = hospitalsFile.items.find((item) => item.id === hospital.id)
-    if (target && !target.trauma_service.evidence.includes(report.evidence_label)) {
-      target.trauma_service.evidence.push(report.evidence_label)
+    if (target && evidenceLabel && !target.trauma_service.evidence.includes(evidenceLabel)) {
+      target.trauma_service.evidence.push(evidenceLabel)
       if (target.trauma_service.cptsd_assessment === 'unknown') {
         target.trauma_service.cptsd_assessment = 'claimed'
         target.trauma_service.cptsd_bpd_diagnosis = 'claimed'
       }
     }
   }
+
+  // 只补机构（官方名单类）：不生成线索草稿
+  if (!report) continue
 
   const draft = {
     platform: 'xiaohongshu',
