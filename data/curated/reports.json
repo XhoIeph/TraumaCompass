@@ -92,6 +92,170 @@
       "status": "published"
     },
     {
+      "id": "xhs-2c5f538831",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-wangxiaoying",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-08-18",
+      "published_at_precision": "derived",
+      "ip_location": "河北",
+      "hospital_region": "北京市北京市",
+      "hospital_id": "bj-huilongguan",
+      "hospital_name_raw": "北京回龙观医院",
+      "department": "精神科",
+      "doctor_name_raw": "王晓莹",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "增加一个匿名repo：分享一下回龙观医院cptsd王晓莹医生，整体态度很温柔，很耐心解答，也会根据患者实际情况考虑，不过感觉对cptsd的诊断会比较保守和严格",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自评论区（作者转述匿名投稿）。同时提到就诊流程问题：报到后不易离开、实际就诊时间与取号单时间出入较大。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-37d809f64c",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#body-liufei",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "上海市上海市",
+      "hospital_id": "sh-tongji",
+      "hospital_name_raw": "上海市同济医院",
+      "department": "精神医学科",
+      "doctor_name_raw": "刘飞",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "上海市同济大学附属同济医院 刘飞医生",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "网友汇总帖正文点名（非本人就诊）。该医生同时在小红书发布 CPTSD 科普内容（另见同批笔记）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-40584f6ccb",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-houcailan",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-08-18",
+      "published_at_precision": "derived",
+      "ip_location": "河北",
+      "hospital_region": "广东省广州市",
+      "hospital_id": "gd-gdph",
+      "hospital_name_raw": "广东省人民医院",
+      "department": "精神科",
+      "doctor_name_raw": "侯彩兰",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "cptsd-广东省人民医院侯彩兰教授",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自评论区（作者汇总他人分享）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-425f6e2373",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-liaifeng",
+      "author_alias": "xhs-c4916479",
+      "published_at": "2026-05-25",
+      "published_at_precision": "derived",
+      "ip_location": "广东",
+      "hospital_region": "广东省广州市",
+      "hospital_id": "gzbrain",
+      "hospital_name_raw": "广州医科大学附属脑科医院",
+      "department": "精神科",
+      "doctor_name_raw": "李爱凤",
+      "disorders": [
+        "bpd",
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "彭红军医生停诊了去挂了广脑李爱凤医生的号，已拿下BPD确诊+C-PTSD口头确诊。按李爱凤医生说法广脑貌似都不能下纸质诊断，BPD可以在C-PTSD的同时检查并下诊断",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自评论区网友自述（IP 属地广东）。信息量较大：① 彭红军已停诊；② 该网友在李爱凤处拿到 BPD 确诊 + CPTSD 口头确诊；③ 该院似不出具纸质诊断。三条均未经核实。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-436c5f135d",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -119,6 +283,168 @@
       },
       "extraction": {
         "tool": "opencli browser eval (comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-50b5b4fbc6",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#body-jinjin",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "上海市上海市",
+      "hospital_id": "sh-smhc",
+      "hospital_name_raw": "上海市精神卫生中心",
+      "department": "精神科",
+      "doctor_name_raw": "金金",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "上海市精神卫生中心 金金医生",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "网友汇总帖正文点名（非本人就诊）。同一帖另列该院仇剑崟医生（分离转换障碍，书面）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-59e90b89e7",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#body-majing-liuguangya",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "湖南省长沙市",
+      "hospital_id": "hn-brain",
+      "hospital_name_raw": "湖南省脑科医院",
+      "department": "精神科",
+      "doctor_name_raw": "马静、刘光亚",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "湖南脑科（二院）全科都可以，重点专家：马静，刘光亚",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "网友汇总帖正文点名（非本人就诊），原文称「全科都可以」。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-627812624e",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-wanglan",
+      "author_alias": "xhs-730dad3e",
+      "published_at": "2026-04-29",
+      "published_at_precision": "derived",
+      "ip_location": "辽宁",
+      "hospital_region": "辽宁省沈阳市",
+      "hospital_id": "ln-shengjing",
+      "hospital_name_raw": "中国医科大学附属盛京医院",
+      "department": "精神科",
+      "doctor_name_raw": "王澜",
+      "disorders": [
+        "other"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "沈阳盛京医院可以开疑似分离性转换障碍，因为我们不是在同一个医生那里看的，这个是王澜医生，其他的只会在描述那里写疑似多重人格",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自评论区网友自述（IP 属地辽宁）。涉及「疑似分离性转换障碍」写法，对应本站 other 类目。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-861253eeb4",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-zhangyanping",
+      "author_alias": "xhs-9e36d707",
+      "published_at": "2026-08-20",
+      "published_at_precision": "derived",
+      "ip_location": "北京",
+      "hospital_region": "北京市北京市",
+      "hospital_id": "bj-pku-international",
+      "hospital_name_raw": "北京大学国际医院",
+      "department": "特需号",
+      "doctor_name_raw": "张艳萍",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": 2,
+      "evidence_quote": "我昨天刚去了北大国际医院 找张艳萍医生（特需号）。……她说「这是综合医院不是专科医院」，开不出来精神科的细分诊断，让我回安定或者回龙观解决这个问题。",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自评论区网友自述（IP 属地北京），属个人体验；原文亦提到该医生曾在回龙观出诊但暂时不去。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
         "run_id": "2026-09-11-xhs-1",
         "captured_at": "2026-09-11"
       },
@@ -165,6 +491,46 @@
       },
       "extraction": {
         "tool": "opencli browser eval (comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-8e10e971a2",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#body-guohuirong",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "河南省郑州市",
+      "hospital_id": "zdyfy",
+      "hospital_name_raw": "郑州大学第一附属医院",
+      "department": "东区",
+      "doctor_name_raw": "郭慧荣",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "河南省郑州大学第一附属医院东区 郭慧荣医生",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "网友汇总帖正文点名（非本人就诊）。与本站另两条郑大一附院自述（2026-08-20 / 2026-08-26）相互独立，共同指向该院可给出 CPTSD 相关诊断。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
         "run_id": "2026-09-11-xhs-1",
         "captured_at": "2026-09-11"
       },
@@ -258,6 +624,248 @@
         "contains_minor": false,
         "contains_selfharm_detail": false,
         "sensitive": true
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-a47f4e6833",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-ranmanli",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-08-26",
+      "published_at_precision": "derived",
+      "ip_location": "河北",
+      "hospital_region": "重庆市重庆市",
+      "hospital_id": "cq-jwzx",
+      "hospital_name_raw": "重庆市精神卫生中心",
+      "department": "创伤门诊",
+      "doctor_name_raw": "冉曼利",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "重庆的反馈很少，只有网友反馈在创伤门诊找冉曼利医生确诊过，和湖北精卫一样只是写一下有设置创伤门诊",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自评论区（作者汇总他人分享）；原文同时指出该类「设有创伤门诊」的信息多为公开信息，实际确诊反馈稀少。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-a83e200907",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-weishengzhong",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-08-29",
+      "published_at_precision": "derived",
+      "ip_location": "河北",
+      "hospital_region": "广西壮族自治区南宁市",
+      "hospital_id": "gx-nn1",
+      "hospital_name_raw": "南宁市第一人民医院",
+      "department": "精神科",
+      "doctor_name_raw": "韦盛中",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "人格障碍 广西南宁第一人民医院 韦盛中医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自评论区（作者汇总他人分享），原文归类为「人格障碍」。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-bcc28dcb97",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#body-zhangjinsong",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "上海市上海市",
+      "hospital_id": "sh-xinhua",
+      "hospital_name_raw": "上海交通大学医学院附属新华医院",
+      "department": "临床心理科",
+      "doctor_name_raw": "张劲松",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "上海新华医院 张劲松医生",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "网友汇总帖正文点名（非本人就诊）。同一笔记的 EMDR 培训报道中出现同名专家授课记录（另一来源）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-c28fcd6daa",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-zhangying",
+      "author_alias": "xhs-f7cfa888",
+      "published_at": "2026-07-25",
+      "published_at_precision": "derived",
+      "ip_location": "浙江",
+      "hospital_region": "浙江省杭州市",
+      "hospital_id": "zj-tongde",
+      "hospital_name_raw": "浙江省立同德医院",
+      "department": "精神科",
+      "doctor_name_raw": "张滢",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "反馈一下浙江省立同德医院 张滢医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "汇总帖正文标注该医生为「口头」确诊；评论区有网友补充实际挂号路径（门诊挂号→按医生姓名搜索）与补做 PTSD 问卷的经历。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-d35430cf1b",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#body-xiaoqian",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "湖南省长沙市",
+      "hospital_id": "hn-xiangya",
+      "hospital_name_raw": "中南大学湘雅医院",
+      "department": "精神科",
+      "doctor_name_raw": "肖茜",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "bpd： 湘雅医院，全科都可以，重点专家：肖茜",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "网友汇总帖正文点名（非本人就诊），原文称「全科都可以」。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-f3c3a7f336",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#body-trauma-clinic",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市北京市",
+      "hospital_id": "bj-huilongguan",
+      "hospital_name_raw": "北京回龙观医院",
+      "department": "创伤后应激障碍专病门诊",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "目前有看到 cptsd： 北京回龙观医院 创伤后应激障碍专病门诊",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "来源为网友汇总帖正文（作者汇总他人分享，非本人就诊）。该院设有名为「创伤后应激障碍专病门诊」的门诊，是全清单中唯一直接点名创伤专病门诊的机构。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
       },
       "status": "published"
     }

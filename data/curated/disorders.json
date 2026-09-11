@@ -72,6 +72,19 @@
       "visible": false,
       "code_review_status": "verified",
       "sources": ["https://icd.who.int/browse11/l-m/en"]
+    },
+    {
+      "id": "other",
+      "name_zh": "其他创伤相关诊断",
+      "name_en": "Other trauma-related diagnoses",
+      "icd11_code": "（视具体诊断而定）",
+      "icd10_equivalent": null,
+      "icd11_only": false,
+      "summary": "兜底类目：用于收录难以归入 CPTSD / BPD / OSDD / DID / PTSD 的创伤相关就诊线索，例如「疑似分离性转换障碍」「多重人格待查」等写法。",
+      "diagnostic_notes": "仅作数据归类用途，不代表本站承认或否认该诊断。凡使用本类目的线索，必须在 verification.notes 中写明原文的具体表述。",
+      "visible": false,
+      "code_review_status": "pending_review",
+      "sources": ["https://icd.who.int/browse11/l-m/en"]
     }
   ]
 }
