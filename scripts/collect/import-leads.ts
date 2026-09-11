@@ -123,7 +123,9 @@ for (const lead of leads) {
   const draft = {
     platform: 'xiaohongshu',
     source_url: report.source_url,
-    source_post_id: `${report.source_note_id}${report.suffix}`,
+    // 同一帖可以有多条线索，因此 post_id 必须带后缀；
+    // 后缀里再拼上机构 id，否则同一帖+同后缀的不同机构会拿到相同记录 id 而被去重误杀。
+    source_post_id: `${report.source_note_id}${report.suffix}-${hospital.id}`,
     author_nickname: report.author_nickname,
     published_at: report.published_at,
     published_at_precision: 'derived',

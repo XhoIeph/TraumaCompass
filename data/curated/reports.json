@@ -127,6 +127,47 @@
       "status": "published"
     },
     {
+      "id": "xhs-0c7f67e142",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#shot-doctors-js-njbk",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "江苏省南京市",
+      "hospital_id": "js-njbk",
+      "hospital_name_raw": "南京脑科医院",
+      "department": "精神科",
+      "doctor_name_raw": "史家波、王纯、刘海燕",
+      "disorders": [
+        "cptsd",
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "南京脑科医院：史家波医生、王纯医生 / 南京脑科医院：刘海燕医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自置顶评论名单截图；史家波、王纯见于 BPD 段，刘海燕见于 CPTSD 段。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-120b517583",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -320,6 +361,47 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "网友汇总帖正文点名（非本人就诊）。该医生同时在小红书发布 CPTSD 科普内容（另见同批笔记）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-383fe22b8b",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#shot-doctors-sc-wcsh",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "四川省成都市",
+      "hospital_id": "sc-wcsh",
+      "hospital_name_raw": "四川大学华西医院",
+      "department": "心理卫生中心",
+      "doctor_name_raw": "王强、张俊、朱鸿儒",
+      "disorders": [
+        "cptsd",
+        "other"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "四川大学华西医院：王强医生、张俊医生 / 四川大学华西医院：朱鸿儒医生课题组",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自置顶评论名单截图。另一条 2026-04-27 评论称在该院与西京医院都有过分离转换障碍诊断。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -615,6 +697,46 @@
       "status": "published"
     },
     {
+      "id": "xhs-5d2a3b6e98",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#shot-doctors-gzbrain",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "广东省广州市",
+      "hospital_id": "gzbrain",
+      "hospital_name_raw": "广州医科大学附属脑科医院",
+      "department": "精神科",
+      "doctor_name_raw": "彭红军、罗新妮、李婷、李爱凤、李苏义、阳琼、温全球",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "广州医科大学附属脑科医院：彭红军医生、罗新妮医生、李婷医生、李爱凤医生、李苏义医生、阳琼医生（广脑建议优先挂彭红军医生号，或罗新妮、李婷、李爱凤医生，李苏义和阳琼医生为网友反馈）",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自置顶评论名单截图。注意：另一条 2026-05-25 的评论称「彭红军医生停诊」，与本名单的推荐存在时效冲突，就诊前需自行核实。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-627812624e",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -682,6 +804,47 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图。另一条评论提到该医生曾将其诊断为双相、后他在澳洲被诊断为 BPD —— 属鉴别诊断争议线索。另有评论称在该院与华西都有过分离转换障碍诊断。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-71578ced05",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#shot-doctors-sc-cd4",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "四川省成都市",
+      "hospital_id": "sc-cd4",
+      "hospital_name_raw": "成都市第四人民医院",
+      "department": "精神科",
+      "doctor_name_raw": "李云歌、余志书、胡玉凤",
+      "disorders": [
+        "cptsd",
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "四川省成都第四人民医院：李云歌医生、余志书医生 / 成都第四人民医院：胡玉凤医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自置顶评论名单截图。另一条 2026-08-28 评论称胡玉凤医生可能已离职，该院已无其简介与号源。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -1049,6 +1212,47 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图。医院全称按「中山大学附属第八医院」记录（原文作「中山大学第八附属医院」）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-9099a04ae2",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#shot-doctors-sc-spmc",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "四川省成都市",
+      "hospital_id": "sc-spmc",
+      "hospital_name_raw": "四川省精神医学中心",
+      "department": "心身医学门诊",
+      "doctor_name_raw": "蒋富贵、黄雨兰",
+      "disorders": [
+        "cptsd",
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "四川省精神医学中心:（心身医学门诊）蒋富贵医生 / 四川省精神医学中心：黄雨兰医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自置顶评论名单截图。名单另列「四川省精神卫生中心/绵阳三医院：杨昆医生」（BPD 段）。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",

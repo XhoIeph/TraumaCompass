@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-11T09:51:07.703Z",
+  "generated_at": "2026-09-11T09:53:27.074Z",
   "totals": {
-    "reports": 51,
+    "reports": 56,
     "reports_unlocated": 0,
     "hospitals": 44,
     "doctors": 0,
-    "provinces_with_reports": 21,
+    "provinces_with_reports": 22,
     "provinces_with_hospitals": 21
   },
   "items": [
@@ -177,13 +177,13 @@
     },
     {
       "adcode": "320000",
-      "reports_total": 1,
+      "reports_total": 2,
       "reports_by_disorder": {
-        "cptsd": 1,
-        "bpd": 0
+        "cptsd": 2,
+        "bpd": 1
       },
       "reports_by_platform": {
-        "xiaohongshu": 1
+        "xiaohongshu": 2
       },
       "hospitals_total": 2,
       "hospitals_with_service_evidence": 2,
@@ -191,7 +191,7 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 1
+        "unverified": 2
       }
     },
     {
@@ -344,13 +344,13 @@
     },
     {
       "adcode": "440000",
-      "reports_total": 8,
+      "reports_total": 9,
       "reports_by_disorder": {
-        "cptsd": 7,
+        "cptsd": 8,
         "bpd": 2
       },
       "reports_by_platform": {
-        "xiaohongshu": 8
+        "xiaohongshu": 9
       },
       "hospitals_total": 6,
       "hospitals_with_service_evidence": 6,
@@ -358,7 +358,7 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 8
+        "unverified": 9
       }
     },
     {
@@ -420,19 +420,21 @@
     },
     {
       "adcode": "510000",
-      "reports_total": 0,
+      "reports_total": 3,
       "reports_by_disorder": {
-        "cptsd": 0,
-        "bpd": 0
+        "cptsd": 3,
+        "bpd": 2
       },
-      "reports_by_platform": {},
+      "reports_by_platform": {
+        "xiaohongshu": 3
+      },
       "hospitals_total": 4,
       "hospitals_with_service_evidence": 3,
       "doctors_total": 0,
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 0
+        "unverified": 3
       }
     },
     {
