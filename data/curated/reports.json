@@ -3,6 +3,90 @@
   "updated_at": "2026-09-11",
   "items": [
     {
+      "id": "xhs-01a03127a9",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/68c8df17000000000e033c05",
+      "source_post_id": "68c8df17000000000e033c05#body-sh-smhc-zhangyi-minhang",
+      "published_at": "2025-09-16",
+      "published_at_precision": "derived",
+      "hospital_region": "上海市",
+      "hospital_id": "sh-smhc",
+      "hospital_name_raw": "上海市精神卫生中心",
+      "department": "闵行院区",
+      "doctor_name_raw": "张毅",
+      "disorders": [
+        "other"
+      ],
+      "stage": "consulted",
+      "experience": null,
+      "evidence_quote": "看到闵行院区初诊号有很多，挂了闵行院区的初诊号。我挂了张毅医生的号，看到小红书上有对这个医生还不错的评论",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "上海精卫就诊流程信息：总院初诊号难挂（作者原约王凡医生门诊在开诊前 5 天收到停诊通知），闵行院区初诊号较多、叫号快，复诊无需预约可现场加号。就诊缘由为焦虑抑郁（非创伤谱系），故 disorders 记 other。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_full_text": "从8月31日第一次去宛平路600号总院建档、预约，一直到9月15号在沪闵路3210号闵行院区正式完成了初诊 本来约好的总院王凡医生门诊，在开诊前5天我收到了停诊通知短信，不得不重新预约挂号，无奈总院基本上挂不上初诊号 看到闵行院区初诊号有很多，挂了闵行院区的初诊号。我挂了张毅医生的号，看到小红书上有对这个医生还不错的评论 上午10点的号，我9点半完成挂号了。在10点前被叫到号，速度挺快的 医生问了我的症状和感受后，让我做了心电图和几份自测量表 量表我以前做过几次，做的速度很快。结果是轻度抑郁、无明显焦虑（可我实际感受是焦虑的）、疑似轻度强迫 拿了测试结果直接去门诊找医生看，医生说我这个情况需要吃药，于是配了图上面的两种药💊。医生告诉我舍曲林第一周每天半颗，第二周开始每天1颗。 我当时没记下，看到单子上只写每天半颗，我又回去医生那边问了一遍记录了下来 初诊算是完成啦，体验还不错。医生叫我两周后复诊，不用预约直接现场加号就可以[棒R] ———-————————————— 还想和大家分享下 我的焦虑发展到后面有了很具体的表现，1是尿羞症（有人在你附近时排尿困难）、2是口臭焦虑（总是担心自己有口臭，不敢开口和人说话，过份关注口腔气味） #上海精神科 #焦虑抑郁 #社交恐惧 #尿羞症 #口臭焦虑"
+    },
+    {
+      "id": "xhs-01b0aac2e1",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-chenxiaogang-hn-xy2",
+      "published_at": "2026-08-29",
+      "published_at_precision": "derived",
+      "hospital_region": "湖南省长沙市",
+      "hospital_id": "hn-xy2",
+      "hospital_name_raw": "中南大学湘雅二医院",
+      "doctor_name_raw": "陈晓岗",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "搜到的人格障碍就诊经验很少，可以试试湘雅附二，有人推荐陈晓岗医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "网友推荐（非亲历）：楼下长沙网友求「隐性NPD和BPD共病」医生（原话：负担不了上海精卫中心会诊），另一网友推荐湘雅附二陈晓岗医生。推荐信源为转述，尚未见亲历反馈。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "index_in_capture": "第 63 条 / 本次抓到 99 条",
+        "capture_scope": "comments/69ede05b00000000350314ef.json",
+        "is_reply": false
+      }
+    },
+    {
       "id": "xhs-0341ce72d9",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -87,6 +171,50 @@
         "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
         "is_reply": false,
         "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-dissociative.webp（置顶评论名单截图，逐字转写）"
+      }
+    },
+    {
+      "id": "xhs-05b81aa4bd",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-zhuhongru-caveat",
+      "published_at": "2026-08-01",
+      "published_at_precision": "derived",
+      "hospital_region": "四川省成都市",
+      "hospital_id": "sc-wcsh",
+      "hospital_name_raw": "四川大学华西医院",
+      "doctor_name_raw": "朱鸿儒",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "diagnosed",
+      "experience": null,
+      "evidence_quote": "层主反馈是住院的时候在朱鸿儒医生课题组得到的诊断，但也有人说朱医生不看复杂创伤",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "帖主转述：有人住院期间在朱鸿儒医生课题组得到诊断（未写明病名，结合提问上下文为 CPTSD）；同时有人说朱医生不看复杂创伤。是对既有线索 xhs-383fe22b8b 的反面对照，原样保留两种说法。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "index_in_capture": "第 11 条 / 本次抓到 99 条",
+        "capture_scope": "comments/69ede05b00000000350314ef.json",
+        "is_reply": false
       }
     },
     {
@@ -266,6 +394,46 @@
         "is_reply": false,
         "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-a.webp（置顶评论名单截图，逐字转写）"
       }
+    },
+    {
+      "id": "xhs-13e1e2e421",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a747e520000000026034f1b",
+      "source_post_id": "6a747e520000000026034f1b#body-sc-wcsh-recruit",
+      "published_at": "2026-08-06",
+      "published_at_precision": "derived",
+      "hospital_region": "四川省成都市",
+      "hospital_id": "sc-wcsh",
+      "hospital_name_raw": "四川大学华西医院",
+      "department": "心理卫生中心",
+      "disorders": [
+        "cptsd",
+        "ptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "华西医院心理卫生中心招募 创伤后应激障碍/复杂性创伤后应激障碍（PTSD/CPTSD）受试者 啦！",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "招募信息帖：华西心理卫生中心 PTSD/CPTSD 课题组公开招募受试者，提示该院有面向 PTSD/CPTSD 的项目渠道；与评论线索（袁敏兰课题组、朱鸿儒课题组）相互印证。招募帖为项目方宣传口径，非就诊者亲历。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_full_text": "华西医院心理卫生中心招募 创伤后应激障碍/复杂性创伤后应激障碍（PTSD/CPTSD）受试者 啦！ 创伤事件每个人都可能遇到，比如长期经受反复的童年虐待、情感忽视、精神操控，经历或者目睹周围人经历家暴，职场或者校园霸凌，遭受车祸、地震等意外灾害，罹患重大疾病等， 如果出现脑中反复闯入的回忆，无法谈及一些人与事件，日常高警觉状态，自我长期负性自我状态等症状，持续一月以上，可以扫码评估或者私戳我咨询 噢，希望带你走出阴霾，世界和我爱着你 #华西医院 #四川华西医院心理卫生中心 #PTSD #创伤后应激障碍 #复杂性创伤后应激障 #CPTSD #精神科"
     },
     {
       "id": "xhs-155c877b68",
@@ -488,6 +656,76 @@
       "status": "published"
     },
     {
+      "id": "xhs-25855bb0ba",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/68465117000000000c039488",
+      "source_post_id": "68465117000000000c039488#body-unnamed-cptsd-naming",
+      "published_at": "2025-06-09",
+      "published_at_precision": "derived",
+      "hospital_name_raw": "帝都三甲医院（原文未点名）",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "consulted",
+      "experience": null,
+      "evidence_quote": "医生明确表示，CPTSD是国外流行叫法，目前国内没有通行这个叫法。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "未点名机构线索：医生明确表示国内诊断不通行「CPTSD」叫法，与既往多条「病历只写 PTSD/不写 CPTSD」的线索相互印证。地区仅有俚语「帝都」（通常指北京），原文未明写城市，hospital_region 留空。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-2740e2983f",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6871f6130000000010011fcd",
+      "source_post_id": "6871f6130000000010011fcd#body-unnamed-cptsd-medswitch",
+      "published_at": "2025-07-12",
+      "published_at_precision": "derived",
+      "hospital_name_raw": "（原文未点名）",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "treated",
+      "experience": null,
+      "evidence_quote": "他说这就是CPTSD。你以为你走出来了，但伤害还在，它已经嵌进了你对世界的反应方式里。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "未点名机构线索：CPTSD 复诊调药记录——接诊医生主动接手复杂多药方案（停部分旧药、加入新药），作者引述医生对 CPTSD 机制的解释。机构与医生均未点名，供「存在敢接手复杂用药的医生」一类经验参考。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-2c5f538831",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -530,6 +768,50 @@
         "index_in_capture": "第 8 条 / 本次抓到 19 条",
         "capture_scope": "comments/opencli/2026-09-11T09-36-53-245Z-page-page.json",
         "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图"
+      }
+    },
+    {
+      "id": "xhs-31120acf36",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-ranmanli-youth-clinic",
+      "published_at": "2026-08-26",
+      "published_at_precision": "derived",
+      "hospital_region": "重庆市",
+      "hospital_id": "cq-jwzx",
+      "hospital_name_raw": "重庆市精神卫生中心",
+      "doctor_name_raw": "冉曼利",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "哦哦好的！因为今天去看好像冉在青少年那个门诊oh……因为害怕去创伤门诊会被认为这种不算然后被狠狠驱赶创飞……[泪崩R]",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "提问者当天到院发现冉曼利当时在青少年门诊出诊（与既有「创伤门诊找冉曼利」线索互为补充，供挂号参考）；同时表达了对创伤门诊是否接诊 CPTSD 的顾虑。原帖上下文：帖主答复只有网友在创伤门诊找冉曼利确诊过的反馈。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "index_in_capture": "第 67 条 / 本次抓到 99 条",
+        "capture_scope": "comments/69ede05b00000000350314ef.json",
+        "is_reply": false
       }
     },
     {
@@ -881,6 +1163,50 @@
       }
     },
     {
+      "id": "xhs-495fb8c54c",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-zhangyanping-did-dismissive",
+      "published_at": "2026-08-20",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市",
+      "hospital_id": "bj-pku-international",
+      "hospital_name_raw": "北京大学国际医院",
+      "doctor_name_raw": "张艳萍",
+      "disorders": [
+        "did"
+      ],
+      "stage": "assessed",
+      "experience": null,
+      "evidence_quote": "而且她的一句话让我印象深刻：“你会发现（did）这回事是大家都有的”我感觉她在否认我的痛苦",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "对既有线索 xhs-861253eeb4 的负面补充：作者自述张艳萍称「你会发现（DID）这回事是大家都有的」，作者感觉被否认痛苦；三天后补评「被一整个创飞了 解离闪回了两天才缓过来」。另据同条评论：张艳萍以前在回龙观出诊、当时自述暂不出诊（回龙观名单含其名，供对照）。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "index_in_capture": "第 77 条 / 本次抓到 99 条",
+        "capture_scope": "comments/69ede05b00000000350314ef.json",
+        "is_reply": false
+      }
+    },
+    {
       "id": "xhs-4caedbfb23",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -929,6 +1255,50 @@
       }
     },
     {
+      "id": "xhs-4d44ae0344",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-zhangying-experience",
+      "published_at": "2026-07-25",
+      "published_at_precision": "derived",
+      "hospital_region": "浙江省杭州市",
+      "hospital_id": "zj-tongde",
+      "hospital_name_raw": "浙江省立同德医院",
+      "doctor_name_raw": "张滢",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "consulted",
+      "experience": null,
+      "evidence_quote": "张医生很温柔一直让我不要紧张慢慢说，讲话语气也很温柔。给他看了我写下来的“情况说明”，他对我的评价非常的一针见血，能讲到我创伤的地方以及针对我的创伤一直在夸我、肯定我。因为我是外地过来出差的，于是进行了相对简短的谈话治疗，并且给了我后续联系他的方式，以便于我外地诊疗。（我的创伤基本上来自于男性，所以一直以来我都没有找男医生就诊，但是张老师真的让我没有抗拒，他很温柔的）",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "外地出差患者带书面「情况说明」就诊的正面体验：谈话治疗、给了后续联系方式便于外地诊疗；作者自述因创伤来源避开男医生，但对该医生无抗拒。就诊语言为层主自述，医生为帖内既有反馈所指张滢。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "index_in_capture": "第 44 条 / 本次抓到 99 条",
+        "capture_scope": "comments/69ede05b00000000350314ef.json",
+        "is_reply": false
+      }
+    },
+    {
       "id": "xhs-50b5b4fbc6",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -958,6 +1328,83 @@
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
         "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-512e1d91f7",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69d7b0c4000000001d01f6da",
+      "source_post_id": "69d7b0c4000000001d01f6da#body-unnamed-dissociation-relief",
+      "published_at": "2026-04-09",
+      "published_at_precision": "derived",
+      "hospital_name_raw": "（原文未点名）",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "diagnosed",
+      "diagnosis_claimed": {
+        "code_raw": "CPTSD",
+        "basis": "unknown",
+        "confidence": "medium"
+      },
+      "experience": null,
+      "evidence_quote": "一般像你病得这么重的情况，是不太可能读到硕士的，更何况你读的还是极其消耗脑力的纯数学专业。我真的对你感到很佩服。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "未点名机构线索：确诊场景中医生对重症来访者的肯定式回应（作者在境外读研，就诊地点未知）。说明存在认真对待重症 CPTSD、不造成二次伤害的问诊方式，供就诊预期参考。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-57d2af19f0",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a40f6d00000000008003aee",
+      "source_post_id": "6a40f6d00000000008003aee#body-bjad-trauma-dismissive",
+      "published_at": "2026-06-28",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市",
+      "hospital_id": "bjad",
+      "hospital_name_raw": "北京安定医院",
+      "disorders": [
+        "other"
+      ],
+      "stage": "consulted",
+      "experience": null,
+      "evidence_quote": "因为疑似创伤反应去问诊，但那医生（好像叫bu力）上来就问我，要家属陪同，谁知道你经历的事情是不是真的，最后把我号退了",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "负面体验：因疑似创伤反应问诊，被要求家属陪同、质疑经历真实性，最终退号。医生名作者写作「bu力」，拼写存疑，不单列医生字段。文末作者转问六院处理疑似严重创伤案例是否也要家属陪同。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
         "captured_at": "2026-09-11"
       },
       "flags": {
@@ -1180,6 +1627,43 @@
       }
     },
     {
+      "id": "xhs-67c7310174",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a44b4e90000000008031901",
+      "source_post_id": "6a44b4e90000000008031901#body-sz-kn-therapy-1h",
+      "published_at": "2026-07-01",
+      "published_at_precision": "derived",
+      "hospital_region": "广东省深圳市",
+      "hospital_id": "sz-kn",
+      "hospital_name_raw": "深圳市康宁医院",
+      "disorders": [
+        "other"
+      ],
+      "stage": "seeking",
+      "experience": null,
+      "evidence_quote": "昨天挂了7月7号的号，半小时200块，今天接到了医生电话，说7月1日之后能约到1小时，价格是1小时300，而且好像还能用医保",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "深圳康宁医院心理治疗号源信息：当时半小时 200 元，院方电话告知 7 月 1 日起可约 1 小时 300 元、作者称「好像还能用医保」（作者自述未验证，原文为不确定语气）。作者已挂号尚未就诊，stage 记 seeking。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-6ce0359028",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -1222,6 +1706,44 @@
         "is_reply": false,
         "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-dissociative.webp（置顶评论名单截图，逐字转写）"
       }
+    },
+    {
+      "id": "xhs-70abeea202",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ce51ca00000000220036a9",
+      "source_post_id": "69ce51ca00000000220036a9#body-pkuh6-therapy-dispute",
+      "published_at": "2026-04-02",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市",
+      "hospital_id": "pkuh6",
+      "hospital_name_raw": "北京大学第六医院",
+      "department": "临床心理中心",
+      "disorders": [
+        "other"
+      ],
+      "stage": "treated",
+      "experience": null,
+      "evidence_quote": "我就是于某治疗师处长期咨询二十余次，结果问题进展到深处了，她以能力不足为由自己逃跑了，也没有转介，也没啥解释。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "在北大六院临床心理中心某治疗师处咨询二十余次后被告知「能力不足」终止且无转介；作者投诉后称遭拒诊拉黑并已起诉。注意帖首后补的前言立场反转：「出去转了一圈其他医院，北六果然还是顶尖的。别避雷了，有的选就不错了。」正反两面并存，原帖为准。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
     },
     {
       "id": "xhs-71578ced05",
@@ -1399,6 +1921,120 @@
         "is_reply": false,
         "capture_scope": "data/evidence/xiaohongshu/69ede05b00000000350314ef/list-cptsd-b.webp（置顶评论名单截图，逐字转写）"
       }
+    },
+    {
+      "id": "xhs-7ed2e16dc6",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a622f7a000000000101e614",
+      "source_post_id": "6a622f7a000000000101e614#body-pkuh6-mect-injury",
+      "published_at": "2026-07-23",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市",
+      "hospital_id": "pkuh6",
+      "hospital_name_raw": "北京大学第六医院",
+      "disorders": [
+        "other"
+      ],
+      "stage": "treated",
+      "experience": null,
+      "evidence_quote": "在北京大学第六医院诊疗过程中，因医护操作失误，导致我脚踝骨折，受伤当场医护人员仍然强制搀扶我走出治疗室，当时完全不重视我的受伤情况，严重缺乏医疗常识和专业性。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "医疗纠纷帖：诊疗中受伤致骨折、电休克（MECT）治疗被迫中断；帖中提及医院可提供艾司氯胺酮鼻喷替代方案、整套约 2 万元需全额自费——该价格与项目信息为纠纷帖单方陈述，仅作线索参考。原就诊疾病未写明，disorders 记 other。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-7ee60aa795",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/67764d5f0000000013019728",
+      "source_post_id": "67764d5f0000000013019728#body-sd-sdjw-scale-fee",
+      "published_at": "2025-01-02",
+      "published_at_precision": "derived",
+      "hospital_region": "山东省济南市",
+      "hospital_id": "sd-sdjw",
+      "hospital_name_raw": "山东省精神卫生中心",
+      "disorders": [
+        "other"
+      ],
+      "stage": "consulted",
+      "experience": null,
+      "evidence_quote": "让去做一些网上就能搜到的自评量表然后收这个费用，这真的合理吗#山东省精神卫生中心#强迫症",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "就诊成本吐槽：作者认为在山东省精神卫生中心被安排做网上可免费获得的自评量表并收费不合理（原帖正文较短，完整语义依赖标题与话题标签「山东省精神卫生中心」「强迫症」）。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-83993769b8",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/66f11c7b000000001902c4e1",
+      "source_post_id": "66f11c7b000000001902c4e1#body-unnamed-ptsd-soft-bipolar",
+      "published_at": "2024-09-23",
+      "published_at_precision": "derived",
+      "hospital_name_raw": "（原文未点名）",
+      "disorders": [
+        "ptsd"
+      ],
+      "stage": "diagnosed",
+      "diagnosis_claimed": {
+        "code_raw": "PTSD（伴软双相判断）",
+        "basis": "unknown",
+        "confidence": "medium"
+      },
+      "experience": null,
+      "evidence_quote": "检查一下果然是ptsd 我怀疑我转了双相 测试题反正说没有，但是医生主观诊断认为我软双相，要求我吃药我拒绝了，只开了两盒劳拉",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "未点名机构线索：抑郁随访中查出 PTSD，医生主观判断「软双相」并建议用药、作者拒绝后仅开劳拉西泮。机构未点名，反映「PTSD+双相边缘判断」的处方分歧现象。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
     },
     {
       "id": "xhs-861253eeb4",
@@ -2123,6 +2759,55 @@
       "status": "published"
     },
     {
+      "id": "xhs-a13bed95a4",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-zhangying-shumian",
+      "published_at": "2026-08-30",
+      "published_at_precision": "derived",
+      "hospital_region": "浙江省杭州市",
+      "hospital_id": "zj-tongde",
+      "hospital_name_raw": "浙江省立同德医院",
+      "doctor_name_raw": "张滢",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "diagnosed",
+      "diagnosis_claimed": {
+        "code_raw": "PTSD（书面）",
+        "basis": "medical_record",
+        "confidence": "medium"
+      },
+      "experience": null,
+      "evidence_quote": "对的主要是吃药，算是精神科医生，不是心理科。可以书面确诊ptsd，还是以吃药为主，比如他说我就不适合找心理医生，针对这个可以问一下有没有建议。",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "帖主答复层主提问（「治疗主要是吃药吗」）：张滢以药物治疗为主，属精神科而非心理科，可以书面确诊 PTSD。帖内「张医生/张老师」与既有线索 xhs-c28fcd6daa 指向同一医生（浙江省立同德医院 张滢）。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "index_in_capture": "第 58 条 / 本次抓到 99 条",
+        "capture_scope": "comments/69ede05b00000000350314ef.json",
+        "is_reply": false
+      }
+    },
+    {
       "id": "xhs-a1bfa81260",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -2801,6 +3486,50 @@
       "status": "published"
     },
     {
+      "id": "xhs-cb20e719b3",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-yuanminlan-wcsh",
+      "published_at": "2026-08-23",
+      "published_at_precision": "derived",
+      "hospital_region": "四川省成都市",
+      "hospital_id": "sc-wcsh",
+      "hospital_name_raw": "四川大学华西医院",
+      "doctor_name_raw": "袁敏兰",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "treated",
+      "experience": null,
+      "evidence_quote": "我在华西医院参加了袁敏兰的这个项目，但Cptsd仅限于他们课题组内部，开药还是按照焦虑抑郁来的。",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "华西 CPTSD 课题组项目参与者反馈：CPTSD 评估/干预限于课题组内部，开药按焦虑抑郁处理。与 6a747e52 招募帖（华西心理卫生中心 PTSD/CPTSD 受试者招募）相互印证。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "index_in_capture": "第 12 条 / 本次抓到 99 条",
+        "capture_scope": "comments/69ede05b00000000350314ef.json",
+        "is_reply": false
+      }
+    },
+    {
       "id": "xhs-cda9a5abe6",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -3395,6 +4124,55 @@
         "note_title": "北京回龙观医院创伤后应激障碍门诊开诊",
         "index_in_capture": "第 15 条 / 本次抓到 87 条",
         "capture_scope": "comments/69e7955a000000002200e48f.json",
+        "is_reply": false
+      }
+    },
+    {
+      "id": "xhs-f6f3aa7d70",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69ede05b00000000350314ef",
+      "source_post_id": "69ede05b00000000350314ef#c-liufei-feedback",
+      "published_at": "2026-08-23",
+      "published_at_precision": "derived",
+      "hospital_region": "上海市",
+      "hospital_id": "sh-tongji",
+      "hospital_name_raw": "上海市同济医院",
+      "doctor_name_raw": "刘飞",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "diagnosed",
+      "diagnosis_claimed": {
+        "code_raw": "CPTSD",
+        "basis": "medical_record",
+        "confidence": "high"
+      },
+      "experience": null,
+      "evidence_quote": "反馈:在上海同济刘飞医生那边得到确诊了 也写在病例单上了 因为去的是国际部 挂号费很贵 所以服务态度这块肯定是ok的 他本来就对CPTSD这块是有研究的 所以一上去我就说明了我要来看这个病 他很耐心的询问我的成长经历还有出现的各种症状 中间倾听的时候也能感受到他的共情 时长大概半个小时左右 目前给我开的方案是先吃药治疗 控制我的情绪还有解离的一些问题 每两周去本部找他复查一次",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "亲历反馈：国际部初诊约半小时，确诊 CPTSD 并写入病历；先吃药控制情绪与解离，每两周到本部复查。与既有名单线索 xhs-37d809f64c/xhs-a95bf0fb5c 指向同一医生。"
+      },
+      "extraction": {
+        "tool": "record.ts（离线摘取 2026-09-11 已抓取 raw，无网络请求）",
+        "run_id": "2026-09-12-offline-mining-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published",
+      "evidence_context": {
+        "note_title": "建设cptsd/人格障碍/osdd/did全国就诊地图",
+        "index_in_capture": "第 73 条 / 本次抓到 99 条",
+        "capture_scope": "comments/69ede05b00000000350314ef.json",
         "is_reply": false
       }
     },

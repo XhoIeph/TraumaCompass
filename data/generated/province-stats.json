@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-11T15:47:35.616Z",
+  "generated_at": "2026-09-11T19:16:31.065Z",
   "totals": {
-    "reports": 81,
-    "reports_unlocated": 6,
+    "reports": 100,
+    "reports_unlocated": 10,
     "hospitals": 75,
     "doctors": 0,
     "provinces_with_reports": 21,
@@ -12,13 +12,13 @@
   "items": [
     {
       "adcode": "110000",
-      "reports_total": 7,
+      "reports_total": 11,
       "reports_by_disorder": {
         "cptsd": 7,
         "bpd": 1
       },
       "reports_by_platform": {
-        "xiaohongshu": 7
+        "xiaohongshu": 11
       },
       "hospitals_total": 5,
       "hospitals_with_service_evidence": 5,
@@ -26,7 +26,7 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 7
+        "unverified": 11
       }
     },
     {
@@ -158,13 +158,13 @@
     },
     {
       "adcode": "310000",
-      "reports_total": 8,
+      "reports_total": 10,
       "reports_by_disorder": {
-        "cptsd": 6,
+        "cptsd": 7,
         "bpd": 1
       },
       "reports_by_platform": {
-        "xiaohongshu": 8
+        "xiaohongshu": 10
       },
       "hospitals_total": 5,
       "hospitals_with_service_evidence": 5,
@@ -172,7 +172,7 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 8
+        "unverified": 10
       }
     },
     {
@@ -196,13 +196,13 @@
     },
     {
       "adcode": "330000",
-      "reports_total": 4,
+      "reports_total": 6,
       "reports_by_disorder": {
-        "cptsd": 3,
+        "cptsd": 5,
         "bpd": 0
       },
       "reports_by_platform": {
-        "xiaohongshu": 4
+        "xiaohongshu": 6
       },
       "hospitals_total": 5,
       "hospitals_with_service_evidence": 5,
@@ -210,7 +210,7 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 4
+        "unverified": 6
       }
     },
     {
@@ -268,13 +268,13 @@
     },
     {
       "adcode": "370000",
-      "reports_total": 3,
+      "reports_total": 4,
       "reports_by_disorder": {
         "cptsd": 2,
         "bpd": 1
       },
       "reports_by_platform": {
-        "xiaohongshu": 3
+        "xiaohongshu": 4
       },
       "hospitals_total": 2,
       "hospitals_with_service_evidence": 2,
@@ -282,7 +282,7 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 3
+        "unverified": 4
       }
     },
     {
@@ -325,13 +325,13 @@
     },
     {
       "adcode": "430000",
-      "reports_total": 4,
+      "reports_total": 5,
       "reports_by_disorder": {
         "cptsd": 0,
-        "bpd": 3
+        "bpd": 4
       },
       "reports_by_platform": {
-        "xiaohongshu": 4
+        "xiaohongshu": 5
       },
       "hospitals_total": 3,
       "hospitals_with_service_evidence": 3,
@@ -339,18 +339,18 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 4
+        "unverified": 5
       }
     },
     {
       "adcode": "440000",
-      "reports_total": 11,
+      "reports_total": 12,
       "reports_by_disorder": {
         "cptsd": 9,
         "bpd": 2
       },
       "reports_by_platform": {
-        "xiaohongshu": 11
+        "xiaohongshu": 12
       },
       "hospitals_total": 8,
       "hospitals_with_service_evidence": 8,
@@ -358,7 +358,7 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 11
+        "unverified": 12
       }
     },
     {
@@ -401,13 +401,13 @@
     },
     {
       "adcode": "500000",
-      "reports_total": 3,
+      "reports_total": 4,
       "reports_by_disorder": {
-        "cptsd": 3,
+        "cptsd": 4,
         "bpd": 0
       },
       "reports_by_platform": {
-        "xiaohongshu": 3
+        "xiaohongshu": 4
       },
       "hospitals_total": 2,
       "hospitals_with_service_evidence": 2,
@@ -415,18 +415,18 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 3
+        "unverified": 4
       }
     },
     {
       "adcode": "510000",
-      "reports_total": 5,
+      "reports_total": 8,
       "reports_by_disorder": {
-        "cptsd": 4,
+        "cptsd": 7,
         "bpd": 3
       },
       "reports_by_platform": {
-        "xiaohongshu": 5
+        "xiaohongshu": 8
       },
       "hospitals_total": 7,
       "hospitals_with_service_evidence": 6,
@@ -434,7 +434,7 @@
       "verification": {
         "official": 0,
         "corroborated": 0,
-        "unverified": 5
+        "unverified": 8
       }
     },
     {
