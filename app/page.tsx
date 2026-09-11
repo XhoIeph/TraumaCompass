@@ -73,8 +73,8 @@ export default function HomePage() {
         </p>
         <div className="tc-note tc-note--warn" style={{ marginBottom: 0 }}>
           <strong>读之前请先知道：</strong>
-          线索密度反映的是「有多少人愿意在网上讲」，不是某地的确诊人数或医疗水平；
-          官方诊断体系与医保编码的落差才是本项目的核心议题，详见
+          地图上的圆点只表示「我们收集到了这家机构的公开线索」，条数多少反映的是「有多少人愿意在网上讲」，
+          不是当地的确诊人数或医疗水平；官方诊断体系与医保编码的落差才是本项目的核心议题，详见
           <Link href="/about/"> 关于与方法</Link>。
         </div>
       </section>
@@ -98,7 +98,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ChinaMap
+      <div className="tc-map-wide">
+        <ChinaMap
         provinces={provinces.map((province) => ({
           adcode: province.adcode,
           name: province.name,
@@ -116,7 +117,8 @@ export default function HomePage() {
         )}
         hospitals={mapHospitals}
         leadsByHospital={mapLeads}
-      />
+        />
+      </div>
 
       <section style={{ marginTop: 'var(--tc-space-5)' }}>
         <h2>首期收录的诊断</h2>

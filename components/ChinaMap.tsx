@@ -156,10 +156,11 @@ export function ChinaMap({ provinces, provinceStats, hospitals, leadsByHospital 
     () =>
       provinces.map((province) => ({
         name: province.name,
-        value: provinceStats[province.adcode]?.hospitals ?? 0,
+        // 不再传计数值：省份不做数据着色（早期版本的「线索密度」配色已删除），
+        // 统计数字只在悬停提示里以文字给出
         adcode: province.adcode,
       })),
-    [provinces, provinceStats],
+    [provinces],
   )
 
   const hospitalPoints = useMemo(
@@ -189,8 +190,18 @@ export function ChinaMap({ provinces, provinceStats, hospitals, leadsByHospital 
           map: 'traumacompass-china',
           roam: true,
           scaleLimit: { min: 1, max: 16 },
-          itemStyle: { areaColor: '#eef2f8', borderColor: '#ffffff', borderWidth: 0.8 },
-          emphasis: { itemStyle: { areaColor: '#dbe6f7' }, label: { show: true, fontSize: 11 } },
+          // 让地图尽量填满画布（大屏利用率），并统一底色：省份不按数据着色
+          layoutCenter: ['50%', '50%'],
+          layoutSize: '118%',
+          itemStyle: {
+            areaColor: '#e8eef7',
+            borderColor: '#ffffff',
+            borderWidth: 1,
+            shadowColor: 'rgba(55,99,200,0.10)',
+            shadowBlur: 6,
+          },
+          emphasis: { itemStyle: { areaColor: '#d5e2f6' }, label: { show: true, fontSize: 11 } },
+          select: { itemStyle: { areaColor: '#c7d9f4' }, label: { show: false } },
         },
         tooltip: {
           trigger: 'item',
@@ -380,7 +391,8 @@ export function ChinaMap({ provinces, provinceStats, hospitals, leadsByHospital 
                 <li>点击圆点：视角移动到该医院，并在这里展开它的线索与医生。</li>
               </ol>
               <p className="tc-small tc-faint" style={{ margin: 0 }}>
-                着色与圆点只反映「我们收集到多少公开信息」，既不代表当地医疗水平，也不是确诊人数统计。
+                省份本身不按数据着色；圆点只表示「我们收集到该机构有公开线索」，数量多少不代表当地医疗水平，
+                也不是确诊人数统计。
               </p>
             </div>
           )}

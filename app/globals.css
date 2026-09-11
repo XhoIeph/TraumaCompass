@@ -366,24 +366,37 @@ ol {
 
 /* ---------------------------------------------------------------- 地图 */
 
+/* 地图区允许突破正文 1120px 的栏宽，让地图尽量大 */
+.tc-map-wide {
+  width: min(1560px, calc(100vw - 32px));
+  margin-left: calc(50% - min(780px, 50vw - 16px));
+  margin-right: calc(50% - min(780px, 50vw - 16px));
+}
+
 .tc-map-layout {
   display: grid;
   gap: var(--tc-space-4);
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .tc-map-layout {
-    grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 340px);
   }
 }
 
 .tc-map-canvas {
   width: 100%;
-  height: 520px;
+  height: clamp(560px, 78vh, 960px);
   background: var(--tc-surface);
   border: 1px solid var(--tc-border);
   border-radius: var(--tc-radius);
+}
+
+@media (max-width: 640px) {
+  .tc-map-canvas {
+    height: clamp(420px, 62vh, 620px);
+  }
 }
 
 .tc-legend {
