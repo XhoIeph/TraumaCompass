@@ -28,12 +28,36 @@ authProfiles:
 
 ### 0.2 小红书（OpenCLI Browser Bridge）
 
-1. 用你日常浏览器（本机已装 Edge）打开 `edge://extensions`，开启「允许来自其他商店的扩展」。
+OpenCLI 分两半，两半都要在：
+
+| 半边 | 是什么 | 怎么装 | 状态自查 |
+| --- | --- | --- | --- |
+| CLI / daemon | `@jackwener/opencli`，随 dsh-browser 插件安装，监听 `127.0.0.1:19825` | 插件自带，无需单独装 | `browser_opencli_status` 显示 `[OK] Daemon` |
+| Browser Bridge 扩展 | 45KB 的 MV3 扩展，daemon 靠它操作浏览器 | 见下 | 同一命令显示 `[OK] Extension: connected` |
+
+**浏览器侧（已在本机实测通过）**
+
+1. 用日常浏览器打开 `edge://extensions`（本机只装了 Edge，Edge 实测可用）。
 2. 从 [Chrome Web Store](https://chromewebstore.google.com/detail/opencli/ildkmabpimmkaediidaifkhjpohdnifk) 安装 OpenCLI 扩展；
-   若商店不可用，从 [GitHub Releases](https://github.com/jackwener/opencli/releases) 下载 `opencli-extension-v{ver}.zip` 解压后「加载已解压的扩展程序」。
+   商店不可用时，从 [GitHub Releases](https://github.com/jackwener/opencli/releases) 下载 `opencli-extension-v{ver}.zip`，
+   解压后「加载解压缩的扩展」。扩展只用到 `debugger / tabs / cookies / activeTab / alarms / storage / tabGroups / downloads`，
+   没有 `minimum_chrome_version` 限制，因此 Edge 与 Chrome 都可运行。
 3. 在该浏览器登录小红书（**建议用小号**）。
-4. 验证：`browser_opencli_status` 显示 `Extension: connected`，且
-   `browser_opencli_run(["xiaohongshu","whoami","-f","json"])` 能返回当前账号。
+4. 注意冲突：开着 DevTools 或装了 1Password 这类抢占 CDP 的扩展时，`chrome.debugger` 可能 attach 失败。
+
+**DSH 侧（容易被忽略，且与"装 OpenCLI"无关）**
+
+`browser_opencli_run` 属于「general OpenCLI」，审批策略只由 `automationMode` 决定（`lib/approval-policy.js`）：
+
+| automationMode | 通用 OpenCLI | 页面交互 | 页面脚本 / 上传 / 安装 |
+| --- | --- | --- | --- |
+| `standard`（默认） | 走审批 | 走审批 | 走审批 |
+| `autonomous` | **仍走审批** | 直通 | 仍走审批 |
+| `unrestricted` | 直通 | 直通 | 直通 |
+
+因此采集需要 `unrestricted`。**保存后必须重启 profile 才生效**（运行中的进程在启动时读取配置）；
+若本会话的审批提示被禁用，未重启前所有"走审批"的调用都会被自动拒绝。
+
 
 ## 1. 每轮采集的固定流程
 
