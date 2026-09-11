@@ -1,16 +1,18 @@
 /**
  * 采集配额的纯逻辑（供 CLI 与调用包装脚本共用）。
- * 配额按自然日重置，落在 .secrets/quota.json。
+ *
+ * 注意：这些数字**完全是本项目自设的风控上限**，不是小红书或 OpenCLI 的限制。
+ * 目的只有一个：避免高频访问让账号被风控。需要时可以随时上调。
  */
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { SECRETS_DIR, readJson, today, writeJson } from '../lib/paths.ts'
 
 export const DAILY_CAPS = {
-  search: 15,
-  note: 30,
-  comments: 8,
-  total: 60,
+  search: 40,
+  note: 80,
+  comments: 60,
+  total: 200,
 } as const
 
 export type QuotaKind = 'search' | 'note' | 'comments'

@@ -81,7 +81,22 @@ OpenCLI 分两半，两半都要在：
 - 一条笔记可以产出**多条线索**（正文一条 + 不同评论各一条）：
   `source_post_id` 加 `#c-<标识>` 区分，`record.ts` 按 id 判重，不再按来源链接整体判重。
 
-### 1.2 命令序列
+### 1.2 截图证据（重要：名单常在图片里）
+
+这两条汇总帖的完整名单其实**是截图**，正文只写了一部分。处理方式：
+
+1. **找图**：`collect:run page --url "<签名笔记链接>" --js-file tmp/scan-page-images-deep.js --kind search`
+   —— 该脚本会展开折叠回复、把整个评论区滚到底，再收集所有 CDN 图片（`inComment` 标记区分正文图与评论图）。
+2. **下图**：用返回的 `src` 直接 `curl` 下载。注意小红书返回的是 **WebP**（即使文件名像 jpg），
+   扩展名要写 `.webp`，否则读图工具会因格式不符拒绝。
+3. **读图转写**：本模型支持图像输入，**直接读图即可，不需要 OCR 依赖**。
+   逐张转写为「医院 + 医生 + 标注（书面/口头/触发风险/进修中）」的结构化条目。
+4. **归档**：图片放进 `data/evidence/<platform>/<post-id>/`，在 `data/evidence/descriptions.json`
+   写明 `contains` 与逐字 `transcription`，然后跑
+   `node scripts/collect/build-evidence-manifest.ts` 生成带 SHA-256 与出处的 `manifest.json`。
+   仓库里必须能追溯「这句话是从哪张图来的」，因为原帖和图片链接都可能失效。
+
+### 1.3 命令序列
 
 ```powershell
 # 1) 看今日还剩多少额度（每次调用会自动 check + consume）

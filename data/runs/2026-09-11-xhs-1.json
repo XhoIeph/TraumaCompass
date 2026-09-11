@@ -570,6 +570,96 @@
         "cptsd",
         "other"
       ]
+    },
+    {
+      "at": "2026-09-11T10:08:38.408Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-07fde55d29",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "fj-hxxm",
+      "disorders": [
+        "bpd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:08:38.696Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-4caedbfb23",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "gd-gdph",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:08:39.642Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-8ac161a122",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "gz-tcmy1",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:08:40.510Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-17fb18849b",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "hn-xy2",
+      "disorders": [
+        "bpd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:08:40.750Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-928a45adba",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "js-dbzq",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:08:41.103Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-5892811db0",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "js-tkxlg",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:08:41.231Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-ff6329a774",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "js-xzdf",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:08:42.055Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-dc2c3fc4be",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "sc-my3",
+      "disorders": [
+        "bpd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:08:42.423Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-baa3126f0f",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "hospital_id": "sc-yb4",
+      "disorders": [
+        "cptsd"
+      ]
     }
   ]
 }

@@ -87,6 +87,45 @@
       "status": "published"
     },
     {
+      "id": "xhs-07fde55d29",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-bpd-fj-hxxm",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "福建省厦门市",
+      "hospital_id": "fj-hxxm",
+      "hospital_name_raw": "四川大学华西厦门医院",
+      "department": "精神科",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "华西厦门医院",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自名单截图（BPD 段），原文未列具体医生。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-08869acc23",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -195,6 +234,45 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图。该院在名单中被同时列为 CPTSD、NPD、ASPD 的专家会诊机构。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-17fb18849b",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-bpd-hn-xy2",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "湖南省长沙市",
+      "hospital_id": "hn-xy2",
+      "hospital_name_raw": "中南大学湘雅二医院",
+      "department": "精神卫生研究所",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "湖南长沙湘雅二医院",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自名单截图（BPD 段），原文未列具体医生。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -617,6 +695,50 @@
       "status": "published"
     },
     {
+      "id": "xhs-4caedbfb23",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-houcailan-review-gd-gdph",
+      "author_alias": "xhs-730dad3e",
+      "published_at": "2026-04-27",
+      "published_at_precision": "derived",
+      "hospital_region": "广东省广州市",
+      "hospital_id": "gd-gdph",
+      "hospital_name_raw": "广东省人民医院",
+      "department": "精神科",
+      "doctor_name_raw": "侯彩兰",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": 5,
+      "cost_cny": {
+        "min": 50,
+        "max": 1280
+      },
+      "evidence_quote": "她有ptsd/c-ptsd诊断经验并有相关研究，她非常温和耐心，并且愿意倾听患者诉求，开药很对症，并且不止开药，会根据你的情况帮忙制定药物和非药物的治疗计划。",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据为评论区贴出的完整体验长文（已归档 review-gdph-houcailan.webp）。原文要点：① 口头诊断，「目前医疗系统无法确诊 c-ptsd」；② 号费 50，专家号 500/1000/1280；首诊检查血常规肝肾功能 150-200、脑电图 100-200、焦虑抑郁量表 70-90、PTSD 量表 20；③ 便宜号每周仅一个下午，难抢；④ 可加入其学生郑硕的 tf-cbt 对 cptsd 疗效研究。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-50b5b4fbc6",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -643,6 +765,47 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "网友汇总帖正文点名（非本人就诊）。同一帖另列该院仇剑崟医生（分离转换障碍，书面）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-5892811db0",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-liubin-taikang-js-tkxlg",
+      "author_alias": "xhs-9e36d707",
+      "published_at": "2026-08-20",
+      "published_at_precision": "derived",
+      "ip_location": "江苏",
+      "hospital_region": "江苏省南京市",
+      "hospital_id": "js-tkxlg",
+      "hospital_name_raw": "泰康仙林鼓楼医院",
+      "department": "医学心理科",
+      "doctor_name_raw": "刘斌",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "姓名：刘斌 科室：医学心理科 职务职称：副主任医师.硕士研究生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据为评论中贴出的挂号页截图（已归档 profile-liubin-taikang.webp）：刘斌现任该院医学心理科副主任（主持工作），曾任东部战区总医院精神心理科。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -1020,6 +1183,46 @@
       "status": "published"
     },
     {
+      "id": "xhs-8ac161a122",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-liyan-gz-tcmy1",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "贵州省贵阳市",
+      "hospital_id": "gz-tcmy1",
+      "hospital_name_raw": "贵州中医药大学第一附属医院",
+      "department": "心身疾病科心理睡眠门诊",
+      "doctor_name_raw": "李燕",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "贵州中医院大学第一附属医院：（心身疾病科心理睡眠门诊）李燕医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自名单截图；原文机构名写作「贵州中医院大学第一附属医院」，按通行名称记为「贵州中医药大学第一附属医院」。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-8d4f7eea3b",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -1253,6 +1456,47 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图。名单另列「四川省精神卫生中心/绵阳三医院：杨昆医生」（BPD 段）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-928a45adba",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-liubin-905-js-dbzq",
+      "author_alias": "xhs-9e36d707",
+      "published_at": "2026-08-20",
+      "published_at_precision": "derived",
+      "ip_location": "江苏",
+      "hospital_region": "江苏省南京市",
+      "hospital_id": "js-dbzq",
+      "hospital_name_raw": "中国人民解放军东部战区总医院",
+      "department": "精神心理科",
+      "doctor_name_raw": "刘斌",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "刘斌 副主任医师 精神心理科 中国人民解放军东部战区总医院（三甲）",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据为评论中贴出的医生执业信息截图（百度健康页面，已归档 profile-liubin-905.webp）。另有评论称「当时给我 cptsd 的医生跳槽了，他本来是军总精神科主任」。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -1716,6 +1960,46 @@
       "status": "published"
     },
     {
+      "id": "xhs-baa3126f0f",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-wangmin-sc-yb4",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "四川省宜宾市",
+      "hospital_id": "sc-yb4",
+      "hospital_name_raw": "宜宾市第四人民医院",
+      "department": "精神科",
+      "doctor_name_raw": "王敏",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "四川省宜宾第四人民医院：王敏医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自名单截图（data/evidence/xiaohongshu/69f19ded0000000036003cb5/list-dissociative-cptsd-continued.webp）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-bcaa46a2a2",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -1943,6 +2227,46 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "网友汇总帖正文点名（非本人就诊），原文称「全科都可以」。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-dc2c3fc4be",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-yangkun-sc-my3",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "四川省绵阳市",
+      "hospital_id": "sc-my3",
+      "hospital_name_raw": "绵阳市第三人民医院",
+      "department": "精神科",
+      "doctor_name_raw": "杨昆",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "四川省精神卫生中心/绵阳三医院：杨昆医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自名单截图（BPD 段）。原文将「四川省精神卫生中心」与「绵阳三医院」并列书写，实际应为同一机构的两块牌子，就诊前需自行确认。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -2261,6 +2585,46 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图。与回龙观医院并列，是名单中少数明确标注「创伤专病门诊」的机构。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-ff6329a774",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69f19ded0000000036003cb5",
+      "source_post_id": "69f19ded0000000036003cb5#shot-zhuangeryang-js-xzdf",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-04-26",
+      "published_at_precision": "derived",
+      "hospital_region": "江苏省徐州市",
+      "hospital_id": "js-xzdf",
+      "hospital_name_raw": "徐州市东方人民医院",
+      "department": "精神科",
+      "doctor_name_raw": "庄二阳",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "江苏徐州东方医院：庄二阳医生",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "转写自名单截图；机构全称按「徐州市东方人民医院」记录，原文仅写简称。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",

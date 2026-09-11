@@ -406,7 +406,8 @@
         "icd11_practice": "unknown",
         "evidence": [
           "评论汇总（2026-08-18）：广东省人民医院侯彩兰教授（CPTSD）。",
-          "名单截图（置顶评论，2026-04-26）：广东省人民医院李刚医生（CPTSD）。"
+          "名单截图（置顶评论，2026-04-26）：广东省人民医院李刚医生（CPTSD）。",
+          "评论附图长文（2026-04-27）：广东省人民医院侯彩兰主任有 PTSD/C-PTSD 诊断经验与研究，口头诊断、可协商费用、号源紧张；并提示「目前医疗系统无法确诊 c-ptsd」。"
         ]
       },
       "coordinates": null,
@@ -1230,6 +1231,218 @@
         "icd11_practice": "unknown",
         "evidence": [
           "名单截图（置顶评论，2026-04-26）：青岛市精神卫生中心宋欣欣医生（CPTSD，标注进修中）、张永东医生（分离转换障碍/多重人格障碍）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sc-yb4",
+      "name": "宜宾市第四人民医院",
+      "aliases": [
+        "四川省宜宾第四人民医院"
+      ],
+      "adcode": "510000",
+      "province": "四川省",
+      "city": "宜宾市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：宜宾市第四人民医院王敏医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "js-xzdf",
+      "name": "徐州市东方人民医院",
+      "aliases": [
+        "江苏徐州东方医院"
+      ],
+      "adcode": "320000",
+      "province": "江苏省",
+      "city": "徐州市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：徐州市东方人民医院庄二阳医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gz-tcmy1",
+      "name": "贵州中医药大学第一附属医院",
+      "aliases": [
+        "贵州中医院大学第一附属医院"
+      ],
+      "adcode": "520000",
+      "province": "贵州省",
+      "city": "贵阳市",
+      "level": "未知",
+      "category": "综合医院心理科",
+      "departments": [
+        "心身疾病科心理睡眠门诊"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：贵州中医药大学第一附属医院心身疾病科心理睡眠门诊李燕医生（CPTSD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sc-my3",
+      "name": "绵阳市第三人民医院",
+      "aliases": [
+        "绵阳三医院",
+        "四川省精神卫生中心"
+      ],
+      "adcode": "510000",
+      "province": "四川省",
+      "city": "绵阳市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": [
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：绵阳市第三人民医院（四川省精神卫生中心）杨昆医生（BPD）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "fj-hxxm",
+      "name": "四川大学华西厦门医院",
+      "aliases": [
+        "华西厦门医院"
+      ],
+      "adcode": "350000",
+      "province": "福建省",
+      "city": "厦门市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "精神科",
+        "心理科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：华西厦门医院（BPD，未列医生）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "hn-xy2",
+      "name": "中南大学湘雅二医院",
+      "aliases": [
+        "湘雅二院"
+      ],
+      "adcode": "430000",
+      "province": "湖南省",
+      "city": "长沙市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "精神卫生研究所",
+        "精神科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "名单截图（置顶评论，2026-04-26）：湘雅二医院（BPD，未列医生）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "js-dbzq",
+      "name": "中国人民解放军东部战区总医院",
+      "aliases": [
+        "东部战区总医院",
+        "南京军总"
+      ],
+      "adcode": "320000",
+      "province": "江苏省",
+      "city": "南京市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": [
+        "精神心理科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "评论附图（2026-08-20）：东部战区总医院精神心理科刘斌副主任医师（截图来自公开医生信息页）。"
+        ]
+      },
+      "coordinates": null,
+      "official_sources": [],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "js-tkxlg",
+      "name": "泰康仙林鼓楼医院",
+      "aliases": [
+        "南京大学医学院附属泰康仙林鼓楼医院"
+      ],
+      "adcode": "320000",
+      "province": "江苏省",
+      "city": "南京市",
+      "level": "未知",
+      "category": "综合医院心理科",
+      "departments": [
+        "医学心理科"
+      ],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "评论附图（2026-08-20）：泰康仙林鼓楼医院医学心理科刘斌副主任医师（原东部战区总医院精神心理科）。"
         ]
       },
       "coordinates": null,
