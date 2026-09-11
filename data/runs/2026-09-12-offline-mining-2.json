@@ -1,0 +1,46 @@
+{
+  "run_id": "2026-09-12-offline-mining-2",
+  "started_at": "2026-09-11T19:32:51.550Z",
+  "entries": [
+    {
+      "at": "2026-09-11T19:32:51.550Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-df946a907e",
+      "source_url": "https://www.xiaohongshu.com/explore/67d6f830000000000b017407",
+      "hospital_id": "bjad",
+      "disorders": [
+        "other"
+      ]
+    },
+    {
+      "at": "2026-09-11T19:32:51.677Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-084f8f6d4c",
+      "source_url": "https://www.xiaohongshu.com/explore/6a9e7982000000002502d06d",
+      "hospital_id": "js-njbk",
+      "disorders": [
+        "other"
+      ]
+    },
+    {
+      "at": "2026-09-11T19:32:51.802Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-b533b8a920",
+      "source_url": "https://www.xiaohongshu.com/explore/67ae0cd500000000170382aa",
+      "hospital_id": "js-njbk",
+      "disorders": [
+        "other"
+      ]
+    },
+    {
+      "at": "2026-09-11T19:32:51.923Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-e6dd92c6ce",
+      "source_url": "https://www.xiaohongshu.com/explore/67a45002000000002901eaae",
+      "hospital_id": "zdyfy",
+      "disorders": [
+        "cptsd"
+      ]
+    }
+  ]
+}
