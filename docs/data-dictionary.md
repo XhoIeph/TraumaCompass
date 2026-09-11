@@ -99,7 +99,12 @@ data/
 | --- | --- | --- |
 | `data/raw/reports.jsonl` | 原始草稿留痕（含真实昵称、原始带 token 链接） | 否（gitignored） |
 | `data/raw/drafts/*.json` | OpenCLI 导入的待补全草稿 | 否 |
+| `data/raw/sweep/{state,pending}.json` | 扫词状态（见过的笔记）与待抓队列 | 否 |
+| `data/raw/notes/<note_id>.json` | 已抓取的笔记正文（含签名 URL 与来源检索词） | 否 |
+| `data/raw/comments/<note_id>.json` | 已抓取的评论（作者/时间+IP 属地/正文/点赞） | 否 |
+| `data/raw/triage/*.json` | 分诊候选（笔记或评论聚类出的医院/医生） | 否 |
 | `data/runs/<run_id>.json` | 采集运行日志（只有 id/平台/链接/疾病，已脱敏） | 是 |
+| `data/evidence/**` | **截图证据归档**（含 manifest、转写、SHA-256） | 是 |
 | `.secrets/salt.txt` | 哈希盐 | 否 |
-| `.secrets/quota.json` | 每日配额计数 | 否 |
+| `.secrets/quota.json` | 每日调用计数（**仅统计，无上限**） | 否 |
 | `.secrets/zhihu-state.json` | 知乎登录态 | 否 |

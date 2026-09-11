@@ -20,6 +20,13 @@
     "data:stats": "node scripts/data-stats.ts",
     "audit:sources": "node scripts/audit-sources.ts",
     "collect:quota": "node scripts/collect/quota.ts",
+    "collect:run": "node scripts/collect/run-opencli.ts",
+    "collect:sweep": "node scripts/collect/sweep.ts",
+    "collect:fetch": "node scripts/collect/fetch-notes.ts",
+    "collect:triage": "node scripts/collect/triage-notes.ts",
+    "collect:triage-comments": "node scripts/collect/triage-comments.ts",
+    "collect:leads": "node scripts/collect/import-leads.ts",
+    "evidence:manifest": "node scripts/collect/build-evidence-manifest.ts",
     "collect:record": "node scripts/collect/record.ts",
     "collect:import": "node scripts/collect/import-opencli.ts"
   },

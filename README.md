@@ -69,15 +69,19 @@ public/geo/          省级底图（示意性质，非标准地图）
 | `npm run data:validate` | 数据校验，`prebuild` 阶段自动运行，出错即阻断构建 |
 | `npm run data:stats` | 数据体检：平台分布、核验等级、省级覆盖缺口 |
 | `npm run audit:sources -- --write` | 原帖可达性巡检 |
-| `npm run collect:quota -- status` | 查看当日采集配额 |
+| `npm run collect:sweep` | 全量扫词 → 发现新笔记（含签名链接）与待抓队列 |
+| `npm run collect:fetch -- --limit 40` | 批量抓正文到 `data/raw/notes/`（不回显正文） |
+| `npm run collect:triage` | 按医院/医生关键词分诊已抓正文 |
+| `npm run collect:quota -- status` | 查看当日采集用量（仅统计，无上限） |
 | `npm run collect:import -- --in x.json --kind search` | OpenCLI 输出 → 待补全草稿 |
 | `npm run collect:record -- --in draft.json` | 草稿 → 公开数据（先加 `--dry-run` 检查） |
 
-## 采集纪律（硬约束）
+## 采集纪律
 
-- 每日上限：搜索 ≤15 次、笔记详情 ≤30 篇、评论 ≤8 篇、总调用 ≤60 次（`scripts/collect/quota.ts` 强制）。
+- **不设数量上限**（`collect:quota` 只统计用量）。停止条件：① 平台出现登录墙/验证码/限流；
+  ② 连续多轮检索不再产出高相关度新内容（饱和）。
 - 只读公开内容；通过已登录的真实浏览器会话进行，**不逆向接口、不复现签名、不绕验证码**。
-- 出现登录墙 / 验证码 / 限流立即停止本轮。
+- 节奏保持人类尺度（单线程、单标签页）；规模大时建议用小号。
 - 详见 [docs/collection-runbook.md](docs/collection-runbook.md) 与 [docs/compliance.md](docs/compliance.md)。
 
 ## 部署到 GitHub Pages

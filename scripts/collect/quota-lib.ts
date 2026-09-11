@@ -1,20 +1,16 @@
 /**
- * 采集配额的纯逻辑（供 CLI 与调用包装脚本共用）。
+ * 采集用量统计（**不是配额**）。
  *
- * 注意：这些数字**完全是本项目自设的风控上限**，不是小红书或 OpenCLI 的限制。
- * 目的只有一个：避免高频访问让账号被风控。需要时可以随时上调。
+ * 用户已明确取消所有自设上限：这里只记录「今天做了多少次调用」用于复盘与风控观察，
+ * 永远不会因为数量而拒绝执行。真正需要停下来的信号只有两个：
+ *   1) 平台出现登录墙 / 验证码 / 限流页 —— 立即停止；
+ *   2) 检索连续多轮不再产出高相关度新内容（饱和）。
  */
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { SECRETS_DIR, readJson, today, writeJson } from '../lib/paths.ts'
 
-export const DAILY_CAPS = {
-  search: 40,
-  note: 80,
-  comments: 60,
-  total: 200,
-} as const
-
+/** 仅用于统计展示，不再有任何拦截作用 */
 export type QuotaKind = 'search' | 'note' | 'comments'
 
 export type QuotaState = {
@@ -43,21 +39,9 @@ export function saveQuota(state: QuotaState): void {
   writeJson(QUOTA_FILE, state)
 }
 
-export function remainingQuota(state: QuotaState, kind: QuotaKind): number {
-  const kindLeft = DAILY_CAPS[kind] - state.counts[kind]
-  const totalLeft = DAILY_CAPS.total - state.counts.total
-  return Math.max(0, Math.min(kindLeft, totalLeft))
-}
-
-/** 检查并记账；配额不足时抛出，调用方不应绕过。 */
+/** 记录一次调用。永远不抛错、不拒绝。 */
 export function consumeQuota(kind: QuotaKind, amount = 1): QuotaState {
   const state = loadQuota()
-  const left = remainingQuota(state, kind)
-  if (amount > left) {
-    throw new Error(
-      `今日「${kind}」配额不足：请求 ${amount}，剩余 ${left}（上限 ${DAILY_CAPS[kind]}，总上限 ${DAILY_CAPS.total}）。请明天继续，不要绕过配额。`,
-    )
-  }
   state.counts[kind] += amount
   state.counts.total += amount
   saveQuota(state)
@@ -66,7 +50,8 @@ export function consumeQuota(kind: QuotaKind, amount = 1): QuotaState {
 
 export function formatQuota(state: QuotaState): string {
   const parts = (['search', 'note', 'comments'] as QuotaKind[]).map(
-    (kind) => `${kind} ${state.counts[kind]}/${DAILY_CAPS[kind]}`,
+    (kind) => `${kind} ${state.counts[kind]}`,
   )
-  return `${state.date}｜${parts.join('｜')}｜总 ${state.counts.total}/${DAILY_CAPS.total}`
+  return `${state.date}｜${parts.join('｜')}｜总 ${state.counts.total}`
 }
+

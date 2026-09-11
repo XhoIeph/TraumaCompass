@@ -20,7 +20,7 @@ import { closeSync, existsSync, mkdirSync, openSync, readFileSync } from 'node:f
 import { spawnSync } from 'node:child_process'
 import { resolve } from 'node:path'
 import { RAW_DIR, today } from '../lib/paths.ts'
-import { type QuotaKind, consumeQuota, formatQuota, loadQuota, remainingQuota } from './quota-lib.ts'
+import { type QuotaKind, consumeQuota, formatQuota } from './quota-lib.ts'
 
 const OPENCLI_ENTRY =
   process.env.OPENCLI_ENTRY ??
@@ -121,12 +121,6 @@ if (command === 'page') {
   }
   const js = readFileSync(jsPath, 'utf8')
 
-  const state = loadQuota()
-  if (remainingQuota(state, kind) <= 0) {
-    console.error(`✗ 今日「${kind}」配额已用尽，拒绝执行。`)
-    process.exit(1)
-  }
-
   if (url) {
     const openTarget = outPath('browser-open')
     const opened = runCli(['browser', session, 'open', url], openTarget)
@@ -181,14 +175,6 @@ const positional = rest.filter((value) => !value.startsWith('--'))
 if (positional.length === 0) {
   console.error(`缺少参数：${command === 'search' ? '检索词' : '笔记链接'}`)
   process.exit(2)
-}
-
-{
-  const state = loadQuota()
-  if (remainingQuota(state, kind) <= 0) {
-    console.error(`✗ 今日「${kind}」配额已用尽，拒绝执行。`)
-    process.exit(1)
-  }
 }
 
 const cliArgs = ['xiaohongshu', command, ...positional, '-f', 'json']
