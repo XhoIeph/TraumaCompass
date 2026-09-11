@@ -61,33 +61,59 @@ OpenCLI 分两半，两半都要在：
 
 ## 1. 每轮采集的固定流程
 
+### 1.1 实测结论（2026-09-11 首次采集）
+
+站内适配器目前有**列表截断**问题，实测对策如下：
+
+| 目标 | 站内适配器 | 实测对策 |
+| --- | --- | --- |
+| 搜索列表 | `xiaohongshu search` 只回 **1 条** | 用 `collect:run page --url "<搜索页>" --js-file tmp/extract-search.js` → **20 条，全部带签名** |
+| 笔记正文 | `xiaohongshu note` 正常（返回 `{field,value}` 键值对） | 直接可用，但**必须传带 `xsec_token` 的签名 URL**，`/explore/<id>` 会被拒绝（`ARGUMENT`）|
+| 笔记评论 | `xiaohongshu comments` 只回 **1 条** | 用 `collect:run page --url "<签名笔记链接>" --js-file tmp/extract-comments.js` |
+
+要点：
+
+- **签名 URL 只在搜索页 DOM 的 `a.cover.mask` 上**，普通 `/explore/` 链接不带 token —— 抽取脚本必须优先取它。
+- 评论里经常直接出现医院名与医生名（例："去郑大一附院看就OK了""我当年在重庆附一医院诊治的"），
+  且评论行自带**作者、时间与 IP 属地**，是「具体评价」的主要来源。
+- `note` 返回的笔记没有发布时间字段，用 **note_id 前 8 位十六进制**（ObjectID 时间戳）推导，
+  `published_at_precision` 记 `derived`。
+- 一条笔记可以产出**多条线索**（正文一条 + 不同评论各一条）：
+  `source_post_id` 加 `#c-<标识>` 区分，`record.ts` 按 id 判重，不再按来源链接整体判重。
+
+### 1.2 命令序列
+
 ```powershell
-# 1) 看今日还剩多少额度
-cmd /c "npm run collect:quota -- status"
+# 1) 看今日还剩多少额度（每次调用会自动 check + consume）
+node scripts/collect/quota.ts status
 
-# 2) 采集前检查具体类别（超额会退出码 1，不要绕过）
-cmd /c "npm run collect:quota -- check note"
+# 2) 取整页搜索结果（含签名链接），1 次 search 配额
+node scripts/collect/run-opencli.ts page --url "https://www.xiaohongshu.com/search_result?keyword=CPTSD%20%E5%8C%BB%E9%99%A2%20%E8%AF%8A%E6%96%AD" --js-file tmp/extract-search.js
 
-# 3) 检索（小红书）
-#    browser_opencli_run(["xiaohongshu","search","<query>","--limit","20","-f","json"])
-#    把输出存成 tmp/xhs-search.json
+# 3) 挑出目标笔记 → 取正文（1 次 note 配额）
+node scripts/collect/run-opencli.ts note "<从原始文件里取的签名 URL>"
 
-# 4) 记账
-cmd /c "npm run collect:quota -- consume search 1"
+# 4) 取评论（1 次 comments 配额）
+node scripts/collect/run-opencli.ts page --url "<签名 URL>" --js-file tmp/extract-comments.js --kind comments
 
-# 5) 结构化 → 草稿
-cmd /c "npm run collect:import -- --in tmp/xhs-search.json --kind search --run 2026-09-11-xhs-1"
+# 5) 人工判断医院/医生/疾病/阶段 → 写 draft.json
+# 6) 入库（先干跑）
+node scripts/collect/record.ts --in tmp/drafts/d1.json --dry-run
+node scripts/collect/record.ts --in tmp/drafts/d1.json
 
-# 6) 打开笔记详情补正文与评论（每条都要单独记账）
-#    browser_opencli_run(["xiaohongshu","note","<带 xsec_token 的完整链接>","-f","json"])
-#    browser_opencli_run(["xiaohongshu","comments","<链接>","--limit","10","-f","json"])
-cmd /c "npm run collect:quota -- consume note 1"
-
-# 7) 人工判断草稿里的医院/医生/疾病/阶段 → 补全 draft.json
-# 8) 入库（先干跑看一遍）
-cmd /c "npm run collect:record -- --in tmp/draft.json --dry-run"
-cmd /c "npm run collect:record -- --in tmp/draft.json"
+# 7) 校验与聚合
+node scripts/validate-data.ts && node scripts/build-aggregates.ts && node scripts/data-stats.ts
 ```
+
+原始 JSON 全部落在 `data/raw/opencli/`（gitignored），脚本只回显精简摘要，避免污染对话上下文。
+
+### 1.3 旧命令（保留兼容）
+
+```powershell
+cmd /c "npm run collect:quota -- status"
+cmd /c "npm run collect:import -- --in tmp/xhs-search.json --kind search --run 2026-09-11-xhs-1"
+```
+
 
 ## 2. 草稿（draft.json）字段
 

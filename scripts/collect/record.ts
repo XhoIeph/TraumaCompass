@@ -97,7 +97,12 @@ const id = recordIdFor(draft.platform, effectivePostId)
 const reportsFile = readJson<{ schema_version: string; updated_at: string; items: Report[] }>(
   CURATED_FILES.reports,
 )
-const duplicate = reportsFile.items.find((item) => item.id === id || item.source_url === canonical)
+// 去重：同一个「证据点」只入库一次。同一条笔记的正文与不同评论可以各自成为独立线索，
+// 因此按 id 判重；若 id 不同但来源链接与摘录都相同，视为重复抓取。
+const duplicate = reportsFile.items.find(
+  (item) =>
+    item.id === id || (item.source_url === canonical && item.evidence_quote === draft.evidence_quote),
+)
 
 if (duplicate) {
   console.log(`↷ 已存在，跳过：${duplicate.id}（${duplicate.source_url}）`)

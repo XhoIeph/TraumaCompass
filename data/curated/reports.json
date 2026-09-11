@@ -1,5 +1,265 @@
 {
   "schema_version": "1.0.0",
   "updated_at": "2026-09-11",
-  "items": []
+  "items": [
+    {
+      "id": "xhs-0341ce72d9",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a8f9dd9000000002903fced",
+      "source_post_id": "6a8f9dd9000000002903fced",
+      "author_alias": "xhs-1e799221",
+      "published_at": "2026-08-27",
+      "published_at_precision": "derived",
+      "hospital_region": "广东省广州市",
+      "hospital_id": "gzbrain",
+      "hospital_name_raw": "广州医科大学附属脑科医院（广脑）",
+      "department": "精神科",
+      "doctor_name_raw": "彭红军",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "seeking",
+      "experience": null,
+      "cost_cny": {
+        "min": 50,
+        "max": 50
+      },
+      "evidence_quote": "明天就要去看很焦虑想看是不是cptsd，需要直接跟医生提出来吗？描述症状要怎么说比较好，需要提及创伤回忆还是直接说平时心理状态就好了呢？也有点怕50的号不能说详细点。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "单条自述；医生姓名「彭红军」来自原文与标签，未在院内官方渠道核实，故未建立医生条目。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu note",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-1cc946e732",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a8ed8cb000000000502bd26",
+      "source_post_id": "6a8ed8cb000000000502bd26",
+      "author_alias": "xhs-a28adbc9",
+      "published_at": "2026-08-26",
+      "published_at_precision": "derived",
+      "hospital_region": "河南省郑州市",
+      "hospital_id": "zdyfy",
+      "hospital_name_raw": "郑大一附院",
+      "department": "精神科",
+      "disorders": [
+        "cptsd",
+        "did"
+      ],
+      "stage": "diagnosed",
+      "diagnosis_claimed": {
+        "code_raw": "cptsd（原文未给编码）",
+        "basis": "medical_record",
+        "confidence": "medium"
+      },
+      "experience": 2,
+      "evidence_quote": "其实24年末就拿到cptsd诊断了但是很少来看，毕竟体验一直不太好。……其次就是就诊不是一室一患，五年了还是这样我也没招了，你在这里说话呢下一秒家属就可能冲进来了……至于诊断，依旧采用的手写病历。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "corroborated",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "「非一室一患、诊室外公开问诊」与同日收录的另一条独立自述（郑大一附院隐私问题）相互印证，故标为多源印证；「已拿到 cptsd 诊断」本身仍为单条自述，未见诊断书。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu note",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": true
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-436c5f135d",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a8ed8cb000000000502bd26",
+      "source_post_id": "6a8ed8cb000000000502bd26#c-chongqing",
+      "author_alias": "xhs-4af9b28d",
+      "published_at": "2026-08-26",
+      "published_at_precision": "derived",
+      "ip_location": "云南",
+      "hospital_region": "重庆市",
+      "hospital_name_raw": "重庆医科大学附属第一医院（原文作「重庆附一医院」）",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "treated",
+      "experience": 5,
+      "evidence_quote": "如果可以的话可以来重庆试试，我当年在重庆附一医院诊治的，医生特别温柔和善，一次一人而且还要有人守着门口关门以免有人突然进来，医术也特别好我住院一个月后改善非常大！",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自他人笔记的评论（评论者 IP 属地显示云南）。医院全称由「重庆附一医院」推断为重庆医科大学附属第一医院，尚未在官方渠道核实，故未建立机构条目。"
+      },
+      "extraction": {
+        "tool": "opencli browser eval (comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-8d4f7eea3b",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a8ed8cb000000000502bd26",
+      "source_post_id": "6a8ed8cb000000000502bd26#c-diagnose-only",
+      "author_alias": "xhs-a28adbc9",
+      "published_at": "2026-08-27",
+      "published_at_precision": "derived",
+      "ip_location": "河南",
+      "hospital_region": "河南省郑州市",
+      "hospital_id": "zdyfy",
+      "hospital_name_raw": "郑大一附院",
+      "department": "精神科",
+      "disorders": [
+        "cptsd",
+        "did"
+      ],
+      "stage": "diagnosed",
+      "diagnosis_claimed": {
+        "code_raw": "cptsd / did（原文未给编码）",
+        "basis": "medical_record",
+        "confidence": "medium"
+      },
+      "experience": 2,
+      "evidence_quote": "这个去郑大一附院看就OK了不过它那里只能诊断治病不行！",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "证据来自该笔记评论区中作者本人的回复（IP 属地显示河南）。同日收录的正文线索（同一作者）已标为多源印证；本条单独看仍是单条自述。"
+      },
+      "extraction": {
+        "tool": "opencli browser eval (comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-9991c84668",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a995d860000000011035e5d",
+      "source_post_id": "6a995d860000000011035e5d",
+      "author_alias": "xhs-72a422ed",
+      "published_at": "2026-09-03",
+      "published_at_precision": "derived",
+      "hospital_region": "辽宁省",
+      "hospital_name_raw": "辽宁省肿瘤医院心理门诊",
+      "department": "心理门诊",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "assessed",
+      "experience": null,
+      "cost_cny": {
+        "min": 25,
+        "max": 25
+      },
+      "evidence_quote": "顺便连cptsd一起看一下（我知道国内诊断cptsd很难，但是先给自己找条路走吧）。但因为我的发育史写的不完整，本次诊断ADHD就先搁置了……推荐大家多看一下网友的发育史，一定要问一下父母和周围人对自己的评价。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "挂号 25 元；量表结果由医院邮件发送（原文 P1）。未关联机构条目：该院暂未进入 hospitals.json，需先核实官方信息。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu note",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-a1bfa81260",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6a870a5f000000003b0147d5",
+      "source_post_id": "6a870a5f000000003b0147d5",
+      "author_alias": "xhs-5b7f2b78",
+      "published_at": "2026-08-20",
+      "published_at_precision": "derived",
+      "hospital_region": "河南省郑州市",
+      "hospital_id": "zdyfy",
+      "hospital_name_raw": "郑大一附院精神科",
+      "department": "精神科",
+      "doctor_title_raw": "主任医师（原文未具名）",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "consulted",
+      "experience": 2,
+      "cost_cny": {
+        "min": 1160,
+        "max": 1160
+      },
+      "evidence_quote": "一位主任医师的助手（不确定具体身份）就在这样公开的场合下询问我的情况，并记录病历。我描述了一些非常私密的个人经历，其中还涉及一些安全风险相关内容。周围其他患者和家属频频侧目。整个过程让我非常不舒服。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "单条自述的就医体验，属个人主观陈述，未经核实；费用 1160 元为院外心理咨询机构缴纳。原文明确表示「以上只是我的一次个人就诊经历」。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu note",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": true
+      },
+      "status": "published"
+    }
+  ]
 }

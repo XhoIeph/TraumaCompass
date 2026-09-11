@@ -160,6 +160,31 @@
       "coordinates": null,
       "official_sources": ["https://www.cd120.com/department_xlwszx.html"],
       "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "zdyfy",
+      "name": "郑州大学第一附属医院",
+      "aliases": ["郑大一附院", "郑大一附院精神科"],
+      "adcode": "410000",
+      "province": "河南省",
+      "city": "郑州市",
+      "level": "未知",
+      "category": "综合医院精神科",
+      "departments": ["精神科"],
+      "trauma_service": {
+        "cptsd_assessment": "claimed",
+        "cptsd_bpd_diagnosis": "claimed",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "网友自述（2026-08-26，小红书，未经核实）：在该院精神科复诊，称「24年末就拿到cptsd诊断了」，并提到该院诊断仍采用手写病历。",
+          "网友自述（2026-08-20，小红书，未经核实）：在该院精神科就诊，医生认为其情绪问题可能与过去的创伤经历有关，随后建议到院外机构做进一步评估（13 个量表 + 动态电脑检测，缴费 1160 元）。",
+          "两条相互独立的自述都反映就诊环境问题：并非「一室一患」，且在诊室外公开询问病情。"
+        ]
+      },
+      "website": "https://www.zdyfy.com/",
+      "coordinates": null,
+      "official_sources": ["https://www.zdyfy.com/"],
+      "last_verified_at": "2026-09-11"
     }
   ]
 }

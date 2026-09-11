@@ -1,0 +1,66 @@
+{
+  "run_id": "2026-09-11-xhs-1",
+  "started_at": "2026-09-11T09:32:55.950Z",
+  "entries": [
+    {
+      "at": "2026-09-11T09:32:55.950Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-0341ce72d9",
+      "source_url": "https://www.xiaohongshu.com/explore/6a8f9dd9000000002903fced",
+      "hospital_id": "gzbrain",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T09:32:56.088Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-9991c84668",
+      "source_url": "https://www.xiaohongshu.com/explore/6a995d860000000011035e5d",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T09:32:56.192Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-a1bfa81260",
+      "source_url": "https://www.xiaohongshu.com/explore/6a870a5f000000003b0147d5",
+      "hospital_id": "zdyfy",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T09:32:56.297Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-1cc946e732",
+      "source_url": "https://www.xiaohongshu.com/explore/6a8ed8cb000000000502bd26",
+      "hospital_id": "zdyfy",
+      "disorders": [
+        "cptsd",
+        "did"
+      ]
+    },
+    {
+      "at": "2026-09-11T09:33:28.870Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-8d4f7eea3b",
+      "source_url": "https://www.xiaohongshu.com/explore/6a8ed8cb000000000502bd26",
+      "hospital_id": "zdyfy",
+      "disorders": [
+        "cptsd",
+        "did"
+      ]
+    },
+    {
+      "at": "2026-09-11T09:33:29.006Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-436c5f135d",
+      "source_url": "https://www.xiaohongshu.com/explore/6a8ed8cb000000000502bd26",
+      "disorders": [
+        "cptsd"
+      ]
+    }
+  ]
+}
