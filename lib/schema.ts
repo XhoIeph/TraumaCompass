@@ -146,6 +146,24 @@ export const reportSchema = z.object({
   wait_days: z.number().nonnegative().optional(),
   /** 原文片段（≤200 字），必须逐字引用 */
   evidence_quote: z.string().min(1).max(200),
+  /** 原文完整文本（评论常超过 200 字；截断会丢语义，故单独保存，≤2000 字） */
+  evidence_full_text: z.string().max(2000).optional(),
+  /**
+   * 摘录的上下文。评论尤其容易「断头」：回复里的「这个 / 它 / 楼上」脱离父评论即无意义。
+   * 无法还原上下文时必须显式标 context_incomplete，不允许含糊过去。
+   */
+  evidence_context: z
+    .object({
+      note_title: z.string().optional(),
+      parent_author: z.string().optional(),
+      parent_excerpt: z.string().max(300).optional(),
+      is_reply: z.boolean().optional(),
+      index_in_capture: z.string().optional(),
+      capture_scope: z.string().optional(),
+    })
+    .optional(),
+  /** 上下文无法还原（如父评论未抓到），如实标记以便后续补抓 */
+  context_incomplete: z.boolean().optional(),
   evidence_source: z.enum(['note_body', 'comment', 'answer', 'article', 'other']),
   verification: z.object({
     level: verificationLevelSchema,

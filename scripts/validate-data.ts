@@ -111,6 +111,27 @@ if (disorders && hospitals && doctors && reports && provinces) {
       warnings.push(`reports.json → ${id}: 标记 official 但没有关联医院，建议补充 hospital_id`)
     }
 
+    // 上下文完整性：评论来源的线索必须有「有意义的上下文」，否则必须显式标 context_incomplete
+    if (report.evidence_source === 'comment') {
+      const ctx = report.evidence_context as
+        | { note_title?: string; parent_excerpt?: string; is_reply?: boolean }
+        | undefined
+      const meaningful = !!ctx && (!!ctx.note_title || !!ctx.parent_excerpt || ctx.is_reply !== undefined)
+      if (!meaningful && report.context_incomplete !== true) {
+        errors.push(
+          `reports.json → ${id}: 评论来源但缺少有意义的 evidence_context（note_title / parent_excerpt / is_reply 至少一项），且未标 context_incomplete`,
+        )
+      }
+    }
+
+    // 占位名不得建立机构关联（2026-09-11 曾把「全国DBT基地名单」当成一家机构登记）
+    const PLACEHOLDER_NAME = /未点名|名单|线索|待核实|某精神|某脑科|某顶级/
+    if (report.hospital_name_raw && PLACEHOLDER_NAME.test(report.hospital_name_raw) && report.hospital_id) {
+      errors.push(
+        `reports.json → ${id}: hospital_name_raw 为占位名（${report.hospital_name_raw}）却关联了 hospital_id`,
+      )
+    }
+
     const flags = report.flags as
       | { contains_minor?: boolean; contains_selfharm_detail?: boolean }
       | undefined

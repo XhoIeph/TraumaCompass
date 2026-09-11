@@ -56,7 +56,28 @@
     const key = `${author}|${text.slice(0, 40)}`;
     if (seen.has(key)) continue;
     seen.add(key);
-    rows.push({ author, info, text, likes: pick(['.like .count', '.like-wrapper .count', '.count']) });
+
+    // 上下文：是否楼中楼 + 父评论（XHS 会在回复里写「回复 @某人」）
+    const ancestor = el.parentElement ? el.parentElement.closest('.comment-item') : null;
+    const isReply = Boolean(ancestor);
+    const replyToMatch = text.match(/^回复\s*@?([^：:]{1,24})[：:]/);
+    const parentText = ancestor
+      ? clean((ancestor.querySelector('.note-text, .content .note-text, .content') || {}).textContent)
+      : '';
+    const parentAuthor = ancestor
+      ? clean((ancestor.querySelector('.name, .nickname, .author .name') || {}).textContent)
+      : '';
+
+    rows.push({
+      author,
+      info,
+      text,
+      likes: pick(['.like .count', '.like-wrapper .count', '.count']),
+      is_reply: isReply,
+      reply_to_author: replyToMatch ? replyToMatch[1].trim() : parentAuthor || undefined,
+      parent_excerpt: parentText ? parentText.slice(0, 300) : undefined,
+      parent_author: parentAuthor || undefined,
+    });
   }
   return { count: rows.length, domComments: nodes.length, url: location.href, title: document.title, rows };
 })()

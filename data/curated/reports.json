@@ -84,7 +84,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-07fde55d29",
@@ -123,7 +125,13 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_full_text": "这里面好多医院实际没开展的，推几个真的能看的： 湘雅医院，全科都可以，重点专家：肖茜 湖南脑科（二院）全科都可以，重点专家：马静，刘光亚 珠海三院国际部 商丘一院：陈彦 辽宁朝阳康宁，全科都可以 丹东三院：郑艳 河北保定荣军：回秀清 华西厦门医院这几个都是确定可以看的，而且有过专门的规范化培训的，有大量教学培训督导培训，不是介绍上随便写一笔的程度。",
+      "evidence_context": {
+        "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
+        "index_in_capture": "第 1 条 / 共抓取 97 条",
+        "capture_scope": "comments/671efe3f000000001b03e2eb.json"
+      }
     },
     {
       "id": "xhs-08869acc23",
@@ -163,7 +171,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-0c7f67e142",
@@ -204,7 +214,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-120b517583",
@@ -245,7 +257,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-155c877b68",
@@ -286,7 +300,13 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_context": {
+        "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
+        "index_in_capture": "第 5 条 / 共抓取 97 条",
+        "capture_scope": "comments/671efe3f000000001b03e2eb.json",
+        "is_reply": false
+      }
     },
     {
       "id": "xhs-17fb18849b",
@@ -325,7 +345,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-1935093c5b",
@@ -365,7 +387,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-1ab485e324",
@@ -405,7 +429,13 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_context": {
+        "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
+        "index_in_capture": "第 6 条 / 共抓取 97 条",
+        "capture_scope": "comments/671efe3f000000001b03e2eb.json",
+        "is_reply": false
+      }
     },
     {
       "id": "xhs-1cc946e732",
@@ -491,7 +521,12 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_full_text": "增加一个匿名repo：分享一下回龙观医院cptsd王晓莹医生，整体态度很温柔，很耐心解答，也会根据患者实际情况考虑，不过感觉对cptsd的诊断会比较保守和严格（认可创伤史，但疾病是否由创伤引起的还有待进一步检查和沟通）",
+      "evidence_context": {
+        "index_in_capture": "第 8 条 / 共抓取 19 条",
+        "capture_scope": "opencli/2026-09-11T09-36-53-245Z-page-page.json"
+      }
     },
     {
       "id": "xhs-374ed8d30d",
@@ -528,7 +563,14 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_full_text": "这里面好多医院实际没开展的，推几个真的能看的： 湘雅医院，全科都可以，重点专家：肖茜 湖南脑科（二院）全科都可以，重点专家：马静，刘光亚 珠海三院国际部 商丘一院：陈彦 辽宁朝阳康宁，全科都可以 丹东三院：郑艳 河北保定荣军：回秀清 华西厦门医院这几个都是确定可以看的，而且有过专门的规范化培训的，有大量教学培训督导培训，不是介绍上随便写一笔的程度。",
+      "evidence_context": {
+        "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
+        "index_in_capture": "第 1 条 / 共抓取 97 条",
+        "capture_scope": "comments/671efe3f000000001b03e2eb.json",
+        "is_reply": false
+      }
     },
     {
       "id": "xhs-37d809f64c",
@@ -609,7 +651,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-3bf4bbf64c",
@@ -649,7 +693,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-3c57b18e39",
@@ -689,7 +735,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-40584f6ccb",
@@ -730,7 +778,11 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_context": {
+        "index_in_capture": "第 2 条 / 共抓取 111 条",
+        "capture_scope": "opencli/2026-09-11T09-37-54-228Z-page-page.json"
+      }
     },
     {
       "id": "xhs-425f6e2373",
@@ -772,7 +824,13 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_full_text": "来repo一下。彭红军医生停诊了去挂了广脑李爱凤医生的号，已拿下BPD确诊+C-PTSD口头确诊。按李爱凤医生说法广脑貌似都不能下纸质诊断，BPD可以在C-PTSD的同时检查并下诊断，光检查无医保大概五百出头，意外地没有很贵。我广脑初诊是罗新妮医生，但是她不太倾向开BPD诊断也没有让我检查，只让我查一下BPD相关经验贴自行调理不要多想。希望能提供一点帮助[抽泣R]",
+      "evidence_context": {
+        "index_in_capture": "第 3 条 / 共抓取 20 条",
+        "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json",
+        "is_reply": false
+      }
     },
     {
       "id": "xhs-436c5f135d",
@@ -810,7 +868,12 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_full_text": "抱抱你，如果可以的话可以来重庆试试，我当年在重庆附一医院诊治的，医生特别温柔和善，一次一人而且还要有人守着门口关门以免有人突然进来，医术也特别好我住院一个月后改善非常大！",
+      "evidence_context": {
+        "index_in_capture": "第 10 条 / 共抓取 30 条",
+        "capture_scope": "opencli/2026-09-11T09-33-08-251Z-page-page.json"
+      }
     },
     {
       "id": "xhs-4caedbfb23",
@@ -854,7 +917,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-50b5b4fbc6",
@@ -935,7 +1000,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-59e90b89e7",
@@ -1015,7 +1082,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-6051aa58ea",
@@ -1027,7 +1096,6 @@
       "published_at": "2025-05-12",
       "published_at_precision": "derived",
       "hospital_region": "北京市北京市",
-      "hospital_id": "bj-first-tier",
       "hospital_name_raw": "北京某顶级精神专科医院（原文未点名）",
       "department": "精神科",
       "disorders": [
@@ -1099,7 +1167,11 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_context": {
+        "index_in_capture": "第 11 条 / 共抓取 20 条",
+        "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
+      }
     },
     {
       "id": "xhs-6ce0359028",
@@ -1139,7 +1211,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-71578ced05",
@@ -1180,7 +1254,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-736d07d55f",
@@ -1220,7 +1296,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-74da1f3bc9",
@@ -1260,7 +1338,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-7854a74086",
@@ -1300,7 +1380,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-861253eeb4",
@@ -1341,7 +1423,12 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_full_text": "补充：我昨天刚去了北大国际医院 找张艳萍医生（特需号）。她以前也在回龙观出诊但是说暂时不去了。【体验】一开始刚进门的时候态度友善，表现得比较亲切，这个时候我以为会有满意的结果来着。我本来写在备忘录里的病史要给她看，但是她说“就诊时间有限，没时间看那么多”，于是让我口头阐述。问我病史倒是问了一堆，但是问到一半说“好了前面说得已经够详细了”（但我还没有说完全部）。全程我都提出并强调了希望给出明确诊断的诉求，但是她说，“这是综合医院不是专科医院”，开不出来精神科的细分诊断，让我回安定或者回龙观解决这个问题。她说抱歉帮不上我这个忙。 我还是挺失望的，毕竟这是特需号很贵，而我并没有拿到理想的结果",
+      "evidence_context": {
+        "index_in_capture": "第 5 条 / 共抓取 20 条",
+        "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
+      }
     },
     {
       "id": "xhs-8ac161a122",
@@ -1381,7 +1468,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-8d4f7eea3b",
@@ -1427,7 +1516,14 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_context": {
+        "index_in_capture": "第 6 条 / 共抓取 30 条",
+        "capture_scope": "opencli/2026-09-11T09-33-08-251Z-page-page.json",
+        "parent_author": "wowo",
+        "parent_excerpt": "宝你的cptsd诊断是怎么拿到的我感觉国内很难拿到这个",
+        "is_reply": true
+      }
     },
     {
       "id": "xhs-8db7511abf",
@@ -1467,7 +1563,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-8e10e971a2",
@@ -1547,7 +1645,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-8f5c1823a2",
@@ -1558,8 +1658,6 @@
       "author_alias": "xhs-a1e56c95",
       "published_at": "2026-06-25",
       "published_at_precision": "derived",
-      "hospital_region": "北京市北京市",
-      "hospital_id": "cn-brain-hospital-unnamed",
       "hospital_name_raw": "某脑科医院（原文未点名）",
       "department": "精神科",
       "disorders": [
@@ -1626,7 +1724,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-8fb0283ed1",
@@ -1638,7 +1738,6 @@
       "published_at": "2026-06-17",
       "published_at_precision": "derived",
       "hospital_region": "山东省济宁市",
-      "hospital_id": "sd-jn-psy",
       "hospital_name_raw": "济宁市某精神专科医院（原文未点名）",
       "department": "精神科",
       "disorders": [
@@ -1706,7 +1805,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-928a45adba",
@@ -1747,7 +1848,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-93495ab0d4",
@@ -1787,7 +1890,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-9606e42412",
@@ -1952,7 +2057,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-a11bc92e85",
@@ -2047,8 +2154,6 @@
       "author_alias": "xhs-fc2a2342",
       "published_at": "2026-01-11",
       "published_at_precision": "derived",
-      "hospital_region": "北京市北京市",
-      "hospital_id": "did-unnamed-doctor",
       "hospital_name_raw": "DID/OSDD 诊疗线索（机构原文未点名）",
       "department": "精神科",
       "disorders": [
@@ -2117,7 +2222,12 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_full_text": "啊啊不确定的老师，重庆的反馈很少，只有网友反馈在创伤门诊找冉曼利医生确诊过，和湖北精卫一样只是写一下有设置创伤门诊",
+      "evidence_context": {
+        "index_in_capture": "第 13 条 / 共抓取 19 条",
+        "capture_scope": "opencli/2026-09-11T09-36-53-245Z-page-page.json"
+      }
     },
     {
       "id": "xhs-a83e200907",
@@ -2158,7 +2268,11 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_context": {
+        "index_in_capture": "第 2 条 / 共抓取 20 条",
+        "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
+      }
     },
     {
       "id": "xhs-a95bf0fb5c",
@@ -2198,7 +2312,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-ab437e8b9a",
@@ -2239,7 +2355,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-acde54d2a2",
@@ -2279,7 +2397,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-ae7e7f8fc3",
@@ -2319,7 +2439,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-ba635567a2",
@@ -2359,7 +2481,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-baa3126f0f",
@@ -2399,7 +2523,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-bcaa46a2a2",
@@ -2438,7 +2564,13 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_full_text": "这里面好多医院实际没开展的，推几个真的能看的： 湘雅医院，全科都可以，重点专家：肖茜 湖南脑科（二院）全科都可以，重点专家：马静，刘光亚 珠海三院国际部 商丘一院：陈彦 辽宁朝阳康宁，全科都可以 丹东三院：郑艳 河北保定荣军：回秀清 华西厦门医院这几个都是确定可以看的，而且有过专门的规范化培训的，有大量教学培训督导培训，不是介绍上随便写一笔的程度。",
+      "evidence_context": {
+        "note_title": "BPD专业治疗：全国辨证行为疗法DBT医院名单",
+        "index_in_capture": "第 1 条 / 共抓取 97 条",
+        "capture_scope": "comments/671efe3f000000001b03e2eb.json"
+      }
     },
     {
       "id": "xhs-bcc28dcb97",
@@ -2518,7 +2650,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-c0451d74b6",
@@ -2529,8 +2663,6 @@
       "author_alias": "xhs-9f504df6",
       "published_at": "2024-10-28",
       "published_at_precision": "derived",
-      "hospital_region": "北京市北京市",
-      "hospital_id": "bpd-dbt-alliance",
       "hospital_name_raw": "全国辩证行为治疗（DBT）基地名单",
       "department": "辩证行为治疗",
       "disorders": [
@@ -2598,7 +2730,12 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_context": {
+        "index_in_capture": "第 6 条 / 共抓取 19 条",
+        "capture_scope": "opencli/2026-09-11T09-36-53-245Z-page-page.json",
+        "is_reply": false
+      }
     },
     {
       "id": "xhs-c3292f4c09",
@@ -2609,8 +2746,6 @@
       "author_alias": "xhs-eae9cf3f",
       "published_at": "2024-01-30",
       "published_at_precision": "derived",
-      "hospital_region": "山东省济南市",
-      "hospital_id": "sd-sjsw",
       "hospital_name_raw": "山东省精神卫生中心（原文作「省精卫」）",
       "department": "精神科",
       "disorders": [
@@ -2678,7 +2813,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-d35430cf1b",
@@ -2758,7 +2895,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-df439b1e53",
@@ -2798,7 +2937,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-e0d1adec9b",
@@ -2839,7 +2980,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-e4d498e0b3",
@@ -2879,7 +3022,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-e56c83ffec",
@@ -2918,7 +3063,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-e8676765f9",
@@ -2958,7 +3105,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-ebb0c9f171",
@@ -3086,7 +3235,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-efdb8755d4",
@@ -3204,7 +3355,13 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "evidence_context": {
+        "note_title": "北京回龙观医院创伤后应激障碍门诊开诊",
+        "index_in_capture": "第 15 条 / 共抓取 87 条",
+        "capture_scope": "comments/69e7955a000000002200e48f.json",
+        "is_reply": false
+      }
     },
     {
       "id": "xhs-f9676c8b43",
@@ -3243,7 +3400,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     },
     {
       "id": "xhs-ff6329a774",
@@ -3283,7 +3442,9 @@
         "contains_selfharm_detail": false,
         "sensitive": false
       },
-      "status": "published"
+      "status": "published",
+      "context_incomplete": true,
+      "evidence_context": {}
     }
   ]
 }
