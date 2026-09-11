@@ -242,6 +242,16 @@ export function ChinaMap({ provinces, provinceStats, hospitals, leadsByHospital 
   }, [provinceNameByAdcode, provinceSeriesData, hospitalPoints, status, zoom, provinceStats])
 
   const selectedLeads = selected ? (leadsByHospital[selected.id] ?? []) : []
+
+  /** 按钮缩放：不依赖滚轮，便于触控板与可访问性；同时同步分级状态 */
+  const zoomBy = (factor: number) => {
+    const chart = chartRef.current
+    if (!chart) return
+    const next = Math.min(16, Math.max(1, readZoom(chart) * factor))
+    chart.setOption({ geo: { zoom: next } })
+    setZoom(next)
+    setScope(next >= NODE_ZOOM_THRESHOLD ? 'province' : 'country')
+  }
   const coordinateNote =
     hospitals[0]?.coordinateSource === 'geocoded'
       ? '地理编码坐标'
@@ -256,17 +266,36 @@ export function ChinaMap({ provinces, provinceStats, hospitals, leadsByHospital 
           </span>
           <span>滚轮缩放 · 拖动平移 · 当前 {zoom.toFixed(1)}×</span>
         </div>
-        <button
-          type="button"
-          className="tc-button"
-          onClick={() => {
-            chartRef.current?.setOption({ geo: { zoom: 1.2, center: null } })
-            setZoom(1.2)
-            setScope('country')
-          }}
-        >
-          回到全国
-        </button>
+        <div className="tc-row">
+          <button
+            type="button"
+            className="tc-button"
+            aria-label="放大"
+            onClick={() => zoomBy(1.6)}
+          >
+            ＋
+          </button>
+          <button
+            type="button"
+            className="tc-button"
+            aria-label="缩小"
+            onClick={() => zoomBy(1 / 1.6)}
+          >
+            －
+          </button>
+          <button
+            type="button"
+            className="tc-button"
+            onClick={() => {
+              chartRef.current?.setOption({ geo: { zoom: 1.2, center: null } })
+              setZoom(1.2)
+              setScope('country')
+              setSelected(null)
+            }}
+          >
+            回到全国
+          </button>
+        </div>
       </div>
 
       <div className="tc-map-layout">

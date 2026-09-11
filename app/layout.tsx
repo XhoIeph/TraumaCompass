@@ -5,7 +5,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'TraumaCompass｜创伤知情就诊地图',
   description:
-    'CPTSD / BPD 等创伤相关诊断的国内就诊资源与网友自述线索地图。数据来自公开平台自述与官方来源，未经核实的内容均明确标注。',
+    'CPTSD / BPD 等创伤相关诊断的国内就诊资源与网友自述线索地图。数据来自公开平台自述与官方来源，每条线索都附原帖链接。',
 }
 
 const NAV = [
@@ -46,8 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="tc-container">
               <p>
                 <strong>本站不是医疗机构，也不提供诊断或治疗建议。</strong>
-                所有「就诊线索」均为网友在公开平台的自述摘录，未经核实、不代表本站观点；
-                请以精神科执业医师的面诊结论为准。
+                所有「就诊线索」均为网友在公开平台的自述摘录，不代表本站观点；
+                每条都附有原帖链接，可自行核对原话；请以精神科执业医师的面诊结论为准。
               </p>
               <p>
                 如果你正处于危机中，可拨打全国统一心理援助热线 <strong>12356</strong>
@@ -64,3 +64,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+

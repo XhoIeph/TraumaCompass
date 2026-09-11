@@ -98,51 +98,36 @@ export default function AboutPage() {
       </div>
 
       <div className="tc-card">
-        <h2>核验等级怎么定义</h2>
-        <table className="tc-table">
-          <thead>
-            <tr>
-              <th>等级</th>
-              <th>含义</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <span className="tc-badge tc-badge--official">官方来源</span>
-              </td>
-              <td>至少有一个官方来源（医院官网 / 卫健委等）可核实相关事实。</td>
-            </tr>
-            <tr>
-              <td>
-                <span className="tc-badge tc-badge--corroborated">多源印证</span>
-              </td>
-              <td>两条及以上相互独立的公开线索指向同一事实，但没有官方来源。</td>
-            </tr>
-            <tr>
-              <td>
-                <span className="tc-badge tc-badge--unverified">未核实</span>
-              </td>
-              <td>单条网友自述，未经核实。请只当作线索，不要当作结论。</td>
-            </tr>
-          </tbody>
-        </table>
+        <h2>我们不做「核实」，也做不到</h2>
+        <p>
+          早期版本给线索打过「未核实 / 多源印证 / 官方来源」的标签，这个做法已经取消：
+          <strong>网友自述是无法核实的</strong> —— 要「核实」就得去调取医院诊断记录或人肉评论者，
+          前者不合法，后者是伤害。因此本站不再对任何个人陈述做真伪判定。
+        </p>
+        <p>取而代之的是三条可自行检验的信息：</p>
+        <ul>
+          <li><strong>原帖链接</strong>：每条线索都能点回原帖，你可以自己读上下文；</li>
+          <li><strong>机构侧的公开依据</strong>：医院官网、卫健委、联盟名单等，逐条列在机构页面；</li>
+          <li><strong>并列呈现</strong>：同一事实有多个来源就都放上去，包括相互矛盾的，不由我们替你下结论。</li>
+        </ul>
       </div>
 
       <div className="tc-card">
-        <h2>隐私、脱敏与对医生的公平性</h2>
+        <h2>隐私：不记录任何用户标识</h2>
         <ul>
           <li>
-            <strong>发言者匿名化</strong>：平台昵称一律做哈希处理（本站只显示形如「薯友·a1b2c3」的别名），
-            不保存、不公开平台账号 ID。原始文本与真实昵称只保留在本地采集目录，不进入公开仓库。
+            <strong>不记录用户名</strong>：既不留真实昵称，也不留哈希别名（早期版本做过哈希化，现已全部移除）。
           </li>
           <li>
-            <strong>地区标注分三类</strong>：医院所在地、作者自述地区、平台显示 IP 属地 —— 三者含义不同，
-            页面上会明确区分，避免把 IP 属地误读为居住地。
+            <strong>不记录 IP 属地</strong>：平台显示的属地不等于就诊地，属于不必要的个人信息，采集端已停止读取。
+          </li>
+          <li>
+            <strong>地区只分两类</strong>：医院所在地（来自机构信息）与作者自述所在地（原文明确写出时），
+            页面上分别标注。
           </li>
           <li>
             <strong>医生相关信息</strong>：只收录公开执业信息（姓名、科室、职称、专长）。
-            网友评价一律以「个人体验，未经核实」的摘录形式呈现并附原帖链接，不作为事实陈述，
+            网友评价以摘录形式呈现并附原帖链接，不作为事实陈述，
             <strong>不参与任何排序或推荐</strong>，本站不接付费排名或导流。
           </li>
           <li>

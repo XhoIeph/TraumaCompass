@@ -111,7 +111,7 @@ export function ReportExplorer({ reports, disorders, provinces, reportProvince, 
 
       <p className="tc-small tc-muted">
         共 {reports.length} 条已发布线索，当前筛选出 {filtered.length} 条。
-        每条都来自公开平台的自述摘录，标注了发表时间、地区来源与核验等级。
+        每条都来自公开平台的自述摘录，给出发表时间、地区来源与原帖链接。
       </p>
 
       {filtered.length === 0 ? (

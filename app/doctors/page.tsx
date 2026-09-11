@@ -3,7 +3,7 @@ import { doctors, hospitalById } from '@/lib/data'
 
 export const metadata = {
   title: '医生条目｜TraumaCompass',
-  description: '只在拿到公开执业信息后建立的医生条目；网友评价仅作摘录并标注未经核实。',
+  description: '只在拿到公开执业信息后建立的医生条目；网友评价仅作摘录并附原帖链接。',
 }
 
 export default function DoctorsPage() {
@@ -12,8 +12,8 @@ export default function DoctorsPage() {
       <h1>医生条目</h1>
       <p className="tc-muted">
         医生条目只依据<strong>公开执业信息</strong>（医院官网、国家卫健委执业注册信息查询）建立：
-        姓名、科室、职称与专长。网友对医生的评价只以「个人体验、未经核实」的形式摘录并附原帖链接，
-        不作为事实陈述，也不参与任何排序。
+        姓名、科室、职称与专长。网友对医生的评价以摘录形式呈现并附原帖链接，
+        不作为事实陈述，也不参与任何排序；本站不对个人陈述作真伪判定。
       </p>
 
       {doctors.length === 0 ? (
@@ -47,3 +47,4 @@ export default function DoctorsPage() {
     </div>
   )
 }
+

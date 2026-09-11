@@ -103,7 +103,8 @@ export default async function DoctorDetailPage({ params }: { params: Promise<{ i
       <div className="tc-card">
         <h2>提及该医生的线索（{reports.length}）</h2>
         <p className="tc-small tc-muted">
-          以下内容为网友个人体验摘录，<strong>未经核实、不代表本站观点</strong>，也不能替代面诊判断。
+          以下内容为网友个人体验摘录，<strong>不代表本站观点</strong>，也不能替代面诊判断；
+          每条都附原帖链接，可自行核对上下文。
         </p>
         {reports.length === 0 ? (
           <p className="tc-small tc-muted" style={{ margin: 0 }}>
