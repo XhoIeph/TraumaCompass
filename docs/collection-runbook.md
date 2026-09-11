@@ -1,4 +1,4 @@
-# 采集运行手册（Runbook）
+﻿# 采集运行手册（Runbook）
 
 > 原则：**低频、可追溯、可停止**。宁可少收十条，也不要让账号被限制或让数据失去来源。
 
@@ -84,7 +84,7 @@ OpenCLI 分两半，两半都要在：
 
 - **签名 URL 只在搜索页 DOM 的 `a.cover.mask` 上**，普通 `/explore/` 链接不带 token —— 抽取脚本必须优先取它。
 - 评论里经常直接出现医院名与医生名（例："去郑大一附院看就OK了""我当年在重庆附一医院诊治的"），
-  且评论行自带**作者、时间与 IP 属地**，是「具体评价」的主要来源。
+  且评论行自带**日期**（用户名与 IP 属地一律不采集），是「具体评价」的主要来源。
 - `note` 返回的笔记没有发布时间字段，用 **note_id 前 8 位十六进制**（ObjectID 时间戳）推导，
   `published_at_precision` 记 `derived`。
 - 一条笔记可以产出**多条线索**（正文一条 + 不同评论各一条）：
@@ -141,7 +141,7 @@ cmd /c "npm run collect:import -- --in tmp/xhs-search.json --kind search --run 2
 
 ## 2. 草稿（draft.json）字段
 
-必填：`platform`、`source_url`、`evidence_quote`、`disorders`、`author_uid`（或 `author_nickname`，仅用于哈希）。
+必填：`platform`、`source_url`、`evidence_quote`、`disorders`。**不要写作者信息**：用户名、账号、IP 一律不入库。
 
 常用可选字段：`source_post_id`、`published_at`、`published_at_precision`、`ip_location`、
 `self_reported_region`、`hospital_region`、`hospital_id`、`hospital_name_raw`、`department`、
@@ -152,7 +152,7 @@ cmd /c "npm run collect:import -- --in tmp/xhs-search.json --kind search --run 2
 {
   "platform": "xiaohongshu",
   "source_url": "https://www.xiaohongshu.com/search_result/65f0c1a2000000000e01abcd?xsec_token=...",
-  "author_nickname": "（原帖昵称，只会被哈希）",
+  "published_at_precision": "day",
   "published_at": "2025-03-14",
   "published_at_precision": "day",
   "ip_location": "四川",
@@ -192,6 +192,10 @@ cmd /c "npm run collect:import -- --in tmp/xhs-search.json --kind search --run 2
 ```powershell
 cmd /c "npm run data:validate"   # schema + 引用完整性 + 隐私红线
 cmd /c "npm run data:build"      # 重新聚合
-cmd /c "npm run data:stats"      # 看平台分布、核验等级、省级覆盖缺口
+cmd /c "npm run data:stats"      # 看平台分布、省级覆盖缺口
 cmd /c "npm run audit:sources -- --write"   # 原帖可达性巡检
 ```
+
+
+
+

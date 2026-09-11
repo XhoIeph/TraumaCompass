@@ -1,4 +1,4 @@
-# 数据字典
+﻿# 数据字典
 
 所有公开数据位于 `data/curated/`，每个文件都是 `{ schema_version, updated_at, items: [] }` 结构，
 由 `lib/schema.ts`（zod）在 `npm run data:validate` 阶段强制校验；聚合产物写入 `data/generated/`。
@@ -28,10 +28,10 @@ data/
 | `source_channel` | enum | `browser_session`（会话内读取）/ `public_web` / `manual` |
 | `source_url` | url | **规范化链接**（小红书去掉 xsec_token，用 `/explore/<note_id>`） |
 | `source_post_id` | string? | 平台内 id（小红书 note_id / 知乎 answer id） |
-| `author_alias` | string | `sha256(SALT + platform + uid)` 前 8 位，形如 `xhs-1a2b3c4d`；**禁止真实昵称** |
+| （已移除） | 早期版本的 `author_alias`（昵称哈希）已全部删除：本站**不记录任何用户标识** |
 | `published_at` | date? | 发表时间（YYYY-MM-DD） |
 | `published_at_precision` | enum | `exact` / `day` / `month` / `year` / `derived`（由 note_id 推导）/ `unknown` |
-| `ip_location` | string? | 平台显示的 IP 属地（≠ 居住地） |
+| （已移除） | `ip_location` 已删除：平台 IP 属地不属于必要的就诊信息，采集端也不再读取 |
 | `self_reported_region` | string? | 作者自述所在地 |
 | `hospital_region` | string? | 医院所在地区 |
 | `hospital_id` / `hospital_name_raw` | string? | 关联机构 id / 原文写法 |
@@ -53,7 +53,7 @@ data/
 **硬性规则**（`npm run data:validate` 会失败）：
 - 已发布（`published`）必须有 `source_url` 与 `evidence_quote`。
 - `contains_minor` 或 `contains_selfharm_detail` 为真时，`status` 不得为 `published`。
-- `author_alias` 必须符合哈希别名格式（防止误把真实昵称写进公开数据）。
+- 线索记录不得包含任何用户标识（昵称 / 账号 / IP 属地）；评论类线索必须带上下文，见 evidence-standards.md。
 
 ## Hospital（机构）
 
@@ -68,7 +68,7 @@ data/
 | `departments` | 科室列表 |
 | `trauma_service` | `cptsd_assessment` / `cptsd_bpd_diagnosis` / `icd11_practice`：`yes` 官方页面明确说明提供该项服务 / `claimed` **有间接证据**（创伤治疗项目、指南参编、培训体系、网友线索等，但未明确说明提供该项服务）/ `unknown` 未知 / `no` 无；`evidence[]` 为逐条证据说明，须写明来源与时间 |
 | `address` / `website` / `phone_public` | 公开信息 |
-| `coordinates` | 首版地图不打点，未核实时必须为 `null` |
+| `coordinates` / `coordinates_source` | 地图节点坐标；`coordinates_source` 标注 `geocoded`（真实地理编码）/ `province-centroid`（省级近似）/ `manual` |
 | `official_sources` | 官方来源 URL（医院官网 / 卫健委） |
 | `last_verified_at` | 最近核实日期 |
 
@@ -101,10 +101,16 @@ data/
 | `data/raw/drafts/*.json` | OpenCLI 导入的待补全草稿 | 否 |
 | `data/raw/sweep/{state,pending}.json` | 扫词状态（见过的笔记）与待抓队列 | 否 |
 | `data/raw/notes/<note_id>.json` | 已抓取的笔记正文（含签名 URL 与来源检索词） | 否 |
-| `data/raw/comments/<note_id>.json` | 已抓取的评论（作者/时间+IP 属地/正文/点赞） | 否 |
+| `data/raw/comments/<note_id>.json` | 已抓取的评论（日期/正文/点赞/是否楼中楼/父评论摘录；不含用户名与 IP） | 否 |
 | `data/raw/triage/*.json` | 分诊候选（笔记或评论聚类出的医院/医生） | 否 |
 | `data/runs/<run_id>.json` | 采集运行日志（只有 id/平台/链接/疾病，已脱敏） | 是 |
 | `data/evidence/**` | **截图证据归档**（含 manifest、转写、SHA-256） | 是 |
-| `.secrets/salt.txt` | 哈希盐 | 否 |
+| `.secrets/salt.txt` | 历史哈希盐（已不再使用） | 否 |
 | `.secrets/quota.json` | 每日调用计数（**仅统计，无上限**） | 否 |
 | `.secrets/zhihu-state.json` | 知乎登录态 | 否 |
+
+
+
+
+
+
