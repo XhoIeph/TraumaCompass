@@ -89,6 +89,9 @@ const relevant = (title: string): boolean =>
   )
 
 let newTotal = 0
+let consecutiveFailures = 0
+const MAX_CONSECUTIVE_FAILURES = 3
+const HALT_FILE = resolve(SWEEP_DIR, 'COLLECTION_HALTED.json')
 const rowsLog = resolve(SWEEP_DIR, `${new Date().toISOString().slice(0, 10)}-rows.jsonl`)
 
 for (const { query, bucket } of queries) {
@@ -98,9 +101,21 @@ for (const { query, bucket } of queries) {
   consumeQuota('search')
 
   if (!evaluated) {
-    console.log(`✗ 「${query}」执行失败（可能遇到登录墙或限流，建议停止本轮）`)
+    consecutiveFailures += 1
+    console.log(`✗ 「${query}」执行失败（连续第 ${consecutiveFailures} 次）`)
+    if (consecutiveFailures >= MAX_CONSECUTIVE_FAILURES) {
+      writeJson(HALT_FILE, {
+        halted_at: new Date().toISOString(),
+        reason: `连续 ${consecutiveFailures} 个检索词执行失败，疑似平台风控（登录墙/验证码/限流）`,
+        instruction: '请先人工检查账号与页面提示；确认恢复后删除本文件再继续。不要直接重跑。',
+        last_query: query,
+      })
+      console.error(`\n⛔ 熔断：连续 ${consecutiveFailures} 次失败，已停止。标记：${HALT_FILE}`)
+      process.exit(2)
+    }
     continue
   }
+  consecutiveFailures = 0
 
   const rows = readEval()
   const fresh: Row[] = []

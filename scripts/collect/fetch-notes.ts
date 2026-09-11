@@ -69,6 +69,14 @@ if (queue.length === 0) {
 console.log(`待抓 ${queue.length} 条笔记（按标题相关度 + 点赞数排序）${dryRun ? '（dry-run）' : ''}`)
 const HOSPITAL_HINT = /医院|门诊|医生|确诊|诊断|挂号|量表|精神科|心理科|创伤|cptsd|ptsd|bpd|解离/i
 
+/**
+ * 熔断：连续失败达到阈值就立刻停止，并写出 COLLECTION_HALTED 标记。
+ * 背景：2026-09-11 采集时平台触发风控，脚本在失败后仍继续请求了 35 次 —— 这类行为必须被代码阻止。
+ */
+const MAX_CONSECUTIVE_FAILURES = 3
+const HALT_FILE = resolve(RAW_DIR, 'COLLECTION_HALTED.json')
+let consecutiveFailures = 0
+
 let ok = 0
 let fail = 0
 for (const item of queue) {
@@ -87,10 +95,27 @@ for (const item of queue) {
 
   if (result.status !== 0) {
     fail += 1
+    consecutiveFailures += 1
     writeFileSync(outFile, JSON.stringify({ error: `exit ${result.status}`, ...item }, null, 2), 'utf8')
-    console.log(`  ✗ ${item.note_id} 抓取失败`)
+    console.log(`  ✗ ${item.note_id} 抓取失败（连续第 ${consecutiveFailures} 次）`)
+
+    if (consecutiveFailures >= MAX_CONSECUTIVE_FAILURES) {
+      writeJson(HALT_FILE, {
+        halted_at: new Date().toISOString(),
+        reason: `连续 ${consecutiveFailures} 次抓取失败，疑似平台风控（登录墙/验证码/限流）`,
+        instruction:
+          '请先人工检查账号状态与页面提示；确认恢复后再删除本文件继续采集。不要直接重跑。',
+        failed_note_ids: queue.slice(Math.max(0, ok + fail - consecutiveFailures), ok + fail).map((entry) => entry.note_id),
+      })
+      console.error(
+        `\n⛔ 熔断：连续 ${consecutiveFailures} 次失败，已停止并要求人工确认。标记文件：${HALT_FILE}`,
+      )
+      process.exit(2)
+    }
     continue
   }
+
+  consecutiveFailures = 0
 
   let content = ''
   let title = item.title
