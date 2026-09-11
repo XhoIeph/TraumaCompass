@@ -741,6 +741,86 @@
       "disorders": [
         "other"
       ]
+    },
+    {
+      "at": "2026-09-11T10:46:44.279Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-a2e3986fac",
+      "source_url": "https://www.xiaohongshu.com/explore/69621e9f000000001a030ea7",
+      "hospital_id": "did-unnamed-doctor",
+      "disorders": [
+        "did",
+        "osdd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:46:49.072Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-a11bc92e85",
+      "source_url": "https://www.xiaohongshu.com/explore/6673f9cc000000001d01a046",
+      "hospital_id": "sd-sdjw",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:46:49.666Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-efdb8755d4",
+      "source_url": "https://www.xiaohongshu.com/explore/68d486a8000000001201f775",
+      "hospital_id": "sh-smhc",
+      "disorders": [
+        "other"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:46:50.484Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-ed9d5955e7",
+      "source_url": "https://www.xiaohongshu.com/explore/68480398000000002301c36b",
+      "hospital_id": "sz-kn",
+      "disorders": [
+        "other"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:48:13.472Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-1ab485e324",
+      "source_url": "https://www.xiaohongshu.com/explore/671efe3f000000001b03e2eb",
+      "hospital_id": "fj-hxxm",
+      "disorders": [
+        "bpd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:48:16.821Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-155c877b68",
+      "source_url": "https://www.xiaohongshu.com/explore/671efe3f000000001b03e2eb",
+      "hospital_id": "ln-dd3",
+      "disorders": [
+        "bpd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:48:20.380Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-f5822e0cef",
+      "source_url": "https://www.xiaohongshu.com/explore/69e7955a000000002200e48f",
+      "disorders": [
+        "cptsd"
+      ]
+    },
+    {
+      "at": "2026-09-11T10:48:20.522Z",
+      "platform": "xiaohongshu",
+      "report_id": "xhs-374ed8d30d",
+      "source_url": "https://www.xiaohongshu.com/explore/671efe3f000000001b03e2eb",
+      "disorders": [
+        "bpd",
+        "cptsd"
+      ]
     }
   ]
 }

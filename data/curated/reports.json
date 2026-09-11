@@ -248,6 +248,47 @@
       "status": "published"
     },
     {
+      "id": "xhs-155c877b68",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/671efe3f000000001b03e2eb",
+      "source_post_id": "671efe3f000000001b03e2eb#c-zhengyan-ln-dd3",
+      "author_alias": "xhs-b57fa29f",
+      "published_at": "2025-08-29",
+      "published_at_precision": "derived",
+      "ip_location": "辽宁",
+      "hospital_region": "辽宁省丹东市",
+      "hospital_id": "ln-dd3",
+      "hospital_name_raw": "丹东市第三人民医院",
+      "department": "精神科",
+      "doctor_name_raw": "郑艳",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "丹东三院的郑艳医生退休了啊啊啊啊肿么办楼主",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "评论区网友反馈（IP 属地辽宁）：丹东三院郑艳医生已退休。另一条评论补充「可以线上找郑主任，她京东健康还能看，线下好像被一个私立医院返聘」。时效性需自行核实。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-17fb18849b",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -313,6 +354,46 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图；原文标注为「书面」诊断（分离转换障碍）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-1ab485e324",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/671efe3f000000001b03e2eb",
+      "source_post_id": "671efe3f000000001b03e2eb#c-no-treatment-fj-hxxm",
+      "author_alias": "xhs-f589b8f8",
+      "published_at": "2025-08-31",
+      "published_at_precision": "derived",
+      "ip_location": "广东",
+      "hospital_region": "福建省厦门市",
+      "hospital_id": "fj-hxxm",
+      "hospital_name_raw": "四川大学华西厦门医院",
+      "department": "精神科",
+      "disorders": [
+        "bpd"
+      ],
+      "stage": "seeking",
+      "experience": 2,
+      "evidence_quote": "之前厦门华西医院说没有这方面的治疗",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "该评论与 DBT/BPD 名单中列入「华西厦门医院」相矛盾，属对名单的实地反驳，故单独收录以便对照。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -402,6 +483,43 @@
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-374ed8d30d",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/671efe3f000000001b03e2eb",
+      "source_post_id": "671efe3f000000001b03e2eb#c-list-correction",
+      "author_alias": "xhs-f0ee4d0d",
+      "published_at": "2025-07-07",
+      "published_at_precision": "day",
+      "ip_location": "北京",
+      "disorders": [
+        "bpd",
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "这里面好多医院实际没开展的，推几个真的能看的： 湘雅医院，全科都可以，重点专家：肖茜 湖南脑科（二院）全科都可以，重点专家：马静，刘光亚 珠海三院国际部 商丘一院：陈彦 辽宁朝阳康宁，全科都可以",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "对全国DBT联盟名单的实地反驳：该网友称名单中「好多医院实际没开展的」，并给出自己认可的名单。两条信息放在一起读更可靠 —— 官方名单反映的是「认定」，不等于门诊实际在开展。"
+      },
+      "extraction": {
+        "tool": "opencli browser eval (comments)",
         "run_id": "2026-09-11-xhs-1",
         "captured_at": "2026-09-11"
       },
@@ -1837,6 +1955,46 @@
       "status": "published"
     },
     {
+      "id": "xhs-a11bc92e85",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/6673f9cc000000001d01a046",
+      "source_post_id": "6673f9cc000000001d01a046#body-jianjia-sd-sdjw",
+      "author_alias": "xhs-ef3b97fa",
+      "published_at": "2024-06-20",
+      "published_at_precision": "derived",
+      "hospital_region": "山东省济南市",
+      "hospital_id": "sd-sdjw",
+      "hospital_name_raw": "山东省精神卫生中心",
+      "department": "精神科",
+      "doctor_name_raw": "简佳",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "consulted",
+      "experience": 1,
+      "evidence_quote": "她说我胡思乱想，本来没病瞎想，她说过去被打根本不会是创伤，只是经历，经历就是过去了。……然后我要求做创伤方面量表她不给我做，也没给我开药，给我诊断了焦虑障碍。",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "患者自述：带着自述「为什么是 CPTSD 而非单纯抑郁」的笔记本就诊，被医生否定创伤经历、拒绝做创伤量表，最终诊断为焦虑障碍。作者自注可能是普通门诊、首次挂号的因素。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-a1bfa81260",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -1877,6 +2035,46 @@
         "contains_minor": false,
         "contains_selfharm_detail": false,
         "sensitive": true
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-a2e3986fac",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69621e9f000000001a030ea7",
+      "source_post_id": "69621e9f000000001a030ea7#body-did-unnamed-doctor",
+      "author_alias": "xhs-fc2a2342",
+      "published_at": "2026-01-11",
+      "published_at_precision": "derived",
+      "hospital_region": "北京市北京市",
+      "hospital_id": "did-unnamed-doctor",
+      "hospital_name_raw": "DID/OSDD 诊疗线索（机构原文未点名）",
+      "department": "精神科",
+      "disorders": [
+        "did",
+        "osdd"
+      ],
+      "stage": "diagnosed",
+      "experience": 3,
+      "evidence_quote": "我25年的时候彻底确诊，但期间走过很多弯路，很多医生没有治疗过DID的情况下，是不太理解DID的，而且在心理咨询师否定人格的时候，人格曾一度想sha掉我主人格……直到我后来在这里遇见一个女生，推荐了我一个医生，我现在一直在他那里治疗",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "DID 患者自述（2025 年确诊）：多位医生因缺乏 DID 诊疗经验而不理解该病，心理咨询师否定人格导致病情恶化；经他人推荐找到一位持续治疗的医生，医生姓名与机构未公开（作者表示可私信询问）。机构未点名，故仅作线索收录，未建立可指认的机构条目。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
       },
       "status": "published"
     },
@@ -2807,6 +3005,50 @@
       "status": "published"
     },
     {
+      "id": "xhs-ed9d5955e7",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/68480398000000002301c36b",
+      "source_post_id": "68480398000000002301c36b#body-wangzhonglei-sz-kn",
+      "author_alias": "xhs-8866431b",
+      "published_at": "2025-06-10",
+      "published_at_precision": "derived",
+      "hospital_region": "广东省深圳市",
+      "hospital_id": "sz-kn",
+      "hospital_name_raw": "深圳市康宁医院",
+      "department": "儿少精神科门诊",
+      "doctor_name_raw": "王中磊",
+      "disorders": [
+        "other"
+      ],
+      "stage": "diagnosed",
+      "experience": 4,
+      "cost_cny": {
+        "min": 700,
+        "max": 700
+      },
+      "evidence_quote": "我是用的公众号深圳康宁医院预约挂号的，因为我没有满25岁所以挂了儿少精神科门诊，这个号还蛮多的每天下午5点钟随便抢一下都有……全程大概两个小时，费用我没有刷医保是700块左右",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "就诊流程实录：公众号预约、未满 25 岁挂儿少精神科（号源相对充足）、三楼做三项测试、首诊最多开 7 颗专注达、全程约 2 小时、自费约 700 元（未走医保）。诊断为 ADHD。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
       "id": "xhs-ee3805576b",
       "platform": "xiaohongshu",
       "source_channel": "browser_session",
@@ -2833,6 +3075,49 @@
         "checked_at": "2026-09-11",
         "method": "人工核对原帖内容与字段",
         "notes": "转写自置顶评论名单截图（分离转换障碍/多重人格障碍段）。"
+      },
+      "extraction": {
+        "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-efdb8755d4",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/68d486a8000000001201f775",
+      "source_post_id": "68d486a8000000001201f775#body-negative-sh-smhc",
+      "author_alias": "xhs-2e7cf8b5",
+      "published_at": "2025-09-25",
+      "published_at_precision": "derived",
+      "hospital_region": "上海市上海市",
+      "hospital_id": "sh-smhc",
+      "hospital_name_raw": "上海市精神卫生中心",
+      "department": "精神科",
+      "disorders": [
+        "other"
+      ],
+      "stage": "consulted",
+      "experience": 1,
+      "cost_cny": {
+        "min": 500,
+        "max": 500
+      },
+      "evidence_quote": "问诊过程：3分钟＋一张5分钟的问卷=500块rmb……整个过程不超过三分钟，然后就直接告诉我：你有\"躁狂症\"。……他居然还威胁我：「这个记录进入你的档案，可能会影响你找工作。」",
+      "evidence_source": "note_body",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "患者自述的强烈负面体验（2025-09）：不足 20 题问卷 + 约 3 分钟问诊即诊断为「躁狂症」，费用约 500 元且医保不予报销，并称被告知记录可能影响就业。作者自述曾在美被诊断成人 ADHD，本次就诊目的为确认状态。属个人陈述，未经核实。"
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
@@ -2875,6 +3160,42 @@
       },
       "extraction": {
         "tool": "opencli xiaohongshu (notes + comments)",
+        "run_id": "2026-09-11-xhs-1",
+        "captured_at": "2026-09-11"
+      },
+      "flags": {
+        "contains_minor": false,
+        "contains_selfharm_detail": false,
+        "sensitive": false
+      },
+      "status": "published"
+    },
+    {
+      "id": "xhs-f5822e0cef",
+      "platform": "xiaohongshu",
+      "source_channel": "browser_session",
+      "source_url": "https://www.xiaohongshu.com/explore/69e7955a000000002200e48f",
+      "source_post_id": "69e7955a000000002200e48f#c-icd11-gap",
+      "author_alias": "xhs-caa148b0",
+      "published_at": "2026-05-05",
+      "published_at_precision": "day",
+      "ip_location": "河北",
+      "disorders": [
+        "cptsd"
+      ],
+      "stage": "unknown",
+      "experience": null,
+      "evidence_quote": "确实大部分医院都还没开始用icd11，医生也基本没接受过创伤知情培训，找到合适的医生和咨询师非常难了……",
+      "evidence_source": "comment",
+      "verification": {
+        "level": "unverified",
+        "checked_by": "agent",
+        "checked_at": "2026-09-11",
+        "method": "人工核对原帖内容与字段",
+        "notes": "该评论来自全国线索汇总帖作者，是对「回龙观开设创伤后应激障碍专病门诊」一帖的补充。内容直指本项目的核心命题：ICD-11 落地率低 + 医生缺乏创伤知情培训。与同一作者另一条评论（「很多在职精神科医生对cptsd及其诊断毫无经验，精神科也是误诊和医疗创伤的重灾区」）互为印证。"
+      },
+      "extraction": {
+        "tool": "opencli browser eval (comments)",
         "run_id": "2026-09-11-xhs-1",
         "captured_at": "2026-09-11"
       },
