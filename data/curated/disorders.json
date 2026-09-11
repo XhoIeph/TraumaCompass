@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-09-11",
+  "items": [
+    {
+      "id": "cptsd",
+      "name_zh": "复杂性创伤后应激障碍",
+      "name_en": "Complex post-traumatic stress disorder",
+      "icd11_code": "6B41",
+      "icd10_equivalent": null,
+      "icd11_only": true,
+      "summary": "ICD-11 在「创伤及应激相关障碍」章节中新设的独立诊断，用于描述长期、反复或难以逃离的创伤暴露（如持续童年虐待、长期家暴、长期囚禁）之后出现的、超出 PTSD 三大症状群的广泛损害。",
+      "diagnostic_notes": "ICD-11 的 CPTSD 要求在满足 PTSD 核心症状（再体验、回避、当前威胁感）之外，额外具备「自我组织紊乱」三个维度：情感调节困难、自我概念持续负面、人际关系维持困难。ICD-10 体系中不存在这一独立类目，最接近的是 F43.1 创伤后应激障碍与 F62.0 灾难性经历后持久性人格改变，二者均不能完整覆盖 CPTSD 的诊断要求 —— 这正是本项目要呈现的核心落差。",
+      "visible": true,
+      "code_review_status": "verified",
+      "sources": [
+        "https://icd.who.int/browse11/l-m/en",
+        "https://www.who.int/standards/classifications/classification-of-diseases"
+      ]
+    },
+    {
+      "id": "bpd",
+      "name_zh": "边缘型人格障碍",
+      "name_en": "Borderline personality disorder",
+      "icd11_code": "6D10（人格障碍）+ 6D11.5（边缘模式限定词）",
+      "icd10_equivalent": "F60.3 情绪不稳定型人格障碍",
+      "icd11_only": false,
+      "summary": "以情绪不稳定、自我形象与目标不稳定、人际关系紧张且强烈、冲动行为为特征。ICD-10 中作为独立诊断存在（F60.3），ICD-11 改为「人格障碍严重度 + 特质领域/模式限定词」的维度化模型，不再保留独立的边缘型类目。",
+      "diagnostic_notes": "重要更正：BPD 不属于「ICD-11 新增、ICD-10 没有」的病症。它的落差方向相反 —— ICD-10 有明确的 F60.3 类目，ICD-11 则取消独立类目、改以 6D10 严重度（轻/中/重）加 6D11.x 特质限定词（其中 6D11.5 borderline pattern）表达。本站同时收录 BPD，是因为它是国内精神科门诊最常见的创伤相关诊断之一、且与 CPTSD 存在大量鉴别诊断争议，而不是因为它在 ICD-10 中缺席。上述编码须在 WHO ICD-11 浏览器逐条核对后定稿。",
+      "visible": true,
+      "code_review_status": "pending_review",
+      "sources": [
+        "https://icd.who.int/browse11/l-m/en",
+        "https://www.who.int/standards/classifications/classification-of-diseases"
+      ]
+    },
+    {
+      "id": "osdd",
+      "name_zh": "部分解离性身份障碍",
+      "name_en": "Partial dissociative identity disorder",
+      "icd11_code": "6B65",
+      "icd10_equivalent": "F44.8 其他解离（转换）障碍（部分对应）",
+      "icd11_only": true,
+      "summary": "ICD-11 新设的解离障碍诊断，用于描述存在身份分裂体验、但未达到解离性身份障碍（DID）完整标准的个体。常与 CPTSD 共现。",
+      "diagnostic_notes": "ICD-10 没有与 OSDD 对应的独立类目，只能勉强归入 F44.8 其他解离（转换）障碍，或按多重人格障碍（F44.81）误分类。首版站点不展示该条目的地图数据，仅保留条目位。",
+      "visible": false,
+      "code_review_status": "pending_review",
+      "sources": ["https://icd.who.int/browse11/l-m/en"]
+    },
+    {
+      "id": "did",
+      "name_zh": "解离性身份障碍",
+      "name_en": "Dissociative identity disorder",
+      "icd11_code": "6B64",
+      "icd10_equivalent": "F44.81 多重人格障碍",
+      "icd11_only": false,
+      "summary": "存在两个及以上不同身份状态并伴有记忆断裂。ICD-10 与 ICD-11 均有对应类目（名称与判定细节不同）。",
+      "diagnostic_notes": "用于对照与后续扩展，首版不展示。",
+      "visible": false,
+      "code_review_status": "pending_review",
+      "sources": ["https://icd.who.int/browse11/l-m/en"]
+    },
+    {
+      "id": "ptsd",
+      "name_zh": "创伤后应激障碍",
+      "name_en": "Post-traumatic stress disorder",
+      "icd11_code": "6B40",
+      "icd10_equivalent": "F43.1 创伤后应激障碍",
+      "icd11_only": false,
+      "summary": "ICD-10 与 ICD-11 均有对应类目的创伤后应激障碍，作为 CPTSD 的对照诊断收录。",
+      "diagnostic_notes": "用于与 CPTSD 对照：国内医疗与医保体系对 PTSD 的编码与诊断路径相对成熟，而 CPTSD 的落差正体现在这里。",
+      "visible": false,
+      "code_review_status": "verified",
+      "sources": ["https://icd.who.int/browse11/l-m/en"]
+    }
+  ]
+}

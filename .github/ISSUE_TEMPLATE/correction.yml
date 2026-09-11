@@ -1,0 +1,56 @@
+name: 更正记录
+description: 指出数据集中的错误（编码、机构信息、摘录与原文不符等）
+title: '[更正] '
+labels: ['correction']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请尽量精确到具体记录或文件字段，方便我们核对。如果涉及隐私，请不要在这里写出隐私内容，只写记录编号并说明原因。
+
+  - type: input
+    id: target
+    attributes:
+      label: 涉及的记录
+      description: 记录编号（形如 xhs-1a2b3c4d5e）、机构 id，或页面链接
+      placeholder: xhs-1a2b3c4d5e / hospitals/wcsh-mental-health
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 错误类型
+      options:
+        - 疾病编码错误（ICD-11 / ICD-10）
+        - 机构信息错误（名称、等级、科室、地址）
+        - 医生信息错误（科室、职称）
+        - 摘录与原文不符
+        - 地区归属错误
+        - 翻译或表述问题
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: wrong
+    attributes:
+      label: 现在写的是什么
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: 正确的内容应该是什么
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 依据
+      description: 官方来源链接或公开页面链接
+      placeholder: https://
+    validations:
+      required: true

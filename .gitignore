@@ -1,0 +1,26 @@
+# dependencies / build
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# local secrets & login state (NEVER commit)
+.secrets/
+*.storage-state.json
+login-state.json
+
+# raw collection captures: contain real handles, full post text, raw API payloads
+data/raw/
+
+# scratch space for collection runs (opencli json output, drafts)
+tmp/
+
+# env
+.env
+.env*.local
+
+# os / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

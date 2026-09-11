@@ -1,0 +1,146 @@
+name: 提交就诊线索
+description: 提交一条公开可查的就诊线索（平台、链接、原文摘录、医院/医生信息）
+title: '[线索] '
+labels: ['lead']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **提交前请确认：**来源是公开帖子、公开网页或官方公示，不是私聊、群聊或他人隐私。
+        请不要填写未成年人可识别信息、自伤方式细节、病历号、就诊卡号或联系方式 —— 此类提交会被直接关闭。
+
+  - type: input
+    id: source_url
+    attributes:
+      label: 原帖链接
+      description: 必须能直接打开；小红书请附完整链接
+      placeholder: https://
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 平台
+      options:
+        - 小红书
+        - 知乎
+        - 微博
+        - 豆瓣
+        - 贴吧
+        - 公开网页/新闻
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: quote
+    attributes:
+      label: 原文摘录（逐字，≤200 字）
+      description: 直接复制原文，不要改写或总结
+      placeholder: 「在华西挂了心理卫生中心，医生问得很细，最后病历上写的是创伤后应激障碍，没写 CPTSD。」
+    validations:
+      required: true
+
+  - type: input
+    id: published_at
+    attributes:
+      label: 发表时间
+      description: 精确到日最好；只记得年月也可以
+      placeholder: 2025-03-14
+    validations:
+      required: false
+
+  - type: dropdown
+    id: region_type
+    attributes:
+      label: 地区信息的类型
+      description: 这三种地区含义不同，请标明你填的是哪一种
+      options:
+        - 医院所在地
+        - 作者自述所在地
+        - 平台显示的 IP 属地
+        - 不确定
+    validations:
+      required: true
+
+  - type: input
+    id: region
+    attributes:
+      label: 地区
+      placeholder: 四川省成都市
+    validations:
+      required: false
+
+  - type: input
+    id: hospital
+    attributes:
+      label: 医院（原文写法）
+      placeholder: 华西医院心理卫生中心
+    validations:
+      required: false
+
+  - type: input
+    id: department
+    attributes:
+      label: 科室
+      placeholder: 心理卫生中心
+    validations:
+      required: false
+
+  - type: input
+    id: doctor
+    attributes:
+      label: 医生（如原文提到）
+      description: 只填写公开内容中出现的姓名；不要补充原文没有的信息
+      placeholder: 张医生
+    validations:
+      required: false
+
+  - type: dropdown
+    id: disorders
+    attributes:
+      label: 涉及哪类诊断
+      multiple: true
+      options:
+        - CPTSD（复杂性创伤后应激障碍）
+        - BPD（边缘型人格障碍）
+        - OSDD（部分解离性身份障碍）
+        - DID（解离性身份障碍）
+        - PTSD（创伤后应激障碍）
+        - 其他/不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: 就诊阶段
+      options:
+        - 求医中（还没看上）
+        - 已就诊
+        - 已做评估
+        - 自称已确诊
+        - 已接受治疗
+        - 不清楚
+    validations:
+      required: true
+
+  - type: textarea
+    id: official_sources
+    attributes:
+      label: 官方来源（可选）
+      description: 如果涉及机构或医生的客观信息，请附医院官网或卫健委页面
+      placeholder: https://
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我确认这是公开可访问的内容，且不含任何人的隐私信息
+          required: true
+        - label: 我理解这条线索会以脱敏形式（昵称哈希化）公开，并附上原帖链接
+          required: true

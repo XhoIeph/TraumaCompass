@@ -1,0 +1,39 @@
+{
+  "name": "trauma-compass",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TraumaCompass — CPTSD/BPD 就诊资源与就诊线索地图（静态站点）",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "serve": "npx --yes serve out",
+    "typecheck": "tsc --noEmit",
+    "prebuild": "node scripts/validate-data.ts && node scripts/build-aggregates.ts",
+    "geo:fetch": "node scripts/fetch-geo.ts",
+    "provinces:build": "node scripts/build-provinces.ts",
+    "data:validate": "node scripts/validate-data.ts",
+    "data:build": "node scripts/build-aggregates.ts",
+    "data:stats": "node scripts/data-stats.ts",
+    "audit:sources": "node scripts/audit-sources.ts",
+    "collect:quota": "node scripts/collect/quota.ts",
+    "collect:record": "node scripts/collect/record.ts",
+    "collect:import": "node scripts/collect/import-opencli.ts"
+  },
+  "dependencies": {
+    "echarts": "6.1.0",
+    "next": "16.3.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "typescript": "^5.9.3"
+  }
+}

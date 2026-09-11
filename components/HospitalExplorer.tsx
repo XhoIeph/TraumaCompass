@@ -1,0 +1,144 @@
+'use client'
+
+import { useMemo, useState } from 'react'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+import type { Hospital, Province } from '@/lib/schema'
+
+const SERVICE_LABELS: Record<string, string> = {
+  yes: '有明确依据',
+  claimed: '仅有线索提及',
+  unknown: '未知',
+  no: '无',
+}
+
+type Props = {
+  hospitals: Hospital[]
+  provinces: Province[]
+  reportCounts: Record<string, number>
+}
+
+export function HospitalExplorer({ hospitals, provinces, reportCounts }: Props) {
+  const searchParams = useSearchParams()
+  const [province, setProvince] = useState(() => searchParams.get('province') ?? '')
+  const [category, setCategory] = useState('')
+  const [onlyEvidence, setOnlyEvidence] = useState(false)
+  const [keyword, setKeyword] = useState('')
+
+  const categories = useMemo(
+    () => [...new Set(hospitals.map((hospital) => hospital.category))].sort(),
+    [hospitals],
+  )
+
+  const filtered = useMemo(() => {
+    const needle = keyword.trim()
+    return hospitals.filter((hospital) => {
+      if (province && hospital.adcode !== province) return false
+      if (category && hospital.category !== category) return false
+      if (onlyEvidence) {
+        const service = hospital.trauma_service
+        const hasEvidence =
+          service.evidence.length > 0 ||
+          service.cptsd_assessment === 'yes' ||
+          service.cptsd_bpd_diagnosis === 'yes'
+        if (!hasEvidence) return false
+      }
+      if (needle) {
+        const haystack = [hospital.name, ...hospital.aliases, hospital.city, ...hospital.departments].join(' ')
+        if (!haystack.includes(needle)) return false
+      }
+      return true
+    })
+  }, [category, hospitals, keyword, onlyEvidence, province])
+
+  return (
+    <div>
+      <form className="tc-card tc-filters" onSubmit={(event) => event.preventDefault()}>
+        <label className="tc-field">
+          省份
+          <select value={province} onChange={(event) => setProvince(event.target.value)}>
+            <option value="">全部</option>
+            {provinces.map((item) => (
+              <option key={item.adcode} value={item.adcode}>
+                {item.short_name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="tc-field">
+          机构类型
+          <select value={category} onChange={(event) => setCategory(event.target.value)}>
+            <option value="">全部</option>
+            {categories.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="tc-field">
+          关键词
+          <input
+            type="search"
+            value={keyword}
+            placeholder="医院名称 / 城市 / 科室"
+            onChange={(event) => setKeyword(event.target.value)}
+          />
+        </label>
+
+        <label className="tc-row tc-small" style={{ gap: 6 }}>
+          <input
+            type="checkbox"
+            checked={onlyEvidence}
+            onChange={(event) => setOnlyEvidence(event.target.checked)}
+          />
+          只看有创伤服务证据的机构
+        </label>
+      </form>
+
+      <p className="tc-small tc-muted">
+        共 {hospitals.length} 家机构记录，当前筛选出 {filtered.length} 家。
+        「创伤服务能力」一栏只有在拿到官方来源或明确证据时才标注，否则一律显示未知。
+      </p>
+
+      {filtered.length === 0 ? (
+        <div className="tc-empty">
+          <p>没有符合筛选条件的机构记录。</p>
+        </div>
+      ) : (
+        <div className="tc-grid tc-grid--cards">
+          {filtered.map((hospital) => (
+            <div className="tc-card" key={hospital.id}>
+              <h2 style={{ marginBottom: 4 }}>
+                <Link href={`/hospitals/${hospital.id}/`}>{hospital.name}</Link>
+              </h2>
+              <div className="tc-row tc-meta">
+                <span>{hospital.province}{hospital.city === hospital.province ? '' : ` · ${hospital.city}`}</span>
+                <span>·</span>
+                <span>{hospital.level}</span>
+                <span>·</span>
+                <span>{hospital.category}</span>
+              </div>
+              <p className="tc-small tc-muted" style={{ margin: '8px 0 4px' }}>
+                科室：{hospital.departments.join('、')}
+              </p>
+              <div className="tc-row tc-small">
+                <span className="tc-badge tc-badge--neutral">
+                  CPTSD 评估：{SERVICE_LABELS[hospital.trauma_service.cptsd_assessment]}
+                </span>
+                <span className="tc-badge tc-badge--neutral">
+                  CPTSD/BPD 诊断：{SERVICE_LABELS[hospital.trauma_service.cptsd_bpd_diagnosis]}
+                </span>
+              </div>
+              <p className="tc-meta" style={{ marginTop: 8 }}>
+                关联线索 {reportCounts[hospital.id] ?? 0} 条 · 官方来源 {hospital.official_sources.length} 个
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}

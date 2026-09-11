@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-09-11",
+  "items": [
+    {
+      "id": "pkuh6",
+      "name": "北京大学第六医院",
+      "aliases": ["北医六院", "北京大学精神卫生研究所", "北大六院"],
+      "adcode": "110000",
+      "province": "北京市",
+      "city": "北京市",
+      "level": "三级甲等",
+      "category": "精神专科",
+      "departments": ["精神科", "心理治疗", "儿童心理卫生"],
+      "trauma_service": {
+        "cptsd_assessment": "unknown",
+        "cptsd_bpd_diagnosis": "unknown",
+        "icd11_practice": "unknown",
+        "evidence": []
+      },
+      "website": "https://www.pkuh6.cn/",
+      "coordinates": null,
+      "official_sources": ["https://www.pkuh6.cn/"],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "bjad",
+      "name": "北京安定医院",
+      "aliases": ["首都医科大学附属北京安定医院", "安定医院"],
+      "adcode": "110000",
+      "province": "北京市",
+      "city": "北京市",
+      "level": "三级甲等",
+      "category": "精神专科",
+      "departments": ["精神科", "临床心理中心"],
+      "trauma_service": {
+        "cptsd_assessment": "unknown",
+        "cptsd_bpd_diagnosis": "unknown",
+        "icd11_practice": "unknown",
+        "evidence": []
+      },
+      "website": "https://www.bjad.com.cn/",
+      "coordinates": null,
+      "official_sources": ["https://www.bjad.com.cn/"],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "wcsh-mental-health",
+      "name": "四川大学华西医院心理卫生中心",
+      "aliases": ["华西心理卫生中心", "华西医院心理科"],
+      "adcode": "510000",
+      "province": "四川省",
+      "city": "成都市",
+      "level": "三级甲等",
+      "category": "综合医院心理科",
+      "departments": ["心理卫生中心", "精神科"],
+      "trauma_service": {
+        "cptsd_assessment": "unknown",
+        "cptsd_bpd_diagnosis": "unknown",
+        "icd11_practice": "unknown",
+        "evidence": []
+      },
+      "website": "https://www.cd120.com/department_xlwszx.html",
+      "coordinates": null,
+      "official_sources": ["https://www.cd120.com/department_xlwszx.html"],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "sz-kn",
+      "name": "深圳市康宁医院",
+      "aliases": ["深圳康宁医院", "深圳市精神卫生中心"],
+      "adcode": "440000",
+      "province": "广东省",
+      "city": "深圳市",
+      "level": "三级甲等",
+      "category": "精神专科",
+      "departments": ["精神科", "临床心理科"],
+      "trauma_service": {
+        "cptsd_assessment": "unknown",
+        "cptsd_bpd_diagnosis": "unknown",
+        "icd11_practice": "unknown",
+        "evidence": []
+      },
+      "website": "https://www.szknyy.com/",
+      "coordinates": null,
+      "official_sources": ["https://www.szknyy.com/"],
+      "last_verified_at": "2026-09-11"
+    }
+  ]
+}

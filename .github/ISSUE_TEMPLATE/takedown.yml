@@ -1,0 +1,67 @@
+name: 申请撤下内容
+description: 当事人（含被提及的医生与机构）申请下线某条记录
+title: '[撤下] '
+labels: ['takedown']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **隐私相关请求优先处理，我们会先下线再讨论。**
+        如果原因不便公开说明，请只填写记录编号，并在最后一个问题里写「原因不便公开」，
+        我们会通过私密渠道跟进，你不需要在公开区透露任何个人信息。
+
+  - type: input
+    id: target
+    attributes:
+      label: 涉及的记录
+      description: 记录编号（形如 xhs-1a2b3c4d5e）或页面链接
+      placeholder: xhs-1a2b3c4d5e
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relation
+    attributes:
+      label: 你与该记录的关系
+      options:
+        - 我是被摘录内容的作者本人
+        - 我是被提及的医生本人
+        - 我是被提及机构的授权代表
+        - 我代表当事人提出（已获授权）
+        - 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reason
+    attributes:
+      label: 撤下原因
+      options:
+        - 涉及我的个人隐私
+        - 内容与事实不符
+        - 内容已过时（例如医生已停诊/调岗）
+        - 内容涉及未成年人
+        - 内容涉及自伤细节
+        - 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 希望的处理方式
+      options:
+        - 完全下线该条内容（保留记录编号）
+        - 下线内容并删除记录编号
+        - 修改表述而非下线
+        - 先下线，之后再讨论
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: 补充说明
+      description: 可以留空，或写「原因不便公开」
+    validations:
+      required: false
