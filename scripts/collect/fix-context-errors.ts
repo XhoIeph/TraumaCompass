@@ -137,13 +137,24 @@ function main() {
         report.evidence_full_text = full.slice(0, 2000)
         filledFullText += 1
       }
-      report.evidence_context = {
+      const known = KNOWN_PARENTS[report.id] ?? {}
+      const candidate = {
         note_title: matched.source.noteTitle,
         index_in_capture: `第 ${matched.index + 1} 条 / 共抓取 ${matched.source.rows.length} 条`,
         capture_scope: matched.source.file,
-        ...(KNOWN_PARENTS[report.id] ?? {}),
+        ...known,
       }
-      filledContext += 1
+      // 只有 index/capture_scope 这种「出处」不算上下文；没有真上下文就如实标记
+      const meaningful =
+        Boolean(candidate.note_title) || Boolean(candidate.parent_excerpt) || candidate.is_reply !== undefined
+      report.evidence_context = candidate
+      if (meaningful) {
+        filledContext += 1
+        report.context_incomplete = undefined
+      } else {
+        report.context_incomplete = true
+        markedIncomplete += 1
+      }
     } else {
       report.context_incomplete = true
       report.evidence_context = { ...(KNOWN_PARENTS[report.id] ?? {}) }
@@ -153,6 +164,7 @@ function main() {
     const known = KNOWN_PARENTS[report.id]
     if (known?.parent_excerpt) {
       report.evidence_context = { ...report.evidence_context, ...known }
+      report.context_incomplete = undefined
     }
   }
 

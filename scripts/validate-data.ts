@@ -126,10 +126,9 @@ if (disorders && hospitals && doctors && reports && provinces) {
 
     // 占位名不得建立机构关联（2026-09-11 曾把「全国DBT基地名单」当成一家机构登记）
     const PLACEHOLDER_NAME = /未点名|名单|线索|待核实|某精神|某脑科|某顶级/
-    if (report.hospital_name_raw && PLACEHOLDER_NAME.test(report.hospital_name_raw) && report.hospital_id) {
-      errors.push(
-        `reports.json → ${id}: hospital_name_raw 为占位名（${report.hospital_name_raw}）却关联了 hospital_id`,
-      )
+    const rawName = typeof report.hospital_name_raw === 'string' ? report.hospital_name_raw : ''
+    if (rawName && PLACEHOLDER_NAME.test(rawName) && report.hospital_id) {
+      errors.push(`reports.json → ${id}: hospital_name_raw 为占位名（${rawName}）却关联了 hospital_id`)
     }
 
     const flags = report.flags as

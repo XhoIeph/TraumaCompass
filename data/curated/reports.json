@@ -526,7 +526,8 @@
       "evidence_context": {
         "index_in_capture": "第 8 条 / 共抓取 19 条",
         "capture_scope": "opencli/2026-09-11T09-36-53-245Z-page-page.json"
-      }
+      },
+      "context_incomplete": true
     },
     {
       "id": "xhs-374ed8d30d",
@@ -782,7 +783,8 @@
       "evidence_context": {
         "index_in_capture": "第 2 条 / 共抓取 111 条",
         "capture_scope": "opencli/2026-09-11T09-37-54-228Z-page-page.json"
-      }
+      },
+      "context_incomplete": true
     },
     {
       "id": "xhs-425f6e2373",
@@ -873,7 +875,8 @@
       "evidence_context": {
         "index_in_capture": "第 10 条 / 共抓取 30 条",
         "capture_scope": "opencli/2026-09-11T09-33-08-251Z-page-page.json"
-      }
+      },
+      "context_incomplete": true
     },
     {
       "id": "xhs-4caedbfb23",
@@ -1171,7 +1174,8 @@
       "evidence_context": {
         "index_in_capture": "第 11 条 / 共抓取 20 条",
         "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
-      }
+      },
+      "context_incomplete": true
     },
     {
       "id": "xhs-6ce0359028",
@@ -1428,7 +1432,8 @@
       "evidence_context": {
         "index_in_capture": "第 5 条 / 共抓取 20 条",
         "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
-      }
+      },
+      "context_incomplete": true
     },
     {
       "id": "xhs-8ac161a122",
@@ -2227,7 +2232,8 @@
       "evidence_context": {
         "index_in_capture": "第 13 条 / 共抓取 19 条",
         "capture_scope": "opencli/2026-09-11T09-36-53-245Z-page-page.json"
-      }
+      },
+      "context_incomplete": true
     },
     {
       "id": "xhs-a83e200907",
@@ -2272,7 +2278,8 @@
       "evidence_context": {
         "index_in_capture": "第 2 条 / 共抓取 20 条",
         "capture_scope": "opencli/2026-09-11T09-36-19-242Z-page-page.json"
-      }
+      },
+      "context_incomplete": true
     },
     {
       "id": "xhs-a95bf0fb5c",
