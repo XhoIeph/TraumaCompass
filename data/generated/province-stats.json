@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-11T08:47:21.069Z",
+  "generated_at": "2026-09-11T08:53:42.530Z",
   "totals": {
     "reports": 0,
     "reports_unlocated": 0,
-    "hospitals": 4,
+    "hospitals": 6,
     "doctors": 0,
     "provinces_with_reports": 0,
-    "provinces_with_hospitals": 3
+    "provinces_with_hospitals": 4
   },
   "items": [
     {
@@ -188,8 +188,8 @@
         "bpd": 0
       },
       "reports_by_platform": {},
-      "hospitals_total": 0,
-      "hospitals_with_service_evidence": 0,
+      "hospitals_total": 1,
+      "hospitals_with_service_evidence": 1,
       "doctors_total": 0,
       "verification": {
         "official": 0,
@@ -324,7 +324,7 @@
         "bpd": 0
       },
       "reports_by_platform": {},
-      "hospitals_total": 1,
+      "hospitals_total": 2,
       "hospitals_with_service_evidence": 0,
       "doctors_total": 0,
       "verification": {

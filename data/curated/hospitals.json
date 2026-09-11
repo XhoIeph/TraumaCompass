@@ -45,24 +45,57 @@
       "last_verified_at": "2026-09-11"
     },
     {
-      "id": "wcsh-mental-health",
-      "name": "四川大学华西医院心理卫生中心",
-      "aliases": ["华西心理卫生中心", "华西医院心理科"],
-      "adcode": "510000",
-      "province": "四川省",
-      "city": "成都市",
+      "id": "hz7",
+      "name": "杭州市第七人民医院",
+      "aliases": ["杭州七院", "浙江大学医学院附属精神卫生中心"],
+      "adcode": "330000",
+      "province": "浙江省",
+      "city": "杭州市",
       "level": "三级甲等",
-      "category": "综合医院心理科",
-      "departments": ["心理卫生中心", "精神科"],
+      "category": "精神专科",
+      "departments": ["精神科", "心身科", "儿童心理科", "精神康复科", "特检科（含心理测评）"],
+      "trauma_service": {
+        "cptsd_assessment": "unknown",
+        "cptsd_bpd_diagnosis": "unknown",
+        "icd11_practice": "unknown",
+        "evidence": [
+          "官网「医院概况」自述为治疗精神、心理疾病的三甲专科医院，同时是浙江大学医学院附属精神卫生中心；诊疗中心列表含睡眠障碍、儿童青少年心理健康、精神科疑难危重等，但未列出创伤/应激相关障碍专科门诊。"
+        ]
+      },
+      "address": "杭州市天目山路305号",
+      "website": "https://www.hz7hospital.com/",
+      "phone_public": "0571-85127129",
+      "coordinates": null,
+      "official_sources": [
+        "https://www.hz7hospital.cn/index/about.html",
+        "https://www.hz7hospital.com/index/outpat.html?outpat_id=5"
+      ],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "gzbrain",
+      "name": "广州医科大学附属脑科医院",
+      "aliases": [
+        "广州市脑科医院",
+        "广州市惠爱医院",
+        "广州市精神卫生中心",
+        "广州医科大学附属精神病医院"
+      ],
+      "adcode": "440000",
+      "province": "广东省",
+      "city": "广州市",
+      "level": "未知",
+      "category": "精神专科",
+      "departments": ["精神科"],
       "trauma_service": {
         "cptsd_assessment": "unknown",
         "cptsd_bpd_diagnosis": "unknown",
         "icd11_practice": "unknown",
         "evidence": []
       },
-      "website": "https://www.cd120.com/department_xlwszx.html",
+      "website": "https://www.gzbrain.cn/",
       "coordinates": null,
-      "official_sources": ["https://www.cd120.com/department_xlwszx.html"],
+      "official_sources": ["https://www.gzbrain.cn/"],
       "last_verified_at": "2026-09-11"
     },
     {
@@ -84,6 +117,27 @@
       "website": "https://www.szknyy.com/",
       "coordinates": null,
       "official_sources": ["https://www.szknyy.com/"],
+      "last_verified_at": "2026-09-11"
+    },
+    {
+      "id": "wcsh-mental-health",
+      "name": "四川大学华西医院心理卫生中心",
+      "aliases": ["华西心理卫生中心", "华西医院心理科"],
+      "adcode": "510000",
+      "province": "四川省",
+      "city": "成都市",
+      "level": "三级甲等",
+      "category": "综合医院心理科",
+      "departments": ["心理卫生中心", "精神科"],
+      "trauma_service": {
+        "cptsd_assessment": "unknown",
+        "cptsd_bpd_diagnosis": "unknown",
+        "icd11_practice": "unknown",
+        "evidence": []
+      },
+      "website": "https://www.cd120.com/department_xlwszx.html",
+      "coordinates": null,
+      "official_sources": ["https://www.cd120.com/department_xlwszx.html"],
       "last_verified_at": "2026-09-11"
     }
   ]
