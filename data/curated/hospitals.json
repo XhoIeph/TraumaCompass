@@ -13,14 +13,23 @@
       "category": "精神专科",
       "departments": ["精神科", "心理治疗", "儿童心理卫生"],
       "trauma_service": {
-        "cptsd_assessment": "unknown",
+        "cptsd_assessment": "claimed",
         "cptsd_bpd_diagnosis": "unknown",
         "icd11_practice": "unknown",
-        "evidence": []
+        "evidence": [
+          "官网医院新闻（2026-08-18）：《北京大学第六医院创伤心理治疗EMDR治疗技能培训（Ⅰ阶）在京举办》—— 该院自 2002 年引入 EMDR、2008 年起开展系统培训、2009 年推动成立中国心理卫生协会心理治疗与心理咨询专业委员会 EMDR 创伤心理治疗学组并任首任组长单位；已连续四年开展创伤心理治疗稳定化技能培训、EMDR 治疗师基础培训、哀伤辅导；Ⅱ阶培训内容为「复杂性创伤」的处理策略。",
+          "该院为精神心理疾病国家临床医学研究中心、国家精神疾病医学中心（官网首页标注）。",
+          "官网「专业门诊」清单列有：儿童、老年、心理治疗、精神疾病康复咨询、行为分析治疗、记忆障碍、睡眠障碍、成瘾行为、进食障碍 —— 其中并无创伤/应激相关障碍专科门诊。"
+        ]
       },
+      "address": "海淀院区：北京市海淀区花园北路51号；昌平院区：北京市昌平区科学园路2号",
       "website": "https://www.pkuh6.cn/",
+      "phone_public": "010-62723860 / 82801936",
       "coordinates": null,
-      "official_sources": ["https://www.pkuh6.cn/"],
+      "official_sources": [
+        "https://www.pkuh6.cn/Html/News/Articles/7021.html",
+        "https://www.pkuh6.cn/Html/News/Columns/210/Index.html"
+      ],
       "last_verified_at": "2026-09-11"
     },
     {
@@ -88,14 +97,18 @@
       "category": "精神专科",
       "departments": ["精神科"],
       "trauma_service": {
-        "cptsd_assessment": "unknown",
+        "cptsd_assessment": "claimed",
         "cptsd_bpd_diagnosis": "unknown",
         "icd11_practice": "unknown",
-        "evidence": []
+        "evidence": [
+          "官网临床心理科「科室介绍」：特色技术包含「心理创伤综合干预技术」；参编《中国创伤后应激障碍防治指南》（2024 版）；科研项目含《同步 EEG-fMRI 探讨 EMDR 治疗 PTSD 的疗效及脑网络机制》《EMDR 治疗伴儿童期创伤抑郁症疗效及脑网络机制探讨》《IPT 和 TF-CBT 干预伴童年创伤青少年抑郁症的疗效及神经机制探索》等。",
+          "该科设有「心理治疗（咨询）预约评估门诊」，面向未诊断人群开展心理健康评估与筛查（官网科室介绍）。",
+          "心理门诊分布于荔湾心理门诊、芳村总院及江村院区；急诊 24 小时热线 020-81263852、020-81263853。"
+        ]
       },
       "website": "https://www.gzbrain.cn/",
       "coordinates": null,
-      "official_sources": ["https://www.gzbrain.cn/"],
+      "official_sources": ["https://www.gzbrain.cn/", "https://www.gzbrain.cn/ksjs3575/index.aspx?subjectid=2"],
       "last_verified_at": "2026-09-11"
     },
     {
@@ -109,14 +122,22 @@
       "category": "精神专科",
       "departments": ["精神科", "临床心理科"],
       "trauma_service": {
-        "cptsd_assessment": "unknown",
+        "cptsd_assessment": "claimed",
         "cptsd_bpd_diagnosis": "unknown",
         "icd11_practice": "unknown",
-        "evidence": []
+        "evidence": [
+          "官网「心理咨询与心理治疗科科室简介」（2023-06-16）：诊疗范围明确包含 EMDR 创伤治疗；团体治疗包含情绪稳定化团体心理治疗、EMDR 创伤团体心理治疗；原文称「我科在 EMDR 创伤治疗领域在国内具有积极影响力」。",
+          "该科室成立于 2019-11-20，配置精神科主任医师 1 人、心理治疗师 6 人；科室地址：深圳市康宁医院致和楼一楼，电话 0755-25603442。"
+        ]
       },
+      "address": "坪山总院：深圳市坪山区振碧路77号；罗湖分院：深圳市罗湖区翠竹路1080号",
       "website": "https://www.szknyy.com/",
+      "phone_public": "0755-82923481（坪山总院）/ 0755-25504297（罗湖分院）",
       "coordinates": null,
-      "official_sources": ["https://www.szknyy.com/"],
+      "official_sources": [
+        "https://www.szknyy.com/",
+        "https://www.szknyy.com/gz/ylfw/ksdh/lhfy/ywks/xlzxyxlzlk/ksjj/content/post_976076.html"
+      ],
       "last_verified_at": "2026-09-11"
     },
     {

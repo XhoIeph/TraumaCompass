@@ -13,7 +13,7 @@ type ProvinceDatum = { adcode: string; name: string; short_name: string }
 
 type Props = {
   provinces: ProvinceDatum[]
-  /** adcode → 有官方/可信来源证明可做创伤相关评估或诊断的机构数 */
+  /** adcode → 有官方来源或明确证据支撑的创伤相关服务机构数 */
   resource: Record<string, number>
   /** adcode → 网友自述线索条数 */
   leads: Record<string, number>
@@ -34,7 +34,7 @@ type ChartLike = {
 const LAYER_META: Record<Layer, { label: string; hint: string; colors: string[] }> = {
   resource: {
     label: '可及资源',
-    hint: '按省内可核实的创伤相关评估/诊断机构数着色；灰色表示暂无记录。',
+    hint: '按省内「有官方来源或明确证据的创伤相关服务」机构数着色；证据可能是创伤治疗项目、专科门诊或培训体系，灰色表示暂无记录。',
     colors: ['#eef2f8', '#cfe0f7', '#9dc0ee', '#6b9de2', '#3f74cf'],
   },
   leads: {
@@ -260,7 +260,8 @@ export function ChinaMap({ provinces, resource, leads, hospitalTotals }: Props) 
             <div className="tc-stack">
               <h2 style={{ marginBottom: 0 }}>怎么读这张图</h2>
               <p className="tc-small tc-muted" style={{ margin: 0 }}>
-                「可及资源」只统计有官方来源或明确证据支撑的机构；「线索密度」统计的是网友自述条数。
+                「可及资源」只统计有官方来源或明确证据支撑的机构（证据可以是创伤治疗项目、专科门诊或培训体系，
+                并不等于该机构一定能开出 CPTSD 诊断）；「线索密度」统计的是网友自述条数。
                 两者都<strong>不能</strong>当作某地确诊人数或医疗水平的排名。
               </p>
               <p className="tc-small tc-faint" style={{ margin: 0 }}>

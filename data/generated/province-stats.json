@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-11T08:53:42.530Z",
+  "generated_at": "2026-09-11T08:56:33.944Z",
   "totals": {
     "reports": 0,
     "reports_unlocated": 0,
@@ -19,7 +19,7 @@
       },
       "reports_by_platform": {},
       "hospitals_total": 2,
-      "hospitals_with_service_evidence": 0,
+      "hospitals_with_service_evidence": 1,
       "doctors_total": 0,
       "verification": {
         "official": 0,
@@ -325,7 +325,7 @@
       },
       "reports_by_platform": {},
       "hospitals_total": 2,
-      "hospitals_with_service_evidence": 0,
+      "hospitals_with_service_evidence": 2,
       "doctors_total": 0,
       "verification": {
         "official": 0,

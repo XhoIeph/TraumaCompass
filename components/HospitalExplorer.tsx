@@ -7,7 +7,7 @@ import type { Hospital, Province } from '@/lib/schema'
 
 const SERVICE_LABELS: Record<string, string> = {
   yes: '有明确依据',
-  claimed: '仅有线索提及',
+  claimed: '有间接证据',
   unknown: '未知',
   no: '无',
 }

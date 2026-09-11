@@ -26,8 +26,9 @@ export default function HomePage() {
       <section className="tc-card">
         <h1>创伤知情就诊地图</h1>
         <p className="tc-muted">
-          这个项目在收集并公开两件事：哪些地方<strong>能</strong>做创伤相关评估与诊断（有官方或明确证据），
-          以及网友在公开平台上留下的<strong>就诊线索</strong>（医院、医生、流程、评价）。
+          这个项目在收集并公开两件事：哪些地方的机构<strong>有官方证据</strong>支撑其创伤相关服务能力
+          （创伤治疗项目、专科门诊、培训体系等），以及网友在公开平台上留下的<strong>就诊线索</strong>
+          （医院、医生、流程、评价）。
           首期只覆盖 CPTSD 与 BPD。
         </p>
         <div className="tc-note tc-note--warn" style={{ marginBottom: 0 }}>

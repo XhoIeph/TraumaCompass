@@ -66,7 +66,7 @@ data/
 | `level` | 三级甲等 / 三级乙等 / … / 未知 |
 | `category` | 精神专科 / 综合医院心理科 / 综合医院精神科 / 民营 / 其他 |
 | `departments` | 科室列表 |
-| `trauma_service` | `cptsd_assessment` / `cptsd_bpd_diagnosis` / `icd11_practice`：`yes` 有明确依据 / `claimed` 仅有线索提及 / `unknown` 未知 / `no` 无；`evidence[]` 为证据说明 |
+| `trauma_service` | `cptsd_assessment` / `cptsd_bpd_diagnosis` / `icd11_practice`：`yes` 官方页面明确说明提供该项服务 / `claimed` **有间接证据**（创伤治疗项目、指南参编、培训体系、网友线索等，但未明确说明提供该项服务）/ `unknown` 未知 / `no` 无；`evidence[]` 为逐条证据说明，须写明来源与时间 |
 | `address` / `website` / `phone_public` | 公开信息 |
 | `coordinates` | 首版地图不打点，未核实时必须为 `null` |
 | `official_sources` | 官方来源 URL（医院官网 / 卫健委） |
