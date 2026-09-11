@@ -78,6 +78,7 @@ const HOSPITAL_HINT = /医院|门诊|医生|确诊|诊断|挂号|量表|精神�
 console.log(`准备抓取 ${targets.length} 条笔记的评论`)
 
 let ok = 0
+let failed = 0
 let skipped = 0
 for (const noteId of targets) {
   const notePath = resolve(NOTES_DIR, `${noteId}.json`)
@@ -134,10 +135,25 @@ for (const noteId of targets) {
   }
 
   const hitCount = rows.filter((row) => HOSPITAL_HINT.test(row.text ?? '')).length
+
+  // 保护：抓到 0 条通常是签名 token 过期导致页面没渲染，而不是"这个帖子没有评论"。
+  // 若已有非空的旧文件，绝不用空结果覆盖它（2026-09-11 曾因此丢掉两条帖的评论）。
+  if (rows.length === 0 && existsSync(outFile)) {
+    const previous = readJson<{ count?: number }>(outFile)
+    if ((previous.count ?? 0) > 0) {
+      console.log(
+        `  ⚠ ${noteId} 本次抓到 0 条（疑似 token 过期/页面未渲染），保留原有 ${previous.count} 条，未覆盖`,
+      )
+      failed += 1
+      continue
+    }
+  }
+
   writeJson(outFile, { note_id: noteId, url: note.url, title: note.title ?? '', count: rows.length, hitCount, rows })
   ok += 1
   console.log(`  ★ ${noteId} | ${(note.title ?? '').slice(0, 30)} | 评论 ${rows.length} 条，其中 ${hitCount} 条提到医院/就诊`)
 }
 
-console.log(`\n✓ 完成 ${ok} 条，跳过已存在 ${skipped} 条 → ${COMMENTS_DIR}`)
-console.log('下一步：node scripts/collect/triage-comments.ts --in <某个评论文件>')
+console.log(`\n✓ 完成 ${ok} 条，保护性跳过 ${failed} 条，已存在跳过 ${skipped} 条 → ${COMMENTS_DIR}`)
+console.log('提示：评论抓取依赖签名 URL，token 会过期；若大量"抓到 0 条"，先跑 sweep 刷新 token 再抓。')
+console.log('下一步：node scripts/collect/backfill-context.ts（把父评论回填进线索）')

@@ -134,6 +134,10 @@ for (const { query, bucket } of queries) {
       state[row.note_id] = entry
       pending[row.note_id] = { ...entry, note_id: row.note_id }
       if (relevant(row.title)) fresh.push(row)
+    } else {
+      // 签名 URL 会过期：每次重新见到都要刷新，否则后续详情/评论抓取会因 token 失效而拿到空页面
+      state[row.note_id] = { ...state[row.note_id], url: row.url, likes: row.likes || state[row.note_id].likes }
+      if (pending[row.note_id]) pending[row.note_id] = { ...pending[row.note_id], url: row.url }
     }
   }
 

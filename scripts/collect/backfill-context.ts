@@ -173,11 +173,21 @@ const reportsFile = readJson<{ schema_version: string; updated_at: string; items
 let filled = 0
 let stillMissing = 0
 let cleared = 0
+let preserved = 0
 
 for (const report of reportsFile.items) {
   if (report.evidence_source !== 'comment') continue
 
-  const probe = report.evidence_quote.slice(0, 18)
+  // 只增不减：已有有意义上下文的记录一律不动，避免因原始文件被清空/刷新而"降级覆盖"
+  const existing = report.evidence_context
+  const alreadyMeaningful =
+    !!existing &&
+    (Boolean(existing.note_title) || Boolean(existing.parent_excerpt) || existing.is_reply !== undefined)
+  if (alreadyMeaningful && report.context_incomplete !== true) {
+    preserved += 1
+    continue
+  }
+
   const hit = findInComments(report.evidence_quote)
 
   // 评论文本里找不到 → 可能是「置顶评论名单截图」的逐字转写，改挂到归档证据上
@@ -269,7 +279,8 @@ for (const report of reportsFile.items) {
 }
 
 console.log(`评论文件：${files.map((f) => f.name).join('、')}`)
-console.log(`回填成功：${filled} 条（其中清除「上下文不完整」标记 ${cleared} 条）`)
+console.log(`保持不变（已有上下文）：${preserved} 条`)
+console.log(`本次回填：${filled} 条（其中清除「上下文不完整」标记 ${cleared} 条）`)
 console.log(`仍缺上下文：${stillMissing} 条`)
 
 if (dryRun) {

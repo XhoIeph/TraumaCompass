@@ -25,6 +25,8 @@
     "collect:fetch": "node scripts/collect/fetch-notes.ts",
     "collect:triage": "node scripts/collect/triage-notes.ts",
     "collect:triage-comments": "node scripts/collect/triage-comments.ts",
+    "collect:backfill": "node scripts/collect/backfill-context.ts",
+    "collect:fix-context": "node scripts/collect/fix-context-errors.ts",
     "collect:leads": "node scripts/collect/import-leads.ts",
     "evidence:manifest": "node scripts/collect/build-evidence-manifest.ts",
     "collect:record": "node scripts/collect/record.ts",
