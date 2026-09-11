@@ -16,6 +16,16 @@ cmd /c "npm run data:build"       # 生成省级聚合
 cmd /c "npm run dev"              # http://localhost:3000
 ```
 
+### 底图 key（可选，但推荐）
+
+首页是 Google Maps 式全页地图，底图用天地图瓦片（官方标准图源）：
+
+1. 到 [console.tianditu.gov.cn](https://console.tianditu.gov.cn/api/key) 免费注册一个「浏览器端」类型的 key；
+2. 本地开发：在项目根建 `.env.local`，写一行 `NEXT_PUBLIC_TIANDITU_KEY=你的key`；
+3. 线上部署：在 GitHub 仓库添加 Actions secret `NEXT_PUBLIC_TIANDITU_KEY`（deploy workflow 已接入）。
+
+**不配置 key 站点也不会挂**：地图自动回退为省界矢量示意底图（非标准地图），功能完全一致。
+
 生产构建（静态导出到 `out/`）：
 
 ```powershell
@@ -26,9 +36,11 @@ cmd /c "npm run serve"            # 本地预览 out/
 ## 目录结构
 
 ```
-app/                 Next.js App Router 页面（地图 / 医院 / 医生 / 线索 / 关于 / 投稿）
-components/          地图与列表组件（ChinaMap / *Explorer / ReportCard）
-lib/                 schema（zod）、数据装载、地区与格式化、哈希
+app/(map)/            首页：Google Maps 式全页地图（Leaflet + 天地图/矢量回退）
+app/(site)/           常规内容页（医院 / 医生 / 线索 / 关于 / 投稿）
+components/map/       地图应用组件（MapApp / Sidebar / 详情卡）
+components/           列表与卡片组件（*Explorer / ReportCard）
+lib/                  schema（zod）、数据装载、地区与格式化、哈希
 data/curated/        公开数据：disorders / hospitals / doctors / reports / provinces
 data/generated/      构建产物：province-stats.json
 data/queries/        检索词库
@@ -36,7 +48,7 @@ data/runs/           采集运行日志（脱敏）
 data/raw/            原始采集留痕（含真实昵称，gitignored）
 scripts/             数据管线与采集工具（Node 24 原生运行 TS）
 docs/                方法论 / 数据字典 / 合规 / 采集手册 / 撤下流程
-public/geo/          省级底图（示意性质，非标准地图）
+public/geo/          省级边界（密度层与矢量回退底图用，示意性质）
 ```
 
 ## 数据管线

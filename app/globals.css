@@ -364,48 +364,392 @@ ol {
   color: #fff;
 }
 
-/* ---------------------------------------------------------------- 地图 */
+/* ---------------------------------------------------------------- 全页地图应用 */
 
-/* 地图区允许突破正文 1120px 的栏宽，让地图尽量大 */
-.tc-map-wide {
-  width: min(1560px, calc(100vw - 32px));
-  margin-left: calc(50% - min(780px, 50vw - 16px));
-  margin-right: calc(50% - min(780px, 50vw - 16px));
+/* 首页（(map) 路由组）：地图铺满视口，侧栏与浮层叠加其上 */
+.tc-mapapp {
+  --tc-sidebar-w: 400px;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
 }
 
-.tc-map-layout {
-  display: grid;
-  gap: var(--tc-space-4);
-  grid-template-columns: 1fr;
+.tc-mapapp-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #e8edf4; /* 无瓦片回退时的底色 */
+}
+
+.tc-mapapp-canvas .leaflet-container {
+  font-family: var(--tc-font);
+}
+
+/* 顶栏：汉堡按钮 + 搜索框，悬浮于地图左上 */
+.tc-mapapp-topbar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  gap: var(--tc-space-2);
+  max-width: calc(100% - 24px);
+  transition: left 0.25s ease;
 }
 
 @media (min-width: 1000px) {
-  .tc-map-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 340px);
+  .tc-mapapp--open .tc-mapapp-topbar,
+  .tc-mapapp--open .tc-mapapp-legend {
+    left: calc(var(--tc-sidebar-w) + 12px);
   }
 }
 
-.tc-map-canvas {
-  width: 100%;
-  height: clamp(560px, 78vh, 960px);
+.tc-mapapp-burger {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--tc-radius);
   background: var(--tc-surface);
+  box-shadow: 0 1px 4px rgba(15, 30, 60, 0.18);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.tc-mapapp-burger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--tc-text-muted);
+}
+
+.tc-mapapp-burger:hover span {
+  background: var(--tc-accent);
+}
+
+.tc-mapapp-search {
+  position: relative;
+}
+
+.tc-mapapp-search input {
+  font: inherit;
+  font-size: 0.92rem;
+  width: min(320px, 56vw);
+  padding: 9px 14px;
+  border: none;
+  border-radius: var(--tc-radius);
+  background: var(--tc-surface);
+  color: var(--tc-text);
+  box-shadow: 0 1px 4px rgba(15, 30, 60, 0.18);
+}
+
+.tc-mapapp-search input:focus {
+  outline: 2px solid var(--tc-accent);
+}
+
+.tc-mapapp-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--tc-surface);
+  border-radius: var(--tc-radius);
+  box-shadow: 0 4px 16px rgba(15, 30, 60, 0.22);
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.tc-mapapp-results button {
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-radius: var(--tc-radius-sm);
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.tc-mapapp-results button:hover {
+  background: var(--tc-surface-muted);
+}
+
+.tc-mapapp-results small {
+  color: var(--tc-text-faint);
+}
+
+.tc-mapapp-scope {
+  background: var(--tc-surface);
+  box-shadow: 0 1px 4px rgba(15, 30, 60, 0.18);
+}
+
+@media (max-width: 900px) {
+  .tc-mapapp-scope {
+    display: none;
+  }
+}
+
+/* 移动端遮罩（侧栏覆盖地图时） */
+.tc-mapapp-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1050;
+  background: rgba(15, 25, 45, 0.35);
+}
+
+@media (min-width: 1000px) {
+  .tc-mapapp-backdrop {
+    display: none;
+  }
+}
+
+/* 侧边栏抽屉 */
+.tc-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1100;
+  width: min(86vw, var(--tc-sidebar-w));
+  background: var(--tc-surface);
+  border-right: 1px solid var(--tc-border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease;
+}
+
+@media (min-width: 1000px) {
+  .tc-sidebar {
+    width: var(--tc-sidebar-w);
+    box-shadow: 1px 0 6px rgba(15, 30, 60, 0.08);
+  }
+}
+
+.tc-sidebar--closed {
+  transform: translateX(-102%);
+}
+
+.tc-sidebar-head {
+  padding: var(--tc-space-3) var(--tc-space-4);
+  border-bottom: 1px solid var(--tc-border);
+}
+
+.tc-sidebar-chips {
+  margin-top: var(--tc-space-2);
+}
+
+.tc-hotline {
+  margin: var(--tc-space-2) 0 0;
+  font-size: 0.8rem;
+  color: #6f4620;
+  background: var(--tc-unverified-soft);
+  border: 1px solid #edd6bd;
+  border-radius: var(--tc-radius-sm);
+  padding: 6px 10px;
+}
+
+.tc-sidebar-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--tc-border);
+}
+
+.tc-sidebar-tab {
+  flex: 1;
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 10px 4px;
+  border: none;
+  background: transparent;
+  color: var(--tc-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tc-sidebar-tab:hover {
+  color: var(--tc-accent);
+}
+
+.tc-sidebar-tab--active {
+  color: var(--tc-accent);
+  border-bottom-color: var(--tc-accent);
+  font-weight: 600;
+}
+
+.tc-sidebar-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--tc-space-3) var(--tc-space-4) var(--tc-space-5);
+}
+
+/* 侧栏窄面板下的筛选与卡片布局 */
+.tc-filters--compact {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.tc-filters--compact .tc-field select,
+.tc-filters--compact .tc-field input {
+  min-width: 0;
+  width: 100%;
+}
+
+.tc-grid--compact {
+  grid-template-columns: 1fr;
+}
+
+/* 左下角图例 */
+.tc-mapapp-legend {
+  position: absolute;
+  bottom: 26px;
+  left: 12px;
+  z-index: 1000;
+  max-width: min(340px, calc(100vw - 24px));
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--tc-border);
   border-radius: var(--tc-radius);
-}
-
-@media (max-width: 640px) {
-  .tc-map-canvas {
-    height: clamp(420px, 62vh, 620px);
-  }
-}
-
-.tc-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--tc-space-3);
-  font-size: 0.8rem;
+  box-shadow: 0 1px 5px rgba(15, 30, 60, 0.15);
+  padding: 10px 14px;
+  font-size: 0.78rem;
   color: var(--tc-text-muted);
-  margin-top: var(--tc-space-2);
+  transition: left 0.25s ease;
+}
+
+.tc-mapapp-legend strong {
+  color: var(--tc-text);
+}
+
+.tc-mapapp-legend p {
+  margin: 6px 0 0;
+}
+
+.tc-legend-ramp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.tc-ramp {
+  display: inline-block;
+  width: 110px;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #cdddf6, #a5c4f0, #7aa7e6, #5487d8, #3763c8);
+}
+
+/* 右下角自定义操作（Leaflet zoom/scale/attribution 在其下方） */
+.tc-mapapp-actions {
+  position: absolute;
+  right: 12px;
+  bottom: 118px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--tc-space-2);
+}
+
+.tc-mapapp-ctl {
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 7px 12px;
+  border: none;
+  border-radius: var(--tc-radius);
+  background: var(--tc-surface);
+  color: var(--tc-text);
+  box-shadow: 0 1px 4px rgba(15, 30, 60, 0.2);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tc-mapapp-ctl:hover {
+  color: var(--tc-accent);
+}
+
+/* 加载失败提示 */
+.tc-mapapp-error {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1300;
+  background: var(--tc-danger-soft);
+  color: var(--tc-danger);
+  border: 1px solid #ecc8c5;
+  border-radius: var(--tc-radius);
+  padding: var(--tc-space-2) var(--tc-space-4);
+  font-size: 0.86rem;
+  max-width: min(560px, calc(100vw - 24px));
+}
+
+/* Leaflet 气泡样式对齐站点风格 */
+.tc-node-label,
+.tc-province-tip {
+  font-family: var(--tc-font);
+}
+
+.tc-node-label {
+  background: var(--tc-surface);
+  border: 1px solid var(--tc-border-strong);
+  border-radius: var(--tc-radius-sm);
+  box-shadow: 0 1px 3px rgba(15, 30, 60, 0.18);
+  color: var(--tc-text);
+  font-size: 0.78rem;
+  padding: 2px 7px;
+}
+
+.tc-node-label::before {
+  display: none;
+}
+
+.tc-province-tip {
+  background: var(--tc-surface);
+  border: 1px solid var(--tc-border-strong);
+  border-radius: var(--tc-radius-sm);
+  box-shadow: 0 2px 8px rgba(15, 30, 60, 0.18);
+  color: var(--tc-text);
+  font-size: 0.82rem;
+  padding: 8px 10px;
+}
+
+.tc-province-tip::before {
+  display: none;
+}
+
+/* 无列表样式 / 仿链接按钮（省份机构列表等） */
+.tc-plainlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tc-plainlist li {
+  margin: 4px 0;
+}
+
+.tc-linklike {
+  font: inherit;
+  font-size: inherit;
+  border: none;
+  background: transparent;
+  color: var(--tc-accent);
+  cursor: pointer;
+  padding: 0;
+}
+
+.tc-linklike:hover {
+  text-decoration: underline;
 }
 
 .tc-swatch {

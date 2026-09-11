@@ -58,10 +58,6 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
               <td>{SERVICE_LABELS[hospital.trauma_service.cptsd_bpd_diagnosis]}</td>
             </tr>
             <tr>
-              <th>ICD-11 使用情况</th>
-              <td>{SERVICE_LABELS[hospital.trauma_service.icd11_practice]}</td>
-            </tr>
-            <tr>
               <th>科室</th>
               <td>{hospital.departments.join('、')}</td>
             </tr>

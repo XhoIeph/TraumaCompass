@@ -16,9 +16,19 @@ type Props = {
   hospitals: Hospital[]
   provinces: Province[]
   reportCounts: Record<string, number>
+  /** compact：适配侧边栏窄面板的筛选与卡片布局（默认 page 不变） */
+  variant?: 'page' | 'compact'
+  /** 提供时每张机构卡出现「在地图上查看」按钮（首页地图侧栏联动） */
+  onSelectHospital?: (id: string) => void
 }
 
-export function HospitalExplorer({ hospitals, provinces, reportCounts }: Props) {
+export function HospitalExplorer({
+  hospitals,
+  provinces,
+  reportCounts,
+  variant = 'page',
+  onSelectHospital,
+}: Props) {
   const searchParams = useSearchParams()
   const [province, setProvince] = useState(() => searchParams.get('province') ?? '')
   const [category, setCategory] = useState('')
@@ -53,7 +63,10 @@ export function HospitalExplorer({ hospitals, provinces, reportCounts }: Props) 
 
   return (
     <div>
-      <form className="tc-card tc-filters" onSubmit={(event) => event.preventDefault()}>
+      <form
+        className={`tc-card tc-filters${variant === 'compact' ? ' tc-filters--compact' : ''}`}
+        onSubmit={(event) => event.preventDefault()}
+      >
         <label className="tc-field">
           省份
           <select value={province} onChange={(event) => setProvince(event.target.value)}>
@@ -108,7 +121,7 @@ export function HospitalExplorer({ hospitals, provinces, reportCounts }: Props) 
           <p>没有符合筛选条件的机构记录。</p>
         </div>
       ) : (
-        <div className="tc-grid tc-grid--cards">
+        <div className={`tc-grid tc-grid--cards${variant === 'compact' ? ' tc-grid--compact' : ''}`}>
           {filtered.map((hospital) => (
             <div className="tc-card" key={hospital.id}>
               <h2 style={{ marginBottom: 4 }}>
@@ -135,6 +148,16 @@ export function HospitalExplorer({ hospitals, provinces, reportCounts }: Props) 
               <p className="tc-meta" style={{ marginTop: 8 }}>
                 关联线索 {reportCounts[hospital.id] ?? 0} 条 · 官方来源 {hospital.official_sources.length} 个
               </p>
+              {onSelectHospital && (
+                <button
+                  type="button"
+                  className="tc-button"
+                  style={{ marginTop: 'var(--tc-space-2)' }}
+                  onClick={() => onSelectHospital(hospital.id)}
+                >
+                  在地图上查看
+                </button>
+              )}
             </div>
           ))}
         </div>

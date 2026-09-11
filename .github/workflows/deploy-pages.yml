@@ -35,6 +35,8 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: 'true'
+          # 天地图浏览器端 key（本就随页面公开）；未配置时站点回退为矢量示意底图
+          NEXT_PUBLIC_TIANDITU_KEY: ${{ secrets.NEXT_PUBLIC_TIANDITU_KEY }}
 
       - uses: actions/configure-pages@v5
 
