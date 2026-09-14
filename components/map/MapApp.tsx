@@ -23,7 +23,6 @@ import type { MapHospital, MapLead, MapProvinceStat } from './types'
  */
 
 const NODE_ZOOM_THRESHOLD = 7
-const LABEL_ZOOM_THRESHOLD = Infinity
 const MAX_ZOOM = 12
 const HOME_VIEW: [number, number, number] = [35.5, 105, 4]
 const NO_DATA_COLOR = '#ffffff'
@@ -70,7 +69,6 @@ export function MapApp(props: Props) {
   const nodeLayerRef = useRef<LayerGroup | null>(null)
   const markersRef = useRef<Array<{ marker: Marker; name: string; id: string }>>([])
   const zoomRef = useRef(HOME_VIEW[2])
-  const labelsOnRef = useRef(false)
   const summaryRef = useRef<LayerGroup | null>(null)
   const animationRef = useRef<number | null>(null)
   const nodesOnRef = useRef(false)
@@ -191,14 +189,6 @@ export function MapApp(props: Props) {
         if (showNodes) nodeLayer.addTo(currentMap)
         else nodeLayer.remove()
       }
-      const showLabels = z >= LABEL_ZOOM_THRESHOLD
-      if (showLabels !== labelsOnRef.current) {
-        labelsOnRef.current = showLabels
-        for (const { marker, name } of markersRef.current) {
-          marker.unbindTooltip()
-          marker.bindTooltip(name, { permanent: showLabels, direction: 'right', className: 'tc-node-label' })
-        }
-      }
       // 省份填充随层级切换：全国=密度着色，省级=淡出描边
       if (showNodes) summaryRef.current?.remove()
       else summaryRef.current?.addTo(currentMap)
@@ -229,6 +219,17 @@ export function MapApp(props: Props) {
         })
         mapRef.current = map
         L.control.zoom({ position: 'bottomright' }).addTo(map)
+
+        // 地图容器是 overflow:hidden，但浏览器仍可被 scrollIntoView 滚动它
+        // （如页面内 Ctrl+F 命中省份名、或控件获焦），一旦滚动，缩放控件会位移到视口中间而点不到。
+        // 这里把滚动位置钉回原点，保证控件始终停在右下角。
+        const mapContainer = containerRef.current
+        const pinToOrigin = () => {
+          if (mapContainer.scrollTop !== 0) mapContainer.scrollTop = 0
+          if (mapContainer.scrollLeft !== 0) mapContainer.scrollLeft = 0
+        }
+        mapContainer.addEventListener('scroll', pinToOrigin, { passive: true })
+        mapContainer.addEventListener('focusin', pinToOrigin)
         L.control.scale({ position: 'bottomright', imperial: false }).addTo(map)
 
         if (tileKey) {
