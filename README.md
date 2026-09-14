@@ -26,6 +26,9 @@ cmd /c "npm run dev"              # http://localhost:3000
 
 **不配置 key 站点也不会挂**：地图自动回退为省界矢量示意底图（非标准地图），功能完全一致。
 
+另需一个高德「Web 服务」类型 key（`AMAP_WEB_SERVICE_KEY`，同样放 `.env.local`），
+供 `npm run geo:geocode` 在本地为新增机构做 POI 定点——它是服务端 key，**不要**加 `NEXT_PUBLIC_` 前缀。
+
 生产构建（静态导出到 `out/`）：
 
 ```powershell
@@ -74,6 +77,7 @@ public/geo/          省级边界（密度层与矢量回退底图用，示意�
 | `npm run collect:quota -- status` | 查看当日采集用量（仅统计，无上限） |
 | `npm run collect:import -- --in x.json --kind search` | OpenCLI 输出 → 待补全草稿 |
 | `npm run collect:record -- --in draft.json` | 草稿 → 公开数据（先加 `--dry-run` 检查） |
+| `npm run geo:geocode` | 新增机构经高德 POI 自动定点（读 `.env.local` 的 `AMAP_WEB_SERVICE_KEY`，只处理仍为省级示意的机构；候选与判定规则留痕在 `data/runs/*-amap-geocode.json`） |
 
 ## 部署到 GitHub Pages
 

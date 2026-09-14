@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-09-11",
+  "updated_at": "2026-09-12",
   "items": [
     {
       "id": "pkuh6",
@@ -36,15 +36,15 @@
       "website": "https://www.pkuh6.cn/",
       "phone_public": "010-62723860 / 82801936",
       "coordinates": {
-        "lat": 40.18994,
-        "lng": 116.56995
+        "lat": 39.980971,
+        "lng": 116.351327
       },
       "official_sources": [
         "https://www.pkuh6.cn/Html/News/Articles/7021.html",
         "https://www.pkuh6.cn/Html/News/Columns/210/Index.html"
       ],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded"
     },
     {
       "id": "bjad",
@@ -72,14 +72,15 @@
       },
       "website": "https://www.bjad.com.cn/",
       "coordinates": {
-        "lat": 40.29386,
-        "lng": 116.49495
+        "lat": 39.951382,
+        "lng": 116.370565
       },
       "official_sources": [
         "https://www.bjad.com.cn/"
       ],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "安康胡同5号"
     },
     {
       "id": "hz7",
@@ -113,15 +114,15 @@
       "website": "https://www.hz7hospital.com/",
       "phone_public": "0571-85127129",
       "coordinates": {
-        "lat": 29.18147,
-        "lng": 120.25991
+        "lat": 30.272219,
+        "lng": 120.108706
       },
       "official_sources": [
         "https://www.hz7hospital.cn/index/about.html",
         "https://www.hz7hospital.com/index/outpat.html?outpat_id=5"
       ],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded"
     },
     {
       "id": "gzbrain",
@@ -155,15 +156,16 @@
       },
       "website": "https://www.gzbrain.cn/",
       "coordinates": {
-        "lat": 23.33464,
-        "lng": 113.57992
+        "lat": 23.101236,
+        "lng": 113.235044
       },
       "official_sources": [
         "https://www.gzbrain.cn/",
         "https://www.gzbrain.cn/ksjs3575/index.aspx?subjectid=2"
       ],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "明心路36号"
     },
     {
       "id": "sz-kn",
@@ -197,15 +199,15 @@
       "website": "https://www.szknyy.com/",
       "phone_public": "0755-82923481（坪山总院）/ 0755-25504297（罗湖分院）",
       "coordinates": {
-        "lat": 23.43857,
-        "lng": 113.50492
+        "lat": 22.664595,
+        "lng": 114.29952
       },
       "official_sources": [
         "https://www.szknyy.com/",
         "https://www.szknyy.com/gz/ylfw/ksdh/lhfy/ywks/xlzxyxlzlk/ksjj/content/post_976076.html"
       ],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded"
     },
     {
       "id": "wcsh-mental-health",
@@ -231,14 +233,15 @@
       },
       "website": "https://www.cd120.com/department_xlwszx.html",
       "coordinates": {
-        "lat": 30.67454,
-        "lng": 102.84345
+        "lat": 30.639294,
+        "lng": 104.059266
       },
       "official_sources": [
         "https://www.cd120.com/department_xlwszx.html"
       ],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "电信南街38号附6号"
     },
     {
       "id": "zdyfy",
@@ -268,14 +271,15 @@
       },
       "website": "https://www.zdyfy.com/",
       "coordinates": {
-        "lat": 33.90265,
-        "lng": 113.76972
+        "lat": 34.798832,
+        "lng": 113.756665
       },
       "official_sources": [
         "https://www.zdyfy.com/"
       ],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "龙湖中环路1号(郑大一附院东区地铁站D口步行60米)"
     },
     {
       "id": "bj-huilongguan",
@@ -305,12 +309,13 @@
         ]
       },
       "coordinates": {
-        "lat": 40.29386,
-        "lng": 116.34495
+        "lat": 40.065448,
+        "lng": 116.323755
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "南店路7号"
     },
     {
       "id": "sh-smhc",
@@ -341,12 +346,13 @@
         ]
       },
       "coordinates": {
-        "lat": 31.07256,
-        "lng": 121.58874
+        "lat": 31.189837,
+        "lng": 121.444458
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "宛平南路600号"
     },
     {
       "id": "sh-tongji",
@@ -374,12 +380,13 @@
         ]
       },
       "coordinates": {
-        "lat": 31.17648,
-        "lng": 121.51374
+        "lat": 31.239651,
+        "lng": 121.507883
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "即墨路150号"
     },
     {
       "id": "sh-xinhua",
@@ -405,12 +412,13 @@
         ]
       },
       "coordinates": {
-        "lat": 31.17648,
-        "lng": 121.36374
+        "lat": 31.275169,
+        "lng": 121.513294
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "控江路1665号"
     },
     {
       "id": "zj-tongde",
@@ -437,12 +445,13 @@
         ]
       },
       "coordinates": {
-        "lat": 29.28539,
-        "lng": 120.18491
+        "lat": 30.231261,
+        "lng": 120.010434
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "闲林东路1号"
     },
     {
       "id": "gd-gdph",
@@ -470,12 +479,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.43857,
-        "lng": 113.35492
+        "lat": 23.133892,
+        "lng": 113.251208
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "盘福路1号"
     },
     {
       "id": "gx-nn1",
@@ -500,12 +510,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.83338,
-        "lng": 108.9444
+        "lat": 22.813468,
+        "lng": 108.321004
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "七星路89号"
     },
     {
       "id": "cq-jwzx",
@@ -532,12 +543,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.0673,
-        "lng": 108.0339
+        "lat": 29.596463,
+        "lng": 106.526804
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "金紫山102号"
     },
     {
       "id": "hn-brain",
@@ -565,12 +577,13 @@
         ]
       },
       "coordinates": {
-        "lat": 27.62922,
-        "lng": 111.86165
+        "lat": 28.159054,
+        "lng": 112.979245
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "芙蓉中路三段427号(涂家冲地铁站4号口步行270米)"
     },
     {
       "id": "hn-xiangya",
@@ -597,12 +610,13 @@
         ]
       },
       "coordinates": {
-        "lat": 27.73314,
-        "lng": 111.78665
+        "lat": 28.215655,
+        "lng": 112.97854
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "湘雅路87号"
     },
     {
       "id": "ln-shengjing",
@@ -630,12 +644,13 @@
         ]
       },
       "coordinates": {
-        "lat": 41.29971,
-        "lng": 122.75499
+        "lat": 41.770663,
+        "lng": 123.420123
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "三好街36号"
     },
     {
       "id": "bj-pku-international",
@@ -660,12 +675,13 @@
         ]
       },
       "coordinates": {
-        "lat": 40.18994,
-        "lng": 116.26995
+        "lat": 40.099941,
+        "lng": 116.25746
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "中关村生命科学园生命园路1号"
     },
     {
       "id": "sh-hemujia",
@@ -691,12 +707,13 @@
         ]
       },
       "coordinates": {
-        "lat": 31.07256,
-        "lng": 121.28874
+        "lat": 31.20847,
+        "lng": 121.360312
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "上海市市辖区长宁区平塘路699号"
     },
     {
       "id": "gd-zhongshan8",
@@ -722,12 +739,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.33464,
-        "lng": 113.27992
+        "lat": 22.541445,
+        "lng": 114.074427
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "深南中路3025号"
     },
     {
       "id": "gd-jinan1",
@@ -753,12 +771,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.23072,
-        "lng": 113.35492
+        "lat": 23.12748,
+        "lng": 113.395016
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "车陂北街22-1号附近"
     },
     {
       "id": "gd-zhuhai3",
@@ -784,12 +803,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.23072,
-        "lng": 113.50492
+        "lat": 22.201096,
+        "lng": 113.464869
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "南屏镇和正路166号"
     },
     {
       "id": "sc-wcsh",
@@ -815,12 +835,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.77847,
-        "lng": 102.76845
+        "lat": 30.643925,
+        "lng": 104.058026
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "国学巷37号"
     },
     {
       "id": "sc-cd4",
@@ -845,12 +866,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.77847,
-        "lng": 102.61845
+        "lat": 30.69347,
+        "lng": 104.037468
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "互利西一巷8号成都市第四人民医院营门口院区"
     },
     {
       "id": "sc-spmc",
@@ -876,12 +898,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.67454,
-        "lng": 102.54345
+        "lat": 30.643925,
+        "lng": 104.058026
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "国学巷37号"
     },
     {
       "id": "zj-zju1",
@@ -907,12 +930,13 @@
         ]
       },
       "coordinates": {
-        "lat": 29.28539,
-        "lng": 120.03491
+        "lat": 30.274438,
+        "lng": 119.983119
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "文一西路1367号"
     },
     {
       "id": "zj-rongjun",
@@ -937,12 +961,13 @@
         ]
       },
       "coordinates": {
-        "lat": 29.18147,
-        "lng": 119.95991
+        "lat": 30.754899,
+        "lng": 120.723427
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "中环西路589号荣军医院浙江省嘉兴市南湖区双园路309号"
     },
     {
       "id": "js-szgj",
@@ -967,12 +992,13 @@
         ]
       },
       "coordinates": {
-        "lat": 32.98399,
-        "lng": 119.63651
+        "lat": 31.395049,
+        "lng": 120.663546
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "广前路11号"
     },
     {
       "id": "js-njbk",
@@ -998,12 +1024,13 @@
         ]
       },
       "coordinates": {
-        "lat": 33.08791,
-        "lng": 119.56151
+        "lat": 32.052291,
+        "lng": 118.763194
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "广州路264号"
     },
     {
       "id": "gz-gyzy",
@@ -1028,12 +1055,13 @@
         ]
       },
       "coordinates": {
-        "lat": 26.82637,
-        "lng": 107.03046
+        "lat": 26.559243,
+        "lng": 106.701607
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "四通街8号(贵阳火车站地铁站B口步行280米)"
     },
     {
       "id": "gz-gzsrm",
@@ -1058,12 +1086,13 @@
         ]
       },
       "coordinates": {
-        "lat": 26.93029,
-        "lng": 106.95546
+        "lat": 26.58031,
+        "lng": 106.719081
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "中山东路83号"
     },
     {
       "id": "fj-xianyue",
@@ -1088,12 +1117,13 @@
         ]
       },
       "coordinates": {
-        "lat": 26.06993,
-        "lng": 118.15647
+        "lat": 24.503331,
+        "lng": 118.135968
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "仙岳路1739号"
     },
     {
       "id": "gx-nn5",
@@ -1118,12 +1148,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.9373,
-        "lng": 108.8694
+        "lat": 22.86116,
+        "lng": 108.333318
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "邕武路7号"
     },
     {
       "id": "hi-anning",
@@ -1148,12 +1179,13 @@
         ]
       },
       "coordinates": {
-        "lat": 19.18977,
-        "lng": 109.90486
+        "lat": 19.996622,
+        "lng": 110.33288
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "南海大道东10号"
     },
     {
       "id": "hb-whjw",
@@ -1178,12 +1210,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.98753,
-        "lng": 112.4213
+        "lat": 30.577035,
+        "lng": 114.268902
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "游艺路93号(汉正街地铁站C口步行470米)"
     },
     {
       "id": "hb-rongjun",
@@ -1208,12 +1241,13 @@
         ]
       },
       "coordinates": {
-        "lat": 38.04547,
-        "lng": 114.65246
+        "lat": 38.798673,
+        "lng": 115.476205
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "莲池南大街2296号"
     },
     {
       "id": "ln-cykn",
@@ -1238,12 +1272,13 @@
         ]
       },
       "coordinates": {
-        "lat": 41.40364,
-        "lng": 122.67999
+        "lat": 41.608949,
+        "lng": 120.428474
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "开发区龙泉街道龙泉大街1段1号"
     },
     {
       "id": "ln-lnsz",
@@ -1268,12 +1303,13 @@
         ]
       },
       "coordinates": {
-        "lat": 41.40364,
-        "lng": 122.52999
+        "lat": 41.791715,
+        "lng": 123.466812
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "万泉街道小河沿路44号"
     },
     {
       "id": "sn-xijing",
@@ -1299,12 +1335,13 @@
         ]
       },
       "coordinates": {
-        "lat": 35.26366,
-        "lng": 109.03711
+        "lat": 34.27208,
+        "lng": 108.983472
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "长乐西路129号"
     },
     {
       "id": "sx-sxmu1",
@@ -1329,12 +1366,13 @@
         ]
       },
       "coordinates": {
-        "lat": 37.61818,
-        "lng": 112.45444
+        "lat": 37.852802,
+        "lng": 112.5491
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "解放南路85号"
     },
     {
       "id": "gs-2rm",
@@ -1359,12 +1397,13 @@
         ]
       },
       "coordinates": {
-        "lat": 36.05804,
-        "lng": 103.97356
+        "lat": 36.040947,
+        "lng": 103.835223
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "和政西街1号"
     },
     {
       "id": "hlj-dq3",
@@ -1389,12 +1428,13 @@
         ]
       },
       "coordinates": {
-        "lat": 48.04046,
-        "lng": 127.84303
+        "lat": 46.672791,
+        "lng": 124.850164
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "让杜路192号"
     },
     {
       "id": "sd-qdjw",
@@ -1419,12 +1459,13 @@
         ]
       },
       "coordinates": {
-        "lat": 36.37609,
-        "lng": 118.33776
+        "lat": 36.102289,
+        "lng": 120.380403
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "南京路299号"
     },
     {
       "id": "sc-yb4",
@@ -1449,12 +1490,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.57062,
-        "lng": 102.61845
+        "lat": 28.75549,
+        "lng": 104.62388
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "南岸外江路2号"
     },
     {
       "id": "js-xzdf",
@@ -1479,12 +1521,13 @@
         ]
       },
       "coordinates": {
-        "lat": 33.08791,
-        "lng": 119.41151
+        "lat": 34.264079,
+        "lng": 117.242195
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "东甸子城东快速路379号"
     },
     {
       "id": "gz-tcmy1",
@@ -1509,12 +1552,13 @@
         ]
       },
       "coordinates": {
-        "lat": 26.93029,
-        "lng": 106.80545
+        "lat": 26.583886,
+        "lng": 106.718818
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "宝山北路71号"
     },
     {
       "id": "sc-my3",
@@ -1541,12 +1585,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.57062,
-        "lng": 102.76845
+        "lat": 31.472311,
+        "lng": 104.75767
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "剑南路东段190号"
     },
     {
       "id": "fj-hxxm",
@@ -1573,12 +1618,13 @@
         ]
       },
       "coordinates": {
-        "lat": 26.17385,
-        "lng": 118.08147
+        "lat": 24.605792,
+        "lng": 118.029932
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "后浦西路188号"
     },
     {
       "id": "hn-xy2",
@@ -1605,12 +1651,13 @@
         ]
       },
       "coordinates": {
-        "lat": 27.73314,
-        "lng": 111.63665
+        "lat": 28.191318,
+        "lng": 112.988377
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "人民中路139号"
     },
     {
       "id": "js-dbzq",
@@ -1636,12 +1683,13 @@
         ]
       },
       "coordinates": {
-        "lat": 32.98399,
-        "lng": 119.33651
+        "lat": 32.043808,
+        "lng": 118.803941
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "黄埔路3号(西安门·浦发银行地铁站1号口步行250米)"
     },
     {
       "id": "js-tkxlg",
@@ -1666,12 +1714,13 @@
         ]
       },
       "coordinates": {
-        "lat": 32.88007,
-        "lng": 119.41151
+        "lat": 32.097087,
+        "lng": 118.93109
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "仙林街道灵山北路188号"
     },
     {
       "id": "sh-hk-jw",
@@ -1694,12 +1743,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.96864,
-        "lng": 121.36374
+        "lat": 31.308741,
+        "lng": 121.476222
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "上海市虹口区新市北路1536号"
     },
     {
       "id": "tj-jwzx",
@@ -1724,12 +1774,13 @@
         ]
       },
       "coordinates": {
-        "lat": 39.28804,
-        "lng": 117.49704
+        "lat": 39.072469,
+        "lng": 117.210149
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "郁江道71号"
     },
     {
       "id": "cq-ydcs",
@@ -1752,12 +1803,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.17122,
-        "lng": 107.9589
+        "lat": 30.805946,
+        "lng": 108.378978
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "新城路165号重庆大学附属三峡医院内"
     },
     {
       "id": "jl-cc6",
@@ -1782,12 +1834,13 @@
         ]
       },
       "coordinates": {
-        "lat": 43.70395,
-        "lng": 126.32121
+        "lat": 43.93448,
+        "lng": 125.333179
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "亚泰北大街3188号"
     },
     {
       "id": "sx-sxjw",
@@ -1810,12 +1863,13 @@
         ]
       },
       "coordinates": {
-        "lat": 37.7221,
-        "lng": 112.37944
+        "lat": 37.832667,
+        "lng": 112.599682
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "郝庄镇南十方街55号(南十方街地铁站D口步行390米)"
     },
     {
       "id": "sn-sxsrm",
@@ -1838,12 +1892,13 @@
         ]
       },
       "coordinates": {
-        "lat": 35.36758,
-        "lng": 108.96211
+        "lat": 34.241294,
+        "lng": 108.925535
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "黄雁村友谊西路256号"
     },
     {
       "id": "gs-lz3",
@@ -1866,12 +1921,13 @@
         ]
       },
       "coordinates": {
-        "lat": 36.16196,
-        "lng": 103.89856
+        "lat": 36.046215,
+        "lng": 103.736556
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "建兰新村130号"
     },
     {
       "id": "js-wj-kf",
@@ -1894,12 +1950,13 @@
         ]
       },
       "coordinates": {
-        "lat": 32.88007,
-        "lng": 119.56151
+        "lat": 31.10791,
+        "lng": 120.607603
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "云龙西路"
     },
     {
       "id": "bj-xfd",
@@ -1950,12 +2007,13 @@
         ]
       },
       "coordinates": {
-        "lat": 38.1494,
-        "lng": 114.57746
+        "lat": 38.016376,
+        "lng": 114.546269
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "东岗路89号"
     },
     {
       "id": "gs-lzsh",
@@ -1980,12 +2038,13 @@
         ]
       },
       "coordinates": {
-        "lat": 36.16196,
-        "lng": 103.74856
+        "lat": 36.095891,
+        "lng": 103.610968
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "福利西路733号"
     },
     {
       "id": "sd-sdjw",
@@ -2009,12 +2068,13 @@
         ]
       },
       "coordinates": {
-        "lat": 36.48002,
-        "lng": 118.26276
+        "lat": 36.65632,
+        "lng": 117.056967
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "燕子山小区南路与燕子山小区东路交叉口南160米"
     },
     {
       "id": "js-njmu-child",
@@ -2037,12 +2097,13 @@
         ]
       },
       "coordinates": {
-        "lat": 33.10821,
-        "lng": 119.71347
+        "lat": 32.052932,
+        "lng": 118.774199
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "广州路72号"
     },
     {
       "id": "js-cz1",
@@ -2065,12 +2126,13 @@
         ]
       },
       "coordinates": {
-        "lat": 33.20335,
-        "lng": 119.46552
+        "lat": 31.79416,
+        "lng": 119.964257
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "永宁北路2号"
     },
     {
       "id": "js-904",
@@ -2095,12 +2157,13 @@
         ]
       },
       "coordinates": {
-        "lat": 33.07913,
-        "lng": 119.23855
+        "lat": 31.781728,
+        "lng": 119.962904
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "和平北路55号(博爱路地铁站3号口步行290米)"
     },
     {
       "id": "jx-jwzx",
@@ -2123,12 +2186,13 @@
         ]
       },
       "coordinates": {
-        "lat": 27.63611,
-        "lng": 115.88298
+        "lat": 28.68105,
+        "lng": 115.926805
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "上坊路43号(江西省心理康复中心西1门旁)"
     },
     {
       "id": "gx-nn10",
@@ -2153,12 +2217,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.9373,
-        "lng": 108.7194
+        "lat": 23.200005,
+        "lng": 108.162042
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "东盟经济技术开发区武华大道173号"
     },
     {
       "id": "gd-dg7",
@@ -2183,12 +2248,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.45886,
-        "lng": 113.65689
+        "lat": 23.116333,
+        "lng": 113.65015
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "中堂镇江南社区麦洲岛"
     },
     {
       "id": "fj-fz2",
@@ -2213,12 +2279,13 @@
         ]
       },
       "coordinates": {
-        "lat": 26.17385,
-        "lng": 117.93147
+        "lat": 26.028807,
+        "lng": 119.284956
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "南二环451号"
     },
     {
       "id": "sc-ty2",
@@ -2241,12 +2308,13 @@
         ]
       },
       "coordinates": {
-        "lat": 30.79877,
-        "lng": 102.92042
+        "lat": 30.613644,
+        "lng": 103.65578
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "十字南路1133号"
     },
     {
       "id": "gd-fs3",
@@ -2271,12 +2339,13 @@
         ]
       },
       "coordinates": {
-        "lat": 23.554,
-        "lng": 113.40893
+        "lat": 22.985152,
+        "lng": 113.105011
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "石湾镇街道金澜南路102号"
     },
     {
       "id": "zj-nbkn",
@@ -2301,12 +2370,13 @@
         ]
       },
       "coordinates": {
-        "lat": 29.07754,
-        "lng": 120.03491
+        "lat": 29.937788,
+        "lng": 121.61756
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "庄俞南路1号(宁波大学附属康宁医院)"
     },
     {
       "id": "ln-dd3",
@@ -2331,12 +2401,13 @@
         ]
       },
       "coordinates": {
-        "lat": 41.29971,
-        "lng": 122.45499
+        "lat": 40.145178,
+        "lng": 124.380183
       },
       "official_sources": [],
       "last_verified_at": "2026-09-11",
-      "coordinates_source": "province-centroid"
+      "coordinates_source": "geocoded",
+      "address": "宝山路43号"
     }
   ]
 }
