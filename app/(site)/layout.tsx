@@ -6,7 +6,6 @@ const NAV = [
   { href: '/hospitals/', label: '医院' },
   { href: '/doctors/', label: '医生' },
   { href: '/reports/', label: '就诊线索' },
-  { href: '/about/', label: '关于与方法' },
   { href: '/submit/', label: '提交线索' },
 ]
 
@@ -36,19 +35,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
 
       <footer className="tc-footer">
         <div className="tc-container">
-          <p>
-            <strong>本站不是医疗机构，也不提供诊断或治疗建议。</strong>
-            所有「就诊线索」均为网友在公开平台的自述摘录，不代表本站观点；
-            每条都附有原帖链接，可自行核对原话；请以精神科执业医师的面诊结论为准。
-          </p>
-          <p>
-            如果你正处于危机中，可拨打全国统一心理援助热线 <strong>12356</strong>
-            （国家卫生健康委统一号码），或前往就近医院急诊。
-          </p>
-          <p className="tc-faint">
-            底图为示意性质的非标准地图；数据与代码以 Apache-2.0 许可开源。
-            <Link href="/about/"> 查看数据来源、核验标准与撤下流程</Link>。
-          </p>
+          <p>仅供就诊信息参考，不提供医疗建议。心理援助热线 <a href="tel:12356">12356</a>。</p>
         </div>
       </footer>
     </div>

@@ -33,23 +33,21 @@ export function HospitalDetail({
       <div className="tc-row tc-small">
         <span className="tc-badge tc-badge--accent">线索 {hospital.leads} 条</span>
         {hospital.evidenceCount > 0 && (
-          <span className="tc-badge tc-badge--neutral">机构侧证据 {hospital.evidenceCount} 条</span>
+          <span className="tc-badge tc-badge--neutral">来源 {hospital.evidenceCount} 条</span>
         )}
       </div>
       {hospital.doctors.length > 0 && (
         <p className="tc-small" style={{ margin: 0 }}>
-          线索中出现过的医生：{hospital.doctors.join('、')}
+          提及医生：{hospital.doctors.join('、')}
         </p>
       )}
-      <div className="tc-row">
+      <div className="tc-hospital-actions">
         <button type="button" className="tc-button" onClick={onLocate}>
           在地图上定位
         </button>
-        <Link className="tc-button" href={`/hospitals/${hospital.id}/`}>
-          查看机构页
-        </Link>
-      </div>
 
+        <Link className="tc-button" href={`/hospitals/${hospital.id}/`}>医院详细信息 →</Link>
+      </div>
       <hr className="tc-divider" />
       <h3 style={{ marginBottom: 0 }}>就诊线索（{leads.length}）</h3>
       {leads.length === 0 ? (

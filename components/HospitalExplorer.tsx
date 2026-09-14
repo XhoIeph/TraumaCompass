@@ -3,7 +3,9 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import type { Hospital, Province } from '@/lib/schema'
+import type { Hospital, Province, Report } from '@/lib/schema'
+
+import { hospitalSearchText, matchesSearch } from '@/lib/search'
 
 const SERVICE_LABELS: Record<string, string> = {
   yes: '有明确依据',
@@ -14,6 +16,7 @@ const SERVICE_LABELS: Record<string, string> = {
 
 type Props = {
   hospitals: Hospital[]
+  reports?: Report[]
   provinces: Province[]
   reportCounts: Record<string, number>
   /** compact：适配侧边栏窄面板的筛选与卡片布局（默认 page 不变） */
@@ -24,6 +27,7 @@ type Props = {
 
 export function HospitalExplorer({
   hospitals,
+  reports = [],
   provinces,
   reportCounts,
   variant = 'page',
@@ -54,12 +58,12 @@ export function HospitalExplorer({
         if (!hasEvidence) return false
       }
       if (needle) {
-        const haystack = [hospital.name, ...hospital.aliases, hospital.city, ...hospital.departments].join(' ')
-        if (!haystack.includes(needle)) return false
+        const haystack = hospitalSearchText(hospital, reports)
+        if (!matchesSearch(haystack, needle)) return false
       }
       return true
     })
-  }, [category, hospitals, keyword, onlyEvidence, province])
+  }, [category, hospitals, reports, keyword, onlyEvidence, province])
 
   return (
     <div>
@@ -96,7 +100,7 @@ export function HospitalExplorer({
           <input
             type="search"
             value={keyword}
-            placeholder="医院名称 / 城市 / 科室"
+            placeholder="医院 / 疾病 / 医生 / 科室"
             onChange={(event) => setKeyword(event.target.value)}
           />
         </label>
@@ -112,8 +116,7 @@ export function HospitalExplorer({
       </form>
 
       <p className="tc-small tc-muted">
-        共 {hospitals.length} 家机构记录，当前筛选出 {filtered.length} 家。
-        「创伤服务能力」一栏只有在拿到官方来源或明确证据时才标注，否则一律显示未知。
+        {filtered.length} 家机构
       </p>
 
       {filtered.length === 0 ? (
@@ -125,7 +128,7 @@ export function HospitalExplorer({
           {filtered.map((hospital) => (
             <div className="tc-card" key={hospital.id}>
               <h2 style={{ marginBottom: 4 }}>
-                <Link href={`/hospitals/${hospital.id}/`}>{hospital.name}</Link>
+                {onSelectHospital ? <button type="button" className="tc-linklike" onClick={() => onSelectHospital(hospital.id)}>{hospital.name}</button> : <Link href={`/hospitals/${hospital.id}/`}>{hospital.name}</Link>}
               </h2>
               <div className="tc-row tc-meta">
                 <span>{hospital.province}{hospital.city === hospital.province ? '' : ` · ${hospital.city}`}</span>

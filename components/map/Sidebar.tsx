@@ -1,14 +1,14 @@
 'use client'
 
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import Link from 'next/link'
 
-export type SidebarTabId = 'hospitals' | 'reports' | 'about' | 'submit'
+export type SidebarTabId = 'hospitals' | 'reports' | 'doctors' | 'submit'
 
 const TABS: { id: SidebarTabId; label: string }[] = [
   { id: 'hospitals', label: '机构' },
   { id: 'reports', label: '线索' },
-  { id: 'about', label: '关于' },
+  { id: 'doctors', label: '医生' },
   { id: 'submit', label: '投稿' },
 ]
 
@@ -30,12 +30,17 @@ export function Sidebar({
 }) {
   const [tab, setTab] = useState<SidebarTabId>('hospitals')
 
+  useEffect(() => {
+    const panel = new URLSearchParams(window.location.search).get('panel')
+    if (panel && TABS.some(item => item.id === panel)) setTab(panel as SidebarTabId)
+  }, [])
+
   return (
-    <aside className={`tc-sidebar${open ? '' : ' tc-sidebar--closed'}`} aria-label="地图侧边栏">
+    <aside className={`tc-sidebar${open ? '' : ' tc-sidebar--closed'}`} aria-label="地图侧边栏" inert={!open}>
       <div className="tc-sidebar-head">
         <Link href="/" className="tc-brand">
           TraumaCompass
-          <small>创伤知情就诊地图 · 项目早期版本</small>
+          <small>找到可以求助的地方</small>
         </Link>
         <div className="tc-row tc-small tc-sidebar-chips">
           <span className="tc-badge tc-badge--accent">线索 {totals.reports}</span>
@@ -43,7 +48,7 @@ export function Sidebar({
           <span className="tc-badge tc-badge--neutral">覆盖 {totals.provincesWithReports} 省</span>
         </div>
         <p className="tc-hotline">
-          危机中请拨打心理援助热线 <strong>12356</strong>，或前往就近医院急诊。
+          心理援助 <strong>12356</strong>
         </p>
       </div>
 

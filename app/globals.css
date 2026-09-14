@@ -3,7 +3,7 @@
  * 后续指派视觉风格时，只改这里的变量与组件 class，不动业务逻辑。
  */
 :root {
-  --tc-bg: #f6f7f9;
+  --tc-bg: #f5f7f4;
   --tc-surface: #ffffff;
   --tc-surface-muted: #f0f2f5;
   --tc-border: #e2e6eb;
@@ -13,8 +13,8 @@
   --tc-text-muted: #5a6472;
   --tc-text-faint: #8a93a0;
 
-  --tc-accent: #3763c8;
-  --tc-accent-soft: #e9effb;
+  --tc-accent: #23856b;
+  --tc-accent-soft: #e9f4ee;
   --tc-official: #1d7a5f;
   --tc-official-soft: #e5f4ef;
   --tc-corroborated: #8a6a12;
@@ -285,7 +285,7 @@ ol {
 .tc-badge--accent {
   background: var(--tc-accent-soft);
   color: var(--tc-accent);
-  border-color: #c9d9f6;
+  border-color: #c9e4d6;
 }
 
 /* ---------------------------------------------------------------- 备注条 */
@@ -299,8 +299,8 @@ ol {
 
 .tc-note--info {
   background: var(--tc-accent-soft);
-  border: 1px solid #c9d9f6;
-  color: #24406f;
+  border: 1px solid #c9e4d6;
+  color: #285b49;
 }
 
 .tc-note--warn {
@@ -646,7 +646,7 @@ ol {
   width: 110px;
   height: 10px;
   border-radius: 5px;
-  background: linear-gradient(90deg, #cdddf6, #a5c4f0, #7aa7e6, #5487d8, #3763c8);
+  background: linear-gradient(90deg, #d4eadd, #a8d4ba, #76b89a, #43977a, #23856b);
 }
 
 /* 右下角自定义操作（Leaflet zoom/scale/attribution 在其下方） */
@@ -821,3 +821,69 @@ ol {
     transition: none !important;
   }
 }
+
+/* Map workspace */
+.tc-mapapp { --tc-sidebar-w: 360px; }
+.tc-sidebar-head { padding: 24px 20px 16px; }
+.tc-sidebar .tc-brand { font-size: 20px; letter-spacing: -.6px; }
+.tc-sidebar .tc-brand small { margin-top: 4px; font-size: 12px; letter-spacing: .4px; color: #64756b; }
+.tc-hotline { background: #f1f6f1; border: 0; color: #526b5e; padding: 7px 10px; }
+.tc-sidebar-body { padding: 16px 20px 28px; overscroll-behavior: contain; }
+.tc-sidebar-tabs { padding: 0 10px; }
+.tc-sidebar-tab { padding: 15px 4px; }
+.tc-sidebar .tc-card { border: 0; border-bottom: 1px solid #e3ebe4; border-radius: 0; padding: 16px 0; margin: 0; }
+.tc-sidebar .tc-filters { background: #f5f8f4; border: 0; border-radius: 14px; padding: 12px; margin-bottom: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tc-sidebar .tc-filters .tc-field { min-width: 0; }
+.tc-sidebar .tc-filters .tc-field:has(input), .tc-sidebar .tc-filters > .tc-row { grid-column: 1 / -1; }
+.tc-sidebar .tc-filters select, .tc-sidebar .tc-filters input { border-color: #dbe4dc; background: #fff; padding: 7px; }
+.tc-sidebar .tc-card h2 { font-size: 16px; }
+.tc-sidebar .tc-grid { gap: 0; }
+.tc-sidebar .tc-report { padding: 16px; border-color: #e1e9e2; border-radius: 12px; margin: 0 0 12px; overflow-wrap: anywhere; }
+.tc-sidebar .tc-quote { border-color: #9bc6ac; }
+.tc-sidebar .tc-meta { color: #6c7b72; }
+.tc-sidebar .tc-badge { white-space: normal; }
+.tc-button { border-color: #d2e1d6; border-radius: 9px; }
+.tc-mapapp-legend { max-width: 300px; font-size: 11px; }
+.tc-mapapp-legend summary { cursor: pointer; color: #355a47; font-size: 13px; font-weight: 600; }
+.tc-mapapp-search input { border-radius: 28px; padding: 13px 20px; width: min(340px, 58vw); }
+.tc-mapapp-burger { border-radius: 50%; width: 46px; height: 46px; }
+.tc-mapapp-scope { padding: 5px 12px; }
+.tc-doctor-result { display: flex; flex-direction: column; text-align: left; gap: 6px; width: 100%; background: #fff; padding: 16px 0; border: 0; border-bottom: 1px solid #e1e9e2; color: #287257; font: inherit; cursor: pointer; }
+.tc-doctor-result small { color: #6c7b72; }
+.tc-mapapp-canvas.leaflet-container { font-family: var(--tc-font); }
+.tc-mapapp--open .tc-mapapp-canvas { left: var(--tc-sidebar-w); }
+button:focus-visible, a:focus-visible { outline: 2px solid #23856b; outline-offset: 3px; }
+@media (max-width: 999px) {
+ .tc-mapapp--open .tc-mapapp-canvas { left: 0; }
+ .tc-sidebar { top: 76px; width: min(390px, calc(100vw - 24px)); left: 12px; bottom: 12px; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 32px #1e38252b; }
+ .tc-sidebar-head { padding: 16px; }
+ .tc-mapapp-legend { bottom: 26px; max-width: 220px; }
+ .tc-mapapp-topbar { right: 12px; }
+ .tc-mapapp-search { flex: 1; }
+ .tc-mapapp-search input { width: 100%; }
+}
+
+.tc-pin-body { display:grid; place-items:center; width:40px; height:40px; background:#087353; color:white; border:3px solid white; border-radius:15px 15px 15px 4px; box-shadow:0 3px 10px #123c4266; font-size:25px; transition:transform .24s cubic-bezier(.22,1,.36,1),background .24s; }
+.tc-hospital-pin:hover .tc-pin-body { transform:translateY(-3px) scale(1.08); }
+.tc-pin--selected .tc-pin-body { transform:translateY(-5px) scale(1.18); background:#e17428; box-shadow:0 0 0 7px #e1742830,0 5px 14px #44321d55; }
+.tc-region-bubble { width:56px; height:56px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#ffffffed; border:2px solid #268361; border-radius:50%; color:#126b4e; box-shadow:0 2px 10px #163c302b; line-height:1.15; }
+.tc-region-bubble small { font-size:11px; }.tc-region-bubble strong { font-size:19px; }
+.tc-region-marker:hover .tc-region-bubble { background:#e2f2e8; }
+.tc-project-corner { position:absolute; top:16px; right:16px; z-index:1250; }
+.tc-project-card { position:absolute; right:0; top:48px; width:290px; border:1px solid #dce7df; border-radius:16px; padding:20px; background:white; box-shadow:0 10px 35px #203c2924; font-size:13px; }
+.tc-project-card p { margin:12px 0; }
+@media(max-width:999px) { .tc-project-corner { top:76px;right:12px; } .tc-mapapp--open .tc-project-corner { top:auto;bottom:25px; } .tc-project-card { top:auto;bottom:44px; } }
+
+.tc-region-unknown { display:flex; width:56px; height:56px; flex-direction:column; align-items:center; justify-content:center; color:#6f8276; text-shadow:0 1px 3px white; line-height:1.2; }
+.tc-region-unknown strong { font-size:24px; }
+.tc-region-unknown small { font-size:11px; }
+.tc-density-key { display:flex; gap:10px; margin:10px 0; }
+.tc-density-key span { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.tc-density-key i { display:block; width:30px; height:10px; border-radius:2px; }
+
+.tc-hospital-actions { display:flex; flex-wrap:wrap; align-items:stretch; gap:10px; margin:14px 0; }
+.tc-hospital-actions .tc-button { display:inline-flex; align-items:center; justify-content:center; min-height:40px; margin:0; line-height:1.4; }
+.tc-doctor-group { margin-top:24px; }
+.tc-doctor-group h2 { display:flex; align-items:center; gap:8px; color:#167353; font-size:16px; padding-bottom:8px; border-bottom:2px solid #dcebe0; }
+.tc-doctor-group h2 small { font-size:12px; font-weight:400; color:#758379; }
+.tc-doctor-explorer > .tc-meta { margin:8px 0 0; }

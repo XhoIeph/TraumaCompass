@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import type { Disorder, Province, Report } from '@/lib/schema'
 import { PLATFORM_LABELS } from '@/lib/format'
+import { matchesSearch } from '@/lib/search'
 import { ReportCard } from './ReportCard'
 
 type Props = {
@@ -54,7 +55,7 @@ export function ReportExplorer({
         ]
           .filter(Boolean)
           .join(' ')
-        if (!haystack.includes(needle)) return false
+        if (!matchesSearch(haystack, needle)) return false
       }
       return true
     })
@@ -103,7 +104,7 @@ export function ReportExplorer({
             <option value="">全部</option>
             {disorders.map((item) => (
               <option key={item.id} value={item.id}>
-                {item.name_zh}
+                {item.id === 'other' ? '其他' : item.id.toUpperCase()}
               </option>
             ))}
           </select>
@@ -125,8 +126,7 @@ export function ReportExplorer({
       </form>
 
       <p className="tc-small tc-muted">
-        共 {reports.length} 条已发布线索，当前筛选出 {filtered.length} 条。
-        每条都来自公开平台的自述摘录，给出发表时间、地区来源与原帖链接。
+        {filtered.length} 条线索
       </p>
 
       {filtered.length === 0 ? (
@@ -142,19 +142,10 @@ export function ReportExplorer({
             <div key={report.id}>
               <ReportCard
                 report={report}
+                onSelectHospital={onSelectHospital}
                 disorders={disorders}
                 showHospital={Boolean(hospitalNames[report.hospital_id ?? ''] ?? true)}
               />
-              {onSelectHospital && report.hospital_id && hospitalNames[report.hospital_id] && (
-                <button
-                  type="button"
-                  className="tc-button"
-                  style={{ marginTop: 'var(--tc-space-2)' }}
-                  onClick={() => onSelectHospital(report.hospital_id as string)}
-                >
-                  在地图上查看「{hospitalNames[report.hospital_id]}」
-                </button>
-              )}
             </div>
           ))}
         </div>

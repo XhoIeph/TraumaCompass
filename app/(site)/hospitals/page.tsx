@@ -17,15 +17,8 @@ export default function HospitalsPage() {
   return (
     <div>
       <h1>医院与机构</h1>
-      <p className="tc-muted">
-        每条记录都优先依据<strong>医院官网、卫健委等官方来源</strong>建立。
-        「CPTSD 评估」「CPTSD/BPD 诊断」两栏分三档：官方页面明确说明提供该项服务的标「有明确依据」；
-        只有创伤治疗项目、指南参编、培训体系等佐证的标「有间接证据」；其余一律「未知」——
-        未知不等于没有，只表示我们还没有可追溯的证据。
-      </p>
-
       <Suspense fallback={<p className="tc-muted">加载筛选中……</p>}>
-        <HospitalExplorer hospitals={hospitals} provinces={provinces} reportCounts={reportCounts} />
+        <HospitalExplorer hospitals={hospitals} reports={publicReports} provinces={provinces} reportCounts={reportCounts} />
       </Suspense>
     </div>
   )

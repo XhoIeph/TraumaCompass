@@ -27,13 +27,15 @@ export function ReportCard({
   report,
   disorders,
   showHospital = true,
+  onSelectHospital,
 }: {
   report: Report
   disorders: Disorder[]
   showHospital?: boolean
+  onSelectHospital?: (id: string) => void
 }) {
   const disorderNames = report.disorders
-    .map((id) => disorders.find((disorder) => disorder.id === id)?.name_zh ?? id)
+    .map((id) => id === 'other' ? '其他' : id.toUpperCase())
     .join(' / ')
   const cost = formatCost(report.cost_cny)
 
@@ -108,6 +110,9 @@ export function ReportCard({
       </div>
 
       <div className="tc-row tc-meta" style={{ marginTop: 'var(--tc-space-2)' }}>
+        {onSelectHospital && report.hospital_id && (
+          <button type="button" className="tc-linklike" onClick={() => onSelectHospital(report.hospital_id!)}>查看机构</button>
+        )}
         <span>摘录自{EVIDENCE_SOURCE_LABELS[report.evidence_source] ?? '原文'}</span>
         <span>·</span>
         <a href={report.source_url} target="_blank" rel="nofollow noopener noreferrer">

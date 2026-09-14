@@ -1,13 +1,15 @@
 'use client'
 
 import { Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import type { CircleMarker, Map as LeafletMap, LayerGroup, GeoJSON as LeafletGeoJSON, GeoJSON as GeoJSONTypes, Point } from 'leaflet'
+import type { Marker, Map as LeafletMap, LayerGroup, GeoJSON as LeafletGeoJSON, GeoJSON as GeoJSONTypes, Point } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import Link from 'next/link'
+import { hospitalSearchText, matchesSearch } from '@/lib/search'
 import type { Disorder, Hospital, Province, Report } from '@/lib/schema'
 import { HospitalExplorer } from '@/components/HospitalExplorer'
 import { ReportExplorer } from '@/components/ReportExplorer'
 import { Sidebar, type SidebarTabId } from './Sidebar'
+import { DoctorExplorer } from './DoctorExplorer'
 import { HospitalDetail } from './HospitalDetail'
 import { ProvinceDetail } from './ProvinceDetail'
 import type { MapHospital, MapLead, MapProvinceStat } from './types'
@@ -21,22 +23,22 @@ import type { MapHospital, MapLead, MapProvinceStat } from './types'
  */
 
 const NODE_ZOOM_THRESHOLD = 7
-const LABEL_ZOOM_THRESHOLD = 9
+const LABEL_ZOOM_THRESHOLD = Infinity
 const MAX_ZOOM = 12
-const HOME_VIEW: [number, number, number] = [35.5, 105, 4.5]
-const NO_DATA_COLOR = '#e3e7ee'
+const HOME_VIEW: [number, number, number] = [35.5, 105, 4]
+const NO_DATA_COLOR = '#ffffff'
 
 function densityColor(reports: number): string {
   if (reports <= 0) return NO_DATA_COLOR
-  if (reports <= 2) return '#cdddf6'
-  if (reports <= 4) return '#a5c4f0'
-  if (reports <= 7) return '#7aa7e6'
-  if (reports <= 10) return '#5487d8'
-  return '#3763c8'
+  if (reports <= 2) return '#d4eadd'
+  if (reports <= 4) return '#a8d4ba'
+  if (reports <= 7) return '#76b89a'
+  if (reports <= 10) return '#43977a'
+  return '#23856b'
 }
 
 function nodeRadius(leads: number): number {
-  return 5 + Math.min(11, leads * 1.2)
+  return 5 + Math.min(5, Math.sqrt(leads) * 1.4)
 }
 
 type Props = {
@@ -66,9 +68,11 @@ export function MapApp(props: Props) {
   const mapRef = useRef<LeafletMap | null>(null)
   const geoLayerRef = useRef<LeafletGeoJSON | null>(null)
   const nodeLayerRef = useRef<LayerGroup | null>(null)
-  const markersRef = useRef<Array<{ marker: CircleMarker; name: string }>>([])
+  const markersRef = useRef<Array<{ marker: Marker; name: string; id: string }>>([])
   const zoomRef = useRef(HOME_VIEW[2])
   const labelsOnRef = useRef(false)
+  const summaryRef = useRef<LayerGroup | null>(null)
+  const animationRef = useRef<number | null>(null)
   const nodesOnRef = useRef(false)
   const propsRef = useRef(props)
   propsRef.current = props
@@ -79,11 +83,57 @@ export function MapApp(props: Props) {
   const [selectedProvinceAdcode, setSelectedProvinceAdcode] = useState<string | null>(null)
   const [query, setQuery] = useState('')
   const [mapError, setMapError] = useState('')
+  const [aboutOpen, setAboutOpen] = useState(false)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    const observer = new ResizeObserver(() => mapRef.current?.invalidateSize({ pan: false }))
+    observer.observe(containerRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   const tileKey = process.env.NEXT_PUBLIC_TIANDITU_KEY
-  const coordinateNote = props.mapHospitals[0]?.coordinateSource === 'geocoded'
-    ? '真实地理编码坐标'
-    : '省级近似位置（同省机构按环形展开），尚未做门址级地理编码'
+  const geocodedCount = props.mapHospitals.filter((h) => h.coordinateSource === 'geocoded').length
+  const coordinateNote = geocodedCount === 0
+    ? '省级示意，非医院地址'
+    : geocodedCount === props.mapHospitals.length
+      ? '位置来自公开地图 POI 匹配'
+      : `${geocodedCount} 家为公开地图 POI 位置，其余为省级示意`
+
+  const moveTo = (lat: number, lng: number, targetZoom: number) => {
+    const map = mapRef.current
+    if (!map) return
+    if (animationRef.current !== null) cancelAnimationFrame(animationRef.current)
+    map.stop()
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      map.setView([lat, lng], targetZoom, { animate: false })
+      return
+    }
+    const z = map.getZoom(), start = map.project(map.getCenter(), 0), end = map.project([lat, lng], 0)
+    const started = performance.now()
+    const frame = (now: number) => {
+      try {
+        const t = Math.min(1, (now - started) / 1100)
+        const e = t * t * t * (t * (6 * t - 15) + 10)
+        map.setView(map.unproject(start.add(end.subtract(start).multiplyBy(e)), 0), z + (targetZoom - z) * e, { animate: false })
+        animationRef.current = t < 1 ? requestAnimationFrame(frame) : null
+      } catch (error) {
+        console.error('moveTo frame error', error)
+        animationRef.current = null
+      }
+    }
+    animationRef.current = requestAnimationFrame(frame)
+  }
+
+  useEffect(() => {
+    for (const { marker, id } of markersRef.current) {
+      const active = id === selectedHospitalId
+      marker.getElement()?.classList.toggle('tc-pin--selected', active)
+      marker.setZIndexOffset(active ? 1000 : 0)
+      if (active) marker.openTooltip()
+      else marker.closeTooltip()
+    }
+  }, [selectedHospitalId, zoom])
 
   /** 选中医院：飞过去 + 侧栏切详情卡 */
   const selectHospital = (id: string) => {
@@ -93,7 +143,7 @@ export function MapApp(props: Props) {
     setSelectedProvinceAdcode(null)
     setSidebarOpen(true)
     const map = mapRef.current
-    map?.flyTo([hospital.lat, hospital.lng], Math.max(map.getZoom(), 8.5), { duration: 0.8 })
+    if (map) moveTo(hospital.lat, hospital.lng, Math.max(map.getZoom(), 8))
   }
 
   /** 选中省份：飞到省界范围 + 侧栏切省份概要卡 */
@@ -115,12 +165,9 @@ export function MapApp(props: Props) {
     if (!target) return
     // 强制提到节点阈值：省份再大也不能停在「全国视图」缩放级别
     const layerBounds = (target as GeoJSONTypes).getBounds()
-    const fitZoom = map.getBoundsZoom(layerBounds, false, [48, 48] as unknown as Point)
-    map.flyTo(
-      layerBounds.getCenter(),
-      Math.min(MAX_ZOOM, Math.max(fitZoom, NODE_ZOOM_THRESHOLD)),
-      { duration: 0.8 },
-    )
+    const fitZoom = map.getBoundsZoom(layerBounds)
+    const center = layerBounds.getCenter()
+    moveTo(center.lat, center.lng, Math.min(MAX_ZOOM, Math.max(fitZoom, NODE_ZOOM_THRESHOLD)))
   }
 
   // 初始化 Leaflet：底图（瓦片或矢量回退）+ 省界密度层 + 医院节点层
@@ -153,7 +200,14 @@ export function MapApp(props: Props) {
         }
       }
       // 省份填充随层级切换：全国=密度着色，省级=淡出描边
+      if (showNodes) summaryRef.current?.remove()
+      else summaryRef.current?.addTo(currentMap)
       geoLayer.resetStyle()
+      geoLayer.eachLayer((layer) => {
+        if (showNodes) layer.closeTooltip()
+        const element = (layer as unknown as { getElement?: () => SVGElement }).getElement?.()
+        if (element) element.style.pointerEvents = showNodes ? 'none' : 'auto'
+      })
     }
 
     async function setup() {
@@ -165,9 +219,11 @@ export function MapApp(props: Props) {
         map = L.map(containerRef.current, {
           center: [HOME_VIEW[0], HOME_VIEW[1]],
           zoom: HOME_VIEW[2],
-          zoomSnap: 0.5,
+          zoomSnap: 0,
           zoomDelta: 0.5,
-          minZoom: 3.5,
+          minZoom: 4,
+          maxBounds: [[3, 65], [57, 142]],
+          maxBoundsViscosity: 1,
           maxZoom: MAX_ZOOM,
           zoomControl: false,
         })
@@ -202,16 +258,15 @@ export function MapApp(props: Props) {
 
         // 医院节点层（初始隐藏，放大到省级才加入地图）
         const markers = propsRef.current.mapHospitals.map((hospital) => {
-          const marker = L.circleMarker([hospital.lat, hospital.lng], {
-            radius: nodeRadius(hospital.leads),
-            color: '#ffffff',
-            weight: 1.5,
-            fillColor: '#3763c8',
-            fillOpacity: 0.92,
+          const marker = L.marker([hospital.lat, hospital.lng], {
+            icon: L.divIcon({ className: 'tc-hospital-pin', html: '<span class="tc-pin-body">✚</span>', iconSize: [44, 48], iconAnchor: [22, 44], tooltipAnchor: [22, -24] }),
+            title: hospital.name, alt: hospital.name, riseOnHover: true,
           })
-          marker.bindTooltip(hospital.name, { permanent: false, direction: 'right', className: 'tc-node-label' })
+          const label = document.createElement('span')
+          label.textContent = hospital.name
+          marker.bindTooltip(label, { permanent: false, direction: 'right', className: 'tc-node-label' })
           marker.on('click', () => selectHospital(hospital.id))
-          return { marker, name: hospital.name }
+          return { marker, name: hospital.name, id: hospital.id }
         })
         markersRef.current = markers
         nodeLayerRef.current = L.layerGroup(markers.map((item) => item.marker))
@@ -223,12 +278,10 @@ export function MapApp(props: Props) {
             if (adcode.endsWith('_JD')) {
               return { color: '#8a93a0', weight: 1, dashArray: '4 3', fill: false }
             }
-            const z = zoomRef.current
-            const stat = propsRef.current.provinceStats[adcode]
-            if (z >= NODE_ZOOM_THRESHOLD) {
-              return { color: '#7d97c8', weight: 1, fillColor: '#dfe7f3', fillOpacity: 0.25 }
-            }
-            return { color: '#ffffff', weight: 1, fillColor: densityColor(stat?.reports ?? 0), fillOpacity: 0.72 }
+            const count = propsRef.current.provinceStats[adcode]?.reports ?? 0
+            const detailed = zoomRef.current >= NODE_ZOOM_THRESHOLD
+            return { color: '#a3b6aa', weight: 0.7, fillColor: densityColor(count), fillOpacity: detailed ? 0.04 : count ? 0.5 : 0.92 }
+
           },
           onEachFeature: (feature, layer) => {
             const adcode = String(feature?.properties?.adcode ?? '')
@@ -246,11 +299,33 @@ export function MapApp(props: Props) {
               ].join('<br/>'),
               { sticky: true, className: 'tc-province-tip' },
             )
-            layer.on('click', () => selectProvince(adcode))
+            layer.on('click', () => { if (zoomRef.current < NODE_ZOOM_THRESHOLD) selectProvince(adcode) })
+            layer.on('mouseover', () => { if (zoomRef.current >= NODE_ZOOM_THRESHOLD) layer.closeTooltip() })
           },
         }).addTo(map)
         geoLayerRef.current = geoLayer
 
+        const summaries = geo.features.flatMap(feature => {
+          const adcode = String(feature.properties?.adcode ?? '')
+          const stat = propsRef.current.provinceStats[adcode]
+          const center = feature.properties?.centroid ?? feature.properties?.center
+          if (!stat || stat.reports > 0 || !Array.isArray(center)) return []
+          const content = document.createElement('span')
+          content.className = 'tc-region-unknown'
+          const name = document.createElement('small')
+          name.textContent = propsRef.current.provinces.find(p => p.adcode === adcode)?.short_name ?? ''
+          const count = document.createElement('strong')
+          count.textContent = '?'
+          count.setAttribute('aria-label', '暂无收录')
+          content.append(name, count)
+          const marker = L.marker([center[1], center[0]], { icon: L.divIcon({ className: 'tc-region-marker', html: content, iconSize: [56, 56], iconAnchor: [28, 28] }), title: `${name.textContent} · ${stat.reports} 条线索` })
+          marker.on('click', () => selectProvince(adcode))
+          return [marker]
+        })
+        summaryRef.current = L.layerGroup(summaries).addTo(map)
+        const interrupt = () => { if (animationRef.current !== null) cancelAnimationFrame(animationRef.current) }
+        map.on('dragstart', interrupt)
+        map.getContainer().addEventListener('wheel', interrupt, { passive: true })
         map.on('zoomend', applyZoomStyles)
         applyZoomStyles()
       } catch (error) {
@@ -261,6 +336,7 @@ export function MapApp(props: Props) {
     void setup()
     return () => {
       disposed = true
+      if (animationRef.current !== null) cancelAnimationFrame(animationRef.current)
       map?.remove()
       mapRef.current = null
       geoLayerRef.current = null
@@ -273,7 +349,7 @@ export function MapApp(props: Props) {
   const backToCountry = () => {
     setSelectedHospitalId(null)
     setSelectedProvinceAdcode(null)
-    mapRef.current?.flyTo([HOME_VIEW[0], HOME_VIEW[1]], HOME_VIEW[2], { duration: 0.8 })
+    moveTo(...HOME_VIEW)
   }
 
   // 搜索：省份（名称/简称）+ 机构（名称/别名/城市）
@@ -293,8 +369,8 @@ export function MapApp(props: Props) {
       if (results.length >= 4) break
     }
     for (const hospital of propsRef.current.hospitals) {
-      const haystack = [hospital.name, ...hospital.aliases, hospital.city, hospital.province].join(' ')
-      if (haystack.includes(q)) {
+      const haystack = hospitalSearchText(hospital, propsRef.current.reports)
+      if (matchesSearch(haystack, q)) {
         results.push({
           key: `hospital-${hospital.id}`,
           label: hospital.name,
@@ -336,6 +412,7 @@ export function MapApp(props: Props) {
       <Suspense fallback={<p className="tc-small tc-muted">加载中……</p>}>
         <HospitalExplorer
           hospitals={props.hospitals}
+          reports={props.reports}
           provinces={props.provinces}
           reportCounts={props.reportCounts}
           variant="compact"
@@ -356,47 +433,15 @@ export function MapApp(props: Props) {
         />
       </Suspense>
     ),
-    about: (
-      <div className="tc-stack">
-        <div>
-          <h3>这个项目在做什么</h3>
-          <p className="tc-small tc-muted">
-            本站收集两类公开信息：有公开依据的创伤相关服务机构，以及网友自述的就诊路径（医院、医生、流程、费用）。
-          </p>
-        </div>
-        <div>
-          <h3>首期收录的诊断</h3>
-          <div className="tc-row">
-            {props.visibleDisorders.map((disorder) => (
-              <span key={disorder.id} className="tc-badge tc-badge--accent" title={disorder.summary}>
-                {disorder.name_zh}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div>
-          <h3>读图须知</h3>
-          <ul className="tc-small tc-muted" style={{ margin: 0, paddingLeft: '1.2em' }}>
-            <li>密度颜色是「公开线索的采集密度」，不是就诊或确诊人数统计，条数不代表医疗水平。</li>
-            <li>医院节点位置：{coordinateNote}。</li>
-            <li>线索均为公开平台自述摘录，逐条附原帖链接；本站不提供诊断或治疗建议。</li>
-          </ul>
-        </div>
-        <p className="tc-small">
-          <Link href="/about/">查看完整的方法论、数据字典与撤下流程 →</Link>
-        </p>
-      </div>
+    doctors: (
+      <DoctorExplorer hospitals={props.hospitals} reports={props.reports} onSelectHospital={selectHospital} />
     ),
     submit: (
       <div className="tc-stack">
         <h3>提交线索</h3>
-        <p className="tc-small tc-muted">
-          如果你知道公开平台上关于 CPTSD / BPD 就诊经历的帖子（医院、科室、医生、流程、费用），
-          欢迎提交。收录标准：公开可见、可附原链接、摘录 ≤200 字；不采集用户名与 IP 属地。
-        </p>
-        <p className="tc-small">
-          <Link href="/submit/">前往投稿页查看详细指引 →</Link>
-        </p>
+        <p className="tc-small tc-muted">提供公开原帖链接，以及医院、科室或医生线索即可。请勿提交病历、联系方式或其他个人信息。</p>
+        <a className="tc-button tc-button--active" href="https://github.com/XhoIeph/TraumaCompass/issues/new?template=lead.yml" target="_blank" rel="noopener noreferrer">在 GitHub 提交线索 ↗</a>
+        <p className="tc-meta">需要 GitHub 账号。提交后内容将公开可见。</p>
       </div>
     ),
   }
@@ -459,7 +504,7 @@ export function MapApp(props: Props) {
           )}
         </div>
         <span className="tc-badge tc-badge--neutral tc-mapapp-scope">
-          {scope === 'country' ? '全国视图：点击省份看概要' : '省级视图：点击圆点看医院'}
+          {scope === 'country' ? '探索就诊线索' : '点击图钉查看机构'}
         </span>
       </div>
 
@@ -467,24 +512,22 @@ export function MapApp(props: Props) {
 
       <Sidebar open={sidebarOpen} tabs={tabs} detail={detailNode} totals={props.totals} />
 
-      <div className="tc-mapapp-legend">
-        <strong>就诊线索密度（按省）</strong>
-        <div className="tc-legend-ramp">
-          <span className="tc-swatch" style={{ background: NO_DATA_COLOR }} />
-          <span>暂无记录</span>
-          <span className="tc-ramp" aria-hidden="true" />
-          <span>线索少 → 多</span>
-        </div>
-        <p>
-          颜色深浅是公开线索的<strong>采集密度</strong>，不是就诊或确诊人数统计，也不代表当地医疗水平。
-        </p>
-        <p className="tc-faint">
-          医院节点位置：{coordinateNote}。点击省份看概要，放大后出现医院节点。
-        </p>
-        {!tileKey && (
-          <p className="tc-faint">当前为示意底图（省界数据，非标准地图）；配置天地图 key 后显示真实地图。</p>
-        )}
+      <div className="tc-project-corner">
+        <button type="button" className="tc-mapapp-ctl" aria-expanded={aboutOpen} onClick={() => setAboutOpen(v => !v)}>关于项目</button>
+        {aboutOpen && <section className="tc-project-card" aria-label="关于项目">
+          <div className="tc-row tc-row--between"><strong>TraumaCompass</strong><button className="tc-linklike" onClick={() => setAboutOpen(false)}>关闭</button></div>
+          <p>整理 CPTSD / BPD 就诊线索，让医院、医生与就诊经历更容易找到。</p>
+          <p className="tc-meta">仅供信息参考，不提供医疗建议。</p>
+          <a href="https://github.com/XhoIeph/TraumaCompass" target="_blank" rel="noopener noreferrer">项目仓库 ↗</a>
+        </section>}
       </div>
+      <details className="tc-mapapp-legend"><summary>图例与位置说明</summary>
+        <p>色块表示各省收录条数，不代表就诊人数。</p>
+        <div className="tc-density-key">{[["#d4eadd", "1–2"], ["#a8d4ba", "3–4"], ["#76b89a", "5–7"], ["#43977a", "8–10"], ["#23856b", "11+"]].map(([color,label]) => <span key={label}><i style={{background:color}} />{label}</span>)}</div>
+        <p>白色 ?：暂无收录。十字图钉：医院。</p>
+        <p>图钉位置：{coordinateNote}。</p>
+        {!tileKey && <p>示意底图 · 非标准地图</p>}
+      </details>
 
       <div className="tc-mapapp-actions">
         <button type="button" className="tc-mapapp-ctl" onClick={backToCountry} title="回到全国视图">
