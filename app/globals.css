@@ -562,16 +562,6 @@ ol {
   margin-top: var(--tc-space-2);
 }
 
-.tc-hotline {
-  margin: var(--tc-space-2) 0 0;
-  font-size: 0.8rem;
-  color: #6f4620;
-  background: var(--tc-unverified-soft);
-  border: 1px solid #edd6bd;
-  border-radius: var(--tc-radius-sm);
-  padding: 6px 10px;
-}
-
 .tc-sidebar-tabs {
   display: flex;
   border-bottom: 1px solid var(--tc-border);
@@ -658,7 +648,7 @@ ol {
   width: 110px;
   height: 10px;
   border-radius: 5px;
-  background: linear-gradient(90deg, #d4eadd, #a8d4ba, #76b89a, #43977a, #23856b);
+  background: linear-gradient(90deg, #b9e6c8, #7dd3a4, #4dbb83, #2f9e68, #147a52);
 }
 
 /* 右下角自定义操作（Leaflet zoom/scale/attribution 在其下方） */
@@ -737,6 +727,27 @@ ol {
 
 .tc-province-tip::before {
   display: none;
+}
+
+/* 省名标签：固定盒子与中心锚点配合，保证文字始终以省份视觉中心对齐 */
+.tc-province-label {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.tc-province-label-text {
+  display: grid;
+  width: 100%;
+  height: 24px;
+  place-items: center;
+  color: #245f4b;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
 /* 无列表样式 / 仿链接按钮（省份机构列表等） */
@@ -837,9 +848,20 @@ ol {
 /* Map workspace */
 .tc-mapapp { --tc-sidebar-w: 360px; }
 .tc-sidebar-head { padding: 24px 20px 16px; }
-.tc-sidebar .tc-brand { font-size: 20px; letter-spacing: -.6px; }
-.tc-sidebar .tc-brand small { margin-top: 4px; font-size: 12px; letter-spacing: .4px; color: #64756b; }
-.tc-hotline { background: #f1f6f1; border: 0; color: #526b5e; padding: 7px 10px; }
+.tc-sidebar .tc-brand { font-size: 22px; font-weight: 800; letter-spacing: -.6px; }
+.tc-sidebar .tc-brand--map {
+  display: inline-flex !important;
+  align-items: center;
+  min-height: 52px;
+}
+.tc-sidebar .tc-brand--map > img {
+  flex: 0 0 auto;
+  margin-right: 12px !important;
+}
+.tc-sidebar .tc-brand--map > span {
+  justify-content: center;
+  line-height: 1.15;
+}
 .tc-sidebar-body { padding: 16px 20px 28px; overscroll-behavior: contain; }
 .tc-sidebar-tabs { padding: 0 10px; }
 .tc-sidebar-tab { padding: 15px 4px; }
@@ -886,9 +908,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid #23856b; outline-offs
 .tc-project-card p { margin:12px 0; }
 @media(max-width:999px) { .tc-project-corner { top:76px;right:12px; } .tc-mapapp--open .tc-project-corner { top:auto;bottom:25px; } .tc-project-card { top:auto;bottom:44px; } }
 
-.tc-region-unknown { display:flex; width:56px; height:56px; flex-direction:column; align-items:center; justify-content:center; color:#6f8276; text-shadow:0 1px 3px white; line-height:1.2; }
-.tc-region-unknown strong { font-size:24px; }
-.tc-region-unknown small { font-size:11px; }
 .tc-density-key { display:flex; gap:10px; margin:10px 0; }
 .tc-density-key span { display:flex; flex-direction:column; align-items:center; gap:4px; }
 .tc-density-key i { display:block; width:30px; height:10px; border-radius:2px; }
@@ -1050,11 +1069,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid #23856b; outline-offs
   line-height: 20px;
   text-align: center;
 }
-
-/* 无数据省份的问号：容器缩到 44px（点击热区不缩小），减少与地名、底图文字互相干扰 */
-.tc-region-unknown { width: 44px; height: 44px; }
-.tc-region-unknown strong { font-size: 18px; }
-.tc-region-unknown small { font-size: 10px; }
 
 /* 表单控件统一 focus-visible（此前只有 button / a 有） */
 input:focus-visible,

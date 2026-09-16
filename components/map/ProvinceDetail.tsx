@@ -41,7 +41,7 @@ export function ProvinceDetail({
             </span>
             {(stat?.withEvidence ?? 0) > 0 && (
               <span className="tc-badge tc-badge--official">
-                有创伤服务证据 {stat?.withEvidence} 家
+                创伤服务证据 {stat?.withEvidence} 家
               </span>
             )}
           </div>

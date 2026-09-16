@@ -39,11 +39,11 @@ const NO_DATA_COLOR = '#ffffff'
 
 function densityColor(reports: number): string {
   if (reports <= 0) return NO_DATA_COLOR
-  if (reports <= 2) return '#d4eadd'
-  if (reports <= 4) return '#a8d4ba'
-  if (reports <= 7) return '#76b89a'
-  if (reports <= 10) return '#43977a'
-  return '#23856b'
+  if (reports <= 2) return '#b9e6c8'
+  if (reports <= 4) return '#7dd3a4'
+  if (reports <= 7) return '#4dbb83'
+  if (reports <= 10) return '#2f9e68'
+  return '#147a52'
 }
 
 type Props = {
@@ -85,8 +85,6 @@ export function MapApp(props: Props) {
   const geoLayerRef = useRef<LeafletGeoJSON | null>(null)
   const nodeLayerRef = useRef<LayerGroup | null>(null)
   const clusterLayerRef = useRef<LayerGroup | null>(null)
-  const summaryRef = useRef<LayerGroup | null>(null)
-  const animationRef = useRef<number | null>(null)
   const nodesOnRef = useRef(false)
   const zoomRef = useRef(NODE_ZOOM_THRESHOLD)
   const propsRef = useRef(props)
@@ -163,26 +161,17 @@ export function MapApp(props: Props) {
   const moveTo = (lat: number, lng: number, targetZoom: number) => {
     const map = mapRef.current
     if (!map) return
-    if (animationRef.current !== null) cancelAnimationFrame(animationRef.current)
+    // 天地图由底图与注记两层栅格瓦片组成。停在小数缩放级别时两层都会
+    // 长期处于浏览器插值缩放状态，文字边缘会像重影；程序化移动统一落到整数级。
+    const crispZoom = Math.round(targetZoom)
     map.stop()
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      map.setView([lat, lng], targetZoom, { animate: false })
+      map.setView([lat, lng], crispZoom, { animate: false })
       return
     }
-    const z = map.getZoom(), start = map.project(map.getCenter(), 0), end = map.project([lat, lng], 0)
-    const started = performance.now()
-    const frame = (now: number) => {
-      try {
-        const t = Math.min(1, (now - started) / 1100)
-        const e = t * t * t * (t * (6 * t - 15) + 10)
-        map.setView(map.unproject(start.add(end.subtract(start).multiplyBy(e)), 0), z + (targetZoom - z) * e, { animate: false })
-        animationRef.current = t < 1 ? requestAnimationFrame(frame) : null
-      } catch (error) {
-        console.error('moveTo frame error', error)
-        animationRef.current = null
-      }
-    }
-    animationRef.current = requestAnimationFrame(frame)
+    // 原生 flyTo 在动画中只移动现有图层，动画结束后才触发 zoomend，
+    // 避免每一帧清空并重建聚合图钉造成频闪和瞬移。
+    map.flyTo([lat, lng], crispZoom, { animate: true, duration: 0.85 })
   }
 
   /** 选中医院：飞过去 + 侧栏切详情卡 */
@@ -233,8 +222,11 @@ export function MapApp(props: Props) {
         map = L.map(containerRef.current, {
           center: [35.5, 105],
           zoom: 4,
-          zoomSnap: 0,
-          zoomDelta: 0.5,
+          // 栅格底图必须在整数级结束缩放，否则底图与注记层会持续被缩放插值，
+          // 在高 DPI 屏幕上尤其容易出现文字与道路的重影。
+          zoomSnap: 1,
+          zoomDelta: 1,
+          fadeAnimation: false,
           // 竖屏手机上装下整个中国所需的缩放级别低于 4；minZoom 过高会把国土裁掉，
           // 因此下限压到 3，让 fitBounds 决定初始视野；maxBounds 放宽，避免与 fit 互相打架
           minZoom: 3,
@@ -275,7 +267,14 @@ export function MapApp(props: Props) {
         mapContainer.addEventListener('focusin', pinToOrigin)
 
         if (tileKey) {
-          const commons = { subdomains: '01234567', maxZoom: MAX_ZOOM, tileSize: 256 }
+          const commons = {
+            subdomains: '01234567',
+            maxZoom: MAX_ZOOM,
+            tileSize: 256,
+            // flyTo 过程中沿用同一组瓦片，结束后一次性切换到目标级别，
+            // 避免底图与注记层各自刷新造成短暂的双层残影。
+            updateWhenZooming: false,
+          }
           L.tileLayer(
             `https://t{s}.tianditu.gov.cn/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=${tileKey}`,
             {
@@ -395,12 +394,18 @@ export function MapApp(props: Props) {
                 nodeLayer.addLayer(createPin(group[0]))
                 continue
               }
-              // 半径按像素折算成度数，保证 z≥10 时视觉上分开
-              const radius = 0.006
+              // 按当前缩放级别用像素计算半径，再换算回经纬度；固定度数会随缩放变化，
+              // 导致图钉在某些级别仍重叠或看起来突然跳开。
+              const origin = currentMap.project([group[0].lat, group[0].lng], z)
+              const radius = Math.max(24, 18 * Math.sqrt(group.length))
               group.forEach((hospital, index) => {
                 const angle = (index / group.length) * Math.PI * 2
+                const target = currentMap.unproject(
+                  origin.add([Math.sin(angle) * radius, Math.cos(angle) * radius]),
+                  z,
+                )
                 nodeLayer.addLayer(
-                  createPin(hospital, Math.sin(angle) * radius, Math.cos(angle) * radius * 1.2),
+                  createPin(hospital, target.lat - hospital.lat, target.lng - hospital.lng),
                 )
               })
             }
@@ -448,8 +453,6 @@ export function MapApp(props: Props) {
           zoomRef.current = z
           setZoom(z)
           const detailed = z >= NODE_ZOOM_THRESHOLD
-          if (detailed) summaryRef.current?.remove()
-          else summaryRef.current?.addTo(currentMap)
           geoLayer.resetStyle()
           geoLayer.eachLayer((layer) => {
             if (detailed) layer.closeTooltip()
@@ -469,10 +472,10 @@ export function MapApp(props: Props) {
             const count = propsRef.current.provinceStats[adcode]?.reports ?? 0
             const detailed = zoomRef.current >= NODE_ZOOM_THRESHOLD
             return {
-              color: '#9db3a6',
+              color: '#78a88e',
               weight: 1.1,
               fillColor: densityColor(count),
-              fillOpacity: detailed ? 0.06 : count ? 0.6 : 0.92,
+              fillOpacity: detailed ? 0.06 : count ? 0.72 : 0.92,
             }
           },
           onEachFeature: (feature, layer) => {
@@ -487,7 +490,7 @@ export function MapApp(props: Props) {
               [
                 `<strong>${name}</strong>`,
                 `线索：${stat?.reports ?? 0} 条`,
-                `机构：${stat?.hospitals ?? 0} 家（其中有创伤服务证据 ${stat?.withEvidence ?? 0} 家）`,
+                `机构：${stat?.hospitals ?? 0} 家（其中具备创伤服务证据 ${stat?.withEvidence ?? 0} 家）`,
               ].join('<br/>'),
               { sticky: true, className: 'tc-province-tip' },
             )
@@ -497,29 +500,30 @@ export function MapApp(props: Props) {
         }).addTo(map)
         geoLayerRef.current = geoLayer
 
-        // 无数据省份：白色问号（容器缩小到 40px，点击热区仍 ≥44px）
-        const summaries = geo.features.flatMap((feature) => {
+        // 所有省份都保留常驻名称；标签不参与交互，避免挡住省界点击。
+        const provinceLabels = geo.features.flatMap((feature) => {
           const adcode = String(feature.properties?.adcode ?? '')
-          const stat = propsRef.current.provinceStats[adcode]
-          const center = feature.properties?.centroid ?? feature.properties?.center
-          if (!stat || stat.reports > 0 || !Array.isArray(center)) return []
+          if (adcode.endsWith('_JD')) return []
+          const labelCenter = feature.properties?.centroid ?? feature.properties?.center
+          if (!Array.isArray(labelCenter)) return []
+          const province = propsRef.current.provinces.find((item) => item.adcode === adcode)
+          const labelText = province?.short_name ?? String(feature.properties?.name ?? '').replace(/省$|市$|自治区$|特别行政区$/, '')
+          if (!labelText) return []
           const content = document.createElement('span')
-          content.className = 'tc-region-unknown'
-          const name = document.createElement('small')
-          name.textContent = propsRef.current.provinces.find((p) => p.adcode === adcode)?.short_name ?? ''
-          const count = document.createElement('strong')
-          count.textContent = '?'
-          content.append(name, count)
-          const marker = L.marker([center[1], center[0]], {
-            icon: L.divIcon({ className: 'tc-region-marker', html: content, iconSize: [44, 44], iconAnchor: [22, 22] }),
-            title: `${name.textContent} · 暂无收录`,
+          content.className = 'tc-province-label-text'
+          content.textContent = labelText
+          content.setAttribute('aria-hidden', 'true')
+          const labelWidth = Math.max(30, Array.from(labelText).length * 12 + 6)
+          const marker = L.marker([labelCenter[1], labelCenter[0]], {
+            interactive: false,
+            zIndexOffset: -100,
+            icon: L.divIcon({ className: 'tc-province-label', html: content, iconSize: [labelWidth, 24], iconAnchor: [labelWidth / 2, 12] }),
           })
-          marker.on('click', () => selectProvince(adcode))
           return [marker]
         })
-        summaryRef.current = L.layerGroup(summaries).addTo(map)
+        L.layerGroup(provinceLabels).addTo(map)
 
-        const interrupt = () => { if (animationRef.current !== null) cancelAnimationFrame(animationRef.current) }
+        const interrupt = () => { map?.stop() }
         map.on('dragstart', interrupt)
         map.getContainer().addEventListener('wheel', interrupt, { passive: true })
         map.on('zoomend', applyZoomStyles)
@@ -532,7 +536,7 @@ export function MapApp(props: Props) {
     void setup()
     return () => {
       disposed = true
-      if (animationRef.current !== null) cancelAnimationFrame(animationRef.current)
+      map?.stop()
       map?.remove()
       mapRef.current = null
       geoLayerRef.current = null
@@ -541,13 +545,6 @@ export function MapApp(props: Props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  /** 选中态刷新：重新走一次 zoomend 处理链，保证选中图钉最高层级、橙色、名称可读 */
-  useEffect(() => {
-    const map = mapRef.current
-    if (!map) return
-    map.fire('zoomend')
-  }, [selectedHospitalId])
 
   const backToCountry = () => {
     setSelectedHospitalId(null)
@@ -814,10 +811,9 @@ export function MapApp(props: Props) {
         <button type="button" className="tc-mapapp-ctl" aria-expanded={aboutOpen} onClick={() => setAboutOpen((v) => !v)}>关于项目</button>
         {aboutOpen && <section className="tc-project-card" aria-label="关于项目">
           <div className="tc-row tc-row--between"><strong>TraumaCompass</strong><button className="tc-linklike" onClick={() => setAboutOpen(false)}>关闭</button></div>
-          <p>整理 CPTSD / BPD 就诊线索，让医院、医生与就诊经历更容易找到。</p>
+          <p>本项目旨在为CPTSD/BPD人群提供全国就诊地图，帮助更多人治疗心理创伤与障碍</p>
           <p className="tc-meta">仅供信息参考，不提供医疗建议。</p>
-          <Link href="/about/">了解方法与隐私原则 →</Link>
-          <p><a href="https://github.com/XhoIeph/TraumaCompass" target="_blank" rel="noopener noreferrer">项目仓库 ↗</a></p>
+          <Link href="/about/">了解我们</Link>
         </section>}
       </div>
 
@@ -828,7 +824,7 @@ export function MapApp(props: Props) {
         </summary>
         <p>色块表示各省收录线索条数，不代表患病或就诊人数。</p>
         <div className="tc-density-key">
-          {[["#d4eadd", "1–2"], ["#a8d4ba", "3–4"], ["#76b89a", "5–7"], ["#43977a", "8–10"], ["#23856b", "11+"]].map(([color, label]) => (
+          {[["#b9e6c8", "1–2"], ["#7dd3a4", "3–4"], ["#4dbb83", "5–7"], ["#2f9e68", "8–10"], ["#147a52", "11+"]].map(([color, label]) => (
             <span key={label}><i style={{ background: color }} />{label}</span>
           ))}
         </div>

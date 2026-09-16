@@ -8,8 +8,8 @@ import type { Hospital, Province, Report } from '@/lib/schema'
 import { hospitalSearchText, matchesSearch } from '@/lib/search'
 
 const SERVICE_LABELS: Record<string, string> = {
-  yes: '有明确依据',
-  claimed: '有间接证据',
+  yes: '明确依据',
+  claimed: '间接证据',
   unknown: '未知',
   no: '无',
 }
@@ -119,7 +119,7 @@ export function HospitalExplorer({
             checked={onlyEvidence}
             onChange={(event) => setOnlyEvidence(event.target.checked)}
           />
-          只看有创伤服务证据的机构
+          仅显示具备创伤服务证据的机构
         </label>
       </form>
 

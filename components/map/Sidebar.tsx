@@ -74,7 +74,7 @@ export function Sidebar({
     >
       <div className="tc-sidebar-head">
         <div className="tc-row tc-row--between" style={{ alignItems: 'flex-start' }}>
-          <Brand height={32} subtitle="找到可以求助的地方" />
+          <Brand height={44} className="tc-brand--map" />
           {onClose && (
             <button type="button" className="tc-sidebar-close" onClick={onClose} aria-label="收起侧边栏">
               ✕
@@ -86,9 +86,6 @@ export function Sidebar({
           <span className="tc-badge tc-badge--neutral">机构 {totals.hospitals}</span>
           <span className="tc-badge tc-badge--neutral">覆盖 {totals.provincesWithReports} 省</span>
         </div>
-        <p className="tc-hotline">
-          心理援助 <strong>12356</strong>
-        </p>
       </div>
 
       {detail ? (

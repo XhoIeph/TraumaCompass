@@ -11,8 +11,8 @@ export function generateStaticParams() {
 }
 
 const SERVICE_LABELS: Record<string, string> = {
-  yes: '有明确依据（官方页面明确说明提供该项服务）',
-  claimed: '有间接证据（创伤治疗项目、指南参编、培训体系等佐证，但未明确说明提供该项服务）',
+  yes: '明确依据（官方页面明确说明提供该项服务）',
+  claimed: '间接证据（创伤治疗项目、指南参编、培训体系等佐证，但未明确说明提供该项服务）',
   unknown: '未知（尚无可追溯证据）',
   no: '无',
 }
