@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import type { Hospital, Province, Report } from '@/lib/schema'
@@ -23,6 +23,8 @@ type Props = {
   variant?: 'page' | 'compact'
   /** 提供时每张机构卡出现「在地图上查看」按钮（首页地图侧栏联动） */
   onSelectHospital?: (id: string) => void
+  /** 外部（如地图全局搜索命中病症）注入的关键词，变化时同步到筛选框 */
+  initialQuery?: string
 }
 
 export function HospitalExplorer({
@@ -32,12 +34,18 @@ export function HospitalExplorer({
   reportCounts,
   variant = 'page',
   onSelectHospital,
+  initialQuery,
 }: Props) {
   const searchParams = useSearchParams()
   const [province, setProvince] = useState(() => searchParams.get('province') ?? '')
   const [category, setCategory] = useState('')
   const [onlyEvidence, setOnlyEvidence] = useState(false)
-  const [keyword, setKeyword] = useState('')
+  const [keyword, setKeyword] = useState(() => initialQuery ?? '')
+
+  useEffect(() => {
+    if (initialQuery === undefined) return
+    setKeyword(initialQuery)
+  }, [initialQuery])
 
   const categories = useMemo(
     () => [...new Set(hospitals.map((hospital) => hospital.category))].sort(),
@@ -126,14 +134,14 @@ export function HospitalExplorer({
       ) : (
         <div className={`tc-grid tc-grid--cards${variant === 'compact' ? ' tc-grid--compact' : ''}`}>
           {filtered.map((hospital) => (
-            <div className="tc-card" key={hospital.id}>
+            <div className="tc-card tc-hospital-card" key={hospital.id}>
               <h2 style={{ marginBottom: 4 }}>
                 {onSelectHospital ? <button type="button" className="tc-linklike" onClick={() => onSelectHospital(hospital.id)}>{hospital.name}</button> : <Link href={`/hospitals/${hospital.id}/`}>{hospital.name}</Link>}
               </h2>
               <div className="tc-row tc-meta">
                 <span>{hospital.province}{hospital.city === hospital.province ? '' : ` · ${hospital.city}`}</span>
                 <span>·</span>
-                <span>{hospital.level}</span>
+                <span>{hospital.level === '未知' ? '等级未标注' : hospital.level}</span>
                 <span>·</span>
                 <span>{hospital.category}</span>
               </div>

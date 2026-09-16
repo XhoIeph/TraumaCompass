@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ReportCard } from '@/components/ReportCard'
+import { SourceLink } from '@/components/SourceLink'
 import { doctorsForHospital, disorders, hospitalById, hospitals, reportsForHospital } from '@/lib/data'
 
 export const dynamicParams = false
@@ -25,7 +26,7 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
   const doctors = doctorsForHospital(hospital.id)
 
   return (
-    <div>
+    <div className="tc-prose">
       <p className="tc-small tc-muted">
         <Link href="/hospitals/">← 返回医院列表</Link>
       </p>
@@ -112,9 +113,7 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
                   <ul style={{ margin: 0, paddingLeft: '1.1em' }}>
                     {hospital.official_sources.map((source) => (
                       <li key={source}>
-                        <a href={source} target="_blank" rel="nofollow noopener noreferrer">
-                          {source}
-                        </a>
+                        <SourceLink url={source} />
                       </li>
                     ))}
                   </ul>
@@ -122,7 +121,7 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
               </td>
             </tr>
             <tr>
-              <th>最近核实</th>
+              <th>官方来源核对</th>
               <td>{hospital.last_verified_at}</td>
             </tr>
           </tbody>
@@ -133,8 +132,8 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
         <h2>关联医生（{doctors.length}）</h2>
         {doctors.length === 0 ? (
           <p className="tc-small tc-muted" style={{ margin: 0 }}>
-            暂无医生条目。我们只在拿到公开执业信息（医院官网或卫健委执业注册信息）后建立医生条目，
-            避免凭网友描述推断。
+            暂无公开执业信息条目。这一区块只在能从医院官网或卫健委执业注册信息确认后建立，
+            避免凭网友描述推断；网友提到过的医生请见该机构线索卡片中的「提及医生」。
           </p>
         ) : (
           <ul>

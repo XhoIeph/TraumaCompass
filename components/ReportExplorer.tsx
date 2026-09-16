@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import type { Disorder, Province, Report } from '@/lib/schema'
 import { PLATFORM_LABELS } from '@/lib/format'
@@ -17,6 +17,10 @@ type Props = {
   variant?: 'page' | 'compact'
   /** 提供时，关联了机构的线索卡出现「在地图上查看」按钮 */
   onSelectHospital?: (id: string) => void
+  /** 外部（如地图全局搜索命中病症）注入的关键词，变化时同步到筛选框 */
+  initialQuery?: string
+  /** 外部注入的病症筛选（值为 disorders 的 id） */
+  initialDisorder?: string
 }
 
 export function ReportExplorer({
@@ -27,12 +31,22 @@ export function ReportExplorer({
   hospitalNames,
   variant = 'page',
   onSelectHospital,
+  initialQuery,
+  initialDisorder,
 }: Props) {
   const searchParams = useSearchParams()
   const [province, setProvince] = useState(() => searchParams.get('province') ?? '')
   const [platform, setPlatform] = useState(() => searchParams.get('platform') ?? '')
-  const [disorder, setDisorder] = useState(() => searchParams.get('disorder') ?? '')
-  const [keyword, setKeyword] = useState('')
+  const [disorder, setDisorder] = useState(() => searchParams.get('disorder') ?? initialDisorder ?? '')
+  const [keyword, setKeyword] = useState(() => initialQuery ?? '')
+
+  useEffect(() => {
+    if (initialQuery !== undefined) setKeyword(initialQuery)
+  }, [initialQuery])
+
+  useEffect(() => {
+    if (initialDisorder !== undefined) setDisorder(initialDisorder)
+  }, [initialDisorder])
 
   const platformOptions = useMemo(
     () => [...new Set(reports.map((report) => report.platform))].sort(),

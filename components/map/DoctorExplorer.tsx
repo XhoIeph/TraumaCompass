@@ -1,41 +1,22 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { aggregateDoctorLeads } from '@/lib/doctor-leads'
 import type { Hospital, Report } from '@/lib/schema'
-import { matchesSearch } from '@/lib/search'
 
+/**
+ * 地图侧栏「医生线索」面板。
+ *
+ * 聚合与关键词判定全部来自 lib/doctor-leads.ts（与 /doctors/ 页面共用同一函数），
+ * 这里只负责搜索框、分组标题与结果列表的呈现。
+ */
 export function DoctorExplorer({ hospitals, reports, onSelectHospital }: {
   hospitals: Hospital[]
   reports: Report[]
   onSelectHospital: (id: string) => void
 }) {
   const [query, setQuery] = useState('')
-  const groups = useMemo(() => {
-    const result = new Map<string, Map<string, { name: string; hospital: Hospital; reports: Report[] }>>()
-    for (const report of reports) {
-      const hospital = hospitals.find(h => h.id === report.hospital_id)
-      if (!hospital || !report.doctor_name_raw) continue
-      for (const disorder of report.disorders.length ? report.disorders : ['other']) {
-        if (!result.has(disorder)) result.set(disorder, new Map())
-        const group = result.get(disorder)!
-        for (const name of report.doctor_name_raw.split(/[、,，/]/).map(n => n.trim()).filter(Boolean)) {
-          const key = `${hospital.id}:${name}`
-          if (!group.has(key)) group.set(key, { name, hospital, reports: [] })
-          group.get(key)!.reports.push(report)
-        }
-      }
-    }
-    return [...result].map(([id, entries]) => ({
-      id,
-      entries: [...entries.values()].filter(entry => matchesSearch([
-        id, entry.name, entry.hospital.name, entry.hospital.province,
-        ...entry.reports.map(r => r.evidence_quote),
-      ].join(' '), query)),
-    })).filter(group => group.entries.length).sort((a, b) => {
-      const order = ['cptsd', 'bpd', 'osdd', 'did', 'ptsd', 'other']
-      return order.indexOf(a.id) - order.indexOf(b.id)
-    })
-  }, [hospitals, reports, query])
+  const groups = useMemo(() => aggregateDoctorLeads(hospitals, reports, query), [hospitals, reports, query])
 
   return <div className="tc-doctor-explorer">
     <label className="tc-field">搜索医生
@@ -44,9 +25,9 @@ export function DoctorExplorer({ hospitals, reports, onSelectHospital }: {
     <p className="tc-meta">按关联线索的病症分组</p>
     {groups.length === 0 && <p className="tc-empty">没有匹配的医生线索</p>}
     {groups.map(group => <section key={group.id} className="tc-doctor-group">
-      <h2>{group.id === 'other' ? '其他' : group.id.toUpperCase()} <small>{group.entries.length}</small></h2>
-      {group.entries.map(entry => <button key={`${entry.hospital.id}:${entry.name}`} type="button" className="tc-doctor-result" onClick={() => onSelectHospital(entry.hospital.id)}>
-        <strong>{entry.name}</strong><small>{entry.hospital.name} · {entry.reports.length} 条线索</small>
+      <h2>{group.label} <small>{group.leadCount}</small></h2>
+      {group.entries.map(entry => <button key={`${entry.hospitalId}:${entry.name}`} type="button" className="tc-doctor-result" onClick={() => onSelectHospital(entry.hospitalId)}>
+        <strong>{entry.name}</strong><small>{entry.hospitalName} · {entry.leadCount} 条线索</small>
       </button>)}
     </section>)}
   </div>

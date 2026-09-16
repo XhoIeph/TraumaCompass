@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ReportCard } from '@/components/ReportCard'
+import { SourceLink } from '@/components/SourceLink'
 import { doctorById, doctors, disorders, hospitalById, publicReports } from '@/lib/data'
 
 export const dynamicParams = false
 
 /**
- * 静态导出要求动态路由至少产出一个页面。当前还没有医生条目，
+ * 静态导出要求动态路由至少产出一个页面。当前还没有「公开执业信息条目」，
  * 因此先生成一个空状态页；一旦 doctors.json 有数据，会自动改为逐个生成。
  */
 const EMPTY_STATE_ID = 'none'
@@ -22,14 +23,16 @@ export default async function DoctorDetailPage({ params }: { params: Promise<{ i
   if (id === EMPTY_STATE_ID) {
     return (
       <div>
-        <h1>医生条目</h1>
+        <h1>公开执业信息条目</h1>
         <div className="tc-empty">
-          <p>暂无医生条目。</p>
+          <p>目前还没有公开执业信息条目。</p>
           <p className="tc-small tc-faint">
-            我们只在拿到公开执业信息（医院官网或国家卫健委执业注册信息查询）后建立医生条目。
+            这一区块只收录能从公开渠道（医院官网、国家卫健委执业注册信息查询）确认的姓名、科室与职称，
+            因此刻意保持保守，避免凭网友描述推断。
           </p>
           <p className="tc-small">
-            <Link href="/doctors/">← 返回医生列表</Link>
+            想看网友提到过的医生，请到 <Link href="/doctors/">医生线索</Link>，
+            或在地图侧栏的「医生线索」中按病症查看。
           </p>
         </div>
       </div>
@@ -43,7 +46,7 @@ export default async function DoctorDetailPage({ params }: { params: Promise<{ i
   const reports = publicReports.filter((report) => report.doctor_id === doctor.id)
 
   return (
-    <div>
+    <div className="tc-prose">
       <p className="tc-small tc-muted">
         <Link href="/doctors/">← 返回医生列表</Link>
       </p>
@@ -82,9 +85,7 @@ export default async function DoctorDetailPage({ params }: { params: Promise<{ i
                   <ul style={{ margin: 0, paddingLeft: '1.1em' }}>
                     {[...doctor.official_sources, ...doctor.profile_urls].map((source) => (
                       <li key={source}>
-                        <a href={source} target="_blank" rel="nofollow noopener noreferrer">
-                          {source}
-                        </a>
+                        <SourceLink url={source} />
                       </li>
                     ))}
                   </ul>
@@ -92,7 +93,7 @@ export default async function DoctorDetailPage({ params }: { params: Promise<{ i
               </td>
             </tr>
             <tr>
-              <th>最近核实</th>
+              <th>官方来源核对</th>
               <td>{doctor.last_verified_at}</td>
             </tr>
           </tbody>
