@@ -6,6 +6,8 @@ import { useSearchParams } from 'next/navigation'
 import type { Hospital, Province, Report } from '@/lib/schema'
 
 import { hospitalSearchText, matchesSearch } from '@/lib/search'
+import { FilterPanel } from './FilterPanel'
+import { ArrowUpRight, MapPin } from 'lucide-react'
 
 const SERVICE_LABELS: Record<string, string> = {
   yes: '明确依据',
@@ -73,8 +75,12 @@ export function HospitalExplorer({
     })
   }, [category, hospitals, reports, keyword, onlyEvidence, province])
 
+  const filterCount = [province, category, keyword.trim(), onlyEvidence].filter(Boolean).length
+  const reset = () => { setProvince(''); setCategory(''); setKeyword(''); setOnlyEvidence(false) }
+
   return (
     <div>
+      <FilterPanel compact={variant === 'compact'} count={filterCount}>
       <form
         className={`tc-card tc-filters${variant === 'compact' ? ' tc-filters--compact' : ''}`}
         onSubmit={(event) => event.preventDefault()}
@@ -121,31 +127,34 @@ export function HospitalExplorer({
           />
           仅显示具备创伤服务证据的机构
         </label>
+        {filterCount > 0 && <button type="button" className="tc-button tc-filter-reset" onClick={reset}>清除筛选</button>}
       </form>
+      </FilterPanel>
 
-      <p className="tc-small tc-muted">
-        {filtered.length} 家机构
-      </p>
+      <div className="tc-results-heading" role="status" aria-live="polite">
+        <span><strong>{filtered.length}</strong> 家机构</span>
+        <span>{filterCount ? '筛选结果' : '全国收录'}</span>
+      </div>
 
       {filtered.length === 0 ? (
         <div className="tc-empty">
           <p>没有符合筛选条件的机构记录。</p>
+          <button type="button" className="tc-button" onClick={reset}>清除筛选，查看全部</button>
         </div>
       ) : (
         <div className={`tc-grid tc-grid--cards${variant === 'compact' ? ' tc-grid--compact' : ''}`}>
           {filtered.map((hospital) => (
-            <div className="tc-card tc-hospital-card" key={hospital.id}>
-              <h2 style={{ marginBottom: 4 }}>
+            <article className="tc-card tc-hospital-card" key={hospital.id}>
+              <div className="tc-hospital-location"><MapPin size={13} aria-hidden="true" />{hospital.province}{hospital.city === hospital.province ? '' : ` · ${hospital.city}`}</div>
+              <h2>
                 {onSelectHospital ? <button type="button" className="tc-linklike" onClick={() => onSelectHospital(hospital.id)}>{hospital.name}</button> : <Link href={`/hospitals/${hospital.id}/`}>{hospital.name}</Link>}
               </h2>
               <div className="tc-row tc-meta">
-                <span>{hospital.province}{hospital.city === hospital.province ? '' : ` · ${hospital.city}`}</span>
-                <span>·</span>
                 <span>{hospital.level === '未知' ? '等级未标注' : hospital.level}</span>
                 <span>·</span>
                 <span>{hospital.category}</span>
               </div>
-              <p className="tc-small tc-muted" style={{ margin: '8px 0 4px' }}>
+              <p className="tc-hospital-departments">
                 科室：{hospital.departments.join('、')}
               </p>
               <div className="tc-row tc-small">
@@ -156,20 +165,20 @@ export function HospitalExplorer({
                   CPTSD/BPD 诊断：{SERVICE_LABELS[hospital.trauma_service.cptsd_bpd_diagnosis]}
                 </span>
               </div>
-              <p className="tc-meta" style={{ marginTop: 8 }}>
-                关联线索 {reportCounts[hospital.id] ?? 0} 条 · 官方来源 {hospital.official_sources.length} 个
-              </p>
-              {onSelectHospital && (
+              <div className="tc-hospital-card-footer">
+                <span className="tc-meta"><b>{reportCounts[hospital.id] ?? 0}</b> 条线索 · {hospital.official_sources.length} 个官方来源</span>
+              {onSelectHospital ? (
                 <button
                   type="button"
-                  className="tc-button"
-                  style={{ marginTop: 'var(--tc-space-2)' }}
+                  className="tc-card-action"
+                  aria-label={`查看机构：${hospital.name}`}
                   onClick={() => onSelectHospital(hospital.id)}
                 >
-                  在地图上查看
+                  查看 <ArrowUpRight size={16} aria-hidden="true" />
                 </button>
-              )}
-            </div>
+              ) : <Link className="tc-card-action" href={`/hospitals/${hospital.id}/`} aria-label={`查看机构：${hospital.name}`}>详情 <ArrowUpRight size={16} aria-hidden="true" /></Link>}
+              </div>
+            </article>
           ))}
         </div>
       )}

@@ -1,7 +1,5 @@
 import { RibbonMark } from '@/components/Brand'
 
-const PROSE = { maxWidth: '76ch' }
-
 export const metadata = {
   title: '关于项目｜TraumaCompass',
   description:
@@ -10,10 +8,8 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div style={PROSE}>
-      <div style={{ marginBottom: 16 }}>
-        <RibbonMark height={60} />
-      </div>
+    <div className="tc-about">
+      <RibbonMark height={80} />
       <h1>关于 TraumaCompass</h1>
       {/* 后续关于项目的正文统一从这里开始添加。 */}
     </div>

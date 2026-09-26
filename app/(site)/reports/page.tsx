@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { ReportExplorer } from '@/components/ReportExplorer'
 import { disorders, hospitals, provinces, publicReports, reportProvinceMap } from '@/lib/data'
+import Link from 'next/link'
 
 export const metadata = {
   title: '就诊线索｜TraumaCompass',
@@ -12,7 +13,10 @@ export default function ReportsPage() {
 
   return (
     <div>
-      <h1>就诊线索</h1>
+      <header className="tc-page-heading">
+        <div><span className="tc-page-eyebrow">来自公开的就诊经历</span><h1>就诊线索</h1><p>保留原文、上下文与来源，帮助你进一步了解就诊过程。</p></div>
+        <Link href="/submit/" className="tc-button">提交线索 ↗</Link>
+      </header>
       <Suspense fallback={<p className="tc-muted">加载筛选中……</p>}>
         <ReportExplorer
           reports={publicReports}

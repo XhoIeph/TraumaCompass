@@ -6,20 +6,21 @@ import { SiteNav } from '@/components/SiteNav'
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="tc-shell">
+      <a className="tc-skip-link" href="#main-content">跳到正文</a>
       <header className="tc-header">
         <div className="tc-container tc-header-inner">
-          <Brand height={28} subtitle="创伤知情就诊地图 · 项目早期版本" />
+          <Brand height={40} className="tc-brand--site" />
           <SiteNav />
         </div>
       </header>
 
-      <main className="tc-main">
+      <main className="tc-main" id="main-content" tabIndex={-1}>
         <div className="tc-container">{children}</div>
       </main>
 
       <footer className="tc-footer">
         <div className="tc-container">
-          <p>仅供就诊信息参考，不提供医疗建议。心理援助热线 <a href="tel:12356">12356</a>。</p>
+          <p>© 2026 TraumaCompass. All rights reserved.</p>
         </div>
       </footer>
     </div>

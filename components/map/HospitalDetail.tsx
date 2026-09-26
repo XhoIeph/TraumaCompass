@@ -19,11 +19,9 @@ export function HospitalDetail({
 }) {
   return (
     <div className="tc-stack">
+      <button type="button" className="tc-detail-back" onClick={onClose} aria-label="关闭详情">← 返回浏览</button>
       <div className="tc-row tc-row--between">
-        <h2 style={{ marginBottom: 0, fontSize: '1.05rem' }}>{hospital.name}</h2>
-        <button type="button" className="tc-button" onClick={onClose} aria-label="关闭详情">
-          关闭
-        </button>
+        <h2 className="tc-detail-title">{hospital.name}</h2>
       </div>
       <p className="tc-small tc-muted" style={{ margin: 0 }}>
         {hospital.province}
@@ -56,7 +54,7 @@ export function HospitalDetail({
         </p>
       ) : (
         leads.map((lead) => (
-          <article key={lead.id} className="tc-report" style={{ padding: 'var(--tc-space-2)' }}>
+          <article key={lead.id} className="tc-report">
             <div className="tc-row tc-meta">
               <span>{PLATFORM_LABELS[lead.platform as keyof typeof PLATFORM_LABELS] ?? lead.platform}</span>
               {lead.publishedAt && <span>· {lead.publishedAt}</span>}

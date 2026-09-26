@@ -14,6 +14,7 @@ import { DoctorExplorer } from './DoctorExplorer'
 import { HospitalDetail } from './HospitalDetail'
 import { ProvinceDetail } from './ProvinceDetail'
 import type { MapHospital, MapLead, MapProvinceStat } from './types'
+import { ArrowUpRight, ListFilter, LocateFixed, Menu, Search, X } from 'lucide-react'
 
 /**
  * 全页地图应用（Google Maps 式）：
@@ -93,7 +94,6 @@ export function MapApp(props: Props) {
   const burgerRef = useRef<HTMLButtonElement | null>(null)
   const desktopRef = useRef(false)
 
-  const [zoom, setZoom] = useState(NODE_ZOOM_THRESHOLD)
   // 首屏以「地图优先」为准：服务端与移动端都先关闭侧栏，挂载后再按断点决定
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [isDesktop, setIsDesktop] = useState(false)
@@ -101,6 +101,7 @@ export function MapApp(props: Props) {
   const [selectedProvinceAdcode, setSelectedProvinceAdcode] = useState<string | null>(null)
   const [query, setQuery] = useState('')
   const [mapError, setMapError] = useState('')
+  const [mapReady, setMapReady] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [activeResult, setActiveResult] = useState(-1)
   const [sidebarTab, setSidebarTab] = useState<SidebarTabId>('hospitals')
@@ -112,7 +113,15 @@ export function MapApp(props: Props) {
 
   useEffect(() => {
     if (!containerRef.current) return
-    const observer = new ResizeObserver(() => mapRef.current?.invalidateSize({ pan: false }))
+    const observer = new ResizeObserver(() => {
+      const map = mapRef.current
+      if (!map) return
+      map.invalidateSize({ pan: false })
+      // 全国层级随可用容器取景；详情层级保留用户正在浏览的位置。
+      if (map.getZoom() < NODE_ZOOM_THRESHOLD) {
+        ;(map as LeafletMap & { __fitCountry?: () => void }).__fitCountry?.()
+      }
+    })
     observer.observe(containerRef.current)
     return () => observer.disconnect()
   }, [])
@@ -123,7 +132,7 @@ export function MapApp(props: Props) {
     const apply = () => {
       desktopRef.current = mq.matches
       setIsDesktop(mq.matches)
-      setSidebarOpen(mq.matches)
+      setSidebarOpen(mq.matches || new URLSearchParams(window.location.search).has('panel'))
     }
     apply()
     mq.addEventListener('change', apply)
@@ -139,15 +148,29 @@ export function MapApp(props: Props) {
     const fallback = panel?.querySelector<HTMLElement>(
       'button, a[href], input, select, [tabindex]:not([tabindex="-1"])',
     )
-    ;(activeTab ?? fallback)?.focus()
+    // 等待抽屉从 hidden/inert 切换为可交互后再进入焦点，不等待动画结束。
+    const focusFrame = requestAnimationFrame(() => (activeTab ?? fallback)?.focus({ preventScroll: true }))
     const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Tab') {
+        const controls = Array.from(panel?.parentElement?.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), a[href], input, select, summary, [tabindex="0"]',
+        ) ?? []).filter((node) => node.getClientRects().length > 0 && !node.closest('[inert]') && node.tabIndex >= 0)
+        const first = controls[0]
+        const last = controls[controls.length - 1]
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
+        return
+      }
       if (event.key !== 'Escape') return
       event.stopPropagation()
       setSidebarOpen(false)
       burgerRef.current?.focus()
     }
     document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
+    return () => {
+      cancelAnimationFrame(focusFrame)
+      document.removeEventListener('keydown', onKey)
+    }
   }, [sidebarOpen, isDesktop])
 
   const tileKey = process.env.NEXT_PUBLIC_TIANDITU_KEY
@@ -241,21 +264,20 @@ export function MapApp(props: Props) {
         L.control.zoom({ position: 'bottomright' }).addTo(map)
         L.control.scale({ position: 'bottomright', imperial: false }).addTo(map)
 
-        /** 初始与「回到全国」共用：按侧栏状态给出合适的 padding，保证中国主体完整可见 */
-        const fitCountry = (withSidebar: boolean) => {
+        /** CSS 已给侧栏腾出位置；只能按真实地图容器留白，不能重复减去侧栏宽度。 */
+        const fitCountry = () => {
           if (!map) return
           const wide = window.innerWidth >= 1000
-          const left = withSidebar && desktopRef.current ? 384 : 12
           // 窄屏上下留白压到最小：竖屏装下整幅国土后本就会出现南北邻国，
           // 不再额外加 padding，让中国尽量占满可用宽度
           map.fitBounds(L.latLngBounds(CHINA_BOUNDS[0], CHINA_BOUNDS[1]), {
-            paddingTopLeft: [left, wide ? 76 : 58],
-            paddingBottomRight: [12, wide ? 96 : 64],
+            paddingTopLeft: [20, wide ? 78 : 80],
+            paddingBottomRight: [20, wide ? 70 : 136],
             animate: false,
           })
           zoomRef.current = map.getZoom()
         }
-        fitCountry(desktopRef.current)
+        fitCountry()
 
         // 地图容器是 overflow:hidden，但浏览器仍可被 scrollIntoView 滚动它
         const mapContainer = containerRef.current
@@ -296,7 +318,7 @@ export function MapApp(props: Props) {
 
         nodeLayerRef.current = L.layerGroup()
         clusterLayerRef.current = L.layerGroup()
-        ;(mapRef.current as unknown as { __fitCountry?: (withSidebar: boolean) => void }).__fitCountry = fitCountry
+        ;(mapRef.current as unknown as { __fitCountry?: () => void }).__fitCountry = fitCountry
 
         /** 生成单个医院图钉（可访问名称 = 医院名） */
         const createPin = (hospital: MapHospital, latOffset = 0, lngOffset = 0): Marker => {
@@ -451,7 +473,6 @@ export function MapApp(props: Props) {
           if (!currentMap || !geoLayer) return
           const z = currentMap.getZoom()
           zoomRef.current = z
-          setZoom(z)
           const detailed = z >= NODE_ZOOM_THRESHOLD
           geoLayer.resetStyle()
           geoLayer.eachLayer((layer) => {
@@ -516,6 +537,7 @@ export function MapApp(props: Props) {
           const labelWidth = Math.max(30, Array.from(labelText).length * 12 + 6)
           const marker = L.marker([labelCenter[1], labelCenter[0]], {
             interactive: false,
+            keyboard: false,
             zIndexOffset: -100,
             icon: L.divIcon({ className: 'tc-province-label', html: content, iconSize: [labelWidth, 24], iconAnchor: [labelWidth / 2, 12] }),
           })
@@ -528,6 +550,7 @@ export function MapApp(props: Props) {
         map.getContainer().addEventListener('wheel', interrupt, { passive: true })
         map.on('zoomend', applyZoomStyles)
         applyZoomStyles()
+        setMapReady(true)
       } catch (error) {
         if (!disposed) setMapError(error instanceof Error ? error.message : String(error))
       }
@@ -549,8 +572,9 @@ export function MapApp(props: Props) {
   const backToCountry = () => {
     setSelectedHospitalId(null)
     setSelectedProvinceAdcode(null)
-    const map = mapRef.current as unknown as { __fitCountry?: (withSidebar: boolean) => void } | null
-    if (map?.__fitCountry) map.__fitCountry(sidebarOpen)
+    mapRef.current?.stop()
+    const map = mapRef.current as unknown as { __fitCountry?: () => void } | null
+    if (map?.__fitCountry) map.__fitCountry()
     else {
       const leaflet = mapRef.current
       leaflet?.setView([35.5, 105], 4, { animate: false })
@@ -704,11 +728,10 @@ export function MapApp(props: Props) {
     ),
   }
 
-  const scope = zoom >= NODE_ZOOM_THRESHOLD ? 'province' : 'country'
-
   return (
-    <div className={`tc-mapapp${sidebarOpen ? ' tc-mapapp--open' : ''}${searchResults.length > 0 ? ' tc-mapapp--searching' : ''}`}>
-      <div ref={containerRef} className="tc-mapapp-canvas" role="application" aria-label="全国就诊资源与线索地图" />
+    <div className={`tc-mapapp${sidebarOpen ? ' tc-mapapp--open' : ''}${query.trim() ? ' tc-mapapp--searching' : ''}`} role={sidebarOpen && !isDesktop ? 'dialog' : undefined} aria-modal={sidebarOpen && !isDesktop ? true : undefined} aria-label={sidebarOpen && !isDesktop ? '浏览就诊资源' : undefined}>
+      <div ref={containerRef} className="tc-mapapp-canvas" role="application" aria-label="全国就诊资源与线索地图" inert={sidebarOpen && !isDesktop} />
+      {!mapReady && !mapError && <div className="tc-map-loading" role="status">正在加载全国地图…</div>}
       {mapError && (
         <div className="tc-mapapp-error" role="alert">
           地图加载失败：{mapError}（其余数据仍可在侧边栏浏览）
@@ -725,16 +748,15 @@ export function MapApp(props: Props) {
           aria-controls="tc-map-sidebar"
           onClick={() => setSidebarOpen((value) => !value)}
         >
-          <span />
-          <span />
-          <span />
+          <Menu size={20} aria-hidden="true" />
         </button>
         <div className="tc-mapapp-search">
+          <Search size={19} className="tc-search-icon" aria-hidden="true" />
           <input
             type="search"
             value={query}
             placeholder="搜索省份 / 机构 / 病症"
-            aria-label="搜索省份、机构或病症"
+            aria-label="搜索省份、机构、医生或病症"
             role="combobox"
             aria-expanded={searchResults.length > 0}
             aria-controls="tc-map-search-results"
@@ -760,6 +782,8 @@ export function MapApp(props: Props) {
               }
             }}
           />
+          {query && <button type="button" className="tc-search-clear" aria-label="清除搜索" onClick={() => { setQuery(''); setActiveResult(-1) }}><X size={16} aria-hidden="true" /></button>}
+          {query.trim() && searchResults.length === 0 && <div className="tc-mapapp-no-results" role="status">没有找到匹配结果，试试省份、机构或医生名称。</div>}
           {searchResults.length > 0 && (
             <ul className="tc-mapapp-results" id="tc-map-search-results" role="listbox" aria-label="搜索结果">
               {grouped.map((entry) => (
@@ -788,9 +812,6 @@ export function MapApp(props: Props) {
             </ul>
           )}
         </div>
-        <span className="tc-badge tc-badge--neutral tc-mapapp-scope">
-          {scope === 'country' ? '探索就诊线索' : '点击图钉查看机构'}
-        </span>
       </div>
 
       {sidebarOpen && <div className="tc-mapapp-backdrop" onClick={() => { setSidebarOpen(false); burgerRef.current?.focus() }} />}
@@ -812,8 +833,7 @@ export function MapApp(props: Props) {
         {aboutOpen && <section className="tc-project-card" aria-label="关于项目">
           <div className="tc-row tc-row--between"><strong>TraumaCompass</strong><button className="tc-linklike" onClick={() => setAboutOpen(false)}>关闭</button></div>
           <p>本项目旨在为CPTSD/BPD人群提供全国就诊地图，帮助更多人治疗心理创伤与障碍</p>
-          <p className="tc-meta">仅供信息参考，不提供医疗建议。</p>
-          <Link href="/about/">了解我们</Link>
+          <Link className="tc-card-action" href="/about/">了解我们 <ArrowUpRight size={16} aria-hidden="true" /></Link>
         </section>}
       </div>
 
@@ -828,17 +848,20 @@ export function MapApp(props: Props) {
             <span key={label}><i style={{ background: color }} />{label}</span>
           ))}
         </div>
-        <p>白色 ?：暂无收录。十字图钉：医院（叠放时显示数量）。</p>
+        <p>白色：暂无收录。十字图钉：医院（叠放时显示数量）。</p>
         <p>图钉位置：{coordinateNote}。</p>
         {!tileKey && <p>示意底图 · 非标准地图</p>}
       </details>
 
       <div className="tc-mapapp-actions">
         <button type="button" className="tc-mapapp-ctl" onClick={backToCountry} title="回到全国视图" aria-label="回到全国视图">
-          <span aria-hidden="true">◎</span>
+          <LocateFixed size={18} aria-hidden="true" />
           <span className="tc-mapapp-ctl-label">回到全国</span>
         </button>
       </div>
+      {!sidebarOpen && <button type="button" className="tc-mobile-browse" onClick={() => setSidebarOpen(true)} aria-controls="tc-map-sidebar">
+        <ListFilter size={18} aria-hidden="true" />浏览机构与线索 <span>{props.totals.hospitals} 家机构</span>
+      </button>}
     </div>
   )
 }

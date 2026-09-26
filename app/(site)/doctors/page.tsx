@@ -15,7 +15,8 @@ import { doctors, hospitalById, hospitals, publicReports } from '@/lib/data'
 export default function DoctorsPage() {
   return (
     <div className="tc-stack" style={{ gap: 'var(--tc-space-4)' }}>
-      <div className="tc-stack">
+      <header className="tc-page-heading">
+        <div><span className="tc-page-eyebrow">从就诊经历继续查找</span>
         <h1>医生线索</h1>
         <p className="tc-muted">
           汇总公开就诊线索原文里提到的医生姓名，按关联线索的病症分组展示，便于按地区与机构继续查找。
@@ -23,10 +24,13 @@ export default function DoctorsPage() {
         <p className="tc-badge tc-badge--accent" style={{ display: 'inline-block', whiteSpace: 'normal' }}>
           {DOCTOR_LEAD_SOURCE_NOTE}
         </p>
-      </div>
+        </div>
+      </header>
 
-      <div className="tc-card">
-        <h2>公开执业信息条目</h2>
+      <DoctorLeadExplorer />
+
+      <details className="tc-card tc-secondary-section">
+        <summary>公开执业信息条目（{doctors.length}）</summary>
         {doctors.length === 0 ? (
           <div className="tc-empty">
             <p>暂无公开执业信息条目。</p>
@@ -53,9 +57,7 @@ export default function DoctorsPage() {
             })}
           </div>
         )}
-      </div>
-
-      <DoctorLeadExplorer />
+      </details>
     </div>
   )
 }

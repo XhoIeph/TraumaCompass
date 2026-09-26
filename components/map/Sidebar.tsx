@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState, type ReactNode, type Ref } from 'react'
 import Link from 'next/link'
 import { Brand } from '@/components/Brand'
+import { PanelMotion } from '@/components/PanelMotion'
+import { X } from 'lucide-react'
 
 export type SidebarTabId = 'hospitals' | 'reports' | 'doctors' | 'submit'
 
@@ -73,23 +75,23 @@ export function Sidebar({
       inert={!open}
     >
       <div className="tc-sidebar-head">
-        <div className="tc-row tc-row--between" style={{ alignItems: 'flex-start' }}>
+        <div className="tc-row tc-row--between">
           <Brand height={44} className="tc-brand--map" />
           {onClose && (
             <button type="button" className="tc-sidebar-close" onClick={onClose} aria-label="收起侧边栏">
-              ✕
+              <X size={20} aria-hidden="true" />
             </button>
           )}
         </div>
-        <div className="tc-row tc-small tc-sidebar-chips">
-          <span className="tc-badge tc-badge--accent">线索 {totals.reports}</span>
-          <span className="tc-badge tc-badge--neutral">机构 {totals.hospitals}</span>
-          <span className="tc-badge tc-badge--neutral">覆盖 {totals.provincesWithReports} 省</span>
+        <div className="tc-sidebar-stats" aria-label="收录概况">
+          <div><strong>{totals.reports}</strong><span>条就诊线索</span></div>
+          <div><strong>{totals.hospitals}</strong><span>家收录机构</span></div>
+          <div><strong>{totals.provincesWithReports}</strong><span>个覆盖省份</span></div>
         </div>
       </div>
 
       {detail ? (
-        <div className="tc-sidebar-body">{detail}</div>
+        <div className="tc-sidebar-body"><PanelMotion motionKey="detail">{detail}</PanelMotion></div>
       ) : (
         <>
           <nav className="tc-sidebar-tabs" role="tablist" aria-label="侧边栏功能">
@@ -117,7 +119,7 @@ export function Sidebar({
             ))}
           </nav>
           <div className="tc-sidebar-body" role="tabpanel" id="tc-sidebar-panel" aria-labelledby={`tc-sidebar-tab-${tab}`}>
-            {tabs[tab]}
+            <PanelMotion motionKey={tab}>{tabs[tab]}</PanelMotion>
           </div>
         </>
       )}

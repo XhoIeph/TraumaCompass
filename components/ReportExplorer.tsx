@@ -6,6 +6,7 @@ import type { Disorder, Province, Report } from '@/lib/schema'
 import { PLATFORM_LABELS } from '@/lib/format'
 import { matchesSearch } from '@/lib/search'
 import { ReportCard } from './ReportCard'
+import { FilterPanel } from './FilterPanel'
 
 type Props = {
   reports: Report[]
@@ -84,6 +85,7 @@ export function ReportExplorer({
 
   return (
     <div>
+      <FilterPanel compact={variant === 'compact'} count={[province, platform, disorder, keyword.trim()].filter(Boolean).length}>
       <form
         className={`tc-card tc-filters${variant === 'compact' ? ' tc-filters--compact' : ''}`}
         onSubmit={(event) => event.preventDefault()}
@@ -138,14 +140,14 @@ export function ReportExplorer({
           重置
         </button>
       </form>
+      </FilterPanel>
 
-      <p className="tc-small tc-muted">
-        {filtered.length} 条线索
-      </p>
+      <div className="tc-results-heading" role="status" aria-live="polite"><span><strong>{filtered.length}</strong> 条线索</span><span>公开来源摘录</span></div>
 
       {filtered.length === 0 ? (
         <div className="tc-empty">
           <p>没有符合筛选条件的线索。</p>
+          <button type="button" className="tc-button" onClick={reset}>清除筛选，查看全部</button>
           <p className="tc-small tc-faint">
             目前数据集仍在早期建设阶段，欢迎通过「提交线索」补充你了解的公开来源。
           </p>

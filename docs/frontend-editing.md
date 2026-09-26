@@ -5,7 +5,10 @@
 | 内容 | 文件 |
 | --- | --- |
 | 右上角关于项目、投稿说明、图例与位置说明 | `components/map/MapApp.tsx` |
-| 品牌副标题、心理援助提示、侧栏栏目名称 | `components/map/Sidebar.tsx` |
+| 侧栏品牌、收录统计、栏目名称 | `components/map/Sidebar.tsx` |
+| 通用 logo 与站点名称 | `components/Brand.tsx` |
+| 可折叠筛选栏 | `components/FilterPanel.tsx` |
+| 面板切换动效（不操作地图图层） | `components/PanelMotion.tsx` |
 | 医院侧栏摘要、定位和详情按钮 | `components/map/HospitalDetail.tsx` |
 | 省份摘要 | `components/map/ProvinceDetail.tsx` |
 | 医生分组、搜索提示和空结果提示 | `components/map/DoctorExplorer.tsx` |
@@ -13,6 +16,8 @@
 | 线索筛选 | `components/ReportExplorer.tsx` |
 | 单条线索的标签、来源与按钮 | `components/ReportCard.tsx` |
 | 医院完整详情页面 | `app/(site)/hospitals/[id]/page.tsx` |
+| 关于页面标题及未来正文 | `app/(site)/about/page.tsx` |
+| 通用页头、版权页脚 | `app/(site)/layout.tsx` |
 | 颜色、字号、间距、按钮布局 | `app/globals.css` |
 | 搜索同义词与多关键词规则 | `lib/search.ts` |
 
@@ -37,4 +42,4 @@
 
 密钥只放 `.env.local`。高德 Web 服务 key 使用 `AMAP_WEB_SERVICE_KEY`，不可加 `NEXT_PUBLIC_` 前缀或写入组件；它应仅用于服务端或本地数据脚本。
 
-最终审查通过之前，不提交或推送本轮界面修改。
+提交前检查差异与构建结果；是否推送以当前用户授权为准，不把某次待审状态当作永久限制。

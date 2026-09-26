@@ -6,7 +6,6 @@ const TEMPLATE_URL = `${REPO_URL}/issues/new?template=`
 
 /** 章节间距 24px、正文列 76ch：与详情页的排版口径保持一致 */
 const SECTION = { marginTop: 24 }
-const PROSE = { maxWidth: '76ch' }
 
 export const metadata = {
   title: '提交线索｜TraumaCompass',
@@ -16,8 +15,8 @@ export const metadata = {
 
 export default function SubmitPage() {
   return (
-    <div style={PROSE}>
-      <h1>提交线索</h1>
+    <div className="tc-prose">
+      <header className="tc-page-heading"><div><span className="tc-page-eyebrow">一起补全这张地图</span><h1>提交线索</h1></div></header>
       <p>
         这里收集公开可查的就诊线索：公开帖子、公开网页或官方公示里出现的机构、科室、医生与就诊过程。
         投稿先经人工复核，确认来源可以打开、且不含任何人的隐私信息，才会进入数据集。

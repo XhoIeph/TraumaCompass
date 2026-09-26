@@ -20,7 +20,7 @@ export function SiteNav() {
         const active =
           item.href === '/'
             ? pathname === '/'
-            : pathname === item.href || pathname.startsWith(item.href)
+            : `${pathname.replace(/\/$/, '')}/`.startsWith(item.href)
         return (
           <Link key={item.href} href={item.href} aria-current={active ? 'page' : undefined}>
             {item.label}

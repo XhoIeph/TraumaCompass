@@ -9,25 +9,13 @@ import Link from 'next/link'
  * - 显式写出 width/height 与 aspect-ratio，避免图片加载前后布局位移。
  * - 服务端组件（无 'use client'）；不使用 next/image，静态资源路径由 basePath 手动拼接。
  *
- * 版式说明（已在 Chromium 实测，非猜测）：
- * - 链接用 display:inline-block，使其作为 flex item 时基线 = 第一个行盒的基线；
- *   丝带用 vertical-align:middle 与站名行垂直居中。
- * - 文字列刻意用 inline-flex 纵向排布：inline-block 的基线取“最后一个行盒”（会变成副标题基线），
- *   而 inline-flex 的基线取“第一个 flex item”（即站名），因此有/无副标题时链接基线都等于站名基线，
- *   放进 align-items: baseline 的页头（app/globals.css 的 .tc-header-inner）不会错位，
- *   页头行高与改造前一致（实测 73.5px，未因加 Logo 而增高）。
+ * 版式由 .tc-brand 的 inline-flex + align-items:center 统一控制。
  */
 
 /** 源 SVG 的 viewBox 尺寸，决定固定纵横比 */
 const RIBBON_WIDTH = 912
 const RIBBON_HEIGHT = 1280
 const RIBBON_ASPECT_RATIO = `${RIBBON_WIDTH} / ${RIBBON_HEIGHT}`
-
-/** 丝带与站名间距（px），任务书要求 8–10px */
-const LOGO_GAP = 10
-
-/** 品牌组合最小高度（px），保证可点击/触控区域 ≥44×44px */
-const MIN_TOUCH_TARGET = 44
 
 /**
  * next.config.ts 通过 env 注入 NEXT_PUBLIC_BASE_PATH：
@@ -55,9 +43,7 @@ export function Brand({ height = 28, subtitle, className }: BrandProps) {
     <Link
       href="/"
       className={linkClassName}
-      style={{ display: 'inline-block', minHeight: MIN_TOUCH_TARGET }}
     >
-      {/* 丝带与文字列之间不能有空白文本节点，间距只由 marginRight 控制 */}
       <img
         src={RIBBON_SRC}
         alt=""
@@ -66,14 +52,11 @@ export function Brand({ height = 28, subtitle, className }: BrandProps) {
         height={height}
         decoding="async"
         style={{
-          display: 'inline-block',
-          verticalAlign: 'middle',
-          marginRight: LOGO_GAP,
           width: 'auto',
           height: `${height}px`,
           aspectRatio: RIBBON_ASPECT_RATIO,
         }}
-      /><span style={{ display: 'inline-flex', flexDirection: 'column' }}>
+      /><span className="tc-brand-wordmark">
         <span>TraumaCompass</span>
         {subtitle ? <small>{subtitle}</small> : null}
       </span>
