@@ -11,9 +11,9 @@ export function generateStaticParams() {
 }
 
 const SERVICE_LABELS: Record<string, string> = {
-  yes: '明确依据（官方页面明确说明提供该项服务）',
-  claimed: '间接证据（创伤治疗项目、指南参编、培训体系等佐证，但未明确说明提供该项服务）',
-  unknown: '未知（尚无可追溯证据）',
+  yes: '明确依据',
+  claimed: '间接证据',
+  unknown: '未知',
   no: '无',
 }
 
@@ -65,7 +65,7 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
           </tbody>
         </table>
 
-        {hospital.trauma_service.evidence.length > 0 ? (
+        {hospital.trauma_service.evidence.length > 0 && (
           <div className="tc-stack" style={{ marginTop: 'var(--tc-space-3)' }}>
             <h3>证据</h3>
             <ul className="tc-small">
@@ -74,11 +74,6 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
               ))}
             </ul>
           </div>
-        ) : (
-          <p className="tc-small tc-muted" style={{ marginTop: 'var(--tc-space-3)' }}>
-            尚未抓到能证明该院创伤相关服务能力的公开材料。如果你有官方页面、科室介绍或可靠来源，
-            欢迎通过「提交线索」补充。
-          </p>
         )}
       </div>
 
@@ -128,14 +123,9 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
         </table>
       </div>
 
-      <div className="tc-card">
-        <h2>关联医生（{doctors.length}）</h2>
-        {doctors.length === 0 ? (
-          <p className="tc-small tc-muted" style={{ margin: 0 }}>
-            暂无公开执业信息条目。这一区块只在能从医院官网或卫健委执业注册信息确认后建立，
-            避免凭网友描述推断；网友提到过的医生请见该机构线索卡片中的「提及医生」。
-          </p>
-        ) : (
+      {doctors.length > 0 && (
+        <div className="tc-card">
+          <h2>关联医生（{doctors.length}）</h2>
           <ul>
             {doctors.map((doctor) => (
               <li key={doctor.id}>
@@ -145,8 +135,8 @@ export default async function HospitalDetailPage({ params }: { params: Promise<{
               </li>
             ))}
           </ul>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="tc-card">
         <h2>关联就诊线索（{reports.length}）</h2>

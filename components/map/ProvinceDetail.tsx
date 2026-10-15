@@ -6,7 +6,6 @@ import type { MapHospital, MapProvinceStat } from './types'
 /** 侧栏中的省份概要卡：由全国视图点击省份触发 */
 export function ProvinceDetail({
   provinceName,
-  adcode,
   stat,
   hospitals,
   onClose,
@@ -14,7 +13,6 @@ export function ProvinceDetail({
   onSelectHospital,
 }: {
   provinceName: string
-  adcode: string
   stat: MapProvinceStat | undefined
   hospitals: MapHospital[]
   onClose: () => void
@@ -81,14 +79,10 @@ export function ProvinceDetail({
         <div className="tc-empty" style={{ padding: 'var(--tc-space-4)' }}>
           <p style={{ margin: 0 }}>该省暂无已收录的线索与机构记录。</p>
           <p className="tc-small tc-faint">
-            数据仍在持续收集中；如果你了解公开来源，欢迎
-            <Link href="/submit/"> 提交线索</Link>。
+            有公开来源？<Link href="/submit/">提交线索</Link>
           </p>
         </div>
       )}
-      <p className="tc-meta" style={{ margin: 0 }}>
-        行政区划代码 {adcode}
-      </p>
     </div>
   )
 }

@@ -56,7 +56,6 @@ type Props = {
   hospitals: Hospital[]
   reports: Report[]
   disorders: Disorder[]
-  visibleDisorders: Disorder[]
   reportProvince: Record<string, string>
   hospitalNames: Record<string, string>
   reportCounts: Record<string, number>
@@ -117,10 +116,6 @@ export function MapApp(props: Props) {
       const map = mapRef.current
       if (!map) return
       map.invalidateSize({ pan: false })
-      // 全国层级随可用容器取景；详情层级保留用户正在浏览的位置。
-      if (map.getZoom() < NODE_ZOOM_THRESHOLD) {
-        ;(map as LeafletMap & { __fitCountry?: () => void }).__fitCountry?.()
-      }
     })
     observer.observe(containerRef.current)
     return () => observer.disconnect()
@@ -235,6 +230,8 @@ export function MapApp(props: Props) {
   useEffect(() => {
     let disposed = false
     let map: LeafletMap | undefined
+    let wheelTarget: HTMLElement | undefined
+    let wheelListener: ((event: WheelEvent) => void) | undefined
 
     async function setup() {
       try {
@@ -249,6 +246,7 @@ export function MapApp(props: Props) {
           // 在高 DPI 屏幕上尤其容易出现文字与道路的重影。
           zoomSnap: 1,
           zoomDelta: 1,
+          scrollWheelZoom: false,
           fadeAnimation: false,
           // 竖屏手机上装下整个中国所需的缩放级别低于 4；minZoom 过高会把国土裁掉，
           // 因此下限压到 3，让 fitBounds 决定初始视野；maxBounds 放宽，避免与 fit 互相打架
@@ -264,9 +262,32 @@ export function MapApp(props: Props) {
         L.control.zoom({ position: 'bottomright' }).addTo(map)
         L.control.scale({ position: 'bottomright', imperial: false }).addTo(map)
 
+        // Leaflet 默认把一次滚轮手势合并成最多四级；每次只走一级，且始终落在整数瓦片级。
+        let wheelDelta = 0
+        let lastWheelAt = 0
+        let lastZoomAt = 0
+        wheelTarget = map.getContainer()
+        wheelListener = (event) => {
+          event.preventDefault()
+          const now = performance.now()
+          if (now - lastWheelAt > 180) wheelDelta = 0
+          lastWheelAt = now
+          if (now - lastZoomAt < 320) return
+          wheelDelta += event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? 600 : 1)
+          if (Math.abs(wheelDelta) < 60) return
+          const direction = Math.sign(wheelDelta)
+          wheelDelta = 0
+          const nextZoom = Math.max(map!.getMinZoom(), Math.min(map!.getMaxZoom(), map!.getZoom() - direction))
+          if (nextZoom === map!.getZoom()) return
+          lastZoomAt = now
+          map!.setZoomAround(map!.mouseEventToContainerPoint(event), nextZoom, { animate: true })
+        }
+        wheelTarget.addEventListener('wheel', wheelListener, { passive: false })
+
         /** CSS 已给侧栏腾出位置；只能按真实地图容器留白，不能重复减去侧栏宽度。 */
         const fitCountry = () => {
           if (!map) return
+          map.setMinZoom(3)
           const wide = window.innerWidth >= 1000
           // 窄屏上下留白压到最小：竖屏装下整幅国土后本就会出现南北邻国，
           // 不再额外加 padding，让中国尽量占满可用宽度
@@ -275,6 +296,7 @@ export function MapApp(props: Props) {
             paddingBottomRight: [20, wide ? 70 : 136],
             animate: false,
           })
+          map.setMinZoom(map.getZoom())
           zoomRef.current = map.getZoom()
         }
         fitCountry()
@@ -547,7 +569,6 @@ export function MapApp(props: Props) {
 
         const interrupt = () => { map?.stop() }
         map.on('dragstart', interrupt)
-        map.getContainer().addEventListener('wheel', interrupt, { passive: true })
         map.on('zoomend', applyZoomStyles)
         applyZoomStyles()
         setMapReady(true)
@@ -559,6 +580,7 @@ export function MapApp(props: Props) {
     void setup()
     return () => {
       disposed = true
+      if (wheelTarget && wheelListener) wheelTarget.removeEventListener('wheel', wheelListener)
       map?.stop()
       map?.remove()
       mapRef.current = null
@@ -616,14 +638,24 @@ export function MapApp(props: Props) {
 
     // 医生线索：与侧栏「医生线索」标签、/doctors/ 页共用同一聚合函数，避免口径漂移
     const doctors: SearchResult[] = []
+    const doctorKeys = new Set<string>()
     for (const group of aggregateDoctorLeads(propsRef.current.hospitals, propsRef.current.reports, q)) {
       for (const entry of group.entries) {
+        const key = `doctor-${entry.hospitalId ?? entry.hospitalName}-${entry.name}`
+        if (doctorKeys.has(key)) continue
+        doctorKeys.add(key)
         doctors.push({
-          key: `doctor-${entry.hospitalId}-${entry.name}`,
+          key,
           group: '医生',
           label: entry.name,
           sub: `${entry.hospitalName} · ${group.label} · 线索 ${entry.leadCount} 条`,
-          run: () => selectHospital(entry.hospitalId),
+          run: () => {
+            if (entry.hospitalId) selectHospital(entry.hospitalId)
+            else {
+              setSidebarTab('doctors')
+              setSidebarOpen(true)
+            }
+          },
         })
         if (doctors.length >= 5) break
       }
@@ -633,15 +665,31 @@ export function MapApp(props: Props) {
 
     const disorders: SearchResult[] = []
     for (const disorder of propsRef.current.disorders) {
-      if (!disorder.visible) continue
       if (!matchesSearch(`${disorder.name_zh} ${disorder.name_en} ${disorder.id}`, q)) continue
+      const count = propsRef.current.reports.filter((report) => report.disorders.includes(disorder.id)).length
       disorders.push({
         key: `disorder-${disorder.id}`,
         group: '病症',
-        label: `${disorder.name_zh}（${disorder.id.toUpperCase()}）`,
-        sub: `ICD-11 ${disorder.icd11_code}`,
+        label: disorder.id === 'other' ? disorder.name_zh : `${disorder.name_zh}（${disorder.id.toUpperCase()}）`,
+        sub: `${count} 条线索`,
         run: () => {
           setSeedDisorder(disorder.id)
+          setSidebarTab('reports')
+          setSidebarOpen(true)
+        },
+      })
+    }
+    const sourceTopics = new Set(propsRef.current.reports.flatMap((report) => report.source_topics ?? []))
+    for (const topic of sourceTopics) {
+      if (!matchesSearch(topic, q)) continue
+      const count = propsRef.current.reports.filter((report) => report.source_topics?.includes(topic)).length
+      disorders.push({
+        key: `topic-${topic}`,
+        group: '病症',
+        label: topic,
+        sub: `${count} 条原帖线索`,
+        run: () => {
+          setSeedDisorder(`topic:${topic}`)
           setSidebarTab('reports')
           setSidebarOpen(true)
         },
@@ -679,7 +727,6 @@ export function MapApp(props: Props) {
   ) : selectedProvince ? (
     <ProvinceDetail
       provinceName={selectedProvince.name}
-      adcode={selectedProvince.adcode}
       stat={props.provinceStats[selectedProvince.adcode]}
       hospitals={props.mapHospitals.filter((item) => item.adcode === selectedProvince.adcode)}
       onClose={() => setSelectedProvinceAdcode(null)}

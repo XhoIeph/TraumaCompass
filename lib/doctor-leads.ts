@@ -39,7 +39,7 @@ const DOCTOR_NAME_SEPARATOR = /[、,，/]/
 
 /** 组织：一家机构的线索分组 */
 export type DoctorLeadGroup = {
-  id: DisorderId
+  id: string
   /** 分组标题，如 CPTSD / 其他 */
   label: string
   /** 该组内合并后的医生线索 */
@@ -54,7 +54,7 @@ export type DoctorLeadGroup = {
 export type DoctorLead = {
   /** 医生姓名，原文拆分为单个姓名后 trim */
   name: string
-  hospitalId: string
+  hospitalId: string | null
   hospitalName: string
   province: string
   city: string
@@ -71,10 +71,6 @@ export type DoctorLeadIndex = {
   /** `${hospitalId}:${doctorName}:${disorderId}` → 线索（按病症切分） */
   entries: Map<string, DoctorLead>
 }
-
-/** 页面与地图共用的一句说明，避免两处文案漂移 */
-export const DOCTOR_LEAD_SOURCE_NOTE =
-  '姓名来自公开就诊线索原文，不代表执业资格核验、服务保证或推荐。'
 
 function isDisorderId(value: string): value is DisorderId {
   return (DOCTOR_LEAD_DISORDER_ORDER as readonly string[]).includes(value)
@@ -109,10 +105,11 @@ export function doctorLeadSearchText(lead: DoctorLead, reports: Report[]): strin
     report.evidence_quote,
     report.evidence_full_text ?? '',
     report.doctor_name_raw ?? '',
+    ...(report.source_topics ?? []),
   ])
   // hospitalId 也纳入检索文本：报告里的 doctor_name_raw 经常省略姓氏以外的信息，
   // 而机构 id（如 sc-wcsh）是两个消费方唯一都持有的稳定标识。
-  return [lead.hospitalId, lead.name, lead.hospitalName, lead.province, lead.city, ...lead.disorders, ...quotes].join(' ')
+  return [lead.hospitalId ?? '', lead.name, lead.hospitalName, lead.province, lead.city, ...lead.disorders, ...quotes].join(' ')
 }
 
 /** 判断单条医生线索是否命中关键词（与地图侧栏、独立页共用同一判定） */
@@ -131,7 +128,7 @@ function compareLeads(a: DoctorLead, b: DoctorLead): number {
 
 /**
  * 建立索引：与查询无关，可按机构 / 医生 / 病症直接取。
- * 只处理能在 `hospitals` 中找到机构的线索，且只处理 `doctor_name_raw` 非空的线索。
+ * 未建档的机构保留原文名称；只有原文也未点名机构时才跳过。
  */
 export function buildDoctorLeadIndex(hospitals: Hospital[], reports: Report[]): DoctorLeadIndex {
   const hospitalById = new Map(hospitals.map((hospital) => [hospital.id, hospital]))
@@ -150,7 +147,7 @@ export function buildDoctorLeadIndex(hospitals: Hospital[], reports: Report[]): 
   }
 
   /** 每条 (机构, 医生, 病症) 组合的初始线索，后续只累加 reportIds */
-  const makeLead = (hospital: Hospital, name: string, disorders: DisorderId[], reportId: string): DoctorLead => ({
+  const makeLead = (hospital: { id: string | null; name: string; province: string; city: string }, name: string, disorders: DisorderId[], reportId: string): DoctorLead => ({
     name,
     hospitalId: hospital.id,
     hospitalName: hospital.name,
@@ -162,12 +159,14 @@ export function buildDoctorLeadIndex(hospitals: Hospital[], reports: Report[]): 
   })
 
   for (const report of reports) {
-    if (!report.hospital_id || !report.doctor_name_raw) continue
-    const hospital = hospitalById.get(report.hospital_id)
-    if (!hospital) continue
+    if (!report.doctor_name_raw) continue
+    const linked = report.hospital_id ? hospitalById.get(report.hospital_id) : undefined
+    const rawName = report.hospital_name_raw?.trim()
+    if (!linked && (!rawName || /未点名|某.*医院/.test(rawName))) continue
+    const hospital = linked ?? { id: null, name: rawName!, province: report.hospital_region ?? '', city: '' }
     const disorders = disordersOf(report)
     for (const name of splitDoctorNames(report.doctor_name_raw)) {
-      const base = `${hospital.id}:${name}`
+      const base = `${hospital.id ?? `raw:${hospital.name}`}:${name}`
       touch(leads, base, makeLead(hospital, name, [], report.id), report.id)
 
       const merged = leads.get(base)!
@@ -189,7 +188,7 @@ export function buildDoctorLeadIndex(hospitals: Hospital[], reports: Report[]): 
  * 按病症分组输出医生线索。
  *
  * @param hospitals 机构数据（用于把 `report.hospital_id` 解析为机构、省份、城市）
- * @param reports 线索数据（公开线索；机构缺失或医生姓名缺失的线索会被跳过）
+ * @param reports 公开线索；没有可显示的机构名或医生姓名时跳过
  * @param query 多关键词，空格 / 逗号 / 顿号 / 分号分隔，AND 逻辑；可匹配医生姓名、
  *              机构名、省份、城市、病症 ID、线索摘录
  * @returns 非空分组，顺序固定为 cptsd, bpd, osdd, did, ptsd, other
@@ -200,16 +199,32 @@ export function aggregateDoctorLeads(
   query = '',
 ): DoctorLeadGroup[] {
   const { entries } = buildDoctorLeadIndex(hospitals, reports)
-  const buckets = new Map<DisorderId, DoctorLead[]>()
+  const reportById = new Map(reports.map((report) => [report.id, report]))
+  const buckets = new Map<string, DoctorLead[]>()
+  const labels = new Map<string, string>(Object.entries(DOCTOR_LEAD_DISORDER_LABELS))
 
   for (const entry of entries.values()) {
     const disorder = entry.disorders[0]
-    const bucket = buckets.get(disorder)
-    if (bucket) bucket.push(entry)
-    else buckets.set(disorder, [entry])
+    const groupedReports = new Map<string, string[]>()
+    for (const reportId of entry.reportIds) {
+      const topics = disorder === 'other' ? reportById.get(reportId)?.source_topics : undefined
+      const groups = topics?.length ? topics.map((topic) => ({ id: `topic:${topic}`, label: topic })) : [{ id: disorder, label: DOCTOR_LEAD_DISORDER_LABELS[disorder] }]
+      for (const group of groups) {
+        labels.set(group.id, group.label)
+        const ids = groupedReports.get(group.id) ?? []
+        if (!ids.includes(reportId)) ids.push(reportId)
+        groupedReports.set(group.id, ids)
+      }
+    }
+    for (const [id, reportIds] of groupedReports) {
+      const bucket = buckets.get(id) ?? []
+      bucket.push({ ...entry, reportIds, leadCount: reportIds.length })
+      buckets.set(id, bucket)
+    }
   }
 
-  return DOCTOR_LEAD_DISORDER_ORDER.filter((id) => buckets.has(id))
+  const sourceGroups = [...buckets.keys()].filter((id) => id.startsWith('topic:')).sort((a, b) => labels.get(a)!.localeCompare(labels.get(b)!, 'zh-Hans-CN'))
+  return [...DOCTOR_LEAD_DISORDER_ORDER.filter((id) => id !== 'other'), ...sourceGroups, 'other'].filter((id) => buckets.has(id))
     .map((id) => {
       const matched = buckets
         .get(id)!
@@ -218,7 +233,7 @@ export function aggregateDoctorLeads(
         .sort(compareLeads)
       return {
         id,
-        label: DOCTOR_LEAD_DISORDER_LABELS[id],
+        label: labels.get(id)!,
         entries: matched,
         leadCount: matched.length,
         reportCount: new Set(matched.flatMap((lead) => lead.reportIds)).size,

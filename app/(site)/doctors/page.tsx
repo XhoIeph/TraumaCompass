@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { DOCTOR_LEAD_SOURCE_NOTE, aggregateDoctorLeads, type DoctorLead } from '@/lib/doctor-leads'
+import { DoctorLeadItem } from '@/components/DoctorLeadItem'
+import { aggregateDoctorLeads } from '@/lib/doctor-leads'
 import { doctors, hospitalById, hospitals, publicReports } from '@/lib/data'
 
 /**
@@ -16,30 +17,17 @@ export default function DoctorsPage() {
   return (
     <div className="tc-stack" style={{ gap: 'var(--tc-space-4)' }}>
       <header className="tc-page-heading">
-        <div><span className="tc-page-eyebrow">从就诊经历继续查找</span>
-        <h1>医生线索</h1>
-        <p className="tc-muted">
-          汇总公开就诊线索原文里提到的医生姓名，按关联线索的病症分组展示，便于按地区与机构继续查找。
-        </p>
-        <p className="tc-badge tc-badge--accent" style={{ display: 'inline-block', whiteSpace: 'normal' }}>
-          {DOCTOR_LEAD_SOURCE_NOTE}
-        </p>
+        <div>
+          <h1>医生线索</h1>
+          <p className="tc-muted">按病症查找原帖中提到的医生；展开条目可看对应线索。</p>
         </div>
       </header>
 
       <DoctorLeadExplorer />
 
-      <details className="tc-card tc-secondary-section">
-        <summary>公开执业信息条目（{doctors.length}）</summary>
-        {doctors.length === 0 ? (
-          <div className="tc-empty">
-            <p>暂无公开执业信息条目。</p>
-            <p className="tc-small tc-faint">
-              这一区块只在拿到医院官网或国家卫健委执业注册信息查询等公开来源后逐条建立，
-              与上面的网友线索不是同一层依据，因此不混在一起展示。
-            </p>
-          </div>
-        ) : (
+      {doctors.length > 0 && (
+        <details className="tc-card tc-secondary-section">
+          <summary>公开执业信息条目（{doctors.length}）</summary>
           <div className="tc-grid tc-grid--cards">
             {doctors.map((doctor) => {
               const hospital = hospitalById(doctor.hospital_id)
@@ -56,16 +44,15 @@ export default function DoctorsPage() {
               )
             })}
           </div>
-        )}
-      </details>
+        </details>
+      )}
     </div>
   )
 }
 
 /**
  * 医生线索的搜索与分组结果（客户端交互部分）。
- * 复用地图侧栏的聚合逻辑；点医生姓名 / 机构名都会定位到机构详情页，
- * 在那里能看到包含该医生姓名的相关线索。
+ * 复用地图侧栏的聚合逻辑；展开每位医生可查看关联线索，再进入机构详情页。
  */
 function DoctorLeadExplorer() {
   const [query, setQuery] = useState('')
@@ -73,8 +60,6 @@ function DoctorLeadExplorer() {
     () => aggregateDoctorLeads(hospitals, publicReports, query),
     [query],
   )
-  const leadTotal = groups.reduce((sum, group) => sum + group.leadCount, 0)
-  const hospitalTotal = new Set(groups.flatMap((group) => group.entries.map((entry) => entry.hospitalId))).size
 
   return (
     <div className="tc-doctor-explorer tc-doctor-explorer--page">
@@ -88,17 +73,10 @@ function DoctorLeadExplorer() {
             onChange={(event) => setQuery(event.target.value)}
           />
         </label>
-        <p className="tc-small tc-muted" style={{ margin: 0 }}>
-          空格、逗号、顿号或分号分隔多个关键词，需同时命中。
-        </p>
         <button type="button" className="tc-button" onClick={() => setQuery('')} disabled={query.trim() === ''}>
           重置
         </button>
       </form>
-
-      <p className="tc-small tc-muted">
-        {leadTotal} 条医生线索 · 涉及 {hospitalTotal} 家机构 · 按关联线索的病症分组
-      </p>
 
       {groups.length === 0 ? (
         <div className="tc-empty">
@@ -119,35 +97,13 @@ function DoctorLeadExplorer() {
               </h2>
               <div className="tc-grid tc-grid--cards">
                 {group.entries.map((entry) => (
-                  <DoctorLeadCard key={`${group.id}:${entry.hospitalId}:${entry.name}`} entry={entry} />
+                  <DoctorLeadItem key={`${group.id}:${entry.hospitalId ?? entry.hospitalName}:${entry.name}`} entry={entry} reports={publicReports} />
                 ))}
               </div>
             </section>
           ))}
         </div>
       )}
-    </div>
-  )
-}
-
-function DoctorLeadCard({ entry }: { entry: DoctorLead }) {
-  const region = entry.city && entry.city !== entry.province ? `${entry.province} · ${entry.city}` : entry.province
-  const disorders = entry.disorders.map((id) => (id === 'other' ? '其他' : id.toUpperCase())).join(' / ')
-
-  return (
-    <div className="tc-card">
-      <h3 style={{ marginBottom: 4 }}>{entry.name}</h3>
-      <div className="tc-row tc-meta">
-        <span>{region}</span>
-        <span>·</span>
-        <Link href={`/hospitals/${entry.hospitalId}/`}>{entry.hospitalName}</Link>
-      </div>
-      <p className="tc-meta" style={{ marginTop: 8 }}>
-        医生线索 · {entry.hospitalName} · 关联病症 {disorders} · 线索 {entry.leadCount} 条
-      </p>
-      <p className="tc-small" style={{ marginBottom: 0 }}>
-        <Link href={`/hospitals/${entry.hospitalId}/`}>查看机构与相关线索 →</Link>
-      </p>
     </div>
   )
 }

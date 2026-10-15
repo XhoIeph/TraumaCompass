@@ -1,4 +1,5 @@
 import { MapApp } from '@/components/map/MapApp'
+import { formatPublishedAt, formatReportSource } from '@/lib/format'
 import {
   disorders,
   hospitals,
@@ -6,7 +7,6 @@ import {
   provinces,
   publicReports,
   reportProvinceMap,
-  visibleDisorders,
 } from '@/lib/data'
 
 export default function MapPage() {
@@ -47,15 +47,14 @@ export default function MapPage() {
         .map((report) => ({
           id: report.id,
           quote: report.evidence_quote,
+          sourceLabel: formatReportSource(report),
           contextNote: report.evidence_context?.parent_excerpt
             ? `该评论回复的原话：「${report.evidence_context.parent_excerpt}」`
-            : report.evidence_context?.note_title
-              ? `来自《${report.evidence_context.note_title}》的评论区`
-              : undefined,
+            : undefined,
           doctor: report.doctor_name_raw,
           stage: report.stage,
           platform: report.platform,
-          publishedAt: report.published_at,
+          publishedAt: formatPublishedAt(report.published_at, report.published_at_precision),
           url: report.source_url,
         })),
     ]),
@@ -99,7 +98,6 @@ export default function MapPage() {
       hospitals={hospitals}
       reports={publicReports}
       disorders={disorders}
-      visibleDisorders={visibleDisorders}
       reportProvince={reportProvinceMap()}
       hospitalNames={hospitalNames}
       reportCounts={reportCounts}

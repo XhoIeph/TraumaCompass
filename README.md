@@ -4,6 +4,8 @@
 
 ## 快速开始
 
+手机 / Codex Cloud 接续开发：先阅读 [云端交接与配置](docs/cloud-handoff.md)，其中列明当前检查点、密钥配置和仍未完成的采集任务。
+
 ```powershell
 # 本机 PowerShell 禁止运行 npm.ps1，所有 npm 命令请走 cmd
 cmd /c "npm install"

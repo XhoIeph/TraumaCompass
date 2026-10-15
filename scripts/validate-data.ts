@@ -99,6 +99,21 @@ if (disorders && hospitals && doctors && reports && provinces) {
       errors.push(`reports.json → ${id}: doctor_id ${String(report.doctor_id)} 不存在`)
     }
 
+    const sourceNoteId = new URL(String(report.source_url)).pathname.split('/').filter(Boolean).at(-1)
+    const recordNoteId = typeof report.source_post_id === 'string'
+      ? report.source_post_id.split('#')[0]
+      : undefined
+    if (recordNoteId && recordNoteId !== sourceNoteId) {
+      errors.push(`reports.json → ${id}: source_post_id 与 source_url 指向不同原帖`)
+    }
+    const captureScope = (report.evidence_context as { capture_scope?: string } | undefined)?.capture_scope
+    const capturedNoteId = typeof captureScope === 'string'
+      ? captureScope.match(/(?:xiaohongshu|comments)[\\/]([0-9a-f]{24})(?:[\\/\\.]|$)/)?.[1]
+      : undefined
+    if (capturedNoteId && capturedNoteId !== sourceNoteId) {
+      errors.push(`reports.json → ${id}: 证据截图或评论抓取与 source_url 指向不同原帖`)
+    }
+
     const reportDisorders = Array.isArray(report.disorders) ? report.disorders : []
     for (const disorder of reportDisorders) {
       if (!disorderIds.has(String(disorder))) {

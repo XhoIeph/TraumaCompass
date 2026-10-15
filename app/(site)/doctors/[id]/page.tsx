@@ -26,13 +26,8 @@ export default async function DoctorDetailPage({ params }: { params: Promise<{ i
         <h1>公开执业信息条目</h1>
         <div className="tc-empty">
           <p>目前还没有公开执业信息条目。</p>
-          <p className="tc-small tc-faint">
-            这一区块只收录能从公开渠道（医院官网、国家卫健委执业注册信息查询）确认的姓名、科室与职称，
-            因此刻意保持保守，避免凭网友描述推断。
-          </p>
           <p className="tc-small">
-            想看网友提到过的医生，请到 <Link href="/doctors/">医生线索</Link>，
-            或在地图侧栏的「医生线索」中按病症查看。
+            查看 <Link href="/doctors/">医生线索</Link>
           </p>
         </div>
       </div>
@@ -103,10 +98,6 @@ export default async function DoctorDetailPage({ params }: { params: Promise<{ i
 
       <div className="tc-card">
         <h2>提及该医生的线索（{reports.length}）</h2>
-        <p className="tc-small tc-muted">
-          以下内容为网友个人体验摘录，<strong>不代表本站观点</strong>，也不能替代面诊判断；
-          每条都附原帖链接，可自行核对上下文。
-        </p>
         {reports.length === 0 ? (
           <p className="tc-small tc-muted" style={{ margin: 0 }}>
             暂无关联线索。

@@ -53,13 +53,19 @@ export function ReportExplorer({
     () => [...new Set(reports.map((report) => report.platform))].sort(),
     [reports],
   )
+  const sourceTopics = useMemo(
+    () => [...new Set(reports.flatMap((report) => report.source_topics ?? []))].sort(),
+    [reports],
+  )
 
   const filtered = useMemo(() => {
     const needle = keyword.trim()
     return reports.filter((report) => {
       if (province && reportProvince[report.id] !== province) return false
       if (platform && report.platform !== platform) return false
-      if (disorder && !report.disorders.includes(disorder as Report['disorders'][number])) return false
+      if (disorder.startsWith('topic:')) {
+        if (!report.source_topics?.includes(disorder.slice(6))) return false
+      } else if (disorder && !report.disorders.includes(disorder as Report['disorders'][number])) return false
       if (needle) {
         const haystack = [
           report.evidence_quote,
@@ -67,6 +73,7 @@ export function ReportExplorer({
           report.department,
           report.doctor_name_raw,
           report.self_reported_region,
+          ...(report.source_topics ?? []),
         ]
           .filter(Boolean)
           .join(' ')
@@ -115,13 +122,16 @@ export function ReportExplorer({
         </label>
 
         <label className="tc-field">
-          疾病
+          病症／原帖分类
           <select value={disorder} onChange={(event) => setDisorder(event.target.value)}>
             <option value="">全部</option>
             {disorders.map((item) => (
               <option key={item.id} value={item.id}>
                 {item.id === 'other' ? '其他' : item.id.toUpperCase()}
               </option>
+            ))}
+            {sourceTopics.map((topic) => (
+              <option key={topic} value={`topic:${topic}`}>{topic}（原帖称呼）</option>
             ))}
           </select>
         </label>
@@ -142,15 +152,12 @@ export function ReportExplorer({
       </form>
       </FilterPanel>
 
-      <div className="tc-results-heading" role="status" aria-live="polite"><span><strong>{filtered.length}</strong> 条线索</span><span>公开来源摘录</span></div>
+      <div className="tc-results-heading" role="status" aria-live="polite"><span><strong>{filtered.length}</strong> 条线索</span></div>
 
       {filtered.length === 0 ? (
         <div className="tc-empty">
           <p>没有符合筛选条件的线索。</p>
           <button type="button" className="tc-button" onClick={reset}>清除筛选，查看全部</button>
-          <p className="tc-small tc-faint">
-            目前数据集仍在早期建设阶段，欢迎通过「提交线索」补充你了解的公开来源。
-          </p>
         </div>
       ) : (
         <div>

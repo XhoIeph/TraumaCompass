@@ -61,6 +61,9 @@ export function HospitalDetail({
               {lead.doctor && <span>· 医生：{lead.doctor}</span>}
               <span>· {STAGE_LABELS[lead.stage] ?? lead.stage}</span>
             </div>
+            <p className="tc-small tc-muted" style={{ margin: '4px 0' }}>
+              来源：<a href={lead.url} target="_blank" rel="nofollow noopener noreferrer">{lead.sourceLabel} ↗</a>
+            </p>
             {lead.contextNote && (
               <p className="tc-small tc-muted" style={{ margin: '4px 0' }}>
                 {lead.contextNote}
@@ -69,9 +72,6 @@ export function HospitalDetail({
             <blockquote className="tc-quote" style={{ margin: '6px 0' }}>
               「{lead.quote}」
             </blockquote>
-            <a className="tc-small" href={lead.url} target="_blank" rel="nofollow noopener noreferrer">
-              查看原帖 ↗
-            </a>
           </article>
         ))
       )}

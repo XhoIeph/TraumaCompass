@@ -130,6 +130,8 @@ export const reportSchema = z.object({
   doctor_name_raw: z.string().optional(),
   doctor_title_raw: z.string().optional(),
   disorders: z.array(disorderIdSchema).min(1),
+  /** 原帖出现但尚未纳入疾病条目的病症称呼；仅用于展示与筛选，不推断诊断编码 */
+  source_topics: z.array(z.string().min(1)).optional(),
   stage: z.enum(['seeking', 'consulted', 'assessed', 'diagnosed', 'treated', 'unknown']),
   diagnosis_claimed: z
     .object({

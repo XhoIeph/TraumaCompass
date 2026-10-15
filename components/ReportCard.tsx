@@ -1,9 +1,9 @@
 import type { Disorder, Report } from '@/lib/schema'
 import {
-  EVIDENCE_SOURCE_LABELS,
   PLATFORM_LABELS,
   formatCost,
   formatPublishedAt,
+  formatReportSource,
   formatRegion,
 } from '@/lib/format'
 
@@ -35,9 +35,10 @@ export function ReportCard({
   onSelectHospital?: (id: string) => void
 }) {
   const disorderNames = report.disorders
-    .map((id) => id === 'other' ? '其他' : id.toUpperCase())
+    .map((id) => id === 'other' ? (report.source_topics?.join(' / ') || '其他') : id.toUpperCase())
     .join(' / ')
   const cost = formatCost(report.cost_cny)
+  const publishedAt = formatPublishedAt(report.published_at, report.published_at_precision)
 
   return (
     <article className="tc-report">
@@ -52,10 +53,13 @@ export function ReportCard({
             </span>
           )}
         </div>
-        <span className="tc-meta">{formatPublishedAt(report.published_at, report.published_at_precision)}</span>
+        {publishedAt && <span className="tc-meta">{publishedAt}</span>}
       </div>
 
-      {/* 上下文优先于摘录展示：评论脱离父评论极易被误读 */}
+      <p className="tc-small tc-muted" style={{ margin: '0 0 4px' }}>
+        来源：<a href={report.source_url} target="_blank" rel="nofollow noopener noreferrer">{formatReportSource(report)} ↗</a>
+      </p>
+      {/* 父评论与帖子出处同时显示，避免回复脱离上下文。 */}
       {report.evidence_context?.parent_excerpt && (
         <p className="tc-small tc-muted" style={{ margin: '0 0 4px' }}>
           该评论回复的原话：
@@ -64,13 +68,6 @@ export function ReportCard({
           </span>
         </p>
       )}
-      {!report.evidence_context?.parent_excerpt && report.evidence_source === 'comment' && (
-        <p className="tc-small tc-faint" style={{ margin: '0 0 4px' }}>
-          来源：{report.evidence_context?.note_title ? `《${report.evidence_context.note_title}》的评论区` : '评论区'}
-          {report.evidence_context?.index_in_capture ? `（${report.evidence_context.index_in_capture}）` : ''}
-        </p>
-      )}
-
       <blockquote className="tc-quote">「{report.evidence_quote}」</blockquote>
 
       {report.evidence_full_text && report.evidence_full_text.length > report.evidence_quote.length && (
@@ -109,16 +106,11 @@ export function ReportCard({
         )}
       </div>
 
-      <div className="tc-row tc-meta" style={{ marginTop: 'var(--tc-space-2)' }}>
-        {onSelectHospital && report.hospital_id && (
+      {onSelectHospital && report.hospital_id && (
+        <div className="tc-row tc-meta" style={{ marginTop: 'var(--tc-space-2)' }}>
           <button type="button" className="tc-linklike" onClick={() => onSelectHospital(report.hospital_id!)}>查看机构</button>
-        )}
-        <span>摘录自{EVIDENCE_SOURCE_LABELS[report.evidence_source] ?? '原文'}</span>
-        <span>·</span>
-        <a href={report.source_url} target="_blank" rel="nofollow noopener noreferrer">
-          查看原帖 ↗
-        </a>
-      </div>
+        </div>
+      )}
     </article>
   )
 }

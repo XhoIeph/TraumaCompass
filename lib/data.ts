@@ -20,7 +20,6 @@ export const doctors = doctorsFile.items as unknown as Doctor[]
 export const reports = reportsFile.items as unknown as Report[]
 export const provinceStats = statsFile as unknown as ProvinceStats
 
-export const visibleDisorders = disorders.filter((disorder) => disorder.visible)
 
 /** 只有 published 状态的线索才会出现在公开站点上 */
 export const publicReports = reports.filter((report) => report.status === 'published')

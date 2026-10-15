@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { aggregateDoctorLeads } from '@/lib/doctor-leads'
+import { DoctorLeadItem } from '@/components/DoctorLeadItem'
 import type { Hospital, Report } from '@/lib/schema'
 
 /**
@@ -22,13 +23,10 @@ export function DoctorExplorer({ hospitals, reports, onSelectHospital }: {
     <label className="tc-field">搜索医生
       <input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="病症 / 医生 / 医院，可用空格组合" />
     </label>
-    <p className="tc-meta">按关联线索的病症分组</p>
     {groups.length === 0 && <p className="tc-empty">没有匹配的医生线索</p>}
     {groups.map(group => <section key={group.id} className="tc-doctor-group">
       <h2>{group.label} <small>{group.leadCount}</small></h2>
-      {group.entries.map(entry => <button key={`${entry.hospitalId}:${entry.name}`} type="button" className="tc-doctor-result" onClick={() => onSelectHospital(entry.hospitalId)}>
-        <strong>{entry.name}</strong><small>{entry.hospitalName} · {entry.leadCount} 条线索</small>
-      </button>)}
+      {group.entries.map(entry => <DoctorLeadItem key={`${entry.hospitalId ?? entry.hospitalName}:${entry.name}`} entry={entry} reports={reports} onSelectHospital={onSelectHospital} />)}
     </section>)}
   </div>
 }

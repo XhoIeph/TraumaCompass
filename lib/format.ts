@@ -1,4 +1,4 @@
-import type { Platform } from './schema'
+import type { Platform, Report } from './schema'
 
 export const PLATFORM_LABELS: Record<Platform, string> = {
   xiaohongshu: '小红书',
@@ -29,14 +29,27 @@ const PRECISION_LABELS: Record<string, string> = {
   day: '',
   month: '（仅精确到月）',
   year: '（仅精确到年）',
-  derived: '（由笔记 ID 推导，可能有偏差）',
-  unknown: '（原文未标明时间）',
+  unknown: '',
 }
 
 export function formatPublishedAt(publishedAt?: string, precision?: string): string {
-  if (!publishedAt) return '时间未标注'
+  if (!publishedAt || precision === 'derived' || precision === 'unknown') return ''
   const suffix = precision ? (PRECISION_LABELS[precision] ?? '') : ''
   return `${publishedAt}${suffix}`
+}
+
+const SOURCE_POST_TITLES: Record<string, string> = {
+  '69f19ded0000000036003cb5': 'cptsd/人格障碍/osdd/did全国就诊线索1.0',
+  '69ede05b00000000350314ef': '建设cptsd/人格障碍/osdd/did全国就诊地图',
+}
+
+export function formatReportSource(report: Report): string {
+  const postId = report.source_post_id?.split('#')[0] ?? report.source_url.match(/\/explore\/([a-f\d]+)/)?.[1]
+  const title = (postId && SOURCE_POST_TITLES[postId]) || report.evidence_context?.note_title
+  const section = report.evidence_context?.capture_scope?.includes('.webp')
+    ? '图片摘录'
+    : EVIDENCE_SOURCE_LABELS[report.evidence_source] ?? '原文'
+  return title ? `《${title}》${section === '评论区' ? '的评论区' : ` · ${section}`}` : `${PLATFORM_LABELS[report.platform]}${section}`
 }
 
 /** 地区展示：只用「医院所在地」或「作者自述所在地」；平台 IP 属地不采集也不展示 */
@@ -62,6 +75,7 @@ export function formatCount(value: number): string {
 export function formatCost(cost?: { min?: number; max?: number }): string {
   if (!cost) return ''
   const { min, max } = cost
+  if (min !== undefined && min === max) return `${min} 元`
   if (min !== undefined && max !== undefined) return `${min}–${max} 元`
   if (min !== undefined) return `${min} 元起`
   if (max !== undefined) return `${max} 元以内`
