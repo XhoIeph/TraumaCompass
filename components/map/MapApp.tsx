@@ -6,6 +6,7 @@ import 'leaflet/dist/leaflet.css'
 import Link from 'next/link'
 import { hospitalSearchText, matchesSearch } from '@/lib/search'
 import { aggregateDoctorLeads } from '@/lib/doctor-leads'
+import { attachMapWheelZoom } from '@/lib/map-wheel-zoom'
 import type { Disorder, Hospital, Province, Report } from '@/lib/schema'
 import { HospitalExplorer } from '@/components/HospitalExplorer'
 import { ReportExplorer } from '@/components/ReportExplorer'
@@ -82,6 +83,7 @@ type NodeEntry = {
 export function MapApp(props: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<LeafletMap | null>(null)
+  const cancelWheelRef = useRef<(() => void) | undefined>(undefined)
   const geoLayerRef = useRef<LeafletGeoJSON | null>(null)
   const nodeLayerRef = useRef<LayerGroup | null>(null)
   const clusterLayerRef = useRef<LayerGroup | null>(null)
@@ -199,6 +201,7 @@ export function MapApp(props: Props) {
   const moveTo = (lat: number, lng: number, targetZoom: number) => {
     const map = mapRef.current
     if (!map) return
+    cancelWheelRef.current?.()
     // 天地图由底图与注记两层栅格瓦片组成。停在小数缩放级别时两层都会
     // 长期处于浏览器插值缩放状态，文字边缘会像重影；程序化移动统一落到整数级。
     const crispZoom = Math.round(targetZoom)
@@ -250,8 +253,7 @@ export function MapApp(props: Props) {
   useEffect(() => {
     let disposed = false
     let map: LeafletMap | undefined
-    let wheelTarget: HTMLElement | undefined
-    let wheelListener: ((event: WheelEvent) => void) | undefined
+    let wheelZoom: ReturnType<typeof attachMapWheelZoom> | undefined
 
     async function setup() {
       try {
@@ -282,31 +284,8 @@ export function MapApp(props: Props) {
         L.control.zoom({ position: 'bottomright' }).addTo(map)
         L.control.scale({ position: 'bottomright', imperial: false }).addTo(map)
 
-        // Leaflet 默认把一次滚轮手势合并成最多四级；每次只走一级，且始终落在整数瓦片级。
-        let wheelDelta = 0
-        let lastWheelAt = 0
-        let lastZoomAt = -Infinity
-        wheelTarget = map.getContainer()
-        wheelListener = (event) => {
-          // Ctrl + 滚轮保留浏览器缩放；横向触控板手势不触发地图缩放。
-          if (event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return
-          event.preventDefault()
-          const now = performance.now()
-          if (now - lastWheelAt > 180) wheelDelta = 0
-          lastWheelAt = now
-          if (now - lastZoomAt < 320) return
-          wheelDelta += event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? 600 : 1)
-          if (Math.abs(wheelDelta) < 60) return
-          const direction = Math.sign(wheelDelta)
-          wheelDelta = 0
-          const nextZoom = Math.max(map!.getMinZoom(), Math.min(map!.getMaxZoom(), map!.getZoom() - direction))
-          if (nextZoom === map!.getZoom()) return
-          lastZoomAt = now
-          map!.setZoomAround(map!.mouseEventToContainerPoint(event), nextZoom, {
-            animate: !window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-          })
-        }
-        wheelTarget.addEventListener('wheel', wheelListener, { passive: false })
+        wheelZoom = attachMapWheelZoom(map)
+        cancelWheelRef.current = wheelZoom.cancel
 
         /** CSS 已给侧栏腾出位置；只能按真实地图容器留白，不能重复减去侧栏宽度。 */
         const fitCountry = () => {
@@ -604,7 +583,8 @@ export function MapApp(props: Props) {
     void setup()
     return () => {
       disposed = true
-      if (wheelTarget && wheelListener) wheelTarget.removeEventListener('wheel', wheelListener)
+      wheelZoom?.dispose()
+      cancelWheelRef.current = undefined
       map?.stop()
       map?.remove()
       mapRef.current = null
@@ -618,6 +598,7 @@ export function MapApp(props: Props) {
   const backToCountry = () => {
     setSelectedHospitalId(null)
     setSelectedProvinceAdcode(null)
+    cancelWheelRef.current?.()
     mapRef.current?.stop()
     const map = mapRef.current as unknown as { __fitCountry?: () => void } | null
     if (map?.__fitCountry) map.__fitCountry()

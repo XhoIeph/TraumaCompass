@@ -12,6 +12,7 @@
     "build": "next build",
     "serve": "npx --yes serve out",
     "typecheck": "tsc --noEmit",
+    "test:map-wheel": "node --test tests/map-wheel-zoom.test.mjs",
     "prebuild": "node scripts/validate-data.ts && node scripts/build-aggregates.ts",
     "geo:fetch": "node scripts/fetch-geo.ts",
     "geo:geocode": "node scripts/geocode-hospitals.ts --missing --write",
