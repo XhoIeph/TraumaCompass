@@ -91,6 +91,8 @@ export function MapApp(props: Props) {
   propsRef.current = props
   const sidebarRef = useRef<HTMLElement | null>(null)
   const burgerRef = useRef<HTMLButtonElement | null>(null)
+  const projectRef = useRef<HTMLDivElement | null>(null)
+  const aboutButtonRef = useRef<HTMLButtonElement | null>(null)
   const desktopRef = useRef(false)
 
   // 首屏以「地图优先」为准：服务端与移动端都先关闭侧栏，挂载后再按断点决定
@@ -109,6 +111,24 @@ export function MapApp(props: Props) {
 
   const selectedRef = useRef<string | null>(null)
   selectedRef.current = selectedHospitalId
+
+  useEffect(() => {
+    if (!aboutOpen) return
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.target instanceof Node && !projectRef.current?.contains(event.target)) setAboutOpen(false)
+    }
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      setAboutOpen(false)
+      aboutButtonRef.current?.focus()
+    }
+    document.addEventListener('pointerdown', onPointerDown)
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown)
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [aboutOpen])
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -265,9 +285,11 @@ export function MapApp(props: Props) {
         // Leaflet 默认把一次滚轮手势合并成最多四级；每次只走一级，且始终落在整数瓦片级。
         let wheelDelta = 0
         let lastWheelAt = 0
-        let lastZoomAt = 0
+        let lastZoomAt = -Infinity
         wheelTarget = map.getContainer()
         wheelListener = (event) => {
+          // Ctrl + 滚轮保留浏览器缩放；横向触控板手势不触发地图缩放。
+          if (event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return
           event.preventDefault()
           const now = performance.now()
           if (now - lastWheelAt > 180) wheelDelta = 0
@@ -280,7 +302,9 @@ export function MapApp(props: Props) {
           const nextZoom = Math.max(map!.getMinZoom(), Math.min(map!.getMaxZoom(), map!.getZoom() - direction))
           if (nextZoom === map!.getZoom()) return
           lastZoomAt = now
-          map!.setZoomAround(map!.mouseEventToContainerPoint(event), nextZoom, { animate: true })
+          map!.setZoomAround(map!.mouseEventToContainerPoint(event), nextZoom, {
+            animate: !window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+          })
         }
         wheelTarget.addEventListener('wheel', wheelListener, { passive: false })
 
@@ -861,7 +885,7 @@ export function MapApp(props: Props) {
         </div>
       </div>
 
-      {sidebarOpen && <div className="tc-mapapp-backdrop" onClick={() => { setSidebarOpen(false); burgerRef.current?.focus() }} />}
+      <div className="tc-mapapp-backdrop" aria-hidden="true" onClick={() => { setSidebarOpen(false); burgerRef.current?.focus() }} />
 
       <Sidebar
         id="tc-map-sidebar"
@@ -875,10 +899,10 @@ export function MapApp(props: Props) {
         onClose={() => { setSidebarOpen(false); if (!desktopRef.current) burgerRef.current?.focus() }}
       />
 
-      <div className="tc-project-corner">
-        <button type="button" className="tc-mapapp-ctl" aria-expanded={aboutOpen} onClick={() => setAboutOpen((v) => !v)}>关于项目</button>
-        {aboutOpen && <section className="tc-project-card" aria-label="关于项目">
-          <div className="tc-row tc-row--between"><strong>TraumaCompass</strong><button className="tc-linklike" onClick={() => setAboutOpen(false)}>关闭</button></div>
+      <div className="tc-project-corner" ref={projectRef}>
+        <button ref={aboutButtonRef} type="button" className="tc-mapapp-ctl" aria-expanded={aboutOpen} aria-controls="tc-project-card" onClick={() => setAboutOpen((v) => !v)}>关于项目</button>
+        {aboutOpen && <section id="tc-project-card" className="tc-project-card" aria-label="关于项目">
+          <div className="tc-row tc-row--between"><strong>TraumaCompass</strong><button type="button" className="tc-linklike" onClick={() => { setAboutOpen(false); aboutButtonRef.current?.focus() }}>关闭</button></div>
           <p>本项目旨在为CPTSD/BPD人群提供全国就诊地图，帮助更多人治疗心理创伤与障碍</p>
           <Link className="tc-card-action" href="/about/">了解我们 <ArrowUpRight size={16} aria-hidden="true" /></Link>
         </section>}

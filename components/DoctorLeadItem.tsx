@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ChevronDown } from 'lucide-react'
 import { formatReportSource } from '@/lib/format'
 import type { DoctorLead } from '@/lib/doctor-leads'
 import type { Report } from '@/lib/schema'
@@ -18,6 +19,7 @@ export function DoctorLeadItem({ entry, reports, onSelectHospital }: {
       <summary>
         <strong>{entry.name}</strong>
         <small>{entry.hospitalName} · {entry.leadCount} 条线索</small>
+        <ChevronDown className="tc-doctor-chevron" size={16} aria-hidden="true" />
       </summary>
       <div className="tc-doctor-result-body">
         {related.map((report) => (

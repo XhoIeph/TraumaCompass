@@ -18,7 +18,7 @@ export default function HospitalsPage() {
   return (
     <div>
       <header className="tc-page-heading">
-        <div><span className="tc-page-eyebrow">就诊资源目录</span><h1>医院与机构</h1><p>按地区与服务信息查找机构，查看公开来源和关联就诊线索。</p></div>
+        <h1>医院与机构</h1>
         <Link href="/" className="tc-button">在地图中浏览 →</Link>
       </header>
       <Suspense fallback={<p className="tc-muted">加载筛选中……</p>}>

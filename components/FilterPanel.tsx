@@ -19,7 +19,9 @@ export function FilterPanel({ compact, count, children }: {
         <span className="tc-filter-hint">{count ? '已筛选' : '全部地区'}</span>
         <ChevronDown size={16} aria-hidden="true" className={open ? 'tc-chevron--open' : ''} />
       </button>
-      <div id={id} hidden={!open}>{children}</div>
+      <div id={id} className={`tc-filter-content${open ? ' tc-filter-content--open' : ''}`} inert={!open}>
+        <div>{children}</div>
+      </div>
     </section>
   )
 }
